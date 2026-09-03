@@ -1,0 +1,55 @@
+name: Deploy site to GitHub Pages
+
+# The copy lives in site/, which "deploy from a branch" cannot serve -- that
+# mode only offers / and /docs. Deploying through Actions keeps the folder
+# where it is and lets us adjust the preview at publish time without touching
+# the committed files.
+
+on:
+  push:
+    branches: [claude/finect-website-rebuild-51nkmv]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Keep the preview out of search results
+        run: |
+          set -euo pipefail
+
+          # This is a faithful copy of finect.nl. Indexed, it would compete
+          # with the real site for the same queries, so the published preview
+          # is marked noindex. The committed files stay exactly as they are --
+          # this only rewrites the copy that gets uploaded.
+          find site -name '*.html' -print0 | xargs -0 -r sed -i \
+            's|<head>|<head><meta name="robots" content="noindex, nofollow">|'
+
+          # The mirrored robots.txt permits crawling and advertises finect.nl's
+          # own sitemap. Neither belongs on a preview.
+          printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+
+          echo "Pages marked noindex: $(grep -rl 'content="noindex, nofollow"' site --include='*.html' | wc -l)"
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
