@@ -55,6 +55,31 @@ Puur technisch; de opmaak en inhoud zijn ongewijzigd.
 4. **Google Fonts lokaal.** Barlow, Nunito Sans, Amiri en Roboto zijn
    gedownload naar `site/wp-content/local-fonts/`. De site laadt geen
    lettertypen meer van Google — schermbeeld identiek, geen externe requests.
+5. **Protocol-relatieve verwijzingen.** WordPress schrijft sommige URL's als
+   `//finect.nl/…`. Die zijn omgezet naar relatieve paden, maar alléén waar het
+   bestand ook daadwerkelijk lokaal staat. Schema.org-identifiers (`@id`),
+   `canonical`, `og:url` en `og:image` blijven absoluut — dat hoort zo en is
+   gelijk aan het origineel.
+
+## Verificatie
+
+De kopie is vergeleken met de live site door beide in dezelfde headless
+Chromium te renderen en de screenshots pixel voor pixel te vergelijken:
+
+| Check | Resultaat |
+| --- | --- |
+| Pixeldiff desktop (1440px, 10 pagina's) | 9 pagina's identiek; homepage 895 px (0,018%) |
+| Pixeldiff mobiel (390px, 10 pagina's) | alle 10 identiek |
+| Paginahoogtes desktop + mobiel | identiek op alle 20 metingen |
+| DOM + computed styles (5 pagina's, 3.223 elementen, 22 CSS-eigenschappen) | 0 verschillen |
+| Afbeeldingen byte-voor-byte | 13/13 identiek |
+| Externe requests met netwerk geblokkeerd | 0 (m.u.v. het formulier-endpoint) |
+
+Het restverschil van 895 pixels op de homepage zit in de fototextuur van de
+"Onze diensten"-kaarten. Zelfde bestand, zelfde afmetingen, zelfde CSS — het is
+resampling-ruis van de browser, geen kopieerfout. Elke kant is op zichzelf wél
+bit-identiek reproduceerbaar (kopie-vs-kopie en live-vs-live geven 0 pixels
+verschil).
 
 ## Wat niet werkt zonder WordPress
 
