@@ -26,7 +26,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Keep the preview out of search results
         run: |
@@ -45,7 +45,13 @@ jobs:
 
           echo "Pages marked noindex: $(grep -rl 'content="noindex, nofollow"' site --include='*.html' | wc -l)"
 
+      # enablement turns Pages on through the API, so the repository needs no
+      # manual setting. If the workflow token is not allowed to do that, this
+      # step fails and Settings -> Pages -> Source = GitHub Actions is the
+      # one-time fallback.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
