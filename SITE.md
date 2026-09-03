@@ -74,6 +74,10 @@ Chromium te renderen en de screenshots pixel voor pixel te vergelijken:
 | DOM + computed styles (5 pagina's, 3.223 elementen, 22 CSS-eigenschappen) | 0 verschillen |
 | Afbeeldingen byte-voor-byte | 13/13 identiek |
 | Externe requests met netwerk geblokkeerd | 0 (m.u.v. het formulier-endpoint) |
+| Interactie: dropdown "Over Finect" | verborgen, klapt uit bij hover |
+| Interactie: mobiel hamburgermenu | opent, alle 6 menu-items zichtbaar |
+| Interactie: navigatie via menu | gaat naar de juiste pagina |
+| PDF-downloads op Vergelijkingskaarten | 9 links, steekproef 4/4 geeft 200 |
 
 Het restverschil van 895 pixels op de homepage zit in de fototextuur van de
 "Onze diensten"-kaarten. Zelfde bestand, zelfde afmetingen, zelfde CSS — het is
@@ -89,5 +93,6 @@ verschil).
 * **Zoeken, RSS-feeds, `wp-json` en `xmlrpc.php`.** Die links staan nog in de
   `<head>` (zoals op het origineel) maar hebben geen backend.
 
-Alles wat een bezoeker ziet en aanklikt — navigatie, slider, animaties,
-tabbladen, accordeons, blogoverzicht, downloads — werkt wel.
+Al het overige werkt wel: navigatie, uitklapmenu, mobiel hamburgermenu,
+slider, animaties, blogoverzicht en de PDF-downloads zijn stuk voor stuk in de
+browser getest (zie de tabel hierboven).
