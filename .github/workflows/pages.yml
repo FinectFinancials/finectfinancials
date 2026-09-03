@@ -1,0 +1,64 @@
+name: Deploy site to GitHub Pages
+
+# The copy lives in site/, which "deploy from a branch" cannot serve -- that
+# mode only offers / and /docs. Deploying through Actions keeps the folder
+# where it is and lets us adjust the preview at publish time without touching
+# the committed files.
+
+# Pages deploys from the default branch: the github-pages environment
+# restricts deployments to it, so a run from any other branch is blocked
+# before its first step.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Keep the preview out of search results
+        run: |
+          set -euo pipefail
+
+          # This is a faithful copy of finect.nl. Indexed, it would compete
+          # with the real site for the same queries, so the published preview
+          # is marked noindex. The committed files stay exactly as they are --
+          # this only rewrites the copy that gets uploaded.
+          find site -name '*.html' -print0 | xargs -0 -r sed -i \
+            's|<head>|<head><meta name="robots" content="noindex, nofollow">|'
+
+          # The mirrored robots.txt permits crawling and advertises finect.nl's
+          # own sitemap. Neither belongs on a preview.
+          printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+
+          echo "Pages marked noindex: $(grep -rl 'content="noindex, nofollow"' site --include='*.html' | wc -l)"
+
+      # enablement turns Pages on through the API, so the repository needs no
+      # manual setting. If the workflow token is not allowed to do that, this
+      # step fails and Settings -> Pages -> Source = GitHub Actions is the
+      # one-time fallback.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
