@@ -5,9 +5,12 @@ name: Deploy site to GitHub Pages
 # where it is and lets us adjust the preview at publish time without touching
 # the committed files.
 
+# Pages deploys from the default branch: the github-pages environment
+# restricts deployments to it, so a run from any other branch is blocked
+# before its first step.
 on:
   push:
-    branches: [claude/finect-website-rebuild-51nkmv]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
