@@ -372,7 +372,10 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
         		<div data-elementor-type="wp-page" data-elementor-id="31" class="elementor elementor-31">
 						<div class="elementor-inner">
 				<div class="elementor-section-wrap">
-									<style id="fx-ov-css">
+									<style id="fx-ph-fix">
+@media (max-width:767px){.page-header_content .page-header_title{font-size:30px!important;line-height:1.25!important;overflow-wrap:break-word;min-width:0;}}
+</style>
+<style id="fx-ov-css">
 .fx-ov{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;color:#55565a;font-size:17px;line-height:1.75;}
 .fx-ov *{box-sizing:border-box;}
 .fx-ov__wrap{max-width:1170px;margin:0 auto;padding:60px 20px 20px;}
@@ -425,6 +428,34 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 .fx-ov__todo{background:#fff;border:1px dashed #b5004a;padding:16px 18px;margin:36px 0 0;
              font-size:14.5px;line-height:1.65;max-width:74ch;}
 .fx-ov__todo b{color:#232323;}
+.fx-ov__pillars{display:grid;gap:20px;margin:40px 0 8px;
+                grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
+.fx-ov__pillar{border-top:2px solid #b5004a;padding-top:16px;}
+.fx-ov__pillar svg{display:block;margin-bottom:10px;}
+.fx-ov__pillar h3{margin:0 0 6px;}
+.fx-ov__pillar p{font-size:14.5px;line-height:1.6;margin:0;}
+
+.fx-ov__cards{display:grid;gap:16px;margin:24px 0 8px;
+              grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));}
+.fx-ov__card-link{border:1px solid #dddfe1;background:#fff;text-decoration:none;padding:22px 20px;
+                  display:flex;flex-direction:column;gap:7px;
+                  transition:box-shadow .2s ease,transform .2s ease;}
+.fx-ov__card-link:hover,.fx-ov__card-link:focus{box-shadow:0 1px 2px rgba(20,33,43,.05),0 10px 30px rgba(20,33,43,.10);
+                  transform:translateY(-2px);}
+.fx-ov__card-link strong{color:#232323;font-size:17px;font-weight:600;line-height:1.3;}
+.fx-ov__card-link span{font-size:14.5px;line-height:1.55;color:#55565a;}
+.fx-ov__card-link em{margin-top:auto;padding-top:8px;font-style:normal;font-size:14px;font-weight:600;color:#b5004a;}
+
+.fx-ov a{color:#b5004a;}
+.fx-ov p a,.fx-ov details a{text-decoration:underline;text-underline-offset:2px;}
+.fx-ov__cta,.fx-ov__card-link{text-decoration:none;}
+.fx-ov a.fx-ov__cta,.fx-ov a.fx-ov__cta:hover,.fx-ov a.fx-ov__cta:focus{color:#fff;}
+
+.fx-ov__also{background:#f7f4f5;padding:24px;margin:34px 0 0;}
+.fx-ov__also h3{margin:0 0 14px;}
+.fx-ov__also ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.fx-ov__also a{font-weight:600;}
+
 .fx-ov__todo ul{margin:8px 0 0;padding-left:20px;}
 </style>
 
@@ -449,6 +480,19 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
     </div>
   </div>
 
+
+  <div class="fx-ov__pillars">
+    <div class="fx-ov__pillar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b5004a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
+      <h3>100% onafhankelijk</h3>
+      <p>Niet verbonden aan een verzekeraar, bank of keten. Ik vergelijk het aanbod van meerdere aanbieders.</p></div>
+    <div class="fx-ov__pillar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b5004a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5"/></svg>
+      <h3>CFP&reg;-gecertificeerd</h3>
+      <p>Internationaal erkende titel voor financieel planners, met jaarlijkse bijscholingsplicht.</p></div>
+    <div class="fx-ov__pillar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b5004a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+      <h3>&Eacute;&eacute;n vaste adviseur</h3>
+      <p>U spreekt steeds dezelfde persoon &mdash; ook over drie jaar, bij een schade of een nieuwe vraag.</p></div>
+  </div>
+
   <h2>Van grootbank naar een eigen kantoor</h2>
   <p>Voordat ik voor mezelf begon, heb ik ruim twintig jaar aan de andere kant van de tafel gezeten. Ik werkte bij grootbanken, bij verzekeraars en bij vermogensbeheerders. Ik weet hoe die partijen rekenen, waar hun acceptatiebeleid knelt en waar ze ruimte hebben die ze niet uit zichzelf aanbieden.</p>
   <p>Die kennis is precies wat u van een onafhankelijk adviseur mag verwachten. Een verzekeraar verkoopt zijn eigen product. Ik vergelijk wat er is en leg uit waarom het ene voorstel beter bij u past dan het andere &mdash; inclusief de voorwaarden die pas gaan tellen op het moment dat u een beroep op de polis doet.</p>
@@ -464,25 +508,37 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
     <li><span class="fx-ov__tick">&#10003;</span><span><strong>Overlijdensrisico</strong> &mdash; vaak gekoppeld aan de hypotheek, zelden opnieuw bekeken als de situatie verandert.</span></li>
     <li><span class="fx-ov__tick">&#10003;</span><span><strong>Rechtsbijstand, auto en reis</strong> &mdash; waar zit overlap en wat kunt u schrappen?</span></li>
   </ul>
-  <p>Een polischeck is meestal het eerste wat ik doe. U brengt uw bestaande polissen mee, ik leg uit wat er staat, en u hoort of het beter of goedkoper kan. Levert dat niets op, dan zeg ik dat ook.</p>
+  <p>Een <a href="../verzekeringen/index.html">polischeck</a> is meestal het eerste wat ik doe. U brengt uw bestaande polissen mee, ik leg uit wat er staat, en u hoort of het beter of goedkoper kan. Levert dat niets op, dan zeg ik dat ook.</p>
 
   <h2>Verzekeringsadvies voor ondernemers</h2>
-  <p>Als ondernemer draagt u risico&rsquo;s die een werknemer niet kent. Er is geen werkgever die doorbetaalt als u uitvalt, en geen personeelsregeling die uw aansprakelijkheid dekt.</p>
+  <p>Als <a href="../zakelijk/index.html">ondernemer</a> draagt u risico&rsquo;s die een werknemer niet kent. Er is geen werkgever die doorbetaalt als u uitvalt, en geen personeelsregeling die uw aansprakelijkheid dekt.</p>
   <ul class="fx-ov__list">
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Arbeidsongeschiktheidsverzekering (AOV)</strong> &mdash; de belangrijkste en tegelijk de meest uitgestelde beslissing van elke zzp&rsquo;er. Met de juiste wachttijd en eindleeftijd is hij vaak betaalbaarder dan gedacht.</span></li>
+    <li><span class="fx-ov__tick">&#10003;</span><span><strong><a href="../arbeidsongeschiktheidsverzekeringen-aov/index.html">Arbeidsongeschiktheidsverzekering (AOV)</a></strong> &mdash; de belangrijkste en tegelijk de meest uitgestelde beslissing van elke zzp&rsquo;er. Met de juiste wachttijd en eindleeftijd is hij vaak betaalbaarder dan gedacht.</span></li>
     <li><span class="fx-ov__tick">&#10003;</span><span><strong>Bedrijfsaansprakelijkheid en beroepsaansprakelijkheid</strong> &mdash; twee verschillende dingen, en dat verschil merkt u pas bij een claim.</span></li>
     <li><span class="fx-ov__tick">&#10003;</span><span><strong>Verzuim en ziekteverzuim personeel</strong> &mdash; voor wie mensen in dienst heeft.</span></li>
     <li><span class="fx-ov__tick">&#10003;</span><span><strong>Pensioen en toekomstvoorziening</strong> &mdash; wat bouwt u zelf op, en is dat genoeg?</span></li>
   </ul>
 
   <h2>En ook uw hypotheek</h2>
-  <p>Naast verzekeringen adviseer ik over hypotheken: een eerste woning, een volgende stap, oversluiten aan het einde van uw rentevaste periode, of financiering van een verbouwing of verduurzaming. Ik vergelijk daarbij meerdere geldverstrekkers.</p>
+  <p>Naast verzekeringen adviseer ik over <a href="../hypotheken/index.html">hypotheken</a>: een eerste woning, een volgende stap, oversluiten aan het einde van uw rentevaste periode, of financiering van een verbouwing of verduurzaming. Ik vergelijk daarbij meerdere geldverstrekkers.</p>
   <p>Juist de combinatie is waar het vaak misgaat. Een hypotheek verandert uw risico&rsquo;s: uw maandlasten stijgen, uw overlijdensrisicoverzekering sluit misschien niet meer aan, en als ondernemer verandert het gesprek over uw AOV. Bij een kantoor dat alleen hypotheken doet, blijft dat liggen.</p>
+
+
+  <h2>Waar ik u mee help</h2>
+  <p>Elke dienst heeft een eigen pagina met wat u kunt verwachten en wat het kost.</p>
+  <div class="fx-ov__cards">
+    <a class="fx-ov__card-link" href="../verzekeringen/index.html"><strong>Verzekeringen</strong><span>Woonhuis, inboedel, aansprakelijkheid en meer &mdash; en een check op uw bestaande polissen.</span><em>Lees verder &rarr;</em></a>
+    <a class="fx-ov__card-link" href="../zakelijk/index.html"><strong>Zakelijk advies</strong><span>Voor ondernemers: bedrijfsrisico&rsquo;s, verzuim, pensioen en financiering.</span><em>Lees verder &rarr;</em></a>
+    <a class="fx-ov__card-link" href="../arbeidsongeschiktheidsverzekeringen-aov/index.html"><strong>AOV voor zzp&rsquo;ers</strong><span>Wat kost een arbeidsongeschiktheidsverzekering en hoe houdt u hem betaalbaar?</span><em>Lees verder &rarr;</em></a>
+    <a class="fx-ov__card-link" href="../hypotheken/index.html"><strong>Hypotheken</strong><span>Kopen, oversluiten of verbouwen &mdash; met vergelijking van meerdere geldverstrekkers.</span><em>Lees verder &rarr;</em></a>
+    <a class="fx-ov__card-link" href="../vergelijkingskaarten/index.html"><strong>Wat advies kost</strong><span>De vergelijkingskaarten met vaste tarieven per dienst, vooraf inzichtelijk.</span><em>Lees verder &rarr;</em></a>
+    <a class="fx-ov__card-link" href="../nieuws/index.html"><strong>Nieuws en tips</strong><span>Artikelen over vragen die ik in de praktijk het vaakst krijg.</span><em>Lees verder &rarr;</em></a>
+  </div>
 
   <h2>Hoe ik werk</h2>
   <div class="fx-ov__steps">
     <div class="fx-ov__step"><b>STAP 1</b><h3>Kennismaking</h3><p>Een half uur, gratis en vrijblijvend. U vertelt wat er speelt, ik vertel wat er mogelijk is.</p></div>
-    <div class="fx-ov__step"><b>STAP 2</b><h3>Afspraken vooraf</h3><p>U weet wat ik ga doen en wat het kost voordat er werk begint. Die bedragen staan in de vergelijkingskaarten.</p></div>
+    <div class="fx-ov__step"><b>STAP 2</b><h3>Afspraken vooraf</h3><p>U weet wat ik ga doen en wat het kost voordat er werk begint. Die bedragen staan in de <a href="../vergelijkingskaarten/index.html">vergelijkingskaarten</a>.</p></div>
     <div class="fx-ov__step"><b>STAP 3</b><h3>Advies en aanvraag</h3><p>Ik vergelijk de aanbieders, licht de keuze toe en regel de aanvraag van begin tot eind.</p></div>
     <div class="fx-ov__step"><b>STAP 4</b><h3>Nazorg</h3><p>Verandert uw situatie, dan kijken we opnieuw. Daar hoeft u zelf niet aan te denken.</p></div>
   </div>
@@ -503,7 +559,7 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
   <h2>Veelgestelde vragen</h2>
   <details open>
     <summary>Wat kost verzekeringsadvies bij Finect Financials?</summary>
-    <p>Het eerste gesprek is gratis en vrijblijvend. Gaan we daarna aan de slag, dan spreken we vooraf een vast bedrag af. Wat elke dienst kost staat in de vergelijkingskaarten, die u van de site kunt downloaden &mdash; u weet het dus voordat u iets tekent.</p>
+    <p>Het eerste gesprek is gratis en vrijblijvend. Gaan we daarna aan de slag, dan spreken we vooraf een vast bedrag af. Wat elke dienst kost staat in de <a href="../vergelijkingskaarten/index.html">vergelijkingskaarten</a>, die u van de site kunt downloaden &mdash; u weet het dus voordat u iets tekent.</p>
   </details>
   <details>
     <summary>Bent u echt onafhankelijk?</summary>
@@ -525,6 +581,15 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
     <summary>Waar kan ik terecht als ik ontevreden ben?</summary>
     <p>Eerst bij mij &mdash; laat het weten, dan lossen we het samen op. Komen we er niet uit, dan kunt u terecht bij het Klachteninstituut Financi&euml;le Dienstverlening (Kifid), waar Finect Financials is aangesloten onder nummer 300.017906.</p>
   </details>
+
+
+  <div class="fx-ov__also">
+    <h3>Lees ook</h3>
+    <ul>
+      <li><a href="../ondernemer/het-betaalbaar-houden-van-de-arbeidsongeschiktheidsverzekering-aov/index.html">Het betaalbaar houden van de arbeidsongeschiktheidsverzekering (AOV)</a></li>
+      <li><a href="../huis/woonhuis-en-energielabel/index.html">Woonhuis en energielabel</a></li>
+    </ul>
+  </div>
 
   <div class="fx-ov__reg">
     <b>Finect Financials</b><br>
