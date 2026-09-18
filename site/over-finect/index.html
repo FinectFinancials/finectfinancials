@@ -373,242 +373,392 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 						<div class="elementor-inner">
 				<div class="elementor-section-wrap">
 									<style id="fx-ph-fix">
+html,body{overflow-x:clip;}
 @media (max-width:767px){.page-header_content .page-header_title{font-size:30px!important;line-height:1.25!important;overflow-wrap:break-word;min-width:0;}}
 </style>
 <style id="fx-ov-css">
-.fx-ov{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;color:#55565a;font-size:17px;line-height:1.75;}
+.fx-ov{--mag:#b5004a;--mag-d:#93003c;--tint:#fbf3f6;--ink:#232323;--body:#55565a;--line:#e8e2e5;
+       font-family:Barlow,"Helvetica Neue",Arial,sans-serif;color:var(--body);font-size:17px;line-height:1.75;}
 .fx-ov *{box-sizing:border-box;}
-.fx-ov__wrap{max-width:1170px;margin:0 auto;padding:60px 20px 20px;}
-.fx-ov h2{font-size:clamp(25px,3vw,34px);font-weight:300;line-height:1.18;letter-spacing:-.02em;
-          color:#232323;margin:52px 0 16px;}
-.fx-ov h2:first-of-type{margin-top:0;}
-.fx-ov h3{font-size:19px;font-weight:600;line-height:1.35;color:#232323;margin:26px 0 8px;}
+.fx-ov__wrap{max-width:1170px;margin:0 auto;padding:0 20px;}
+.fx-ov h2{font-size:clamp(26px,3.1vw,36px);font-weight:300;line-height:1.16;letter-spacing:-.02em;
+          color:var(--ink);margin:0 0 16px;}
+.fx-ov h3{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink);margin:0 0 8px;}
 .fx-ov p{margin:0 0 16px;max-width:68ch;}
-.fx-ov__lead{font-size:19px;line-height:1.65;font-weight:300;color:#3d3e42;max-width:60ch;}
-.fx-ov__eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#b5004a;margin:0 0 12px;}
+.fx-ov p:last-child{margin-bottom:0;}
+.fx-ov__eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mag);margin:0 0 14px;}
+.fx-ov a{color:var(--mag);}
+.fx-ov p a,.fx-ov details a,.fx-ov li a{text-decoration:underline;text-underline-offset:2px;}
 
-.fx-ov__intro{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
-              align-items:start;}
-.fx-ov__portret{width:100%;box-shadow:0 2px 6px rgba(20,33,43,.09),0 20px 50px rgba(20,33,43,.16);}
-.fx-ov__card{border:1px solid #dddfe1;padding:20px 22px;margin-top:18px;font-size:14.5px;line-height:1.6;}
-.fx-ov__card b{display:block;color:#232323;font-size:15px;font-weight:600;margin-bottom:6px;}
-.fx-ov__card span{display:block;font-variant-numeric:tabular-nums;}
+/* ---- ritme: secties en volle-breedte kleurbanden ---- */
+.fx-ov__sec{padding:64px 0;}
+.fx-ov__sec--tight{padding:48px 0;}
+.fx-ov__bleed{width:100vw;margin-left:calc(50% - 50vw);
+              padding-left:max(20px,calc(50vw - 565px));padding-right:max(20px,calc(50vw - 565px));}
+.fx-ov__bleed--tint{background:var(--tint);}
+.fx-ov__center{text-align:center;max-width:720px;margin:0 auto 40px;}
+.fx-ov__center p{margin-left:auto;margin-right:auto;}
 
-.fx-ov__list{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:12px;max-width:68ch;}
-.fx-ov__list li{display:flex;gap:12px;align-items:flex-start;}
-.fx-ov__tick{flex:none;width:20px;height:20px;margin-top:4px;border-radius:50%;background:#b5004a;color:#fff;
-             display:grid;place-items:center;font-size:11px;font-weight:700;line-height:1;}
+/* ---- kopband met ronde foto ---- */
+.fx-ov__hero{display:grid;gap:48px;align-items:center;
+             grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);padding:64px 0 72px;}
+.fx-ov__hero h2{font-size:clamp(30px,4vw,46px);}
+.fx-ov__lead{font-size:19px;line-height:1.65;color:#3d3e42;max-width:52ch;}
+.fx-ov__shot{position:relative;justify-self:center;width:min(100%,400px);aspect-ratio:1;}
+.fx-ov__shot img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:50%;display:block;}
+.fx-ov__stamp{position:absolute;right:-6px;bottom:8px;background:#fff;border-radius:14px;padding:14px 18px;
+              box-shadow:0 2px 6px rgba(20,33,43,.06),0 14px 36px rgba(20,33,43,.14);font-size:13.5px;line-height:1.5;}
+.fx-ov__stamp b{display:block;color:var(--ink);font-size:15px;font-weight:600;}
 
-.fx-ov__steps{display:grid;gap:24px;margin:24px 0 8px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));}
-.fx-ov__step{border-top:2px solid #b5004a;padding-top:14px;}
-.fx-ov__step b{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;color:#b5004a;margin-bottom:6px;}
-.fx-ov__step h3{margin:0 0 6px;}
-.fx-ov__step p{font-size:14.5px;line-height:1.6;margin:0;}
+/* ---- knoppen ---- */
+.fx-ov__btn{display:inline-block;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.02em;
+            padding:14px 30px;text-decoration:none;transition:background .18s ease,color .18s ease,border-color .18s ease;}
+.fx-ov a.fx-ov__btn{text-decoration:none;}
+.fx-ov__btn--fill{background:var(--mag);border:2px solid var(--mag);}
+.fx-ov .fx-ov__btn--fill{color:#fff;}
+.fx-ov a.fx-ov__btn--fill:hover,.fx-ov a.fx-ov__btn--fill:focus{background:var(--mag-d);border-color:var(--mag-d);color:#fff;}
+.fx-ov__btn--line{background:transparent;border:2px solid var(--mag);}
+.fx-ov .fx-ov__btn--line{color:var(--mag);}
+.fx-ov a.fx-ov__btn--line:hover,.fx-ov a.fx-ov__btn--line:focus,
+.fx-ov__card:hover .fx-ov__btn--line,.fx-ov__card:focus .fx-ov__btn--line{background:var(--mag);color:#fff;}
+.fx-ov__btn:focus-visible,.fx-ov summary:focus-visible,.fx-ov__card:focus-visible{outline:2px solid var(--mag);outline-offset:3px;}
 
-.fx-ov__places{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 16px;}
-.fx-ov__place{font-size:14px;font-weight:500;color:#232323;border:1px solid #dddfe1;padding:7px 14px;}
+/* ---- pijlers met icoon in cirkel ---- */
+.fx-ov__pillars{display:grid;gap:36px;text-align:center;
+                grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));}
+.fx-ov__ico{width:64px;height:64px;border-radius:50%;background:var(--mag);color:#fff;
+            display:grid;place-items:center;margin:0 auto 20px;}
+.fx-ov__pillar p{font-size:15.5px;line-height:1.65;margin:0 auto;max-width:34ch;}
 
-.fx-ov details{border-bottom:1px solid #dddfe1;max-width:860px;}
-.fx-ov details:first-of-type{border-top:1px solid #dddfe1;}
-.fx-ov summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;position:relative;
-               font-size:17px;font-weight:600;color:#232323;}
+/* ---- twee kolommen: particulier / zakelijk ---- */
+.fx-ov__duo{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));}
+.fx-ov__panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 32px;}
+.fx-ov__panel h2{font-size:clamp(22px,2.3vw,27px);}
+.fx-ov__list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;}
+.fx-ov__list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.6;}
+.fx-ov__tick{flex:none;width:22px;height:22px;margin-top:3px;border-radius:50%;background:var(--mag);color:#fff;
+             display:grid;place-items:center;font-size:12px;font-weight:700;line-height:1;}
+
+/* ---- kaartenraster ---- */
+.fx-ov__cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
+.fx-ov__card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 26px 30px;
+             text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;
+             text-decoration:none;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease;}
+.fx-ov__card:hover,.fx-ov__card:focus{border-color:#d9cdd3;transform:translateY(-3px);
+             box-shadow:0 1px 2px rgba(20,33,43,.04),0 16px 40px rgba(20,33,43,.10);}
+.fx-ov__card .fx-ov__ico{margin-bottom:16px;}
+.fx-ov__card strong{color:var(--ink);font-size:20px;font-weight:600;line-height:1.3;}
+.fx-ov__card span{font-size:15px;line-height:1.6;color:var(--body);max-width:30ch;}
+.fx-ov__card-txt{flex:1;}
+.fx-ov__card .fx-ov__btn{margin-top:22px;padding:11px 26px;flex:none;}
+
+/* ---- stappen ---- */
+.fx-ov__steps{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));}
+.fx-ov__step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 24px;}
+.fx-ov__num{width:42px;height:42px;border-radius:50%;background:var(--mag);color:#fff;display:grid;place-items:center;
+            font-size:17px;font-weight:700;margin-bottom:16px;}
+.fx-ov__step p{font-size:15px;line-height:1.6;}
+
+/* ---- werkgebied ---- */
+.fx-ov__places{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.fx-ov__place{font-size:14.5px;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--line);
+              border-radius:999px;padding:8px 18px;}
+
+/* ---- faq in twee kolommen ---- */
+.fx-ov__faq{display:grid;gap:44px;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start;}
+.fx-ov details{border-bottom:1px solid var(--line);}
+.fx-ov details:first-of-type{border-top:1px solid var(--line);}
+.fx-ov summary{cursor:pointer;list-style:none;padding:20px 44px 20px 0;position:relative;
+               font-size:17px;font-weight:600;color:var(--ink);line-height:1.45;}
 .fx-ov summary::-webkit-details-marker{display:none;}
-.fx-ov summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
-                      font-size:22px;font-weight:300;color:#b5004a;line-height:1;}
+.fx-ov summary::after{content:"+";position:absolute;right:10px;top:50%;transform:translateY(-50%);
+                      font-size:24px;font-weight:300;color:var(--mag);line-height:1;}
 .fx-ov details[open] summary::after{content:"\2013";}
-.fx-ov details p{padding:0 40px 18px 0;font-size:16px;margin:0;}
-.fx-ov summary:focus-visible{outline:2px solid #b5004a;outline-offset:3px;}
+.fx-ov details p{padding:0 44px 20px 0;font-size:16px;margin:0;}
 
-.fx-ov__reg{background:#f7f4f5;border-left:3px solid #b5004a;padding:20px 22px;margin:28px 0 0;
-            font-size:15px;line-height:1.85;font-variant-numeric:tabular-nums;max-width:68ch;}
-.fx-ov__reg b{color:#232323;}
-.fx-ov__cta{display:inline-block;margin-top:10px;background:#b5004a;color:#fff;text-decoration:none;
-            font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:15px 28px;}
-.fx-ov__cta:hover,.fx-ov__cta:focus{background:#d3004b;color:#fff;}
-.fx-ov__todo{background:#fff;border:1px dashed #b5004a;padding:16px 18px;margin:36px 0 0;
-             font-size:14.5px;line-height:1.65;max-width:74ch;}
-.fx-ov__todo b{color:#232323;}
-.fx-ov__pillars{display:grid;gap:20px;margin:40px 0 8px;
-                grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
-.fx-ov__pillar{border-top:2px solid #b5004a;padding-top:16px;}
-.fx-ov__pillar svg{display:block;margin-bottom:10px;}
-.fx-ov__pillar h3{margin:0 0 6px;}
-.fx-ov__pillar p{font-size:14.5px;line-height:1.6;margin:0;}
-
-.fx-ov__cards{display:grid;gap:16px;margin:24px 0 8px;
-              grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));}
-.fx-ov__card-link{border:1px solid #dddfe1;background:#fff;text-decoration:none;padding:22px 20px;
-                  display:flex;flex-direction:column;gap:7px;
-                  transition:box-shadow .2s ease,transform .2s ease;}
-.fx-ov__card-link:hover,.fx-ov__card-link:focus{box-shadow:0 1px 2px rgba(20,33,43,.05),0 10px 30px rgba(20,33,43,.10);
-                  transform:translateY(-2px);}
-.fx-ov__card-link strong{color:#232323;font-size:17px;font-weight:600;line-height:1.3;}
-.fx-ov__card-link span{font-size:14.5px;line-height:1.55;color:#55565a;}
-.fx-ov__card-link em{margin-top:auto;padding-top:8px;font-style:normal;font-size:14px;font-weight:600;color:#b5004a;}
-
-.fx-ov a{color:#b5004a;}
-.fx-ov p a,.fx-ov details a{text-decoration:underline;text-underline-offset:2px;}
-.fx-ov__cta,.fx-ov__card-link{text-decoration:none;}
-.fx-ov a.fx-ov__cta,.fx-ov a.fx-ov__cta:hover,.fx-ov a.fx-ov__cta:focus{color:#fff;}
-
-.fx-ov__also{background:#f7f4f5;padding:24px;margin:34px 0 0;}
-.fx-ov__also h3{margin:0 0 14px;}
-.fx-ov__also ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
-.fx-ov__also a{font-weight:600;}
-
+/* ---- afsluiters ---- */
+.fx-ov__also{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));margin-top:24px;}
+.fx-ov__also a{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+               font-weight:600;text-decoration:none;line-height:1.45;transition:border-color .2s ease,transform .2s ease;}
+.fx-ov__also a:hover,.fx-ov__also a:focus{border-color:#d9cdd3;transform:translateY(-2px);}
+.fx-ov__reg{border-left:3px solid var(--mag);padding:18px 0 18px 22px;font-size:15px;line-height:1.85;
+            font-variant-numeric:tabular-nums;}
+.fx-ov__reg b{color:var(--ink);}
+.fx-ov__cta-band{text-align:center;}
+.fx-ov__cta-band p{margin-left:auto;margin-right:auto;}
+.fx-ov__todo{background:#fff;border:1px dashed var(--mag);border-radius:14px;padding:20px 22px;
+             font-size:14.5px;line-height:1.65;max-width:74ch;margin:0 auto;}
+.fx-ov__todo b{color:var(--ink);}
 .fx-ov__todo ul{margin:8px 0 0;padding-left:20px;}
+
+@media (max-width:900px){
+  .fx-ov__hero,.fx-ov__faq{grid-template-columns:1fr;}
+  .fx-ov__hero{gap:36px;padding:48px 0 56px;}
+  .fx-ov__shot{order:-1;width:min(100%,300px);}
+  .fx-ov__stamp{right:0;}
+  .fx-ov__sec{padding:48px 0;}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx-ov__card,.fx-ov__also a,.fx-ov__btn{transition:none;}
+  .fx-ov__card:hover,.fx-ov__also a:hover{transform:none;}
+}
 </style>
 
-<div class="fx-ov"><div class="fx-ov__wrap">
+<div class="fx-ov">
 
-  <div class="fx-ov__intro">
-    <div>
-      <p class="fx-ov__eyebrow">Finect Financials &middot; Apeldoorn</p>
-      <h2>Ik ben Fred Koeling, verzekeringsadviseur in Apeldoorn</h2>
-      <p class="fx-ov__lead">Al mijn klanten krijgen dezelfde adviseur: mij. Geen wisselend loket, geen dossier dat van bureau naar bureau gaat. U belt, en u spreekt degene die uw situatie kent.</p>
-      <p>Finect Financials is sinds 2015 gevestigd aan de Vlijtseweg in Apeldoorn. Ik adviseer particulieren en ondernemers over hun verzekeringen, en daarnaast over hypotheken en financi&euml;le planning. Volledig onafhankelijk: ik ben aan geen enkele verzekeraar of bank verbonden en vergelijk het aanbod van meerdere aanbieders.</p>
-      <a class="fx-ov__cta" href="../contact/index.html">Plan een vrijblijvend gesprek</a>
-    </div>
-    <div>
-      <img class="fx-ov__portret" src="../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, financieel adviseur bij Finect Financials in Apeldoorn" width="482" height="640" loading="lazy" decoding="async">
-      <div class="fx-ov__card">
-        <b>Fred Koeling</b>
-        <span>Certified Financial Planner (CFP&reg;)</span>
-        <span>22 jaar ervaring in de financi&euml;le sector</span>
-        <span>Vlijtseweg 16, Apeldoorn</span>
+  <!-- kopband -->
+  <div class="fx-ov__bleed fx-ov__bleed--tint">
+    <div class="fx-ov__hero">
+      <div>
+        <p class="fx-ov__eyebrow">Finect Financials &middot; Apeldoorn</p>
+        <h2>Finect Financials: uw onafhankelijke verzekeringsadviseur</h2>
+        <p class="fx-ov__lead">Al mijn klanten krijgen dezelfde adviseur: mij. Geen wisselend loket, geen dossier dat van bureau naar bureau gaat. U belt, en u spreekt degene die uw situatie kent.</p>
+        <p>Finect Financials is sinds 2015 gevestigd aan de Vlijtseweg in Apeldoorn. Ik adviseer particulieren en ondernemers over hun verzekeringen, en daarnaast over hypotheken en financi&euml;le planning. Volledig onafhankelijk: ik ben aan geen enkele verzekeraar of bank verbonden en vergelijk het aanbod van meerdere aanbieders.</p>
+        <p style="margin-top:28px;"><a class="fx-ov__btn fx-ov__btn--fill" href="../contact/index.html">Plan een vrijblijvend gesprek</a></p>
+      </div>
+      <div class="fx-ov__shot">
+        <img src="../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, financieel adviseur bij Finect Financials in Apeldoorn" width="482" height="640" loading="lazy" decoding="async">
+        <div class="fx-ov__stamp"><b>Fred Koeling</b>Certified Financial Planner (CFP&reg;)</div>
       </div>
     </div>
   </div>
 
-
-  <div class="fx-ov__pillars">
-    <div class="fx-ov__pillar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b5004a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
-      <h3>100% onafhankelijk</h3>
-      <p>Niet verbonden aan een verzekeraar, bank of keten. Ik vergelijk het aanbod van meerdere aanbieders.</p></div>
-    <div class="fx-ov__pillar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b5004a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5"/></svg>
-      <h3>CFP&reg;-gecertificeerd</h3>
-      <p>Internationaal erkende titel voor financieel planners, met jaarlijkse bijscholingsplicht.</p></div>
-    <div class="fx-ov__pillar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b5004a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
-      <h3>&Eacute;&eacute;n vaste adviseur</h3>
-      <p>U spreekt steeds dezelfde persoon &mdash; ook over drie jaar, bij een schade of een nieuwe vraag.</p></div>
+  <!-- pijlers -->
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec fx-ov__pillars">
+      <div class="fx-ov__pillar">
+        <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 11.5l2 2 4-4"/></svg></div>
+        <h3>100% onafhankelijk</h3>
+        <p>Niet verbonden aan een verzekeraar, bank of keten. Ik vergelijk het aanbod van meerdere aanbieders.</p>
+      </div>
+      <div class="fx-ov__pillar">
+        <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5"/></svg></div>
+        <h3>CFP&reg;-gecertificeerd</h3>
+        <p>Internationaal erkende titel voor financieel planners, met een jaarlijkse bijscholingsplicht.</p>
+      </div>
+      <div class="fx-ov__pillar">
+        <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div>
+        <h3>&Eacute;&eacute;n vaste adviseur</h3>
+        <p>U spreekt steeds dezelfde persoon &mdash; ook over drie jaar, bij een schade of een nieuwe vraag.</p>
+      </div>
+    </section>
   </div>
 
-  <h2>Van grootbank naar een eigen kantoor</h2>
-  <p>Voordat ik voor mezelf begon, heb ik ruim twintig jaar aan de andere kant van de tafel gezeten. Ik werkte bij grootbanken, bij verzekeraars en bij vermogensbeheerders. Ik weet hoe die partijen rekenen, waar hun acceptatiebeleid knelt en waar ze ruimte hebben die ze niet uit zichzelf aanbieden.</p>
-  <p>Die kennis is precies wat u van een onafhankelijk adviseur mag verwachten. Een verzekeraar verkoopt zijn eigen product. Ik vergelijk wat er is en leg uit waarom het ene voorstel beter bij u past dan het andere &mdash; inclusief de voorwaarden die pas gaan tellen op het moment dat u een beroep op de polis doet.</p>
-  <p>In 2015 ben ik Finect Financials begonnen. <em>[Hier hoort uw eigen verhaal: waarom u voor uzelf bent begonnen. Twee of drie zinnen. Dit is de alinea die niemand anders kan schrijven en die bezoekers het beste onthouden.]</em></p>
-  <p>Ik blijf mijn vak bijhouden via permanente educatie, en ik ben Certified Financial Planner. Dat is een internationaal erkende titel voor financi&euml;le planners waar een meerjarige opleiding en een jaarlijkse bijscholingsverplichting aan vastzitten.</p>
-
-  <h2>Verzekeringsadvies voor particulieren</h2>
-  <p>De meeste mensen sluiten hun verzekeringen los van elkaar af, jaren uit elkaar, bij verschillende partijen. Het gevolg: dubbele dekkingen, gaten waar u het niet verwacht, en premies die al lang niet meer bij uw situatie passen.</p>
-  <p>Ik kijk naar het geheel. Waar bent u goed verzekerd, waar betaalt u te veel, en waar loopt u een risico dat u niet had willen lopen?</p>
-  <ul class="fx-ov__list">
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Woonhuis en inboedel</strong> &mdash; is uw verzekerd bedrag nog actueel na een verbouwing of verduurzaming?</span></li>
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Aansprakelijkheid</strong> &mdash; de goedkoopste polis van uw pakket, en degene die het hardst nodig is als het misgaat.</span></li>
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Overlijdensrisico</strong> &mdash; vaak gekoppeld aan de hypotheek, zelden opnieuw bekeken als de situatie verandert.</span></li>
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Rechtsbijstand, auto en reis</strong> &mdash; waar zit overlap en wat kunt u schrappen?</span></li>
-  </ul>
-  <p>Een <a href="../verzekeringen/index.html">polischeck</a> is meestal het eerste wat ik doe. U brengt uw bestaande polissen mee, ik leg uit wat er staat, en u hoort of het beter of goedkoper kan. Levert dat niets op, dan zeg ik dat ook.</p>
-
-  <h2>Verzekeringsadvies voor ondernemers</h2>
-  <p>Als <a href="../zakelijk/index.html">ondernemer</a> draagt u risico&rsquo;s die een werknemer niet kent. Er is geen werkgever die doorbetaalt als u uitvalt, en geen personeelsregeling die uw aansprakelijkheid dekt.</p>
-  <ul class="fx-ov__list">
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong><a href="../arbeidsongeschiktheidsverzekeringen-aov/index.html">Arbeidsongeschiktheidsverzekering (AOV)</a></strong> &mdash; de belangrijkste en tegelijk de meest uitgestelde beslissing van elke zzp&rsquo;er. Met de juiste wachttijd en eindleeftijd is hij vaak betaalbaarder dan gedacht.</span></li>
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Bedrijfsaansprakelijkheid en beroepsaansprakelijkheid</strong> &mdash; twee verschillende dingen, en dat verschil merkt u pas bij een claim.</span></li>
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Verzuim en ziekteverzuim personeel</strong> &mdash; voor wie mensen in dienst heeft.</span></li>
-    <li><span class="fx-ov__tick">&#10003;</span><span><strong>Pensioen en toekomstvoorziening</strong> &mdash; wat bouwt u zelf op, en is dat genoeg?</span></li>
-  </ul>
-
-  <h2>En ook uw hypotheek</h2>
-  <p>Naast verzekeringen adviseer ik over <a href="../hypotheken/index.html">hypotheken</a>: een eerste woning, een volgende stap, oversluiten aan het einde van uw rentevaste periode, of financiering van een verbouwing of verduurzaming. Ik vergelijk daarbij meerdere geldverstrekkers.</p>
-  <p>Juist de combinatie is waar het vaak misgaat. Een hypotheek verandert uw risico&rsquo;s: uw maandlasten stijgen, uw overlijdensrisicoverzekering sluit misschien niet meer aan, en als ondernemer verandert het gesprek over uw AOV. Bij een kantoor dat alleen hypotheken doet, blijft dat liggen.</p>
-
-
-  <h2>Waar ik u mee help</h2>
-  <p>Elke dienst heeft een eigen pagina met wat u kunt verwachten en wat het kost.</p>
-  <div class="fx-ov__cards">
-    <a class="fx-ov__card-link" href="../verzekeringen/index.html"><strong>Verzekeringen</strong><span>Woonhuis, inboedel, aansprakelijkheid en meer &mdash; en een check op uw bestaande polissen.</span><em>Lees verder &rarr;</em></a>
-    <a class="fx-ov__card-link" href="../zakelijk/index.html"><strong>Zakelijk advies</strong><span>Voor ondernemers: bedrijfsrisico&rsquo;s, verzuim, pensioen en financiering.</span><em>Lees verder &rarr;</em></a>
-    <a class="fx-ov__card-link" href="../arbeidsongeschiktheidsverzekeringen-aov/index.html"><strong>AOV voor zzp&rsquo;ers</strong><span>Wat kost een arbeidsongeschiktheidsverzekering en hoe houdt u hem betaalbaar?</span><em>Lees verder &rarr;</em></a>
-    <a class="fx-ov__card-link" href="../hypotheken/index.html"><strong>Hypotheken</strong><span>Kopen, oversluiten of verbouwen &mdash; met vergelijking van meerdere geldverstrekkers.</span><em>Lees verder &rarr;</em></a>
-    <a class="fx-ov__card-link" href="../vergelijkingskaarten/index.html"><strong>Wat advies kost</strong><span>De vergelijkingskaarten met vaste tarieven per dienst, vooraf inzichtelijk.</span><em>Lees verder &rarr;</em></a>
-    <a class="fx-ov__card-link" href="../nieuws/index.html"><strong>Nieuws en tips</strong><span>Artikelen over vragen die ik in de praktijk het vaakst krijg.</span><em>Lees verder &rarr;</em></a>
+  <!-- verhaal -->
+  <div class="fx-ov__bleed fx-ov__bleed--tint">
+    <section class="fx-ov__sec">
+      <h2>Van grootbank naar een eigen kantoor</h2>
+      <p>Voordat ik voor mezelf begon, heb ik ruim twintig jaar aan de andere kant van de tafel gezeten. Ik werkte bij grootbanken, bij verzekeraars en bij vermogensbeheerders. Ik weet hoe die partijen rekenen, waar hun acceptatiebeleid knelt en waar ze ruimte hebben die ze niet uit zichzelf aanbieden.</p>
+      <p>Die kennis is precies wat u van een onafhankelijk adviseur mag verwachten. Een verzekeraar verkoopt zijn eigen product. Ik vergelijk wat er is en leg uit waarom het ene voorstel beter bij u past dan het andere &mdash; inclusief de voorwaarden die pas gaan tellen op het moment dat u een beroep op de polis doet.</p>
+      <p>In 2015 ben ik Finect Financials begonnen. <em>[Hier hoort uw eigen verhaal: waarom u voor uzelf bent begonnen. Twee of drie zinnen. Dit is de alinea die niemand anders kan schrijven en die bezoekers het beste onthouden.]</em></p>
+      <p>Ik blijf mijn vak bijhouden via permanente educatie, en ik ben Certified Financial Planner. Dat is een internationaal erkende titel voor financi&euml;le planners waar een meerjarige opleiding en een jaarlijkse bijscholingsverplichting aan vastzitten.</p>
+    </section>
   </div>
 
-  <h2>Hoe ik werk</h2>
-  <div class="fx-ov__steps">
-    <div class="fx-ov__step"><b>STAP 1</b><h3>Kennismaking</h3><p>Een half uur, gratis en vrijblijvend. U vertelt wat er speelt, ik vertel wat er mogelijk is.</p></div>
-    <div class="fx-ov__step"><b>STAP 2</b><h3>Afspraken vooraf</h3><p>U weet wat ik ga doen en wat het kost voordat er werk begint. Die bedragen staan in de <a href="../vergelijkingskaarten/index.html">vergelijkingskaarten</a>.</p></div>
-    <div class="fx-ov__step"><b>STAP 3</b><h3>Advies en aanvraag</h3><p>Ik vergelijk de aanbieders, licht de keuze toe en regel de aanvraag van begin tot eind.</p></div>
-    <div class="fx-ov__step"><b>STAP 4</b><h3>Nazorg</h3><p>Verandert uw situatie, dan kijken we opnieuw. Daar hoeft u zelf niet aan te denken.</p></div>
-  </div>
-  <p>Het eerste gesprek is gratis en kan plaatsvinden op kantoor aan de Vlijtseweg, bij u thuis, op uw bedrijfslocatie of online.</p>
-
-  <h2>Waarom een eenmanszaak en geen keten</h2>
-  <p>Finect Financials is een eenmanszaak, en dat is een keuze. Bij een groot kantoor krijgt u een adviseur toegewezen, en bij uw volgende vraag misschien een andere. Uw dossier verhuist mee, uw verhaal niet.</p>
-  <p>Bij mij is degene die uw situatie kent ook degene die opneemt als u belt &mdash; ook over drie jaar, als uw rentevaste periode afloopt of als u een schade moet melden. Dat is het hele idee achter een lokaal kantoor.</p>
-
-  <h2>Werkgebied</h2>
-  <p>Mijn kantoor staat aan de Vlijtseweg in Apeldoorn. Ik kom ook bij mensen thuis en op bedrijfslocaties in de omliggende plaatsen.</p>
-  <div class="fx-ov__places">
-    <span class="fx-ov__place">Apeldoorn</span><span class="fx-ov__place">Ugchelen</span><span class="fx-ov__place">Beekbergen</span>
-    <span class="fx-ov__place">Loenen</span><span class="fx-ov__place">Klarenbeek</span><span class="fx-ov__place">Wenum-Wiesel</span>
-    <span class="fx-ov__place">Hoenderloo</span><span class="fx-ov__place">Twello</span><span class="fx-ov__place">Teuge</span><span class="fx-ov__place">Vaassen</span>
-  </div>
-
-  <h2>Veelgestelde vragen</h2>
-  <details open>
-    <summary>Wat kost verzekeringsadvies bij Finect Financials?</summary>
-    <p>Het eerste gesprek is gratis en vrijblijvend. Gaan we daarna aan de slag, dan spreken we vooraf een vast bedrag af. Wat elke dienst kost staat in de <a href="../vergelijkingskaarten/index.html">vergelijkingskaarten</a>, die u van de site kunt downloaden &mdash; u weet het dus voordat u iets tekent.</p>
-  </details>
-  <details>
-    <summary>Bent u echt onafhankelijk?</summary>
-    <p>Ja. Finect Financials is niet verbonden aan een verzekeraar, bank of keten. Ik vergelijk het aanbod van meerdere aanbieders en word niet gestuurd door een verkoopdoelstelling. Finect Financials staat bij de AFM geregistreerd onder vergunningnummer 12047700; dat kunt u nakijken in het AFM-register.</p>
-  </details>
-  <details>
-    <summary>Kan ik mijn bestaande polissen laten doorlichten?</summary>
-    <p>Dat is vaak het beste startpunt. U brengt uw huidige polissen mee en ik kijk naar dekking, voorwaarden en premie. Soms blijkt u dubbel verzekerd, soms ontbreekt er iets, en soms is uw pakket gewoon in orde. Ook dat laatste hoort u van mij.</p>
-  </details>
-  <details>
-    <summary>Heb ik als zzp&rsquo;er een AOV nodig?</summary>
-    <p>Er is geen wettelijke plicht, maar er is ook geen werkgever die doorbetaalt als u een jaar uitvalt. De vraag is meestal niet &oacute;f, maar hoe u hem betaalbaar houdt. Wachttijd, eindleeftijd en de gekozen beroepsklasse maken een groot verschil in de premie.</p>
-  </details>
-  <details>
-    <summary>Doet u ook hypotheken?</summary>
-    <p>Ja. Verzekeringen zijn mijn kern, maar ik adviseer ook over hypotheken: kopen, oversluiten en het financieren van een verbouwing of verduurzaming. Ik vergelijk daarbij meerdere geldverstrekkers.</p>
-  </details>
-  <details>
-    <summary>Waar kan ik terecht als ik ontevreden ben?</summary>
-    <p>Eerst bij mij &mdash; laat het weten, dan lossen we het samen op. Komen we er niet uit, dan kunt u terecht bij het Klachteninstituut Financi&euml;le Dienstverlening (Kifid), waar Finect Financials is aangesloten onder nummer 300.017906.</p>
-  </details>
-
-
-  <div class="fx-ov__also">
-    <h3>Lees ook</h3>
-    <ul>
-      <li><a href="../ondernemer/het-betaalbaar-houden-van-de-arbeidsongeschiktheidsverzekering-aov/index.html">Het betaalbaar houden van de arbeidsongeschiktheidsverzekering (AOV)</a></li>
-      <li><a href="../huis/woonhuis-en-energielabel/index.html">Woonhuis en energielabel</a></li>
-    </ul>
+  <!-- particulier en zakelijk naast elkaar -->
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec">
+      <div class="fx-ov__center">
+        <h2>Verzekeringsadvies voor particulier en zakelijk</h2>
+        <p>De meeste mensen sluiten hun verzekeringen los van elkaar af, jaren uit elkaar, bij verschillende partijen. Ik kijk naar het geheel: waar bent u goed verzekerd, waar betaalt u te veel, en waar loopt u een risico dat u niet had willen lopen?</p>
+      </div>
+      <div class="fx-ov__duo">
+        <div class="fx-ov__panel">
+          <h2>Voor particulieren</h2>
+          <p>Een <a href="../verzekeringen/index.html">polischeck</a> is meestal het eerste wat ik doe. U brengt uw bestaande polissen mee, ik leg uit wat er staat, en u hoort of het beter of goedkoper kan. Levert dat niets op, dan zeg ik dat ook.</p>
+          <ul class="fx-ov__list">
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Woonhuis en inboedel</strong> &mdash; is uw verzekerd bedrag nog actueel na een verbouwing of verduurzaming?</span></li>
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Aansprakelijkheid</strong> &mdash; de goedkoopste polis van uw pakket, en degene die het hardst nodig is als het misgaat.</span></li>
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Overlijdensrisico</strong> &mdash; vaak gekoppeld aan de hypotheek, zelden opnieuw bekeken als de situatie verandert.</span></li>
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Rechtsbijstand, auto en reis</strong> &mdash; waar zit overlap en wat kunt u schrappen?</span></li>
+          </ul>
+        </div>
+        <div class="fx-ov__panel">
+          <h2>Voor ondernemers</h2>
+          <p>Als <a href="../zakelijk/index.html">ondernemer</a> draagt u risico&rsquo;s die een werknemer niet kent. Er is geen werkgever die doorbetaalt als u uitvalt, en geen personeelsregeling die uw aansprakelijkheid dekt.</p>
+          <ul class="fx-ov__list">
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong><a href="../arbeidsongeschiktheidsverzekeringen-aov/index.html">Arbeidsongeschiktheidsverzekering (AOV)</a></strong> &mdash; de meest uitgestelde beslissing van elke zzp&rsquo;er, en vaak betaalbaarder dan gedacht.</span></li>
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Bedrijfs- en beroepsaansprakelijkheid</strong> &mdash; twee verschillende dingen, en dat verschil merkt u pas bij een claim.</span></li>
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Verzuim en ziekteverzuim personeel</strong> &mdash; voor wie mensen in dienst heeft.</span></li>
+            <li><span class="fx-ov__tick">&#10003;</span><span><strong>Pensioen en toekomstvoorziening</strong> &mdash; wat bouwt u zelf op, en is dat genoeg?</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <div class="fx-ov__reg">
-    <b>Finect Financials</b><br>
-    Vlijtseweg 16, 7317AH Apeldoorn<br>
-    KvK 62201735 &middot; AFM-vergunning 12047700 &middot; Kifid 300.017906<br>
-    Certified Financial Planner (CFP&reg;) &middot; actief sinds 2015
+  <!-- hypotheek -->
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec fx-ov__sec--tight">
+      <h2>En ook uw hypotheek</h2>
+      <p>Naast verzekeringen adviseer ik over <a href="../hypotheken/index.html">hypotheken</a>: een eerste woning, een volgende stap, oversluiten aan het einde van uw rentevaste periode, of financiering van een verbouwing of verduurzaming. Ik vergelijk daarbij meerdere geldverstrekkers.</p>
+      <p>Juist de combinatie is waar het vaak misgaat. Een hypotheek verandert uw risico&rsquo;s: uw maandlasten stijgen, uw overlijdensrisicoverzekering sluit misschien niet meer aan, en als ondernemer verandert het gesprek over uw AOV. Bij een kantoor dat alleen hypotheken doet, blijft dat liggen.</p>
+    </section>
   </div>
 
-  <div class="fx-ov__todo">
-    <b>Nog door u in te vullen of na te kijken</b>
-    <ul>
-      <li>De alinea over <strong>waarom u voor uzelf bent begonnen</strong> &mdash; die staat nu als plaatshouder in de tekst.</li>
-      <li>De opgesomde <strong>verzekeringen</strong>: schrap wat u niet doet en vul aan wat ontbreekt.</li>
-      <li>De <strong>plaatsnamen</strong>: alleen de plaatsen waar u daadwerkelijk klanten bedient.</li>
-      <li>Of <strong>&ldquo;22 jaar ervaring&rdquo;</strong> nog klopt &mdash; dat stond in de oude tekst en telt door.</li>
-    </ul>
+  <!-- kaarten -->
+  <div class="fx-ov__bleed fx-ov__bleed--tint">
+    <section class="fx-ov__sec">
+      <div class="fx-ov__center">
+        <h2>Meer weten over wat ik voor u kan doen?</h2>
+        <p>Elke dienst heeft een eigen pagina met wat u kunt verwachten en wat het kost.</p>
+      </div>
+      <div class="fx-ov__cards">
+        <a class="fx-ov__card" href="../verzekeringen/index.html">
+          <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg></div>
+          <strong>Verzekeringen</strong>
+          <span class="fx-ov__card-txt">Woonhuis, inboedel, aansprakelijkheid en meer &mdash; en een check op uw bestaande polissen.</span>
+          <span class="fx-ov__btn fx-ov__btn--line">Meer informatie</span>
+        </a>
+        <a class="fx-ov__card" href="../zakelijk/index.html">
+          <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/><path d="M3 12h18"/></svg></div>
+          <strong>Zakelijk advies</strong>
+          <span class="fx-ov__card-txt">Voor ondernemers: bedrijfsrisico&rsquo;s, verzuim, pensioen en financiering.</span>
+          <span class="fx-ov__btn fx-ov__btn--line">Meer informatie</span>
+        </a>
+        <a class="fx-ov__card" href="../arbeidsongeschiktheidsverzekeringen-aov/index.html">
+          <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2.5-7 1.5 2h5"/></svg></div>
+          <strong>AOV voor zzp&rsquo;ers</strong>
+          <span class="fx-ov__card-txt">Wat kost een arbeidsongeschiktheidsverzekering en hoe houdt u hem betaalbaar?</span>
+          <span class="fx-ov__btn fx-ov__btn--line">Meer informatie</span>
+        </a>
+        <a class="fx-ov__card" href="../hypotheken/index.html">
+          <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg></div>
+          <strong>Hypotheken</strong>
+          <span class="fx-ov__card-txt">Kopen, oversluiten of verbouwen &mdash; met vergelijking van meerdere geldverstrekkers.</span>
+          <span class="fx-ov__btn fx-ov__btn--line">Meer informatie</span>
+        </a>
+        <a class="fx-ov__card" href="../vergelijkingskaarten/index.html">
+          <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.5L13 21a2 2 0 01-2.8 0l-7-7A2 2 0 013 12.6V5a2 2 0 012-2h7.6c.5 0 1 .2 1.4.6l6.5 6.5a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></div>
+          <strong>Wat advies kost</strong>
+          <span class="fx-ov__card-txt">De vergelijkingskaarten met vaste tarieven per dienst, vooraf inzichtelijk.</span>
+          <span class="fx-ov__btn fx-ov__btn--line">Lees meer</span>
+        </a>
+        <a class="fx-ov__card" href="../nieuws/index.html">
+          <div class="fx-ov__ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h6M7 13h10M7 16h7"/></svg></div>
+          <strong>Nieuws en tips</strong>
+          <span class="fx-ov__card-txt">Artikelen over vragen die ik in de praktijk het vaakst krijg.</span>
+          <span class="fx-ov__btn fx-ov__btn--line">Lees meer</span>
+        </a>
+      </div>
+    </section>
   </div>
 
-</div></div>
+  <!-- werkwijze -->
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec">
+      <div class="fx-ov__center">
+        <h2>Hoe ik werk</h2>
+        <p>Het eerste gesprek is gratis en kan plaatsvinden op kantoor aan de Vlijtseweg, bij u thuis, op uw bedrijfslocatie of online.</p>
+      </div>
+      <div class="fx-ov__steps">
+        <div class="fx-ov__step"><div class="fx-ov__num">1</div><h3>Kennismaking</h3><p>Een half uur, gratis en vrijblijvend. U vertelt wat er speelt, ik vertel wat er mogelijk is.</p></div>
+        <div class="fx-ov__step"><div class="fx-ov__num">2</div><h3>Afspraken vooraf</h3><p>U weet wat ik ga doen en wat het kost voordat er werk begint. Die bedragen staan in de <a href="../vergelijkingskaarten/index.html">vergelijkingskaarten</a>.</p></div>
+        <div class="fx-ov__step"><div class="fx-ov__num">3</div><h3>Advies en aanvraag</h3><p>Ik vergelijk de aanbieders, licht de keuze toe en regel de aanvraag van begin tot eind.</p></div>
+        <div class="fx-ov__step"><div class="fx-ov__num">4</div><h3>Nazorg</h3><p>Verandert uw situatie, dan kijken we opnieuw. Daar hoeft u zelf niet aan te denken.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- eenmanszaak en werkgebied -->
+  <div class="fx-ov__bleed fx-ov__bleed--tint">
+    <section class="fx-ov__sec">
+      <div class="fx-ov__duo">
+        <div>
+          <h2>Waarom een eenmanszaak en geen keten</h2>
+          <p>Finect Financials is een eenmanszaak, en dat is een keuze. Bij een groot kantoor krijgt u een adviseur toegewezen, en bij uw volgende vraag misschien een andere. Uw dossier verhuist mee, uw verhaal niet.</p>
+          <p>Bij mij is degene die uw situatie kent ook degene die opneemt als u belt &mdash; ook over drie jaar, als uw rentevaste periode afloopt of als u een schade moet melden. Dat is het hele idee achter een lokaal kantoor.</p>
+        </div>
+        <div>
+          <h2>Werkgebied</h2>
+          <p>Mijn kantoor staat aan de Vlijtseweg in Apeldoorn. Ik kom ook bij mensen thuis en op bedrijfslocaties in de omliggende plaatsen.</p>
+          <div class="fx-ov__places">
+            <span class="fx-ov__place">Apeldoorn</span><span class="fx-ov__place">Ugchelen</span><span class="fx-ov__place">Beekbergen</span>
+            <span class="fx-ov__place">Loenen</span><span class="fx-ov__place">Klarenbeek</span><span class="fx-ov__place">Wenum-Wiesel</span>
+            <span class="fx-ov__place">Hoenderloo</span><span class="fx-ov__place">Twello</span><span class="fx-ov__place">Teuge</span><span class="fx-ov__place">Vaassen</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- faq -->
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec fx-ov__faq">
+      <div>
+        <h2>Veelgestelde vragen over Finect Financials</h2>
+        <p>Staat uw vraag er niet tussen? <a href="../contact/index.html">Neem contact op</a> &mdash; het eerste gesprek is gratis en vrijblijvend.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Wat kost verzekeringsadvies bij Finect Financials?</summary>
+          <p>Het eerste gesprek is gratis en vrijblijvend. Gaan we daarna aan de slag, dan spreken we vooraf een vast bedrag af. Wat elke dienst kost staat in de <a href="../vergelijkingskaarten/index.html">vergelijkingskaarten</a>, die u van de site kunt downloaden &mdash; u weet het dus voordat u iets tekent.</p>
+        </details>
+        <details>
+          <summary>Bent u echt onafhankelijk?</summary>
+          <p>Ja. Finect Financials is niet verbonden aan een verzekeraar, bank of keten. Ik vergelijk het aanbod van meerdere aanbieders en word niet gestuurd door een verkoopdoelstelling. Finect Financials staat bij de AFM geregistreerd onder vergunningnummer 12047700; dat kunt u nakijken in het AFM-register.</p>
+        </details>
+        <details>
+          <summary>Kan ik mijn bestaande polissen laten doorlichten?</summary>
+          <p>Dat is vaak het beste startpunt. U brengt uw huidige polissen mee en ik kijk naar dekking, voorwaarden en premie. Soms blijkt u dubbel verzekerd, soms ontbreekt er iets, en soms is uw pakket gewoon in orde. Ook dat laatste hoort u van mij.</p>
+        </details>
+        <details>
+          <summary>Heb ik als zzp&rsquo;er een AOV nodig?</summary>
+          <p>Er is geen wettelijke plicht, maar er is ook geen werkgever die doorbetaalt als u een jaar uitvalt. De vraag is meestal niet &oacute;f, maar hoe u hem betaalbaar houdt. Wachttijd, eindleeftijd en de gekozen beroepsklasse maken een groot verschil in de premie.</p>
+        </details>
+        <details>
+          <summary>Doet u ook hypotheken?</summary>
+          <p>Ja. Verzekeringen zijn mijn kern, maar ik adviseer ook over hypotheken: kopen, oversluiten en het financieren van een verbouwing of verduurzaming. Ik vergelijk daarbij meerdere geldverstrekkers.</p>
+        </details>
+        <details>
+          <summary>Waar kan ik terecht als ik ontevreden ben?</summary>
+          <p>Eerst bij mij &mdash; laat het weten, dan lossen we het samen op. Komen we er niet uit, dan kunt u terecht bij het Klachteninstituut Financi&euml;le Dienstverlening (Kifid), waar Finect Financials is aangesloten onder nummer 300.017906.</p>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <!-- lees ook -->
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec fx-ov__sec--tight">
+      <h2>Lees ook</h2>
+      <div class="fx-ov__also">
+        <a href="../ondernemer/het-betaalbaar-houden-van-de-arbeidsongeschiktheidsverzekering-aov/index.html">Het betaalbaar houden van de arbeidsongeschiktheidsverzekering (AOV)</a>
+        <a href="../huis/woonhuis-en-energielabel/index.html">Woonhuis en energielabel</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- afsluitende oproep -->
+  <div class="fx-ov__bleed fx-ov__bleed--tint">
+    <section class="fx-ov__sec fx-ov__cta-band">
+      <h2>Benieuwd wat ik voor u kan betekenen?</h2>
+      <p style="margin:0 auto 26px;max-width:52ch;">Het eerste gesprek is gratis en vrijblijvend. U hoort wat er mogelijk is en wat het kost, voordat u iets beslist.</p>
+      <p style="margin:0 auto;"><a class="fx-ov__btn fx-ov__btn--fill" href="../contact/index.html">Plan een vrijblijvend gesprek</a></p>
+    </section>
+  </div>
+
+  <div class="fx-ov__wrap">
+    <section class="fx-ov__sec fx-ov__sec--tight">
+      <div class="fx-ov__reg">
+        <b>Finect Financials</b><br>
+        Vlijtseweg 16, 7317AH Apeldoorn<br>
+        KvK 62201735 &middot; AFM-vergunning 12047700 &middot; Kifid 300.017906<br>
+        Certified Financial Planner (CFP&reg;) &middot; actief sinds 2015
+      </div>
+      <div class="fx-ov__todo" style="margin-top:32px;">
+        <b>Nog door u in te vullen of na te kijken</b>
+        <ul>
+          <li>De alinea over <strong>waarom u voor uzelf bent begonnen</strong> &mdash; die staat nu als plaatshouder in de tekst.</li>
+          <li>De opgesomde <strong>verzekeringen</strong>: schrap wat u niet doet en vul aan wat ontbreekt.</li>
+          <li>De <strong>plaatsnamen</strong>: alleen de plaatsen waar u daadwerkelijk klanten bedient.</li>
+          <li>Of <strong>&ldquo;22 jaar ervaring&rdquo;</strong> nog klopt &mdash; dat stond in de oude tekst en telt door.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+</div>
 
 									</div>
 			</div>
