@@ -31,27 +31,29 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # The preview must not compete with finect.nl for the same queries, so
+      # it is published noindex. The switch is the CNAME file: as long as the
+      # site is served from github.io there is none, and everything is marked
+      # noindex. Add site/CNAME with the real domain and this step skips
+      # itself -- so going live cannot be forgotten, and cannot be done by
+      # accident either.
       - name: Keep the preview out of search results
         run: |
           set -euo pipefail
 
-          # This is a faithful copy of finect.nl. Indexed, it would compete
-          # with the real site for the same queries, so the published preview
-          # is marked noindex. The committed files stay exactly as they are --
-          # this only rewrites the copy that gets uploaded.
+          if [ -f site/CNAME ]; then
+            echo "site/CNAME present ($(cat site/CNAME)) -- publishing indexable."
+            exit 0
+          fi
+
+          echo "No site/CNAME -- publishing as a noindex preview."
           find site -name '*.html' -print0 | xargs -0 -r sed -i \
             's|<head>|<head><meta name="robots" content="noindex, nofollow">|'
-
-          # The mirrored robots.txt permits crawling and advertises finect.nl's
-          # own sitemap. Neither belongs on a preview.
           printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+          rm -f site/sitemap.xml
 
           echo "Pages marked noindex: $(grep -rl 'content="noindex, nofollow"' site --include='*.html' | wc -l)"
 
-      # enablement turns Pages on through the API, so the repository needs no
-      # manual setting. If the workflow token is not allowed to do that, this
-      # step fails and Settings -> Pages -> Source = GitHub Actions is the
-      # one-time fallback.
       - uses: actions/configure-pages@v5
         with:
           enablement: true
