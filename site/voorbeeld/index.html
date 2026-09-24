@@ -307,6 +307,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 </script>
 
 <script type="application/ld+json" id="fx-bedrijfsgegevens">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://finect.nl/#organisatie","name":"Finect Financials","description":"Onafhankelijk advies over verzekeringen en hypotheken in Apeldoorn.","url":"https://finect.nl/","logo":"https://finect.nl/wp-content/uploads/2020/04/finect-financials-logo-retina.png","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressRegion":"Gelderland","addressCountry":"NL"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:30"}],"areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Ugchelen"},{"@type":"City","name":"Beekbergen"},{"@type":"City","name":"Loenen"},{"@type":"City","name":"Klarenbeek"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Vaassen"}],"knowsLanguage":"nl-NL","identifier":[{"@type":"PropertyValue","name":"KvK","value":"62201735"},{"@type":"PropertyValue","name":"AFM-vergunning","value":"12047700"},{"@type":"PropertyValue","name":"Kifid","value":"300.017906"}],"founder":{"@type":"Person","name":"Fred Koeling","jobTitle":"Certified Financial Planner"},"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/"]}</script>
+<script type="application/ld+json" id="fx-vragen">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://finect.nl/contact/#vragen","mainEntity":[{"@type":"Question","name":"Wat kost een gesprek?","acceptedAnswer":{"@type":"Answer","text":"Het eerste gesprek is gratis en vrijblijvend. Gaan we daarna aan de slag, dan spreken we vooraf een vast bedrag af. Wat elke dienst kost staat in de vergelijkingskaarten, die u van de site kunt downloaden."}},{"@type":"Question","name":"Hoe snel kan ik terecht?","acceptedAnswer":{"@type":"Answer","text":"Meestal binnen een week. Heeft u haast, bijvoorbeeld door een aflopende rentevaste periode of een bod dat u wilt doen, zeg dat er dan bij. Dan schuif ik iets."}},{"@type":"Question","name":"Wat moet ik meenemen naar een eerste gesprek?","acceptedAnswer":{"@type":"Answer","text":"Voor een polischeck: uw huidige polisbladen. Voor een hypotheekgesprek: een recente loonstrook of, als ondernemer, uw laatste twee jaarrekeningen. Weet u het niet zeker, neem dan gewoon mee wat u heeft, we komen er wel uit."}},{"@type":"Question","name":"Werkt u alleen in Apeldoorn?","acceptedAnswer":{"@type":"Answer","text":"Ik kom bij mensen thuis en op bedrijfslocaties in Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello, Vaassen en de omliggende plaatsen. Een gesprek kan ook online."}},{"@type":"Question","name":"Bent u echt onafhankelijk?","acceptedAnswer":{"@type":"Answer","text":"Ja. Finect Financials is niet verbonden aan een verzekeraar, bank of keten en heeft geen verkoopdoelstelling. Meer over hoe ik werk. Finect Financials staat bij de AFM geregistreerd onder vergunningnummer 12047700; dat kunt u nakijken in het AFM-register."}},{"@type":"Question","name":"Ik ben zzp’er. Kunt u daar iets mee?","acceptedAnswer":{"@type":"Answer","text":"Ja, dat is een groot deel van mijn werk. Het gaat dan meestal over een arbeidsongeschiktheidsverzekering, aansprakelijkheid en de vraag wat er gebeurt als u een half jaar uitvalt. Ook als u twijfelt of een AOV bij uw situatie past, kijk ik met u mee."}},{"@type":"Question","name":"Ik heb al een adviseur. Heeft overstappen zin?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt ervan af en dat hoort u eerlijk van mij. Ik kijk uw huidige pakket na en zeg het gewoon als het goed geregeld is. Zit er wel ruimte in de dekking of de premie, dan laat ik zien waar en wat het verschil is."}},{"@type":"Question","name":"Regelt u ook de zakelijke kant?","acceptedAnswer":{"@type":"Answer","text":"Ja. Denk aan aansprakelijkheid, inventaris, gebouwen, bedrijfsschade, een wagenpark of een collectief voor uw personeel. Wat daarbij komt kijken staat op de pagina zakelijke verzekeringen."}},{"@type":"Question","name":"Ik ben al klant en heb een schade. Wat nu?","acceptedAnswer":{"@type":"Answer","text":"Bel me. Bij schade is snelheid belangrijker dan formulieren. Ik kijk mee welke stappen nodig zijn en neem waar mogelijk het contact met de verzekeraar over."}}]}</script>
 <style id="fx-ct-form-css">
 .fx-ct__form-in{display:grid;gap:50px;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:start;}
 .fx-ct__form{display:flex;flex-direction:column;gap:18px;}
@@ -372,6 +373,42 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',start);}else{start();}
 })();
 </script>
+<style id="fx-ct-uitbr-css">
+/* langere H1 in de themakop */
+.fx-ct__h1{text-transform:none !important;}
+@media (max-width:1024px){.fx-ct__h1{font-size:38px !important;line-height:46px !important;}}
+@media (max-width:767px){.fx-ct__h1{font-size:28px !important;line-height:36px !important;}}
+
+/* onderwerpen */
+.fx-ct__ond{display:grid;gap:56px;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;}
+.fx-ct__ond-beeld img{display:block;width:100%;height:auto;border-radius:3px;}
+.fx-ct__lijst{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
+.fx-ct__lijst li{margin:0;padding:0;}
+.fx-ct__lijst a{display:flex;flex-direction:column;gap:3px;padding:15px 44px 15px 0;position:relative;
+                border-bottom:1px solid var(--lijn);text-decoration:none;transition:padding-left .15s ease;}
+.fx-ct__lijst a:hover{padding-left:10px;background:var(--band);}
+.fx-ct__lijst a b{font-family:Barlow,Arial,sans-serif;font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;}
+.fx-ct__lijst a:hover b{color:var(--mag);}
+.fx-ct__lijst a span{font-size:15px;line-height:1.5;color:var(--grijs);}
+.fx-ct__lijst a::after{content:"";position:absolute;right:14px;top:50%;width:9px;height:9px;margin-top:-6px;
+                       border-right:2px solid var(--mag);border-bottom:2px solid var(--mag);transform:rotate(-45deg);}
+
+/* foto in de vragenkolom */
+.fx-ct__beeld{display:block;width:100%;height:auto;margin-top:34px;border-radius:3px;}
+
+/* gegevens met kaart */
+.fx-ct__geg-in{display:grid;gap:50px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start;}
+.fx-ct__kaart-beeld img{display:block;width:100%;height:auto;border-radius:3px;}
+.fx-ct__kaart-beeld .fx-ct__kop3{font-family:Barlow,Arial,sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin:26px 0 10px;}
+.fx-ct__kaart-beeld p{margin:0 0 12px;}
+.fx-ct__bronregel{margin:8px 0 0;font-size:12.5px;line-height:1.5;color:#8a8a8e;}
+
+@media (max-width:900px){
+  .fx-ct__ond{grid-template-columns:1fr;gap:34px;}
+  .fx-ct__ond-beeld{order:2;}
+  .fx-ct__geg-in{grid-template-columns:1fr;gap:34px;}
+}
+</style>
 </head>
 
 <body data-rsssl=1 class="wp-singular page-template-default page page-id-21 wp-theme-zikzag elementor-default elementor-kit-1 elementor-page elementor-page-21"><div style="position:sticky;top:0;z-index:99999;background:#14212b;color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.5;padding:12px 20px;text-align:center;"><strong>VOORBEELDPAGINA.</strong> Dit is geen onderdeel van de site. De echte contactpagina staat op <a href="/contact/" style="color:#fff;">finect.nl/contact/</a></div>
@@ -569,7 +606,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 										</a>
 			</div>
 			<ul id="menu-hoofdmenu-3" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3514"><a href="../"><span><span class="item_text">Home</span></span><span class="menu-item_plus"></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3876"><a href="../verzekeringen"><span><span class="item_text">Verzekeringen</span></span><span class="menu-item_plus"></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3875"><a href="../zakelijk"><span><span class="item_text">Zakelijk</span></span><span class="menu-item_plus"></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3877"><a href="../hypotheken"><span><span class="item_text">Hypotheken</span></span><span class="menu-item_plus"></span></a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3515"><a href="../over-finect"><span><span class="item_text">Over Finect</span></span><span class="menu-item_plus"></span></a><ul class="sub-menu">	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3895"><a href="../nieuws"><span><span class="item_text">Nieuws</span></span><span class="menu-item_plus"></span></a></li></ul>
-</li><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-21 current_page_item menu-item-3516"><a href="."><span><span class="item_text">Contact</span></span><span class="menu-item_plus"></span></a></li></ul></nav></div></div></div></div></div></div></header><div class="page-header page-header_align_center" style="background-image:url(../wp-content/uploads/2021/02/blog_page-title.jpg); background-size:cover; background-repeat:no-repeat; background-attachment:scroll; background-position:center bottom;background-color: #081219; height: 420px; margin-bottom: 60px; padding-top: 110px; padding-bottom: 50px;"><div class="page-header_wrapper"><div class="wgl-container"><div class="page-header_content"><h1 class="page-header_title" style="color: #ffffff; font-size: 60px; line-height: 64px;">Contact</h1><div class="page-header_breadcrumbs" style="color: #ffffff; font-size: 14px; line-height: 24px;"><div class="breadcrumbs"><a href="../" class="home">Home</a> <span class="divider"></span> <span class="current">Contact</span></div><!-- .breadcrumbs --></div></div></div></div></div>    <main id="main" class="site-main">
+</li><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-21 current_page_item menu-item-3516"><a href="."><span><span class="item_text">Contact</span></span><span class="menu-item_plus"></span></a></li></ul></nav></div></div></div></div></div></div></header><div class="page-header page-header_align_center" style="background-image:url(../wp-content/uploads/2021/02/blog_page-title.jpg); background-size:cover; background-repeat:no-repeat; background-attachment:scroll; background-position:center bottom;background-color: #081219; height: 420px; margin-bottom: 60px; padding-top: 110px; padding-bottom: 50px;"><div class="page-header_wrapper"><div class="wgl-container"><div class="page-header_content"><h1 class="page-header_title fx-ct__h1" style="color: #ffffff; font-size: 48px; line-height: 56px;">Contact met Finect Financials in Apeldoorn</h1><div class="page-header_breadcrumbs" style="color: #ffffff; font-size: 14px; line-height: 24px;"><div class="breadcrumbs"><a href="../" class="home">Home</a> <span class="divider"></span> <span class="current">Contact</span></div><!-- .breadcrumbs --></div></div></div></div></div>    <main id="main" class="site-main">
 
 <div class="fx-ct">
 
@@ -598,7 +635,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div class="fx-ct__route">
         <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></span>
         <h3>Een vraag over uw eigen situatie</h3>
-        <p>Over uw polissen, uw hypotheek, uw AOV of iets waar u niet uitkomt. Even bellen is dan het snelst. Binnen tien minuten weet u of ik iets voor u kan betekenen.</p>
+        <p>Over uw <a href="../verzekeringen/">polissen</a>, uw <a href="../hypotheken/">hypotheek</a>, uw <a href="../arbeidsongeschiktheidsverzekeringen-aov/">AOV</a> of iets waar u niet uitkomt. Even bellen is dan het snelst. Binnen tien minuten weet u of ik iets voor u kan betekenen.</p>
         <a class="fx-ct__groot" href="tel:+31630679790">06 30 67 97 90</a>
         <span class="fx-ct__klein">maandag t/m vrijdag 09:00 tot 17:30<br>Buiten die tijden: spreek de voicemail in, ik bel terug</span>
       </div>
@@ -614,12 +651,32 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div class="fx-ct__route">
         <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
         <h3>Ik kom naar u toe</h3>
-        <p>Bij u thuis, op uw bedrijfslocatie of online, net wat u het prettigst uitkomt. U hoeft dus nergens heen en niets mee te zeulen: ik kom langs met de stukken die nodig zijn.</p>
+        <p>Bij u thuis, op uw <a href="../zakelijk/">bedrijfslocatie</a> of online, net wat u het prettigst uitkomt. U hoeft dus nergens heen en niets mee te zeulen: ik kom langs met de stukken die nodig zijn.</p>
         <a class="fx-ct__groot" href="tel:+31630679790">Bel voor een afspraak</a><span class="fx-ct__klein">Apeldoorn en omstreken</span>
       </div>
 
     </div>
   </section></div></div>
+
+  <!-- onderwerpen -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
+    <div class="fx-ct__ond-beeld">
+      <img src="../wp-content/uploads/2021/01/onafhankelijk-advies-financieel-adviseur-1.jpg" alt="Adviesgesprek aan tafel bij Finect Financials in Apeldoorn" width="1200" height="800" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <p class="fx-ct__sub">Onderwerpen</p>
+      <h2>Waar gaat uw vraag over?</h2>
+      <p style="margin-bottom:26px;">Wilt u eerst lezen voordat u belt? Op deze pagina&rsquo;s staat per onderwerp wat ik doe en wat het kost.</p>
+      <ul class="fx-ct__lijst">
+        <li><a href="../verzekeringen/"><b>Verzekeringen</b><span>Uw polissen doorlichten en opnieuw regelen</span></a></li>
+        <li><a href="../hypotheken/"><b>Hypotheken</b><span>Kopen, oversluiten of een aflopende rentevaste periode</span></a></li>
+        <li><a href="../zakelijk/"><b>Zakelijk</b><span>Aansprakelijkheid, inventaris, wagenpark en personeel</span></a></li>
+        <li><a href="../arbeidsongeschiktheidsverzekeringen-aov/"><b>AOV voor zzp&rsquo;ers</b><span>Wat er gebeurt als u langere tijd uitvalt</span></a></li>
+        <li><a href="../vergelijkingskaarten/"><b>Wat advies kost</b><span>De vergelijkingskaarten om te downloaden</span></a></li>
+        <li><a href="../over-finect/"><b>Over Finect Financials</b><span>Wie ik ben en hoe ik werk</span></a></li>
+      </ul>
+    </div>
+  </section></div>
 
   <!-- veelgestelde vragen -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
@@ -627,6 +684,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <p class="fx-ct__sub">Vragen</p>
       <h2>Dit vragen mensen mij vaak</h2>
       <p>Misschien staat uw vraag er al tussen. Zo niet, bel gerust. Daar hoeft u geen afspraak voor te maken.</p>
+      <img class="fx-ct__beeld" src="../wp-content/uploads/finect/sleutels-nieuwe-woning.jpg" alt="Sleutels in de voordeur van een nieuwe woning" width="1100" height="733" loading="lazy" decoding="async">
     </div>
     <div>
       <details open>
@@ -639,7 +697,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       </details>
       <details>
         <summary>Wat moet ik meenemen naar een eerste gesprek?</summary>
-        <p>Voor een polischeck: uw huidige polisbladen. Voor een hypotheekgesprek: een recente loonstrook of, als ondernemer, uw laatste twee jaarrekeningen. Weet u het niet zeker, neem dan gewoon mee wat u heeft, we komen er wel uit.</p>
+        <p>Voor een polischeck: uw huidige polisbladen. Voor een <a href="../hypotheken/">hypotheekgesprek</a>: een recente loonstrook of, als ondernemer, uw laatste twee jaarrekeningen. Weet u het niet zeker, neem dan gewoon mee wat u heeft, we komen er wel uit.</p>
       </details>
       <details>
         <summary>Werkt u alleen in Apeldoorn?</summary>
@@ -647,7 +705,19 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       </details>
       <details>
         <summary>Bent u echt onafhankelijk?</summary>
-        <p>Ja. Finect Financials is niet verbonden aan een verzekeraar, bank of keten en heeft geen verkoopdoelstelling. Finect Financials staat bij de AFM geregistreerd onder vergunningnummer 12047700; dat kunt u nakijken in het AFM-register.</p>
+        <p>Ja. Finect Financials is niet verbonden aan een verzekeraar, bank of keten en heeft geen verkoopdoelstelling. <a href="../over-finect/">Meer over hoe ik werk</a>. Finect Financials staat bij de AFM geregistreerd onder vergunningnummer 12047700; dat kunt u nakijken in het AFM-register.</p>
+      </details>
+      <details>
+        <summary>Ik ben zzp&rsquo;er. Kunt u daar iets mee?</summary>
+        <p>Ja, dat is een groot deel van mijn werk. Het gaat dan meestal over een <a href="../arbeidsongeschiktheidsverzekeringen-aov/">arbeidsongeschiktheidsverzekering</a>, aansprakelijkheid en de vraag wat er gebeurt als u een half jaar uitvalt. Ook als u twijfelt of een AOV bij uw situatie past, kijk ik met u mee.</p>
+      </details>
+      <details>
+        <summary>Ik heb al een adviseur. Heeft overstappen zin?</summary>
+        <p>Dat hangt ervan af en dat hoort u eerlijk van mij. Ik kijk uw huidige pakket na en zeg het gewoon als het goed geregeld is. Zit er wel ruimte in de dekking of de premie, dan laat ik zien waar en wat het verschil is.</p>
+      </details>
+      <details>
+        <summary>Regelt u ook de zakelijke kant?</summary>
+        <p>Ja. Denk aan aansprakelijkheid, inventaris, gebouwen, bedrijfsschade, een wagenpark of een collectief voor uw personeel. Wat daarbij komt kijken staat op de pagina <a href="../zakelijk/">zakelijke verzekeringen</a>.</p>
       </details>
       <details>
         <summary>Ik ben al klant en heb een schade. Wat nu?</summary>
@@ -658,6 +728,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
   <!-- gegevens -->
   <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-ct__geg-in">
+      <div>
     <h2 style="margin-bottom:36px;">Gegevens</h2>
     <div class="fx-ct__geg">
       <div>
@@ -675,6 +747,15 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div>
         <h3>Goed om te weten</h3>
         <p>Certified Financial Planner<br>Onafhankelijk sinds 2015<br><a href="../vergelijkingskaarten/">Wat advies kost</a></p>
+      </div>
+    </div>
+      </div>
+      <div class="fx-ct__kaart-beeld">
+        <img src="../wp-content/uploads/finect/kaart-vlijtseweg-apeldoorn.jpg" alt="Kaart met de ligging van Finect Financials aan de Vlijtseweg 16 in Apeldoorn" width="900" height="506" loading="lazy" decoding="async">
+        <h3 class="fx-ct__kop3">Hoe u er komt</h3>
+        <p>Het kantoor ligt aan de Vlijtseweg, vlak langs het Apeldoorns Kanaal en op een paar minuten van het centrum. U kunt voor de deur parkeren. Komt u met het openbaar vervoer, dan is het ongeveer een kwartier lopen vanaf station Apeldoorn.</p>
+        <p>Liever niet reizen? Dat hoeft ook niet. Ik kom bij u thuis of op uw bedrijfslocatie, en een gesprek via beeldbellen kan net zo goed.</p>
+        <p class="fx-ct__bronregel">Kaartgegevens &copy; OpenStreetMap contributors</p>
       </div>
     </div>
   </section></div></div>
@@ -788,6 +869,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><div class="fx-ct__todo">
     <b>Nog even checken</b>
     <ul>
+      <li>Bij <strong>Hoe u er komt</strong> heb ik geschreven dat u voor de deur kunt parkeren. Dat heb ik aangenomen, klopt dat? De loopafstand vanaf station Apeldoorn is ruim 900 meter, dus ongeveer een kwartier.</li>
+      <li>De drie nieuwe vragen (zzp&rsquo;er, al een adviseur, zakelijke kant) heb ik zelf geschreven. Leest u ze even na op inhoud.</li>
       <li>Klopt <strong>&ldquo;5,0 uit 16 beoordelingen&rdquo;</strong> nog met uw Google profiel?</li>
       <li>Het <strong>formulier</strong> onderaan opent nu uw mailprogramma met alles al ingevuld. Wilt u dat het zelf verstuurt, dan zet ik er een formulierdienst achter.</li>
     </ul>
