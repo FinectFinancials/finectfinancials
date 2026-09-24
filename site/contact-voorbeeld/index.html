@@ -215,6 +215,9 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
               font-variant-numeric:tabular-nums;}
 .fx-ct__groot:hover,.fx-ct__groot:focus{color:var(--mag);}
 .fx-ct__klein{font-size:15px;line-height:1.6;color:#6f6f75;}
+/* zodra de drie kaarten naast elkaar staan: onderste regels even hoog, zodat de
+   magenta regels op dezelfde lijn uitkomen */
+@media (min-width:660px){.fx-ct__route .fx-ct__klein{display:block;min-height:4.8em;}}
 
 /* gegevens */
 .fx-ct__geg{display:grid;gap:34px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
