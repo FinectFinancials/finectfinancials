@@ -7,7 +7,7 @@
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
 	<!-- This site is optimized with the Yoast SEO plugin v20.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
-	<meta name="description" content="Finect Financials, Vlijtseweg 16 Apeldoorn. Bel 06 30 67 97 90 of plan een vrijblijvend gesprek. Het eerste gesprek is gratis." />
+	<meta name="description" content="Onafhankelijk financieel adviseur in Apeldoorn voor verzekeringen, hypotheken en AOV. Bel 06 30 67 97 90 of mail uw vraag. Het eerste gesprek is gratis." />
 <title>Contact met Finect Financials, financieel adviseur Apeldoorn</title>
 	
 	<meta property="og:locale" content="nl_NL" />
@@ -210,16 +210,16 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
               display:flex;flex-direction:column;}
 .fx-ct__ico{width:56px;height:56px;border-radius:50%;background:var(--mag);color:#fff;
             display:grid;place-items:center;margin-bottom:20px;}
-.fx-ct__route p{font-size:15.5px;line-height:1.7;flex:1;}
+.fx-ct__route p{font-size:15px;line-height:1.7;flex:1;}
 .fx-ct__groot{display:block;font-size:22px;font-weight:600;color:var(--navy);text-decoration:none;margin:16px 0 4px;
               font-variant-numeric:tabular-nums;}
 .fx-ct__groot:hover,.fx-ct__groot:focus{color:var(--mag);}
-.fx-ct__klein{font-size:14px;line-height:1.6;color:#8a8a8e;}
+.fx-ct__klein{font-size:15px;line-height:1.6;color:#6f6f75;}
 
 /* gegevens */
 .fx-ct__geg{display:grid;gap:34px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
 .fx-ct__geg h3{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
-.fx-ct__geg p{font-size:15.5px;line-height:1.9;font-variant-numeric:tabular-nums;}
+.fx-ct__geg p{font-size:15px;line-height:1.9;font-variant-numeric:tabular-nums;}
 
 /* faq */
 .fx-ct__faq{display:grid;gap:50px;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:start;}
@@ -231,13 +231,13 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 .fx-ct summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);
                       font-size:26px;font-weight:300;color:var(--mag);line-height:1;}
 .fx-ct details[open] summary::after{content:"\2013";}
-.fx-ct details p{padding:0 50px 22px 22px;margin:0;font-size:15.5px;line-height:1.8;}
+.fx-ct details p{padding:0 50px 22px 22px;margin:0;font-size:15px;line-height:1.8;}
 .fx-ct summary:focus-visible,.fx-ct__btn:focus-visible{outline:2px solid var(--mag);outline-offset:3px;}
 
 
 /* nog in te vullen */
 .fx-ct__todo{background:#fff;border:1px dashed var(--mag);border-radius:14px;padding:18px 20px;
-             font-size:14.5px;line-height:1.7;margin-top:34px;}
+             font-size:15px;line-height:1.7;margin-top:34px;}
 .fx-ct__todo b{color:var(--ink);}
 .fx-ct__todo ul{margin:8px 0 0;padding-left:20px;}
 
@@ -270,11 +270,14 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
             display:grid;place-items:center;font-weight:700;font-size:15px;}
 .fx-ct__wie{font-size:14px;line-height:1.5;color:rgba(255,255,255,.7);}
 .fx-ct__wie b{display:block;color:#fff;font-weight:600;font-size:15px;}
-.fx-ct__dots{display:flex;gap:11px;margin:24px 0 0;padding:0;list-style:none;}
-.fx-ct__dots button{width:11px;height:11px;border-radius:50%;border:1px solid rgba(255,255,255,.75);
-                    background:transparent;padding:0;cursor:pointer;font-size:0;line-height:0;}
-.fx-ct__dots button[aria-current="true"]{background:#fff;border-color:#fff;}
-.fx-ct__dots button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.fx-ct__dots{display:flex;gap:0;margin:8px 0 0 -14px;padding:0;list-style:none;}
+.fx-ct__dots li{display:flex;margin:0;}
+.fx-ct__dots button{width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer;
+                    font-size:0;line-height:0;display:grid;place-items:center;}
+.fx-ct__dots button::before{content:"";width:11px;height:11px;border-radius:50%;
+                    border:1px solid rgba(255,255,255,.75);background:transparent;transition:background .15s ease;}
+.fx-ct__dots button[aria-current="true"]::before{background:#fff;border-color:#fff;}
+.fx-ct__dots button:focus-visible{outline:2px solid #fff;outline-offset:-8px;border-radius:50%;}
 </style>
 <script id="fx-ct-js">
 (function(){
@@ -313,7 +316,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-ct__form{display:flex;flex-direction:column;gap:18px;}
 .fx-ct .fx-ct__form label{display:flex;flex-direction:column;gap:7px;font-size:15px;font-weight:600;color:var(--navy);}
 .fx-ct .fx-ct__form .fx-ct__lab{font-family:Barlow,Arial,sans-serif;line-height:1.4;}
-.fx-ct .fx-ct__form .fx-ct__lab i{font-style:normal;font-weight:400;color:#8a8a8e;}
+.fx-ct .fx-ct__form .fx-ct__lab i{font-style:normal;font-weight:400;color:#6f6f75;}
 .fx-ct .fx-ct__form input,
 .fx-ct .fx-ct__form select,
 .fx-ct .fx-ct__form textarea{
@@ -338,7 +341,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-ct__stap li::before{content:counter(stap);position:absolute;left:0;top:1px;width:32px;height:32px;
   border-radius:50%;background:var(--mag);color:#fff;font-family:Barlow,Arial,sans-serif;font-size:15px;
   font-weight:700;display:grid;place-items:center;line-height:1;}
-.fx-ct__stap b{display:block;font-family:Barlow,Arial,sans-serif;font-size:16.5px;font-weight:700;
+.fx-ct__stap b{display:block;font-family:Barlow,Arial,sans-serif;font-size:16px;font-weight:700;
   color:var(--navy);line-height:1.35;}
 .fx-ct__stap span{display:block;font-size:15px;line-height:1.6;color:var(--grijs);margin-top:3px;}
 @media (max-width:900px){.fx-ct__form-in{grid-template-columns:1fr;gap:30px;}}
@@ -380,7 +383,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 @media (max-width:767px){.page-header_content .page-header_title.fx-ct__h1{font-size:30px !important;line-height:38px !important;}}
 
 /* onderwerpen */
-.fx-ct__ond{display:grid;gap:56px;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;}
+.fx-ct__ond{display:grid;gap:56px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;}
+.fx-ct__ond-beeld{order:2;}
 .fx-ct__ond-beeld img{display:block;width:100%;height:auto;border-radius:3px;}
 .fx-ct__lijst{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
 .fx-ct__lijst li{margin:0;padding:0;}
@@ -673,7 +677,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </section></div>
 
   <!-- veelgestelde vragen -->
-  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
     <div>
       <p class="fx-ct__sub">Vragen</p>
       <h2>Dit vragen mensen mij vaak</h2>
@@ -718,10 +722,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p>Bel me. Bij schade is snelheid belangrijker dan formulieren. Ik kijk mee welke stappen nodig zijn en neem waar mogelijk het contact met de verzekeraar over.</p>
       </details>
     </div>
-  </section></div>
+  </section></div></div>
 
   <!-- gegevens -->
-  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+  <div class="fx-ct__wrap"><section class="fx-ct__sec">
     <h2 style="margin-bottom:36px;">Gegevens</h2>
     <div class="fx-ct__geg">
       <div>
@@ -741,7 +745,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p>Certified Financial Planner<br>Onafhankelijk sinds 2015<br><a href="../vergelijkingskaarten/">Wat advies kost</a></p>
       </div>
     </div>
-  </section></div></div>
+  </section></div>
 
   <!-- klantervaringen -->
   <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec">
@@ -806,7 +810,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p class="fx-ct__sub">Formulier</p>
         <h2>Liever typen dan bellen?</h2>
         <p>Vul hieronder in wat er speelt. Ik lees het en neem binnen &eacute;&eacute;n werkdag contact met u op.</p>
-        <p style="font-size:14.5px;color:#8a8a8e;">Uw gegevens gebruik ik alleen om uw vraag te beantwoorden. Ik deel ze met niemand.</p>
+        <p style="font-size:15px;color:#6f6f75;">Uw gegevens gebruik ik alleen om uw vraag te beantwoorden. Ik deel ze met niemand.</p>
         <ol class="fx-ct__stap">
           <li><b>Ik lees uw vraag</b><span>Gaat het over bestaande polissen, dan kijk ik die vast na.</span></li>
           <li><b>Binnen &eacute;&eacute;n werkdag antwoord</b><span>Per mail of, als dat handiger is, even telefonisch.</span></li>
