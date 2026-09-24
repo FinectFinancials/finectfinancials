@@ -331,7 +331,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-ct .fx-ct__form select:focus,
 .fx-ct .fx-ct__form textarea:focus{
   outline:none;border-color:var(--mag);box-shadow:0 0 0 3px rgba(181,0,74,.12);background:#fff;}
-.fx-ct .fx-ct__form input:user-invalid,.fx-ct .fx-ct__form textarea:user-invalid{border-color:#c0392b;}
+.fx-ct .fx-ct__form [aria-invalid="true"]{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.10);}
 .fx-ct .fx-ct__form button.fx-ct__btn--m{
   align-self:flex-start;cursor:pointer;margin-top:8px;
   background:var(--mag);color:#fff;border:1px solid var(--mag);}
@@ -354,13 +354,32 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   function start(){
     var f=document.getElementById('fxForm'), melding=document.getElementById('fxMelding');
     if(!f) return;
+    var nodig=['naam','email','onderwerp','bericht'];
+    var namen={naam:'uw naam', email:'uw e-mailadres', onderwerp:'een onderwerp', bericht:'uw vraag'};
+
+    function schoon(veld){ veld.removeAttribute('aria-invalid'); }
+    nodig.forEach(function(k){ var v=f.elements[k]; if(v) v.addEventListener('input',function(){schoon(v);}); });
+
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var d=new FormData(f), leeg=[];
-      ['naam','email','bericht'].forEach(function(k){ if(!String(d.get(k)||'').trim()) leeg.push(k); });
-      var mail=String(d.get('email')||'');
-      if(leeg.length){ toon('Vul uw naam, e-mailadres en vraag in.', 'fout'); return; }
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){ toon('Dat e-mailadres lijkt niet te kloppen.', 'fout'); return; }
+      nodig.forEach(function(k){
+        var v=f.elements[k];
+        if(!String(d.get(k)||'').trim()){ leeg.push(k); v.setAttribute('aria-invalid','true'); }
+        else schoon(v);
+      });
+      if(leeg.length){
+        f.elements[leeg[0]].focus();
+        toon(leeg.length===1
+               ? (leeg[0]==='onderwerp' ? 'Kies nog een onderwerp.' : 'Vul nog ' + namen[leeg[0]] + ' in.')
+               : 'Er ontbreekt nog iets: ' + leeg.map(function(k){return namen[k];}).join(', ') + '.', 'fout');
+        return;
+      }
+      var mail=String(d.get('email'));
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){
+        f.elements.email.setAttribute('aria-invalid','true'); f.elements.email.focus();
+        toon('Dat e-mailadres lijkt niet te kloppen.', 'fout'); return;
+      }
       var regels = [
         'Naam: ' + d.get('naam'),
         'E-mail: ' + mail,
@@ -368,10 +387,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         'Onderwerp: ' + d.get('onderwerp'),
         '', String(d.get('bericht'))
       ].join('\n');
-      var url = 'mailto:info@finect.nl'
-              + '?subject=' + encodeURIComponent('Vraag via de website: ' + d.get('onderwerp'))
-              + '&body=' + encodeURIComponent(regels);
-      window.location.href = url;
+      window.location.href = 'mailto:info@finect.nl'
+        + '?subject=' + encodeURIComponent('Vraag via de website: ' + d.get('onderwerp'))
+        + '&body=' + encodeURIComponent(regels);
       toon('Uw mailprogramma wordt geopend met het bericht erin. Lukt dat niet? Mail dan rechtstreeks naar info@finect.nl.', 'goed');
     });
     function toon(t, soort){ melding.textContent=t; melding.className='fx-ct__melding '+soort; }
@@ -411,6 +429,22 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 }
 </style>
 <style id="fx-li-css">.fx-li{display:inline-block;vertical-align:middle;}</style>
+<style id="fx-focus-css">
+/* Het thema nagelt outline-width ergens op 0 vast, ook tegen !important in.
+   Daarom is box-shadow de rand die het altijd doet; de outline blijft erbij
+   staan voor browsers in hoog-contrastmodus, die box-shadow negeren. */
+/* dubbele ring: eerst een smalle witte tussenruimte, dan magenta. Zo blijft de
+   rand zichtbaar op wit, op grijs en op een magenta knop. */
+.fx-ct a:focus-visible,.fx-ct button:focus-visible,.fx-ct summary:focus-visible{
+  box-shadow:0 0 0 2px #ffffff, 0 0 0 5px #b5004a !important;border-radius:2px;
+  outline:3px solid transparent !important;outline-offset:5px !important;}
+.fx-ct__band--navy a:focus-visible,.fx-ct__band--navy button:focus-visible{
+  box-shadow:0 0 0 2px #14212b, 0 0 0 5px #ffffff !important;}
+.fx-ct__dots button:focus-visible{box-shadow:none !important;}
+.fx-ct__dots button:focus-visible::before{box-shadow:0 0 0 4px rgba(255,255,255,.55);}
+.fx-ct .fx-ct__form input:focus,.fx-ct .fx-ct__form select:focus,.fx-ct .fx-ct__form textarea:focus{
+  border-color:#b5004a !important;box-shadow:0 0 0 3px rgba(181,0,74,.35) !important;}
+</style>
 </head>
 
 <body data-rsssl=1 class="wp-singular page-template-default page page-id-21 wp-theme-zikzag elementor-default elementor-kit-1 elementor-page elementor-page-21"><div style="position:sticky;top:0;z-index:99999;background:#14212b;color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.5;padding:12px 20px;text-align:center;"><strong>VOORBEELDPAGINA.</strong> Dit is geen onderdeel van de site. De echte contactpagina staat op <a href="/contact/" style="color:#fff;">finect.nl/contact/</a></div>
@@ -814,7 +848,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p class="fx-ct__sub">Formulier</p>
         <h2>Liever typen dan bellen?</h2>
         <p>Vul hieronder in wat er speelt. Ik lees het en neem binnen &eacute;&eacute;n werkdag contact met u op.</p>
-        <p style="font-size:15px;color:#6f6f75;">Uw gegevens gebruik ik alleen om uw vraag te beantwoorden. Ik deel ze met niemand.</p>
+        <p style="font-size:15px;color:#6f6f75;">Alles is nodig behalve uw telefoonnummer. Uw gegevens gebruik ik alleen om uw vraag te beantwoorden en ik deel ze met niemand.</p>
         <ol class="fx-ct__stap">
           <li><b>Ik lees uw vraag</b><span>Gaat het over bestaande polissen, dan kijk ik die vast na.</span></li>
           <li><b>Binnen &eacute;&eacute;n werkdag antwoord</b><span>Per mail of, als dat handiger is, even telefonisch.</span></li>
@@ -832,7 +866,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
           <input type="tel" name="telefoon" autocomplete="tel">
         </label>
         <label><span class="fx-ct__lab">Waar gaat het over?</span>
-          <select name="onderwerp">
+          <select name="onderwerp" required>
+            <option value="" selected disabled>Kies een onderwerp</option>
             <option>Mijn verzekeringen laten doorlichten</option>
             <option>Een AOV als zzp&rsquo;er</option>
             <option>Een hypotheek: kopen of oversluiten</option>
