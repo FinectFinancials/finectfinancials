@@ -397,16 +397,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-ct__beeld{display:block;width:100%;height:auto;margin-top:34px;border-radius:3px;}
 
 /* gegevens met kaart */
-.fx-ct__geg-in{display:grid;gap:50px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start;}
-.fx-ct__kaart-beeld img{display:block;width:100%;height:auto;border-radius:3px;}
-.fx-ct__kaart-beeld .fx-ct__kop3{font-family:Barlow,Arial,sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin:26px 0 10px;}
-.fx-ct__kaart-beeld p{margin:0 0 12px;}
-.fx-ct__bronregel{margin:8px 0 0;font-size:12.5px;line-height:1.5;color:#8a8a8e;}
 
 @media (max-width:900px){
   .fx-ct__ond{grid-template-columns:1fr;gap:34px;}
   .fx-ct__ond-beeld{order:2;}
-  .fx-ct__geg-in{grid-template-columns:1fr;gap:34px;}
 }
 </style>
 </head>
@@ -728,8 +722,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
   <!-- gegevens -->
   <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
-    <div class="fx-ct__geg-in">
-      <div>
     <h2 style="margin-bottom:36px;">Gegevens</h2>
     <div class="fx-ct__geg">
       <div>
@@ -747,15 +739,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div>
         <h3>Goed om te weten</h3>
         <p>Certified Financial Planner<br>Onafhankelijk sinds 2015<br><a href="../vergelijkingskaarten/">Wat advies kost</a></p>
-      </div>
-    </div>
-      </div>
-      <div class="fx-ct__kaart-beeld">
-        <img src="../wp-content/uploads/finect/kaart-vlijtseweg-apeldoorn.jpg" alt="Kaart met de ligging van Finect Financials aan de Vlijtseweg 16 in Apeldoorn" width="900" height="506" loading="lazy" decoding="async">
-        <h3 class="fx-ct__kop3">Hoe u er komt</h3>
-        <p>Het kantoor ligt aan de Vlijtseweg, vlak langs het Apeldoorns Kanaal en op een paar minuten van het centrum. U kunt voor de deur parkeren. Komt u met het openbaar vervoer, dan is het ongeveer een kwartier lopen vanaf station Apeldoorn.</p>
-        <p>Liever niet reizen? Dat hoeft ook niet. Ik kom bij u thuis of op uw bedrijfslocatie, en een gesprek via beeldbellen kan net zo goed.</p>
-        <p class="fx-ct__bronregel">Kaartgegevens &copy; OpenStreetMap contributors</p>
       </div>
     </div>
   </section></div></div>
@@ -869,7 +852,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><div class="fx-ct__todo">
     <b>Nog even checken</b>
     <ul>
-      <li>Bij <strong>Hoe u er komt</strong> heb ik geschreven dat u voor de deur kunt parkeren. Dat heb ik aangenomen, klopt dat? De loopafstand vanaf station Apeldoorn is ruim 900 meter, dus ongeveer een kwartier.</li>
       <li>De drie nieuwe vragen (zzp&rsquo;er, al een adviseur, zakelijke kant) heb ik zelf geschreven. Leest u ze even na op inhoud.</li>
       <li>Klopt <strong>&ldquo;5,0 uit 16 beoordelingen&rdquo;</strong> nog met uw Google profiel?</li>
       <li>Het <strong>formulier</strong> onderaan opent nu uw mailprogramma met alles al ingevuld. Wilt u dat het zelf verstuurt, dan zet ik er een formulierdienst achter.</li>
