@@ -256,10 +256,12 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 .fx-ct__sterren{color:#f5b301;font-size:24px;letter-spacing:3px;line-height:1;}
 .fx-ct__cijfer{font-size:34px;font-weight:600;color:#fff;line-height:1;}
 .fx-ct__bron{font-size:15px;color:rgba(255,255,255,.72);}
-.fx-ct__stage{position:relative;}
-.fx-ct__quote{margin:0;background:rgba(255,255,255,.06);border-left:3px solid var(--mag);padding:34px 36px;
-              display:none;flex-direction:column;gap:24px;}
-.fx-ct__quote.is-on{display:flex;}
+.fx-ct__stage{display:grid;}
+.fx-ct__quote{grid-area:1/1;margin:0;background:rgba(255,255,255,.06);border-left:3px solid var(--mag);padding:34px 36px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center;
+              opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;}
+.fx-ct__quote.is-on{opacity:1;visibility:visible;pointer-events:auto;}
+@media (prefers-reduced-motion:reduce){.fx-ct__quote{transition:none;}}
 .fx-ct__quote blockquote{margin:0;padding:0;background:none;border:0;quotes:none;
                          font-family:Barlow,Arial,sans-serif;font-size:22px;font-weight:300;line-height:1.55;color:#fff;}
 .fx-ct__quote blockquote::before,.fx-ct__quote blockquote::after{content:none;display:none;}
@@ -305,6 +307,71 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 </script>
 
 <script type="application/ld+json" id="fx-bedrijfsgegevens">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://finect.nl/#organisatie","name":"Finect Financials","description":"Onafhankelijk advies over verzekeringen en hypotheken in Apeldoorn.","url":"https://finect.nl/","logo":"https://finect.nl/wp-content/uploads/2020/04/finect-financials-logo-retina.png","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressRegion":"Gelderland","addressCountry":"NL"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:30"}],"areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Ugchelen"},{"@type":"City","name":"Beekbergen"},{"@type":"City","name":"Loenen"},{"@type":"City","name":"Klarenbeek"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Vaassen"}],"knowsLanguage":"nl-NL","identifier":[{"@type":"PropertyValue","name":"KvK","value":"62201735"},{"@type":"PropertyValue","name":"AFM-vergunning","value":"12047700"},{"@type":"PropertyValue","name":"Kifid","value":"300.017906"}],"founder":{"@type":"Person","name":"Fred Koeling","jobTitle":"Certified Financial Planner"},"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/"]}</script>
+<style id="fx-ct-form-css">
+.fx-ct__form-in{display:grid;gap:50px;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:start;}
+.fx-ct__form{display:flex;flex-direction:column;gap:18px;}
+.fx-ct .fx-ct__form label{display:flex;flex-direction:column;gap:7px;font-size:15px;font-weight:600;color:var(--navy);}
+.fx-ct .fx-ct__form .fx-ct__lab{font-family:Barlow,Arial,sans-serif;line-height:1.4;}
+.fx-ct .fx-ct__form .fx-ct__lab i{font-style:normal;font-weight:400;color:#8a8a8e;}
+.fx-ct .fx-ct__form input,
+.fx-ct .fx-ct__form select,
+.fx-ct .fx-ct__form textarea{
+  font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:16px;font-weight:400;color:var(--ink);
+  background:#fff;border:1px solid #cfd2d5;border-radius:3px;padding:13px 16px;width:100%;height:auto;margin:0;
+  box-shadow:none;transition:border-color .15s ease,box-shadow .15s ease;}
+.fx-ct .fx-ct__form textarea{resize:vertical;min-height:150px;line-height:1.6;}
+.fx-ct .fx-ct__form input:focus,
+.fx-ct .fx-ct__form select:focus,
+.fx-ct .fx-ct__form textarea:focus{
+  outline:none;border-color:var(--mag);box-shadow:0 0 0 3px rgba(181,0,74,.12);background:#fff;}
+.fx-ct .fx-ct__form input:user-invalid,.fx-ct .fx-ct__form textarea:user-invalid{border-color:#c0392b;}
+.fx-ct .fx-ct__form button.fx-ct__btn--m{
+  align-self:flex-start;cursor:pointer;margin-top:8px;
+  background:var(--mag);color:#fff;border:1px solid var(--mag);}
+.fx-ct .fx-ct__form button.fx-ct__btn--m:hover{background:var(--mag2);border-color:var(--mag2);color:#fff;}
+.fx-ct__melding{margin:0;font-size:15px;line-height:1.6;}
+.fx-ct__melding.fout{color:#c0392b;}
+.fx-ct__melding.goed{color:var(--navy);}
+.fx-ct__kaart{margin-top:32px;padding:26px 28px;background:var(--band);border-left:3px solid var(--mag);}
+.fx-ct__kaart p{margin:0 0 8px;}
+.fx-ct__kaart p:last-child{margin-bottom:0;}
+.fx-ct__kaart-kop{font-family:Barlow,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;
+                  text-transform:uppercase;color:var(--mag);}
+.fx-ct__kaart a{font-size:19px;font-weight:600;color:var(--navy);text-decoration:none;line-height:1.7;}
+.fx-ct__kaart a:hover{color:var(--mag);}
+.fx-ct__kaart-klein{font-size:14.5px;line-height:1.7;color:#8a8a8e;}
+@media (max-width:900px){.fx-ct__form-in{grid-template-columns:1fr;gap:30px;}}
+</style>
+<script id="fx-ct-form-js">
+(function(){
+  function start(){
+    var f=document.getElementById('fxForm'), melding=document.getElementById('fxMelding');
+    if(!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d=new FormData(f), leeg=[];
+      ['naam','email','bericht'].forEach(function(k){ if(!String(d.get(k)||'').trim()) leeg.push(k); });
+      var mail=String(d.get('email')||'');
+      if(leeg.length){ toon('Vul uw naam, e-mailadres en vraag in.', 'fout'); return; }
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail)){ toon('Dat e-mailadres lijkt niet te kloppen.', 'fout'); return; }
+      var regels = [
+        'Naam: ' + d.get('naam'),
+        'E-mail: ' + mail,
+        'Telefoon: ' + (d.get('telefoon') || '-'),
+        'Onderwerp: ' + d.get('onderwerp'),
+        '', String(d.get('bericht'))
+      ].join('\n');
+      var url = 'mailto:info@finect.nl'
+              + '?subject=' + encodeURIComponent('Vraag via de website: ' + d.get('onderwerp'))
+              + '&body=' + encodeURIComponent(regels);
+      window.location.href = url;
+      toon('Uw mailprogramma wordt geopend met het bericht erin. Lukt dat niet? Mail dan rechtstreeks naar info@finect.nl.', 'goed');
+    });
+    function toon(t, soort){ melding.textContent=t; melding.className='fx-ct__melding '+soort; }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',start);}else{start();}
+})();
+</script>
 </head>
 
 <body data-rsssl=1 class="wp-singular page-template-default page page-id-21 wp-theme-zikzag elementor-default elementor-kit-1 elementor-page elementor-page-21"><div style="position:sticky;top:0;z-index:99999;background:#14212b;color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.5;padding:12px 20px;text-align:center;"><strong>VOORBEELDPAGINA</strong> &mdash; dit is geen onderdeel van de site. De echte contactpagina staat op <a href="/contact/" style="color:#fff;">finect.nl/contact/</a></div>
@@ -631,22 +698,84 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div>
         <div class="fx-ct__stage" id="fxCtStage">
           <figure class="fx-ct__quote is-on">
-            <blockquote>&ldquo;[Hier komt een echte review uit uw Google-profiel.]&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">VB</span><span class="fx-ct__wie"><b>Voorbeeldtekst</b>nog te vervangen</span></figcaption>
+            <blockquote>&ldquo;Fred heeft onze hypotheek geregeld en ons uitstekend begeleid gedurende het hele proces. Hij werkt zeer nauwkeurig, is deskundig en gaf ons steeds duidelijke uitleg. We zijn zeer tevreden over de persoonlijke en professionele begeleiding en kunnen Fred en Finect Financials van harte aanbevelen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">RP</span><span class="fx-ct__wie"><b>Robert Van de Pol</b>Google, 5 sterren &middot; 3 weken geleden</span></figcaption>
           </figure>
           <figure class="fx-ct__quote">
-            <blockquote>&ldquo;[Tweede review.]&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">VB</span><span class="fx-ct__wie"><b>Voorbeeldtekst</b>nog te vervangen</span></figcaption>
+            <blockquote>&ldquo;Fred heeft de verzekeringen voor onze VVE uitgezocht, we hebben nu een completere verzekering dan we hadden, voor minder geld, top!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">MG</span><span class="fx-ct__wie"><b>Marcel de Graaf</b>Google, 5 sterren</span></figcaption>
           </figure>
           <figure class="fx-ct__quote">
-            <blockquote>&ldquo;[Derde review.]&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">VB</span><span class="fx-ct__wie"><b>Voorbeeldtekst</b>nog te vervangen</span></figcaption>
+            <blockquote>&ldquo;Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">FS</span><span class="fx-ct__wie"><b>Fleur Set</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Ik ben bij Finect terechtgekomen voor mijn autoverzekering en ik ben zelden zo goed geholpen als hier. Geen standaard verkooppraatjes, maar oprechte interesse in wat ik nodig had en wat het beste bij mijn situatie paste.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">RO</span><span class="fx-ct__wie"><b>Rob</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Fred heeft mij en mijn ouders heel goed geholpen met de schadeafhandeling van de zakelijke bus. Heel vriendelijk en zeer behulpzaam.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">TP</span><span class="fx-ct__wie"><b>Tony Pham</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Fred heeft verstand van zaken, houdt contact met je en denkt echt met je mee. Heel blij mee!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">KD</span><span class="fx-ct__wie"><b>Kyra Demmer</b>Beautysalon Belissima &middot; Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Zowel voor mijn priv&eacute; situatie als risico&rsquo;s als ondernemer goed objectief advies van Finect/Fred gekregen.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">MH</span><span class="fx-ct__wie"><b>Marita Ten Hoven</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Ik ben zeer tevreden over de service van Finect. Fred is deskundig, meedenkend en weet zaken helder uit te leggen. Wat het extra prettig maakt, is dat hij goed bereikbaar is en snel reageert op vragen. Een betrouwbare adviseur waar je op kunt rekenen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">LS</span><span class="fx-ct__wie"><b>Lars Stevens</b>Google, 5 sterren</span></figcaption>
           </figure>
         </div>
         <ul class="fx-ct__dots" id="fxCtDots"></ul>
       </div>
     </div>
   </section></div></div>
+
+  <!-- contactformulier -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec" id="formulier">
+    <div class="fx-ct__form-in">
+      <div>
+        <p class="fx-ct__sub">Formulier</p>
+        <h2>Liever typen dan bellen?</h2>
+        <p>Vul hieronder in wat er speelt. Ik lees het en neem contact met u op &mdash; meestal binnen &eacute;&eacute;n werkdag.</p>
+        <p style="font-size:14.5px;color:#8a8a8e;">Uw gegevens gebruik ik alleen om uw vraag te beantwoorden. Ik deel ze met niemand.</p>
+        <div class="fx-ct__kaart">
+          <p class="fx-ct__kaart-kop">Liever direct contact?</p>
+          <p><a href="tel:+31630679790">06 30 67 97 90</a><br><a href="mailto:info@finect.nl">info@finect.nl</a></p>
+          <p class="fx-ct__kaart-klein">Vlijtseweg 16, 7317 AH Apeldoorn<br>maandag t/m vrijdag 09:00&ndash;17:30</p>
+        </div>
+      </div>
+      <form class="fx-ct__form" id="fxForm" novalidate>
+        <label><span class="fx-ct__lab">Uw naam</span>
+          <input type="text" name="naam" required autocomplete="name">
+        </label>
+        <label><span class="fx-ct__lab">E-mailadres</span>
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label><span class="fx-ct__lab">Telefoonnummer <i>(optioneel)</i></span>
+          <input type="tel" name="telefoon" autocomplete="tel">
+        </label>
+        <label><span class="fx-ct__lab">Waar gaat het over?</span>
+          <select name="onderwerp">
+            <option>Mijn verzekeringen laten doorlichten</option>
+            <option>Een AOV als zzp&rsquo;er</option>
+            <option>Een hypotheek: kopen of oversluiten</option>
+            <option>Zakelijke verzekeringen</option>
+            <option>Iets anders</option>
+          </select>
+        </label>
+        <label><span class="fx-ct__lab">Uw vraag</span>
+          <textarea name="bericht" rows="6" required></textarea>
+        </label>
+        <button type="submit" class="fx-ct__btn fx-ct__btn--m">Verstuur</button>
+        <p class="fx-ct__melding" id="fxMelding" role="status"></p>
+      </form>
+    </div>
+  </section></div>
 
   <!-- slot -->
   <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec" style="text-align:center;">
@@ -657,13 +786,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </section></div></div>
 
   <div class="fx-ct__wrap"><div class="fx-ct__todo">
-    <b>Nog door u in te vullen</b>
+    <b>Nog even checken</b>
     <ul>
-      <li>De <strong>openingstijden</strong> die er nu staan zijn een voorbeeld &mdash; klopt maandag t/m vrijdag 09:00&ndash;17:30?</li>
-      <li>Haalt u <strong>antwoord binnen &eacute;&eacute;n werkdag</strong>? Beloof niets wat u niet waarmaakt.</li>
-      <li>Klopt <strong>&ldquo;meestal binnen een week&rdquo;</strong> voor een eerste afspraak?</li>
-      <li>De <strong>plaatsnamen</strong>: alleen waar u werkelijk komt.</li>
-      <li>Drie <strong>echte reviews</strong> uit uw Google-profiel om de voorbeeldteksten te vervangen.</li>
+      <li>Er staan nu <strong>acht echte reviews</strong> in de carrousel. Bij <strong>Fleur Set</strong> en <strong>Rob</strong> heb ik ingekort (middenstuk weggelaten) &mdash; de rest staat woordelijk zoals op Google.</li>
+      <li>Klopt <strong>&ldquo;5,0 uit 16 beoordelingen&rdquo;</strong> nog? Als het er inmiddels meer zijn, pas ik het aantal aan.</li>
+      <li>Het <strong>formulier</strong> onderaan opent nu uw mailprogramma met alles al ingevuld. Wilt u dat het zelf verstuurt, dan zet ik er een formulierdienst achter.</li>
     </ul>
   </div></div>
 
