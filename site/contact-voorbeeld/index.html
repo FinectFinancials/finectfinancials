@@ -220,9 +220,12 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 @media (min-width:660px){.fx-ct__route .fx-ct__klein{display:block;min-height:4.8em;}}
 
 /* gegevens */
-.fx-ct__geg{display:grid;gap:34px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
-.fx-ct__geg h3{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
-.fx-ct__geg p{font-size:15px;line-height:1.9;font-variant-numeric:tabular-nums;}
+.fx-ct__reg{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;
+            padding:26px 0;border-top:1px solid var(--lijn);border-bottom:1px solid var(--lijn);}
+.fx-ct__reg span{font-size:15px;line-height:1.6;color:var(--grijs);font-variant-numeric:tabular-nums;
+            white-space:nowrap;}
+.fx-ct__reg b{font-weight:700;color:var(--navy);}
+@media (max-width:600px){.fx-ct__reg{justify-content:flex-start;gap:10px 22px;padding:22px 0;}}
 
 /* faq */
 .fx-ct__faq{display:grid;gap:50px;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:start;}
@@ -762,28 +765,14 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </div>
   </section></div></div>
 
-  <!-- gegevens -->
-  <div class="fx-ct__wrap"><section class="fx-ct__sec">
-    <h2 style="margin-bottom:36px;">Gegevens</h2>
-    <div class="fx-ct__geg">
-      <div>
-        <h3>Adres</h3>
-        <p>Finect Financials<br>Vlijtseweg 16<br>7317 AH Apeldoorn</p>
-      </div>
-      <div>
-        <h3>Bereikbaar</h3>
-        <p><a href="tel:+31630679790">06 30 67 97 90</a><br><a href="mailto:info@finect.nl">info@finect.nl</a><br>maandag t/m vrijdag 09:00 tot 17:30</p>
-      </div>
-      <div>
-        <h3>Registraties</h3>
-        <p>KvK 62201735<br>AFM 12047700<br>Kifid 300.017906</p>
-      </div>
-      <div>
-        <h3>Goed om te weten</h3>
-        <p>Certified Financial Planner<br>Onafhankelijk sinds 2015<br><a href="../vergelijkingskaarten/">Wat advies kost</a></p>
-      </div>
-    </div>
-  </section></div>
+  <!-- registraties -->
+  <div class="fx-ct__wrap"><div class="fx-ct__reg">
+    <span><b>Onafhankelijk</b> sinds 2015</span>
+    <span><b>Certified</b> Financial Planner</span>
+    <span><b>AFM</b> 12047700</span>
+    <span><b>Kifid</b> 300.017906</span>
+    <span><b>KvK</b> 62201735</span>
+  </div></div>
 
   <!-- klantervaringen -->
   <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec">
