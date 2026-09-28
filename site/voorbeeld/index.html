@@ -217,6 +217,10 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 
 /* gegevens */
 .fx-ct__shot[style*="aspect-ratio:auto"] img{border-radius:3px;height:auto;}
+.fx-ct__punt{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
+.fx-ct__punt li{position:relative;padding-left:28px;margin:0;font-size:16px;line-height:1.6;}
+.fx-ct__punt li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;
+  border-right:2px solid var(--mag);border-bottom:2px solid var(--mag);transform:rotate(45deg);}
 .fx-ct__reg{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;
             padding:26px 0;border-top:1px solid var(--lijn);border-bottom:1px solid var(--lijn);}
 .fx-ct__reg span{font-size:15px;line-height:1.6;color:var(--grijs);font-variant-numeric:tabular-nums;
@@ -399,6 +403,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 })();
 </script>
 <meta name="robots" content="noindex, nofollow">
+<script type="application/ld+json" id="fx-bedrijfsgegevens">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://finect.nl/#organisatie","name":"Finect Financials","description":"Onafhankelijk advies over verzekeringen en hypotheken in Apeldoorn.","url":"https://finect.nl/","logo":"https://finect.nl/wp-content/uploads/2020/04/finect-financials-logo-retina.png","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressRegion":"Gelderland","addressCountry":"NL"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:30"}],"areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Ugchelen"},{"@type":"City","name":"Beekbergen"},{"@type":"City","name":"Loenen"},{"@type":"City","name":"Klarenbeek"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Vaassen"}],"knowsLanguage":"nl-NL","identifier":[{"@type":"PropertyValue","name":"KvK","value":"62201735"},{"@type":"PropertyValue","name":"AFM-vergunning","value":"12047700"},{"@type":"PropertyValue","name":"Kifid","value":"300.017906"}],"founder":{"@type":"Person","name":"Fred Koeling","jobTitle":"Certified Financial Planner"},"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/"]}</script>
+<script type="application/ld+json" id="fx-persoon">{"@context":"https://schema.org","@type":"Person","@id":"https://finect.nl/over-finect/#fred","name":"Fred Koeling","givenName":"Fred","familyName":"Koeling","jobTitle":"Certified Financial Planner","description":"Onafhankelijk financieel adviseur in Apeldoorn. Gespecialiseerd in verzekeringen voor particulieren en ondernemers, en in hypotheken.","url":"https://finect.nl/over-finect/","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","worksFor":{"@id":"https://finect.nl/#organisatie"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressCountry":"NL"}},"knowsAbout":["Verzekeringen","Zakelijke verzekeringen","Arbeidsongeschiktheidsverzekering","Hypotheken","Financiele planning"],"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/"]}</script>
 </head>
 
 <body data-rsssl=1 class="wp-singular page-template-default page page-id-31 wp-theme-zikzag elementor-default elementor-kit-1 elementor-page elementor-page-31"><div style="position:sticky;top:0;z-index:99999;background:#14212b;color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.5;padding:12px 20px;text-align:center;"><strong>VOORBEELDPAGINA.</strong> Dit is geen onderdeel van de site. De echte pagina staat op <a href="/over-finect/" style="color:#fff;">finect.nl/over-finect/</a></div>
@@ -472,7 +478,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 							<div class="elementor-widget-wrap">
 						<div class="elementor-element elementor-element-94b3af5 elementor-widget__width-auto elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-wgl-header-search" data-id="94b3af5" data-element_type="widget" data-widget_type="wgl-header-search.default">
 				<div class="elementor-widget-container">
-			<div class="header_search search_alt"><div class="wgl-search elementor-search header_search-button-wrapper" role="button"><div class="header_search-button flaticon-search"></div><div class="header_search-close"></div></div><div class="header_search-field"><div class="header_search-wrap"><div class="zikzag_module_double_headings aleft"><h3 class="header_search-heading_description heading_title">Type To Search</h3></div><div class="header_search-close"></div></div><form role="search" method="get" action="../index.html" class="search-form">
+			<div class="header_search search_alt"><div class="wgl-search elementor-search header_search-button-wrapper" role="button"><div class="header_search-button flaticon-search"></div><div class="header_search-close"></div></div><div class="header_search-field"><div class="header_search-wrap"><div class="zikzag_module_double_headings aleft"><p class="header_search-heading_description heading_title">Type To Search</p></div><div class="header_search-close"></div></div><form role="search" method="get" action="../index.html" class="search-form">
     <input required type="text" id="search-form-6ab39e83f3c71" class="search-field" placeholder="Search &hellip;" value="" name="s" />
     <input class="search-button" type="submit" value="Search">
     <i class="search__icon flaticon-search-3"></i>
@@ -561,7 +567,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 							<div class="elementor-widget-wrap">
 						<div class="elementor-element elementor-element-94b3af5 elementor-widget__width-auto elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-wgl-header-search" data-id="94b3af5" data-element_type="widget" data-widget_type="wgl-header-search.default">
 				<div class="elementor-widget-container">
-			<div class="header_search search_alt"><div class="wgl-search elementor-search header_search-button-wrapper" role="button"><div class="header_search-button flaticon-search"></div><div class="header_search-close"></div></div><div class="header_search-field"><div class="header_search-wrap"><div class="zikzag_module_double_headings aleft"><h3 class="header_search-heading_description heading_title">Type To Search</h3></div><div class="header_search-close"></div></div><form role="search" method="get" action="../index.html" class="search-form">
+			<div class="header_search search_alt"><div class="wgl-search elementor-search header_search-button-wrapper" role="button"><div class="header_search-button flaticon-search"></div><div class="header_search-close"></div></div><div class="header_search-field"><div class="header_search-wrap"><div class="zikzag_module_double_headings aleft"><p class="header_search-heading_description heading_title">Type To Search</p></div><div class="header_search-close"></div></div><form role="search" method="get" action="../index.html" class="search-form">
     <input required type="text" id="search-form-6ab39e840945b" class="search-field" placeholder="Search &hellip;" value="" name="s" />
     <input class="search-button" type="submit" value="Search">
     <i class="search__icon flaticon-search-3"></i>
@@ -586,7 +592,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 											<img class="logo-mobile" src="../wp-content/uploads/2020/04/finect-financials-logo-retina.png" alt=""  style="height:53px;">
 										</a>
 			</div>
-			</div></div><div class='header_side display_grow v_align_middle h_align_right'><div class='header_area_container'><div class="header_search search_alt" style="height: 100px;"><div class="wgl-search elementor-search header_search-button-wrapper" role="button" id="zikzag_search_6ab39e840c581"><div class="header_search-button flaticon-search-3"></div><div class="header_search-close"></div></div><div class="header_search-field"><div class="header_search-wrap"><div class="zikzag_module_double_headings aleft"><h3 class="header_search-heading_description heading_title">Type To Search</h3></div><div class="header_search-close"></div></div><form role="search" method="get" action="../index.html" class="search-form">
+			</div></div><div class='header_side display_grow v_align_middle h_align_right'><div class='header_area_container'><div class="header_search search_alt" style="height: 100px;"><div class="wgl-search elementor-search header_search-button-wrapper" role="button" id="zikzag_search_6ab39e840c581"><div class="header_search-button flaticon-search-3"></div><div class="header_search-close"></div></div><div class="header_search-field"><div class="header_search-wrap"><div class="zikzag_module_double_headings aleft"><p class="header_search-heading_description heading_title">Type To Search</p></div><div class="header_search-close"></div></div><form role="search" method="get" action="../index.html" class="search-form">
     <input required type="text" id="search-form-6ab39e840c5f3" class="search-field" placeholder="Search &hellip;" value="" name="s" />
     <input class="search-button" type="submit" value="Search">
     <i class="search__icon flaticon-search-3"></i>
@@ -604,7 +610,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div>
       <p class="fx-ct__sub">Over Finect Financials</p>
       <h2 class="fx-ct__ttl">E&eacute;n adviseur, van het eerste gesprek tot de handtekening</h2>
-      <p class="fx-ct__lead">Ik ben Fred Koeling. Bij Finect Financials krijgt u geen dossiernummer en geen wisselende contactpersoon. U spreekt mij, en ik blijf uw aanspreekpunt zolang u klant bent.</p>
+      <p class="fx-ct__lead">Ik ben Fred Koeling. Ik regel verzekeringen voor particulieren en ondernemers, en daarnaast hypotheken. Bij Finect Financials krijgt u geen dossiernummer en geen wisselende contactpersoon. U spreekt mij, en ik blijf uw aanspreekpunt zolang u klant bent.</p>
       <div class="fx-ct__btns">
         <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
         <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Neem contact op</a>
@@ -625,6 +631,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <h2>Ruim twintig jaar in het vak, sinds 2015 voor mezelf</h2>
       <p>Ik heb ruim 22 jaar in de financi&euml;le sector gewerkt, bij grootbanken, verzekeraars en vermogensbeheerders. Daar heb ik van dichtbij gezien hoe advies tot stand komt als er verkoopdoelen achter zitten.</p>
       <p>In 2015 ben ik Finect Financials begonnen, in Apeldoorn. Zonder keten erboven, zonder aanbieder die meekijkt. Daardoor kan ik gewoon zeggen wat ik ergens van vind, ook als het antwoord is dat u niets hoeft te veranderen.</p>
+      <p>Het grootste deel van mijn werk gaat over <strong>verzekeringen</strong>: polissen doorlichten, dekkingen die niet meer kloppen, en ondernemers die willen weten waar hun bedrijf op stilvalt als er iets misgaat. Een hypotheek komt daar vaak bij, maar het begint meestal bij het risico en niet bij de lening.</p>
       <p>Ik ben <strong>Certified Financial Planner</strong>. Dat is de zwaarste titel in dit vak en die moet ieder jaar opnieuw worden onderhouden met verplichte bijscholing. U kunt mijn vergunning nakijken in het register van de AFM onder nummer 12047700.</p>
     </div>
   </section></div></div>
@@ -679,7 +686,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div>
       <p class="fx-ct__sub">Onderwerpen</p>
       <h2>Waarmee kunt u bij mij terecht</h2>
-      <p style="margin-bottom:26px;">Particulier en zakelijk, en vaak allebei tegelijk. Op deze pagina&rsquo;s staat per onderwerp wat ik doe en wat het kost.</p>
+      <p style="margin-bottom:26px;">Particulier en zakelijk, en bij ondernemers vaak allebei tegelijk. Wie een zaak heeft, heeft thuis ook iets te regelen, en andersom. Op deze pagina&rsquo;s staat per onderwerp wat ik doe en wat het kost.</p>
       <ul class="fx-ct__lijst">
         <li><a href="../verzekeringen/"><b>Verzekeringen</b><span>Uw polissen doorlichten en opnieuw regelen</span></a></li>
         <li><a href="../hypotheken/"><b>Hypotheken</b><span>Kopen, oversluiten of een aflopende rentevaste periode</span></a></li>
@@ -693,6 +700,28 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <img src="../wp-content/uploads/2022/04/vz.jpg" alt="Overzicht van verzekeringen voor auto, woning en gezin" width="916" height="614" loading="lazy" decoding="async">
     </div>
   </section></div>
+
+  <!-- ondernemers -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
+    <div class="fx-ct__ond-beeld">
+      <img src="../wp-content/uploads/2023/02/Knipsel-5-002.jpg" alt="Ondernemer met bouwtekening voor een woning in aanbouw" width="939" height="605" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <p class="fx-ct__sub">Ondernemers</p>
+      <h2>Weten waar uw bedrijf op stilvalt</h2>
+      <p>Een groot deel van mijn klanten heeft een zaak. Een installateur, een salon, een transportbedrijf, een VVE. Bij hen begint het gesprek zelden bij een polis en bijna altijd bij dezelfde vraag: wat gebeurt er met de omzet als het misgaat.</p>
+      <p style="margin-bottom:24px;">Daar loop ik uw bedrijf voor langs. Niet met een standaardpakket, maar met wat er in uw geval werkelijk stil kan komen te liggen.</p>
+      <ul class="fx-ct__punt">
+        <li>Aansprakelijkheid tegenover klanten en derden</li>
+        <li>Gebouw, inventaris, voorraad en materieel</li>
+        <li>Bedrijfsschade als u tijdelijk niet kunt draaien</li>
+        <li>Wagenpark, van &eacute;&eacute;n bus tot een hele vloot</li>
+        <li>Personeel, verzuim en een collectieve regeling</li>
+        <li>Een <a href="../arbeidsongeschiktheidsverzekeringen-aov/">AOV</a> voor uzelf als zzp&rsquo;er</li>
+      </ul>
+      <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../zakelijk/">Naar zakelijke verzekeringen</a></p>
+    </div>
+  </section></div></div>
 
   <!-- registraties -->
   <div class="fx-ct__wrap"><div class="fx-ct__reg">
