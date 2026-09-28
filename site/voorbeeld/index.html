@@ -217,6 +217,7 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 
 /* gegevens */
 .fx-ct__shot[style*="aspect-ratio:auto"] img{border-radius:3px;height:auto;}
+.fx-ct__stap--breed{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:34px;margin-top:0;}
 .fx-ct__punt{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
 .fx-ct__punt li{position:relative;padding-left:28px;margin:0;font-size:16px;line-height:1.6;}
 .fx-ct__punt li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;
@@ -609,8 +610,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
     <div>
       <p class="fx-ct__sub">Over Finect Financials</p>
-      <h2 class="fx-ct__ttl">E&eacute;n adviseur, van het eerste gesprek tot de handtekening</h2>
-      <p class="fx-ct__lead">Ik ben Fred Koeling. Ik regel verzekeringen voor particulieren en ondernemers, en daarnaast hypotheken. Bij Finect Financials krijgt u geen dossiernummer en geen wisselende contactpersoon. U spreekt mij, en ik blijf uw aanspreekpunt zolang u klant bent.</p>
+      <h2 class="fx-ct__ttl">Ik regel uw verzekeringen. Particulier en zakelijk.</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik werk sinds 2015 voor mezelf, vanuit Apeldoorn. U krijgt mij aan de lijn en u houdt mij als aanspreekpunt. Ook over vijf jaar nog.</p>
       <div class="fx-ct__btns">
         <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
         <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Neem contact op</a>
@@ -621,100 +622,64 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </div>
   </section></div>
 
-  <!-- verhaal -->
-  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
-    <div class="fx-ct__ond-beeld">
-      <img src="../wp-content/uploads/2021/01/onafhankelijk-advies-financieel-adviseur-1.jpg" alt="Adviesgesprek aan tafel bij Finect Financials in Apeldoorn" width="1200" height="800" loading="lazy" decoding="async">
-    </div>
-    <div>
-      <p class="fx-ct__sub">Achtergrond</p>
-      <h2>Ruim twintig jaar in het vak, sinds 2015 voor mezelf</h2>
-      <p>Ik heb ruim 22 jaar in de financi&euml;le sector gewerkt, bij grootbanken, verzekeraars en vermogensbeheerders. Daar heb ik van dichtbij gezien hoe advies tot stand komt als er verkoopdoelen achter zitten.</p>
-      <p>In 2015 ben ik Finect Financials begonnen, in Apeldoorn. Zonder keten erboven, zonder aanbieder die meekijkt. Daardoor kan ik gewoon zeggen wat ik ergens van vind, ook als het antwoord is dat u niets hoeft te veranderen.</p>
-      <p>Het grootste deel van mijn werk gaat over <strong>verzekeringen</strong>: polissen doorlichten, dekkingen die niet meer kloppen, en ondernemers die willen weten waar hun bedrijf op stilvalt als er iets misgaat. Een hypotheek komt daar vaak bij, maar het begint meestal bij het risico en niet bij de lening.</p>
-      <p>Ik ben <strong>Certified Financial Planner</strong>. Dat is de zwaarste titel in dit vak en die moet ieder jaar opnieuw worden onderhouden met verplichte bijscholing. U kunt mijn vergunning nakijken in het register van de AFM onder nummer 12047700.</p>
-    </div>
-  </section></div></div>
-
-  <!-- wat onafhankelijk betekent -->
-  <div class="fx-ct__wrap"><section class="fx-ct__sec">
-    <p class="fx-ct__sub">Onafhankelijk</p>
-    <h2>Wat dat woord hier precies betekent</h2>
-    <p style="margin-bottom:40px;max-width:70ch;">Iedereen in deze branche noemt zichzelf onafhankelijk. Daarom hieronder wat het bij mij concreet inhoudt.</p>
+  <!-- pijlers -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
     <div class="fx-ct__routes">
-
-      <div class="fx-ct__route">
-        <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <h3>Geen enkele binding</h3>
-        <p>Finect Financials is niet verbonden aan een bank, verzekeraar of franchiseketen. Niemand bepaalt welk product ik u mag voorleggen.</p>
-      </div>
-
-      <div class="fx-ct__route">
-        <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h12"/></svg></span>
-        <h3>Geen verkoopdoelstelling</h3>
-        <p>Er is geen maandtarget dat gehaald moet worden. Als uw huidige polis goed is, dan hoort u dat gewoon en houdt u hem.</p>
-      </div>
-
       <div class="fx-ct__route">
         <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-        <h3>Vooraf een vast bedrag</h3>
-        <p>U weet wat advies kost voordat we beginnen. Geen nacalculatie en geen verrassingen. Alle tarieven staan in de <a href="../vergelijkingskaarten/">vergelijkingskaarten</a>.</p>
+        <h3>22 jaar ervaring</h3>
+        <p>Ik heb ruim 22 jaar in het vak gewerkt. Eerst bij banken, verzekeraars en vermogensbeheerders. Sinds 2015 voor mezelf.</p>
       </div>
-
-    </div>
-  </section></div>
-
-  <!-- werkwijze -->
-  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
-    <div>
-      <p class="fx-ct__sub">Werkwijze</p>
-      <h2>Hoe een traject bij mij verloopt</h2>
-      <ol class="fx-ct__stap" style="margin-top:28px;">
-        <li><b>Kennismaken, gratis</b><span>Een half uur waarin u vertelt wat er speelt en ik zeg of ik iets voor u kan betekenen. Nergens aan verbonden.</span></li>
-        <li><b>Uw situatie in kaart</b><span>Inkomen, vaste lasten, wat er al geregeld is en wat er gebeurt als het tegenzit. Ik reken door in plaats van te gokken.</span></li>
-        <li><b>Voorstel met de keuzes erin</b><span>U krijgt niet &eacute;&eacute;n product maar de afweging erachter, zodat u zelf kunt beslissen.</span></li>
-        <li><b>Regelen en blijven volgen</b><span>Ik verzorg de aanvraag en het papierwerk. Daarna blijf ik uw aanspreekpunt, ook bij schade of als uw situatie verandert.</span></li>
-      </ol>
-    </div>
-    <div class="fx-ct__ond-beeld">
-      <img src="../wp-content/uploads/finect/sleutels-nieuwe-woning.jpg" alt="Sleutels in de voordeur van een nieuwe woning" width="1100" height="733" loading="lazy" decoding="async">
+      <div class="fx-ct__route">
+        <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <h3>Volledig onafhankelijk</h3>
+        <p>Geen bank, geen verzekeraar en geen keten boven mij. Ik vergelijk het hele aanbod. Mijn AFM-vergunning staat op nummer 12047700.</p>
+      </div>
+      <div class="fx-ct__route">
+        <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <h3>E&eacute;n vast gezicht</h3>
+        <p>U spreekt altijd dezelfde persoon. Bij het eerste gesprek, bij de aanvraag en jaren later bij een schade.</p>
+      </div>
     </div>
   </section></div></div>
 
-  <!-- waar u mee kunt komen -->
+  <!-- verzekeringen -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
     <div>
-      <p class="fx-ct__sub">Onderwerpen</p>
-      <h2>Waarmee kunt u bij mij terecht</h2>
-      <p style="margin-bottom:26px;">Particulier en zakelijk, en bij ondernemers vaak allebei tegelijk. Wie een zaak heeft, heeft thuis ook iets te regelen, en andersom. Op deze pagina&rsquo;s staat per onderwerp wat ik doe en wat het kost.</p>
-      <ul class="fx-ct__lijst">
-        <li><a href="../verzekeringen/"><b>Verzekeringen</b><span>Uw polissen doorlichten en opnieuw regelen</span></a></li>
-        <li><a href="../hypotheken/"><b>Hypotheken</b><span>Kopen, oversluiten of een aflopende rentevaste periode</span></a></li>
-        <li><a href="../zakelijk/"><b>Zakelijk</b><span>Aansprakelijkheid, inventaris, wagenpark en personeel</span></a></li>
-        <li><a href="../arbeidsongeschiktheidsverzekeringen-aov/"><b>AOV voor zzp&rsquo;ers</b><span>Wat er gebeurt als u langere tijd uitvalt</span></a></li>
-        <li><a href="../vergelijkingskaarten/"><b>Wat advies kost</b><span>De vergelijkingskaarten om te downloaden</span></a></li>
-        <li><a href="../contact/"><b>Contact opnemen</b><span>Bellen, mailen of een afspraak maken</span></a></li>
+      <p class="fx-ct__sub">Verzekeringen</p>
+      <h2>Het grootste deel van mijn werk</h2>
+      <p>Verzekeringen zijn mijn vak. Uw huis, uw auto, uw aansprakelijkheid, uw inkomen als u ziek wordt.</p>
+      <p>Veel mensen hebben polissen die tien jaar geleden zijn afgesloten. Sindsdien is er een kind bij gekomen, een verbouwing geweest of een baan veranderd. De polis is hetzelfde gebleven. Daar gaat het mis.</p>
+      <p style="margin-bottom:24px;">Ik licht uw pakket door en zeg u wat er te veel is, wat er te weinig is en wat er goed staat. Vaak levert dat premie op. Soms blijkt dat alles al klopt. Dat hoort u dan ook.</p>
+      <ul class="fx-ct__punt">
+        <li>Woonhuis, inboedel en aansprakelijkheid</li>
+        <li>Auto, motor, caravan en boot</li>
+        <li>Rechtsbijstand en reis</li>
+        <li>Overlijdensrisico en uitvaart</li>
+        <li>Arbeidsongeschiktheid en inkomen</li>
       </ul>
+      <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../verzekeringen/">Naar verzekeringen</a></p>
     </div>
     <div class="fx-ct__ond-beeld">
       <img src="../wp-content/uploads/2022/04/vz.jpg" alt="Overzicht van verzekeringen voor auto, woning en gezin" width="916" height="614" loading="lazy" decoding="async">
     </div>
   </section></div>
 
-  <!-- ondernemers -->
+  <!-- zakelijk -->
   <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
     <div class="fx-ct__ond-beeld">
       <img src="../wp-content/uploads/2023/02/Knipsel-5-002.jpg" alt="Ondernemer met bouwtekening voor een woning in aanbouw" width="939" height="605" loading="lazy" decoding="async">
     </div>
     <div>
-      <p class="fx-ct__sub">Ondernemers</p>
-      <h2>Weten waar uw bedrijf op stilvalt</h2>
-      <p>Een groot deel van mijn klanten heeft een zaak. Een installateur, een salon, een transportbedrijf, een VVE. Bij hen begint het gesprek zelden bij een polis en bijna altijd bij dezelfde vraag: wat gebeurt er met de omzet als het misgaat.</p>
-      <p style="margin-bottom:24px;">Daar loop ik uw bedrijf voor langs. Niet met een standaardpakket, maar met wat er in uw geval werkelijk stil kan komen te liggen.</p>
+      <p class="fx-ct__sub">Zakelijke verzekeringen</p>
+      <h2>Voor ondernemers in Apeldoorn en omstreken</h2>
+      <p>Een groot deel van mijn klanten heeft een zaak. Een installateur, een salon, een transportbedrijf, een VVE.</p>
+      <p>Bij hen stel ik altijd dezelfde vraag. Wat gebeurt er met uw omzet als het misgaat? Een brand in de werkplaats, een bestelbus total loss, een klant die u aansprakelijk stelt. Of u zelf, drie maanden uit de running.</p>
+      <p style="margin-bottom:24px;">Ik loop uw bedrijf langs en reken door wat elk scenario u kost. Daarna kijken we welke risico&rsquo;s u zelf kunt dragen en welke u beter verzekert.</p>
       <ul class="fx-ct__punt">
         <li>Aansprakelijkheid tegenover klanten en derden</li>
         <li>Gebouw, inventaris, voorraad en materieel</li>
-        <li>Bedrijfsschade als u tijdelijk niet kunt draaien</li>
+        <li>Bedrijfsschade als u tijdelijk stilligt</li>
         <li>Wagenpark, van &eacute;&eacute;n bus tot een hele vloot</li>
         <li>Personeel, verzuim en een collectieve regeling</li>
         <li>Een <a href="../arbeidsongeschiktheidsverzekeringen-aov/">AOV</a> voor uzelf als zzp&rsquo;er</li>
@@ -722,6 +687,47 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../zakelijk/">Naar zakelijke verzekeringen</a></p>
     </div>
   </section></div></div>
+
+  <!-- hypotheken -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
+    <div>
+      <p class="fx-ct__sub">Hypotheken</p>
+      <h2>En als u een huis koopt, regel ik dat erbij</h2>
+      <p>Ik doe ook hypotheken. Voor starters, voor doorstromers en voor mensen met een rentevaste periode die afloopt.</p>
+      <p style="margin-bottom:22px;">Het voordeel als u alles bij mij heeft: uw overlijdensrisicoverzekering, uw woonhuisverzekering en uw hypotheek komen bij dezelfde persoon vandaan. Niemand die naar de ander wijst.</p>
+      <p><a class="fx-ct__btn fx-ct__btn--o" href="../hypotheken/">Naar hypotheken</a></p>
+    </div>
+    <div class="fx-ct__ond-beeld">
+      <img src="../wp-content/uploads/finect/sleutels-nieuwe-woning.jpg" alt="Sleutels in de voordeur van een nieuwe woning" width="1100" height="733" loading="lazy" decoding="async">
+    </div>
+  </section></div>
+
+  <!-- achtergrond -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__ond">
+    <div class="fx-ct__ond-beeld">
+      <img src="../wp-content/uploads/2021/01/onafhankelijk-advies-financieel-adviseur-1.jpg" alt="Adviesgesprek aan tafel bij Finect Financials in Apeldoorn" width="1200" height="800" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <p class="fx-ct__sub">Achtergrond</p>
+      <h2>Waarom ik voor mezelf ben begonnen</h2>
+      <p>Ik heb ruim 22 jaar bij banken, verzekeraars en vermogensbeheerders gewerkt. Daar leerde ik het vak. Ik zag ook hoe het werkt als er targets zijn.</p>
+      <p>In 2015 ben ik Finect Financials gestart. Er zit niemand boven mij. Ik kan dus gewoon zeggen wat ik ergens van vind, ook als dat betekent dat u niets hoeft te doen.</p>
+      <p>Ik ben Certified Financial Planner. Dat is de zwaarste titel in dit vak. Ieder jaar opnieuw bijscholen, anders raakt u hem kwijt.</p>
+    </div>
+  </section></div></div>
+
+  <!-- werkwijze -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <p class="fx-ct__sub">Werkwijze</p>
+    <h2>Hoe het gaat als u belt</h2>
+    <p style="margin-bottom:38px;max-width:66ch;">Vier stappen. De eerste kost u niets.</p>
+    <ol class="fx-ct__stap fx-ct__stap--breed">
+      <li><b>Kennismaken</b><span>Een half uur. U vertelt wat er speelt, ik zeg of ik iets voor u kan doen. Gratis en vrijblijvend.</span></li>
+      <li><b>Uw situatie in kaart</b><span>Wat er al geregeld is, wat het kost en wat er gebeurt als het tegenzit. Ik reken het door.</span></li>
+      <li><b>Voorstel</b><span>U krijgt de keuzes op een rij met de bedragen erbij. U beslist zelf.</span></li>
+      <li><b>Regelen en bijhouden</b><span>Ik verzorg de aanvraag. Daarna blijf ik uw aanspreekpunt, ook bij schade.</span></li>
+    </ol>
+  </section></div>
 
   <!-- registraties -->
   <div class="fx-ct__wrap"><div class="fx-ct__reg">
@@ -792,8 +798,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero" style="padding-bottom:20px;">
     <div>
       <p class="fx-ct__sub">Kennismaken</p>
-      <h2>Even kijken of het klikt</h2>
-      <p class="fx-ct__lead">Het eerste gesprek kost u niets en verplicht u tot niets. U hoort wat er in uw situatie mogelijk is en wat het kost, voordat u ergens aan vastzit.</p>
+      <h2>Bel gerust even</h2>
+      <p class="fx-ct__lead">Het eerste gesprek kost u niets. U hoort wat er mogelijk is en wat het kost. Daarna beslist u.</p>
       <div class="fx-ct__btns">
         <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
         <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Stuur een bericht</a>
@@ -807,11 +813,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><div class="fx-ct__todo">
     <b>Nog door u in te vullen</b>
     <ul>
-      <li>De huidige pagina zegt <strong>&ldquo;ruim 22 jaar kennis en ervaring&rdquo;</strong>. Klopt dat nog, of zijn het er inmiddels meer?</li>
-      <li>Ik schrijf dat u bij <strong>grootbanken, verzekeraars en vermogensbeheerders</strong> heeft gewerkt, want dat stond er al. Mag ik namen noemen? Dat is veel overtuigender dan de categorie.</li>
-      <li>Ik heb uw <strong>reden om voor uzelf te beginnen</strong> voorzichtig geformuleerd. Vertelt u mij hoe het echt zat, dan wordt dit het sterkste stuk van de pagina.</li>
-      <li>Heeft u nog <strong>andere diploma&rsquo;s of titels</strong> naast Certified Financial Planner?</li>
-      <li>Werkt u echt helemaal <strong>alleen</strong>, of is er iemand voor administratie of achtervang?</li>
+      <li><strong>Bij welke banken en verzekeraars heeft u gewerkt?</strong> Namen zijn veel sterker dan de categorie. De Hypotheker noemt overal getallen en namen, daar zit hun overtuigingskracht.</li>
+      <li><strong>Waarom bent u in 2015 voor uzelf begonnen?</strong> Ik heb er nu iets neutraals neergezet over targets. Uw echte reden is het enige op deze pagina dat een keten niet kan kopi&euml;ren.</li>
+      <li>Klopt <strong>ruim 22 jaar</strong> nog?</li>
+      <li>Het lijstje bij <strong>Verzekeringen</strong> heb ik zelf ingevuld. Klopt dat, en mist er iets?</li>
+      <li>Ik schrijf overal <strong>u</strong>. De Hypotheker schrijft consequent <strong>je</strong>. Wilt u dat ook, dan pas ik de hele site aan.</li>
     </ul>
   </div></div>
 
