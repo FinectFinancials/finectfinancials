@@ -220,8 +220,8 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 .fx-ct__stap--breed{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:34px;margin-top:0;}
 .fx-ct__punt{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
 .fx-ct__punt li{position:relative;padding-left:28px;margin:0;font-size:16px;line-height:1.6;}
-.fx-ct__punt li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;
-  border-right:2px solid var(--mag);border-bottom:2px solid var(--mag);transform:rotate(45deg);}
+.fx-ct__punt li::before{content:"";position:absolute;left:3px;top:9px;width:7px;height:7px;
+  border-right:2px solid var(--mag);border-bottom:2px solid var(--mag);transform:rotate(-45deg);}
 .fx-ct__reg{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;
             padding:26px 0;border-top:1px solid var(--lijn);border-bottom:1px solid var(--lijn);}
 .fx-ct__reg span{font-size:15px;line-height:1.6;color:var(--grijs);font-variant-numeric:tabular-nums;
@@ -333,9 +333,10 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 .page-header_content .page-header_title.fx-ct__h1{font-size:30px !important;line-height:38px !important;}}
 
 /* onderwerpen */
-.fx-ct__ond{display:grid;gap:56px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;}
-.fx-ct__ond-beeld{order:2;}
-.fx-ct__ond-beeld img{display:block;width:100%;height:auto;border-radius:3px;}
+.fx-ct__ond{display:grid;gap:56px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch;}
+.fx-ct__ond-beeld{order:2;display:flex;align-items:stretch;}
+.fx-ct__ond-beeld img{display:block;width:100%;height:100%;max-height:520px;min-height:330px;
+                      object-fit:cover;object-position:50% 45%;border-radius:3px;}
 .fx-ct__lijst{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
 .fx-ct__lijst li{margin:0;padding:0;}
 .fx-ct__lijst a{display:flex;flex-direction:column;gap:3px;padding:15px 44px 15px 0;position:relative;
@@ -355,6 +356,7 @@ body {font-family:Barlow;font-size:16px;line-height:1.875;font-weight:400;color:
 @media (max-width:900px){
   .fx-ct__ond{grid-template-columns:1fr;gap:34px;}
   .fx-ct__ond-beeld{order:2;}
+  .fx-ct__ond-beeld img{height:auto;max-height:none;min-height:0;object-fit:fill;}
 }
 </style>
 <style id="fx-focus-css">
