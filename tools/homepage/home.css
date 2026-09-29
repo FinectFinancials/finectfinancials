@@ -38,7 +38,43 @@
   display:grid;place-items:center;transition:background .2s ease;}
 .fx-ct a.fx-home__blok:hover .fx-home__pijl,.fx-ct a.fx-home__blok:focus .fx-home__pijl{background:rgba(255,255,255,.16);}
 
-/* dienstentegels */
+/* dienstentegels: kaart met foto; bij aanwijzen verdwijnt de foto en kleurt het icoon */
+.fx-home__kop{max-width:760px;margin:0 auto 76px;text-align:center;}
+.fx-ct .fx-home__kop > *{margin-left:auto;margin-right:auto;}
+.fx-home__kaarten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:76px 30px;}
+.fx-ct a.fx-home__dienst{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;
+  padding:0 40px 38px;border-radius:10px;color:#fff;text-decoration:none;box-shadow:6px 5px 30px rgba(0,0,0,.12);}
+.fx-home__dienst::before,.fx-home__dienst::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;
+  transition:opacity .5s ease;}
+.fx-home__dienst::before{background:linear-gradient(180deg,rgba(20,33,43,.62),rgba(20,33,43,.82)),
+  #14212b url({BEELD_DIENST}) 72% 50%/cover no-repeat;}
+.fx-home__dienst::after{background:#14212b;opacity:0;}
+.fx-ct a.fx-home__dienst:hover::before,.fx-ct a.fx-home__dienst:focus-visible::before{opacity:0;}
+.fx-ct a.fx-home__dienst:hover::after,.fx-ct a.fx-home__dienst:focus-visible::after{opacity:1;}
+.fx-home__dienst-ico{width:84px;height:84px;margin:-42px 0 30px;border-radius:50%;background:#fff;color:var(--mag);
+  display:grid;place-items:center;box-shadow:6px 5px 16px rgba(0,0,0,.15);transition:background .5s ease,color .5s ease;}
+.fx-home__dienst-ico svg{width:36px;height:36px;stroke-width:1.5;}
+.fx-ct a.fx-home__dienst:hover .fx-home__dienst-ico,.fx-ct a.fx-home__dienst:focus-visible .fx-home__dienst-ico{background:var(--mag);color:#fff;}
+.fx-ct .fx-home__dienst h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:30px;font-weight:400;line-height:1.2;
+  color:#fff;margin:0 0 14px;text-transform:none;}
+.fx-ct .fx-home__dienst p{font-size:16px;line-height:1.7;color:rgba(255,255,255,.9);margin:0 0 22px;}
+.fx-home__dienst-meer{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:700;
+  line-height:1.4;color:#fff;}
+.fx-home__dienst-meer::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(-45deg);transition:transform .3s ease;}
+.fx-ct a.fx-home__dienst:hover .fx-home__dienst-meer::after{transform:translateX(4px) rotate(-45deg);}
+@media (max-width:1024px){.fx-home__kaarten{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:640px){
+  .fx-home__kop{margin-bottom:64px;text-align:left;}
+  .fx-home__kaarten{grid-template-columns:1fr;gap:66px;}
+  .fx-ct a.fx-home__dienst{padding:0 26px 30px;}
+  .fx-ct .fx-home__dienst h3{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx-home__dienst::before,.fx-home__dienst::after,.fx-home__dienst-ico,.fx-home__dienst-meer::after{transition:none;}
+}
+
+/* losse tekstlink met pijl */
 .fx-ct a.fx-home__meer{display:inline-flex;align-items:center;gap:8px;margin-top:8px;min-height:44px;
   font-size:15px;font-weight:700;line-height:1.4;color:var(--mag);text-decoration:none;}
 .fx-ct a.fx-home__meer::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;
