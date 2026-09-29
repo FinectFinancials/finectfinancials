@@ -181,6 +181,12 @@ t = kleine_punten(t)
 t, aantallen = links_en_voettekst(t)
 print("links, index.html, grijs, galerij:", aantallen)
 
+# ---------- de echte homepage staat in de hoofdmap: paden een map minder diep ----------
+if DST == 'site/index.html':
+    t = t.replace('href="../"', 'href="./"').replace("href='../'", "href='./'")
+    t = t.replace('../', '')
+    assert '../' not in t
+
 os.makedirs(os.path.dirname(DST), exist_ok=True)
 io.open(DST, 'w', encoding='utf-8').write(t)
 print('geschreven:', DST, len(t), 'tekens')
