@@ -131,6 +131,29 @@ def kleine_punten(t):
     return t
 
 
+def links_en_voettekst(t):
+    """punten 1, 2, 3 en 6 uit de derde SEO-analyse"""
+    # 1. interne links naar een pagina eindigen op een slash; zonder slash
+    #    stuurt GitHub Pages eerst door (301)
+    t, n1 = re.subn(r'''href=(["'])((?:\.\./)+)([a-z0-9-]+(?:/[a-z0-9-]+)*)\1''',
+                    lambda m: 'href=' + m.group(1) + m.group(2) + m.group(3) + '/' + m.group(1), t)
+    # 2. de homepage heeft één adres: niet index.html
+    t, n2 = re.subn(r'''href=(["'])((?:\.\./)*)index\.html\1''',
+                    lambda m: 'href=' + m.group(1) + (m.group(2) or './') + m.group(1), t)
+    # 3. de onderste regel van de voettekst donkerder grijs (contrast 4,7 en 4,8)
+    t, n3 = re.subn(r'color: #808080;', 'color: #737373;', t)
+    t = t.replace('</head>', '<style id="fx-voet2-css">.elementor-element-c12419b .elementor-text-editor p'
+                  '{color:#6b737a;}</style>\n</head>', 1)
+    # 6. WordPress-galerij in de voettekst: een lijst zonder omschrijving is
+    #    ongeldige code; gewone blokken met dezelfde klassen
+    t, n6 = re.subn(r"<dl class='gallery-item'>(\s*)<dt class='([^']*)'>(.*?)</dt></dl>",
+                    r"<div class='gallery-item'>\1<div class='\2'>\3</div></div>", t, flags=re.S)
+    # de copyrightlink opende de homepage in een nieuw tabblad
+    t = t.replace('Copyright <a href="../" rel="noopener noreferrer" target="_blank">',
+                  'Copyright <a href="../">')
+    return t, (n1, n2, n3, n6)
+
+
 def opruimen(t, groepen=None, uitstellen=True):
     verslag = {}
     for g in (groepen or GROEPEN):
