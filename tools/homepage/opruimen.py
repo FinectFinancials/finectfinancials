@@ -113,6 +113,24 @@ def zoeken_weg(t):
     return t, n
 
 
+def kleine_punten(t):
+    """drie kleine verbeteringen uit de SEO-analyse"""
+    # 1. inzoomen weer toestaan (het thema blokkeerde het met maximum-scale=1)
+    oud = '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">'
+    assert t.count(oud) == 1
+    t = t.replace(oud, '<meta name="viewport" content="width=device-width, initial-scale=1">')
+    # 2. postcode overal op dezelfde manier, zoals bij de KvK: met spatie
+    t = t.replace('7317AH Apeldoorn', '7317 AH Apeldoorn')
+    # 3. het telefoonnummer in de voettekst is geen kopje; zelfde uiterlijk als eerst
+    oud = '<h3 class="wgl-infobox_title">+31 6 30 67 97 90</h3>'
+    if oud in t:
+        t = t.replace(oud, '<p class="wgl-infobox_title fx-voet-tel">+31 6 30 67 97 90</p>')
+        t = t.replace('</head>', '<style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;'
+                      'font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;'
+                      'letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>\n</head>', 1)
+    return t
+
+
 def opruimen(t, groepen=None, uitstellen=True):
     verslag = {}
     for g in (groepen or GROEPEN):
