@@ -396,7 +396,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-home__dienst::before,.fx-home__dienst::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;
   transition:opacity .5s ease;}
 .fx-home__dienst::before{background:linear-gradient(180deg,rgba(20,33,43,.62),rgba(20,33,43,.82)),
-  #14212b url(../wp-content/uploads/finect/diensten-handtekening.jpg) 72% 50%/cover no-repeat;}
+  #14212b var(--foto,none) var(--pos,50% 50%)/cover no-repeat;}
 .fx-home__dienst::after{background:#14212b;opacity:0;}
 .fx-ct a.fx-home__dienst:hover::before,.fx-ct a.fx-home__dienst:focus-visible::before{opacity:0;}
 .fx-ct a.fx-home__dienst:hover::after,.fx-ct a.fx-home__dienst:focus-visible::after{opacity:1;}
@@ -718,43 +718,52 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <p>Ik regel verzekeringen voor particulieren en ondernemers in Apeldoorn en omgeving, en ook hypotheken. Mijn advies is altijd 100% onafhankelijk. U staat centraal.</p>
     </div>
     <div class="fx-home__kaarten">
-      <a class="fx-home__dienst" href="../verzekeringen/">
+      <a class="fx-home__dienst" href="../verzekeringen/" data-foto="../wp-content/uploads/finect/dienst-verzekeringen.jpg" style="--pos:50% 40%">
         <span class="fx-home__dienst-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
         <h3>Verzekeringen</h3>
         <p>Wanneer bent u goed verzekerd tegen schade en risico&rsquo;s? Premies en polisvoorwaarden uitzoeken kost veel tijd. Ik zoek de verzekering die bij u past.</p>
         <span class="fx-home__dienst-meer">Meer over verzekeringen</span>
       </a>
-      <a class="fx-home__dienst" href="../zakelijk/">
+      <a class="fx-home__dienst" href="../zakelijk/" data-foto="../wp-content/uploads/finect/dienst-zakelijk.jpg" style="--pos:50% 50%">
         <span class="fx-home__dienst-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></span>
         <h3>Zakelijke verzekeringen</h3>
         <p>Aansprakelijkheid, gebouw en inventaris, bedrijfsschade, wagenpark en personeel. Voor ondernemers in Apeldoorn en omstreken.</p>
         <span class="fx-home__dienst-meer">Meer over zakelijke verzekeringen</span>
       </a>
-      <a class="fx-home__dienst" href="../arbeidsongeschiktheidsverzekeringen-aov/">
+      <a class="fx-home__dienst" href="../arbeidsongeschiktheidsverzekeringen-aov/" data-foto="../wp-content/uploads/finect/dienst-aov.jpg" style="--pos:62% 50%">
         <span class="fx-home__dienst-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
         <h3>AOV voor zzp&rsquo;ers</h3>
         <p>Wat gebeurt er met uw inkomen als u langere tijd uitvalt? Ik reken het met u door en zoek een arbeidsongeschiktheidsverzekering die past.</p>
         <span class="fx-home__dienst-meer">Meer over de AOV</span>
       </a>
-      <a class="fx-home__dienst" href="../contact/">
+      <a class="fx-home__dienst" href="../contact/" data-foto="../wp-content/uploads/finect/diensten-handtekening.jpg" style="--pos:72% 50%">
         <span class="fx-home__dienst-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span>
         <h3>Polischeck</h3>
         <p>Ik loop uw bestaande polissen na en zeg wat er te veel is, wat er te weinig is en wat er goed staat. Vaak levert dat premie op.</p>
         <span class="fx-home__dienst-meer">Vraag een polischeck aan</span>
       </a>
-      <a class="fx-home__dienst" href="../hypotheken/">
+      <a class="fx-home__dienst" href="../hypotheken/" data-foto="../wp-content/uploads/finect/dienst-hypotheek.jpg" style="--pos:40% 45%">
         <span class="fx-home__dienst-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
         <h3>Hypotheken</h3>
         <p>Het afsluiten van een hypotheek is een grote financiële beslissing. Ik help bij kopen, oversluiten en een aflopende rentevaste periode.</p>
         <span class="fx-home__dienst-meer">Meer over hypotheken</span>
       </a>
-      <a class="fx-home__dienst" href="../contact/">
+      <a class="fx-home__dienst" href="../contact/" data-foto="../wp-content/uploads/finect/dienst-inzicht.jpg" style="--pos:50% 55%">
         <span class="fx-home__dienst-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg></span>
         <h3>Financieel inzicht</h3>
         <p>Financieel inzicht is essentieel. Veel mensen weten onvoldoende hoe zij ervoor staan. Als Certified Financial Planner breng ik het voor u in kaart.</p>
         <span class="fx-home__dienst-meer">Plan een gesprek</span>
       </a>
     </div>
+    <script>
+    (function(){
+      var k=document.querySelectorAll('.fx-home__dienst[data-foto]');
+      function laad(el){el.style.setProperty('--foto','url('+el.getAttribute('data-foto')+')');}
+      if(!('IntersectionObserver' in window)){k.forEach(laad);return;}
+      var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){laad(x.target);io.unobserve(x.target);}});},{rootMargin:'400px 0px'});
+      k.forEach(function(el){io.observe(el);});
+    })();
+    </script>
   </section></div>
 
   <!-- schade -->

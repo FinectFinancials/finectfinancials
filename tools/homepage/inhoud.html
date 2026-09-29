@@ -46,43 +46,52 @@
       <p>Ik regel verzekeringen voor particulieren en ondernemers in Apeldoorn en omgeving, en ook hypotheken. Mijn advies is altijd 100% onafhankelijk. U staat centraal.</p>
     </div>
     <div class="fx-home__kaarten">
-      <a class="fx-home__dienst" href="../verzekeringen/">
+      <a class="fx-home__dienst" href="../verzekeringen/" data-foto="../wp-content/uploads/finect/dienst-verzekeringen.jpg" style="--pos:50% 40%">
         <span class="fx-home__dienst-ico">{ICO_SCHILD}</span>
         <h3>Verzekeringen</h3>
         <p>Wanneer bent u goed verzekerd tegen schade en risico&rsquo;s? Premies en polisvoorwaarden uitzoeken kost veel tijd. Ik zoek de verzekering die bij u past.</p>
         <span class="fx-home__dienst-meer">Meer over verzekeringen</span>
       </a>
-      <a class="fx-home__dienst" href="../zakelijk/">
+      <a class="fx-home__dienst" href="../zakelijk/" data-foto="../wp-content/uploads/finect/dienst-zakelijk.jpg" style="--pos:50% 50%">
         <span class="fx-home__dienst-ico">{ICO_KOFFER}</span>
         <h3>Zakelijke verzekeringen</h3>
         <p>Aansprakelijkheid, gebouw en inventaris, bedrijfsschade, wagenpark en personeel. Voor ondernemers in Apeldoorn en omstreken.</p>
         <span class="fx-home__dienst-meer">Meer over zakelijke verzekeringen</span>
       </a>
-      <a class="fx-home__dienst" href="../arbeidsongeschiktheidsverzekeringen-aov/">
+      <a class="fx-home__dienst" href="../arbeidsongeschiktheidsverzekeringen-aov/" data-foto="../wp-content/uploads/finect/dienst-aov.jpg" style="--pos:62% 50%">
         <span class="fx-home__dienst-ico">{ICO_HART}</span>
         <h3>AOV voor zzp&rsquo;ers</h3>
         <p>Wat gebeurt er met uw inkomen als u langere tijd uitvalt? Ik reken het met u door en zoek een arbeidsongeschiktheidsverzekering die past.</p>
         <span class="fx-home__dienst-meer">Meer over de AOV</span>
       </a>
-      <a class="fx-home__dienst" href="../contact/">
+      <a class="fx-home__dienst" href="../contact/" data-foto="../wp-content/uploads/finect/diensten-handtekening.jpg" style="--pos:72% 50%">
         <span class="fx-home__dienst-ico">{ICO_CHECK}</span>
         <h3>Polischeck</h3>
         <p>Ik loop uw bestaande polissen na en zeg wat er te veel is, wat er te weinig is en wat er goed staat. Vaak levert dat premie op.</p>
         <span class="fx-home__dienst-meer">Vraag een polischeck aan</span>
       </a>
-      <a class="fx-home__dienst" href="../hypotheken/">
+      <a class="fx-home__dienst" href="../hypotheken/" data-foto="../wp-content/uploads/finect/dienst-hypotheek.jpg" style="--pos:40% 45%">
         <span class="fx-home__dienst-ico">{ICO_HUIS}</span>
         <h3>Hypotheken</h3>
         <p>Het afsluiten van een hypotheek is een grote financiële beslissing. Ik help bij kopen, oversluiten en een aflopende rentevaste periode.</p>
         <span class="fx-home__dienst-meer">Meer over hypotheken</span>
       </a>
-      <a class="fx-home__dienst" href="../contact/">
+      <a class="fx-home__dienst" href="../contact/" data-foto="../wp-content/uploads/finect/dienst-inzicht.jpg" style="--pos:50% 55%">
         <span class="fx-home__dienst-ico">{ICO_TAART}</span>
         <h3>Financieel inzicht</h3>
         <p>Financieel inzicht is essentieel. Veel mensen weten onvoldoende hoe zij ervoor staan. Als Certified Financial Planner breng ik het voor u in kaart.</p>
         <span class="fx-home__dienst-meer">Plan een gesprek</span>
       </a>
     </div>
+    <script>
+    (function(){
+      var k=document.querySelectorAll('.fx-home__dienst[data-foto]');
+      function laad(el){el.style.setProperty('--foto','url('+el.getAttribute('data-foto')+')');}
+      if(!('IntersectionObserver' in window)){k.forEach(laad);return;}
+      var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){laad(x.target);io.unobserve(x.target);}});},{rootMargin:'400px 0px'});
+      k.forEach(function(el){io.observe(el);});
+    })();
+    </script>
   </section></div>
 
   <!-- schade -->

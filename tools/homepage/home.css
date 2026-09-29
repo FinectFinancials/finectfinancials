@@ -47,7 +47,7 @@
 .fx-home__dienst::before,.fx-home__dienst::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;
   transition:opacity .5s ease;}
 .fx-home__dienst::before{background:linear-gradient(180deg,rgba(20,33,43,.62),rgba(20,33,43,.82)),
-  #14212b url({BEELD_DIENST}) 72% 50%/cover no-repeat;}
+  #14212b var(--foto,none) var(--pos,50% 50%)/cover no-repeat;}
 .fx-home__dienst::after{background:#14212b;opacity:0;}
 .fx-ct a.fx-home__dienst:hover::before,.fx-ct a.fx-home__dienst:focus-visible::before{opacity:0;}
 .fx-ct a.fx-home__dienst:hover::after,.fx-ct a.fx-home__dienst:focus-visible::after{opacity:1;}
