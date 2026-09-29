@@ -1,0 +1,99 @@
+<style id="fx-home-css">
+/* Homepage. Bouwt voort op fx-ct; alleen wat de homepage extra nodig heeft */
+/* het thema geeft main 40px ruimte bovenaan; hier moet de foto direct onder de kop */
+#main.site-main{padding-top:0;}
+
+/* openingsbeeld: foto over de volle breedte, tekst links op de donkere kant */
+.fx-ct .fx-home__held{position:relative;overflow:hidden;color:#fff;
+  background:#14212b url({BEELD}) 50% 45%/cover no-repeat;}
+.fx-ct .fx-home__held::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(20,33,43,.92) 0%,rgba(20,33,43,.80) 40%,rgba(20,33,43,.36) 70%,rgba(20,33,43,.12) 100%);}
+.fx-ct .fx-home__held .fx-ct__wrap{position:relative;z-index:1;padding-top:104px;padding-bottom:158px;}
+.fx-home__in{max-width:700px;}
+.fx-ct .fx-home__held .fx-ct__sub{color:#fff;letter-spacing:.06em;margin-bottom:12px;}
+.fx-ct .fx-home__held h1{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:58px;font-weight:600;
+  line-height:1.08;letter-spacing:-.01em;color:#fff;margin:0 0 20px;text-transform:none;}
+.fx-ct .fx-home__held .fx-ct__lead{color:rgba(255,255,255,.92);font-size:20px;max-width:44ch;}
+.fx-ct .fx-home__held a.fx-ct__btn--o{color:#fff;border-color:rgba(255,255,255,.75);}
+.fx-ct .fx-home__held a.fx-ct__btn--o:hover,.fx-ct .fx-home__held a.fx-ct__btn--o:focus{
+  background:#fff;border-color:#fff;color:#14212b;}
+.fx-ct a.fx-home__score{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:16px;min-height:44px;
+  color:#fff;text-decoration:none;font-size:15px;line-height:1.4;}
+.fx-home__score .fx-ct__sterren{font-size:18px;letter-spacing:2px;}
+.fx-home__score b{font-size:18px;font-weight:700;}
+.fx-home__bron{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(255,255,255,.45);}
+.fx-ct a.fx-home__score:hover .fx-home__bron{color:#fff;text-decoration-color:#fff;}
+
+/* de twee blokken van de huidige homepage, over de onderkant van de foto */
+.fx-home__blokken{position:relative;z-index:2;margin-top:-80px;display:grid;grid-template-columns:1fr 1fr;}
+.fx-ct a.fx-home__blok{display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:34px 40px;min-height:160px;color:#fff;text-decoration:none;}
+.fx-home__blok--m{background:var(--mag);}
+.fx-home__blok--n{background:var(--navy);}
+.fx-home__blok small{display:block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:rgba(255,255,255,.85);margin-bottom:6px;}
+.fx-home__blok strong{display:block;font-size:22px;font-weight:400;line-height:1.4;color:#fff;}
+.fx-home__pijl{flex:none;width:56px;height:56px;border:1px solid rgba(255,255,255,.5);border-radius:3px;
+  display:grid;place-items:center;transition:background .2s ease;}
+.fx-ct a.fx-home__blok:hover .fx-home__pijl,.fx-ct a.fx-home__blok:focus .fx-home__pijl{background:rgba(255,255,255,.16);}
+
+/* dienstentegels */
+.fx-ct a.fx-home__meer{display:inline-flex;align-items:center;gap:8px;margin-top:8px;min-height:44px;
+  font-size:15px;font-weight:700;line-height:1.4;color:var(--mag);text-decoration:none;}
+.fx-ct a.fx-home__meer::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;transform:rotate(-45deg);}
+.fx-ct a.fx-home__meer:hover{color:var(--mag2);text-decoration:underline;}
+
+/* schade */
+.fx-home__schade{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;align-items:center;}
+.fx-home__schade-bel{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+.fx-ct .fx-home__schade-bel p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.75);}
+
+/* waarom */
+.fx-home__waarom{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:56px;align-items:start;}
+.fx-ct .fx-home__waarom .fx-ct__punt li{font-size:16px;line-height:1.65;}
+.fx-ct .fx-home__waarom .fx-ct__punt b{color:var(--navy);}
+.fx-home__kaart{background:#fff;border:1px solid var(--lijn);border-radius:16px;padding:32px 30px;}
+.fx-home__kaart img{width:84px;height:84px;display:block;margin:0 0 20px;}
+.fx-home__kaart ul{list-style:none;margin:0;padding:0;}
+.fx-ct .fx-home__kaart li{margin:0;padding:11px 0;font-size:15px;line-height:1.5;border-top:1px solid var(--lijn);
+  font-variant-numeric:tabular-nums;}
+.fx-home__kaart b{color:var(--navy);}
+
+/* contactgegevens */
+.fx-home__gegevens{list-style:none;margin:0;padding:0;display:grid;gap:22px;align-self:center;}
+.fx-ct .fx-home__gegevens li{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;margin:0;}
+.fx-home__rond{width:48px;height:48px;border-radius:50%;background:var(--band);color:var(--mag);
+  display:grid;place-items:center;}
+.fx-home__gegevens b{display:block;font-size:17px;line-height:1.4;color:var(--navy);}
+.fx-home__gegevens b a{color:var(--navy);text-decoration:none;display:inline-block;padding:10px 0;margin:-10px 0;}
+.fx-home__gegevens b a:hover{color:var(--mag);}
+.fx-home__gegevens li > span > span{display:block;font-size:15px;line-height:1.6;color:var(--grijs);}
+
+/* kerncijfers in het openingsbeeld */
+.fx-home__feiten{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 26px;}
+.fx-ct .fx-home__feiten li{position:relative;margin:0;padding-left:24px;font-size:15px;line-height:1.5;font-weight:600;color:#fff;}
+.fx-home__feiten li::before{content:"";position:absolute;left:2px;top:5px;width:6px;height:11px;
+  border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);}
+
+/* het thema schuift de nummers van een genummerde lijst naar links */
+.fx-ct .fx-ct__stap li::before{margin:0;}
+
+/* dienstenwijzer onder de gegevens */
+.fx-ct .fx-home__kaart a.fx-home__meer{margin-top:14px;}
+
+@media (max-width:1024px){.fx-ct .fx-home__held h1{font-size:48px;}}
+@media (max-width:900px){.fx-home__schade,.fx-home__waarom{grid-template-columns:1fr;gap:30px;}}
+@media (max-width:768px){
+  .fx-ct .fx-home__held{background-image:url({BEELD_MOBIEL});background-position:50% 30%;}
+  .fx-ct .fx-home__held::before{background:linear-gradient(180deg,rgba(20,33,43,.66) 0%,rgba(20,33,43,.80) 55%,rgba(20,33,43,.92) 100%);}
+  .fx-ct .fx-home__held .fx-ct__wrap{padding-top:60px;padding-bottom:64px;}
+  .fx-ct .fx-home__held h1{font-size:38px;line-height:1.12;}
+  .fx-ct .fx-home__held .fx-ct__lead{font-size:18px;}
+  .fx-home__blokken{grid-template-columns:1fr;margin-top:0;margin-left:-15px;margin-right:-15px;}
+  .fx-ct a.fx-home__blok{padding:26px 22px;min-height:0;}
+  .fx-home__blok strong{font-size:19px;}
+}
+@media (prefers-reduced-motion:reduce){.fx-home__pijl{transition:none;}}
+</style>
