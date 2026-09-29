@@ -91,6 +91,9 @@ t = re.sub(r'(<script type="application/ld\+json" class="yoast-schema-graph">).*
 # organisatie: dezelfde als op contact en Over ons, plus de diensten
 m = re.search(r'(<script type="application/ld\+json" id="fx-bedrijfsgegevens">)(.*?)(</script>)', t, re.S)
 org = json.loads(m.group(2))
+# Google Bedrijfsprofiel en de plek van het kantoor op de kaart
+org["hasMap"] = "https://www.google.com/maps?cid=9247328396419147947"
+org["geo"] = {"@type": "GeoCoordinates", "latitude": 52.2186011, "longitude": 5.9704508}
 org["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "Diensten van Finect Financials", "itemListElement": [
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": BASIS + u}} for n, u in [
         ("Particuliere verzekeringen", "verzekeringen/"),

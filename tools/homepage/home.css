@@ -81,6 +81,10 @@
   border-bottom:2px solid currentColor;transform:rotate(-45deg);}
 .fx-ct a.fx-home__meer:hover{color:var(--mag2);text-decoration:underline;}
 
+/* reviews: knop naar Google op de donkere balk */
+.fx-ct a.fx-home__google{color:#fff;border-color:rgba(255,255,255,.75);}
+.fx-ct a.fx-home__google:hover,.fx-ct a.fx-home__google:focus{background:#fff;border-color:#fff;color:#14212b;}
+
 /* schade */
 .fx-home__schade{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;align-items:center;}
 .fx-home__schade-bel{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
