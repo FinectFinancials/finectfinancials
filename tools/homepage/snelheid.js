@@ -3,7 +3,7 @@ const {chromium}=require('/opt/node22/lib/node_modules/playwright/index.js');
 (async()=>{
   const b=await chromium.launch();
   const res={};
-  for (const pad of ['_orig/','_schoon/']) {
+  for (const pad of (process.argv.slice(2).length?process.argv.slice(2):['_orig/','_schoon/'])) {
     res[pad]=[];
     for (let i=0;i<5;i++){
       const ctx=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});

@@ -88,6 +88,31 @@ GROEPEN = {
     # zonder die drie werkt het uitklapmenu op de telefoon niet meer
 }
 
+def div_weg(t, begin):
+    """haalt elke <div> weg die begint met `begin`, inclusief alles wat erin staat"""
+    n = 0
+    while True:
+        a = t.find(begin)
+        if a < 0:
+            return t, n
+        diep, i = 0, a
+        for m in re.finditer(r'<div\b|</div>', t[a:]):
+            diep += 1 if m.group(0) == '<div' else -1
+            if diep == 0:
+                i = a + m.end()
+                break
+        assert diep == 0, 'div niet gesloten'
+        t = t[:a] + t[i:]
+        n += 1
+
+
+def zoeken_weg(t):
+    # zoeken werkt alleen binnen WordPress; op de statische site kwam een
+    # bezoeker gewoon op de homepage uit
+    t, n = div_weg(t, '<div class="header_search search_alt"')
+    return t, n
+
+
 def opruimen(t, groepen=None, uitstellen=True):
     verslag = {}
     for g in (groepen or GROEPEN):

@@ -53,6 +53,15 @@ const h=b=>crypto.createHash('md5').update(b).digest('hex').slice(0,10);
   const dots=await pg.$$('#fxCtDots button, #fxCtDots li'); if(dots[2]){await dots[2].click(); await pg.waitForTimeout(900);}
   uit['m-review-actief']=await pg.evaluate(()=>[...document.querySelectorAll('.fx-ct__quote')].findIndex(q=>q.classList.contains('is-on')));
   uit.fouten_m=fout.slice(); await ctx.close();
+  // tussenmaten: tablet en kleine laptop
+  for (const w of [1280,1024,768]) {
+    ({ctx,pg,fout,tel}=await pagina(w,900));
+    await pg.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,50));}scrollTo(0,0);});
+    await pg.waitForLoadState('networkidle'); await pg.waitForTimeout(500);
+    await shot(pg,'w'+w,{fullPage:true});
+    if (fout.length) uit['fouten_'+w]=fout.slice();
+    await ctx.close();
+  }
   await b.close();
   console.log(JSON.stringify(uit,null,1));
 })();

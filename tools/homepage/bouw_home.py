@@ -166,8 +166,13 @@ if VOORBEELD:
 
 # ---------- oude WordPress-onderdelen weg (zie opruimen.py) ----------
 sys.path.insert(0, SP)
-from opruimen import opruimen
+from opruimen import opruimen, zoeken_weg
+from slank import pagina_aanpassen
 t, _ = opruimen(t)
+t, n = zoeken_weg(t)
+assert n == 3, n
+# één afgeslankt opmaakbestand in plaats van twaalf losse (zie slank.py)
+t = pagina_aanpassen(t)
 
 os.makedirs(os.path.dirname(DST), exist_ok=True)
 io.open(DST, 'w', encoding='utf-8').write(t)
