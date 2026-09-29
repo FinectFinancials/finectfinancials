@@ -11,9 +11,9 @@ SRC = 'site/over-finect/index.html'
 DST = sys.argv[1] if len(sys.argv) > 1 else 'site/voorbeeld/index.html'
 VOORBEELD = '/voorbeeld/' in DST
 
-TITEL = 'Verzekeringen en hypotheek in Apeldoorn | Finect Financials'
-BESCHR = ('Onafhankelijk verzekeringsadvies in Apeldoorn, voor thuis en voor uw bedrijf. '
-          'Ook voor uw hypotheek. Eén vaste adviseur, het eerste gesprek is gratis.')
+TITEL = 'Financieel adviseur Apeldoorn | Verzekeringen & hypotheek'
+BESCHR = ('Onafhankelijk financieel adviseur in Apeldoorn voor verzekeringen, thuis en zakelijk, '
+          'en uw hypotheek. Eén vaste adviseur, het eerste gesprek is gratis.')
 BASIS = 'https://finect.nl/'
 P = '../'   # de voorbeeldpagina staat een map diep, net als Over ons
 BEELD = 'wp-content/uploads/finect/de-pencil-apeldoorn.jpg'
@@ -59,14 +59,14 @@ css = css.replace('{BEELD}', P + BEELD).replace('{BEELD_MOBIEL}', P + BEELD_M)
 css = css.replace('{BEELD_DIENST}', P + 'wp-content/uploads/finect/diensten-handtekening.jpg')
 
 # ---------- kop: titel, beschrijving, canonical, deelinformatie ----------
-t = re.sub(r'<title>.*?</title>', '<title>' + TITEL + '</title>', t, count=1, flags=re.S)
+t = re.sub(r'<title>.*?</title>', '<title>' + html.escape(TITEL, quote=False) + '</title>', t, count=1, flags=re.S)
 t = re.sub(r'<meta name="description" content="[^"]*" />',
            '<meta name="description" content="' + html.escape(BESCHR, quote=True) + '" />', t, count=1)
 vervang('<link rel="canonical" href="https://finect.nl/over-finect/" />',
         '<link rel="canonical" href="' + BASIS + '" />')
 vervang('<meta property="og:type" content="article" />', '<meta property="og:type" content="website" />')
 t = re.sub(r'<meta property="og:title" content="[^"]*" />',
-           '<meta property="og:title" content="' + TITEL + '" />', t, count=1)
+           '<meta property="og:title" content="' + html.escape(TITEL, quote=True) + '" />', t, count=1)
 t = re.sub(r'<meta property="og:description" content="[^"]*" />',
            '<meta property="og:description" content="' + html.escape(BESCHR, quote=True) + '" />', t, count=1)
 vervang('<meta property="og:url" content="https://finect.nl/over-finect/" />',
