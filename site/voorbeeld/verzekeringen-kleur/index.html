@@ -941,14 +941,17 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <style id="fx-voet2-css">.elementor-element-c12419b .elementor-text-editor p{color:#6b737a;}</style>
 <style id="fx-kleur-css">
 /* Proef: een gedempte groenblauwe steunkleur naast magenta.
-   Groen = "in orde / voordeel" (vinkjes, stappen, voortgang). Mint = koele achtergrond naast het roze.
-   Knoppen blijven magenta. */
+   Elke kleur één taak: magenta = merk en actie (knoppen, titels), donkerblauw = structuur (icoontjes, banden),
+   groen = alleen "in orde" (vinkjes, stappen, voortgang, 'Belangrijk'). Mint = koele achtergrond naast het roze. */
 .fx-verz{--groen:#12705f;--groen2:#0d5a4c;--mint:#ecf6f3;--mint2:#cfe8e0;}
 
-/* snelkeuze: derde tegel in mint */
+/* snelkeuze: derde tegel in mint, icoon donkerblauw */
 .fx-ct .fx-verz__snel a.fx-verz__snelkaart:nth-child(3){background:var(--mint);}
-.fx-verz__snel a:nth-child(3) .fx-ct__ico{background:#fff;color:var(--groen);}
-.fx-verz__snel a:nth-child(3) i{color:var(--groen)!important;}
+.fx-verz__snel a:nth-child(3) .fx-ct__ico{background:var(--navy);color:#fff;}
+
+/* grote ronde icoontjes: donkerblauw (structuur) */
+.fx-verz__redenen .fx-ct__ico,.fx-verz__groepkop .fx-ct__ico{background:var(--navy);}
+.fx-verz__pico{background:var(--mint);color:var(--navy);}
 
 /* check: vinkjes, voortgang en de lijst 'Belangrijk' in groen */
 .fx-verz__checkpunten li::before{background:var(--groen);}
@@ -958,19 +961,14 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-verz__lijstkop{color:var(--groen);}
 .fx-verz__lijstkop--let{color:var(--navy);}
 .fx-verz__lijst li::before{border-color:var(--groen);}
-.fx-ct .fx-verz__lijst a:hover{color:var(--groen);}
 
-/* overzicht: koele achtergrond met groene icoontjes en tips */
+/* overzicht en contact: koele achtergrond */
 .fx-verz .fx-ct__band:not(#polischeck){background:var(--mint);}
-.fx-verz__pico{background:var(--mint);color:var(--groen);}
 .fx-verz__groepkop{border-bottom-color:var(--mint2);}
-.fx-ct .fx-verz__tip{background:#fff;box-shadow:inset 4px 0 0 var(--groen);}
-.fx-verz__groepkop .fx-ct__ico{background:var(--groen);}
+.fx-ct .fx-verz__tip{background:#fff;box-shadow:inset 4px 0 0 var(--navy);}
 
-/* waarom: icoontjes in groen */
-.fx-verz__redenen .fx-ct__ico{background:var(--groen);}
-
-/* wegwijzer: 'Belangrijk' groen, 'Let op' blijft donkerblauw */
+/* wegwijzer: paneel mint met groene rand; 'Belangrijk' groen, 'Let op' donkerblauw */
+.fx-verz__paneel{background:var(--mint);box-shadow:inset 4px 0 0 var(--groen);}
 .fx-verz__label{color:var(--groen);}
 .fx-verz__label--let{color:var(--navy);}
 
@@ -979,9 +977,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 /* schade: vinkjes in licht groen op donkerblauw */
 .fx-verz__schadelijst li::before{border-color:#7fd3bf;}
-
-/* vragen: koele achtergrond */
-.fx-verz .fx-ct__faq details[open] summary{color:var(--groen2);}
 </style>
 </head>
 
