@@ -1,0 +1,217 @@
+# -*- coding: utf-8 -*-
+"""Bouwt de pagina Verzekeringen en de subpagina's.
+
+Gebruik:
+  python3 bouw_verz.py voorbeeld   -> site/voorbeeld/verzekeringen/...  (noindex, met balk)
+  python3 bouw_verz.py live        -> site/verzekeringen/...
+
+Basis is Over ons, net als de homepage: dezelfde kop, voettekst en opmaak.
+Alle paden in de bron en in de inhoud gaan uit van een pagina die één map diep
+staat (../). Voor dieper liggende pagina's worden ze aan het eind omgezet.
+"""
+import io, re, json, html, os, sys
+
+HOME = '/tmp/claude-0/-home-user-finectfinancials/eb3bde67-f228-5f8e-b9ee-dcd3a00cb56a/scratchpad/home/'
+SP = HOME + 'verz/'
+sys.path.insert(0, HOME)
+from opruimen import opruimen, zoeken_weg, kleine_punten, links_en_voettekst
+from slank import pagina_aanpassen
+
+MODUS = sys.argv[1] if len(sys.argv) > 1 else 'voorbeeld'
+VOORBEELD = MODUS == 'voorbeeld'
+BASIS = 'https://finect.nl/'
+SRC = 'site/over-finect/index.html'
+GOOGLE = 'https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9'
+
+# ---------- iconen ----------
+def svg(paden, maat=26, dikte=1.7):
+    return (f'<svg width="{maat}" height="{maat}" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            f'stroke-width="{dikte}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
+            f'focusable="false">{paden}</svg>')
+TEL = ('<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 '
+       '2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 '
+       '012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/>')
+ICONEN = {
+    'ICO_SCHILD': svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'),
+    'ICO_CHECK': svg('<path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>'
+                     '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>'),
+    'ICO_HUIS': svg('<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>'),
+    'ICO_VERGELIJK': svg('<path d="M12 3v18M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0z"/><path d="M19 7l-3 6a3 3 0 006 0z"/>'
+                         '<path d="M8 21h8"/>'),
+    'ICO_AUTO': svg('<path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/>'
+                    '<circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/>'),
+    'ICO_LEVEN': svg('<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>'),
+    'ICO_TEL26': svg(TEL),
+    'ICO_TEL': svg(TEL, 20, 1.8),
+    'ICO_MAIL': svg('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', 20, 1.8),
+    'ICO_PIN': svg('<path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>', 20, 1.8),
+    'ICO_KAART': svg('<path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/>', 20, 1.8),
+}
+
+# ---------- de pagina's ----------
+BEELD = 'wp-content/uploads/finect/verzekeringen-woonhuis.jpg'
+BEELD_M = 'wp-content/uploads/finect/verzekeringen-woonhuis-mobiel.jpg'
+PAGINAS = [
+    dict(pad='verzekeringen/', bron='inhoud.html', held=True,
+         titel='Verzekeringsadvies in Apeldoorn | Finect Financials',
+         beschr='Onafhankelijk verzekeringsadvies in Apeldoorn voor uw huis, auto en gezin. '
+                'Ik vergelijk verzekeraars en blijf uw vaste aanspreekpunt, ook bij schade.',
+         naam='Verzekeringen', dienst='Verzekeringsadvies voor particulieren', vragen=7),
+    dict(pad='verzekeringen/woonverzekering/', bron='woonverzekering.html',
+         titel='Woonverzekering: opstal en inboedel | Finect Apeldoorn',
+         beschr='Woonhuis- en inboedelverzekering uitgelegd: wat is verzekerd, hoe voorkomt u onderverzekering en wat heeft u als huurder nodig? Advies in Apeldoorn.',
+         naam='Woonverzekering', dienst='Advies over woonhuis- en inboedelverzekering', vragen=5),
+    dict(pad='verzekeringen/aansprakelijkheidsverzekering/', bron='aansprakelijkheid.html',
+         titel='Aansprakelijkheidsverzekering (AVP) | Finect Apeldoorn',
+         beschr='Wat dekt een aansprakelijkheidsverzekering voor particulieren en waar let u op met kinderen, huisdieren en geleende spullen? Advies in Apeldoorn.',
+         naam='Aansprakelijkheidsverzekering', dienst='Advies over aansprakelijkheidsverzekering', vragen=5),
+    dict(pad='verzekeringen/autoverzekering/', bron='autoverzekering.html',
+         titel='Autoverzekering: WA, beperkt casco of allrisk? | Finect',
+         beschr='WA, beperkt casco of allrisk? Uitleg over dekking, eigen risico en schadevrije jaren, en onafhankelijk advies over uw autoverzekering in Apeldoorn.',
+         naam='Autoverzekering', dienst='Advies over autoverzekering', vragen=5),
+    dict(pad='verzekeringen/polischeck/', bron='polischeck.html',
+         titel='Polischeck in Apeldoorn: uw verzekeringen nagekeken | Finect',
+         beschr='Een polischeck laat zien waar u te veel of te weinig verzekerd bent. Zo werkt het en dit heb ik van u nodig. Onafhankelijk adviseur in Apeldoorn.',
+         naam='Polischeck', dienst='Polischeck', vragen=4),
+]
+HOOFD = PAGINAS[0]
+
+def schoon(s):
+    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s))).strip()
+
+
+def bouw(pg):
+    t = io.open(SRC, encoding='utf-8').read()
+
+    def vervang(oud, nieuw, n=1):
+        nonlocal t
+        assert t.count(oud) == n, (t.count(oud), oud[:80])
+        t = t.replace(oud, nieuw)
+
+    url = BASIS + pg['pad']
+    inhoud = io.open(SP + pg['bron'], encoding='utf-8').read()
+    for k, v in ICONEN.items():
+        inhoud = inhoud.replace('{' + k + '}', v)
+    assert not re.search(r'\{[A-Z_0-9]+\}', inhoud), ('niet alle iconen ingevuld', pg['bron'])
+
+    css = io.open(HOME + 'home.css', encoding='utf-8').read()
+    css = css.replace('{BEELD}', '../' + BEELD).replace('{BEELD_MOBIEL}', '../' + BEELD_M)
+    css = css.replace('{BEELD_DIENST}', '../wp-content/uploads/finect/diensten-handtekening.jpg')
+    css += '\n' + io.open(SP + 'verz.css', encoding='utf-8').read()
+
+    # ----- kop -----
+    t = re.sub(r'<title>.*?</title>', '<title>' + html.escape(pg['titel'], quote=False) + '</title>', t, count=1, flags=re.S)
+    t = re.sub(r'<meta name="description" content="[^"]*" />',
+               '<meta name="description" content="' + html.escape(pg['beschr'], quote=True) + '" />', t, count=1)
+    vervang('<link rel="canonical" href="https://finect.nl/over-finect/" />', '<link rel="canonical" href="' + url + '" />')
+    t = re.sub(r'<meta property="og:title" content="[^"]*" />',
+               '<meta property="og:title" content="' + html.escape(pg['titel'], quote=True) + '" />', t, count=1)
+    t = re.sub(r'<meta property="og:description" content="[^"]*" />',
+               '<meta property="og:description" content="' + html.escape(pg['beschr'], quote=True) + '" />', t, count=1)
+    vervang('<meta property="og:url" content="https://finect.nl/over-finect/" />',
+            '<meta property="og:url" content="' + url + '" />\n'
+            '\t<meta property="og:image" content="' + BASIS + BEELD + '" />\n'
+            '\t<meta property="og:image:width" content="1920" />\n'
+            '\t<meta property="og:image:height" content="1080" />')
+    t = re.sub(r'\s*<meta property="article:modified_time" content="[^"]*" />', '', t, count=1)
+
+    # ----- gestructureerde data -----
+    kruimels = [("Home", BASIS), ("Verzekeringen", BASIS + HOOFD['pad'])]
+    if pg is not HOOFD:
+        kruimels.append((pg['naam'], url))
+    graaf = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": pg['titel'], "description": pg['beschr'],
+         "isPartOf": {"@id": BASIS + "#website"}, "about": {"@id": url + "#dienst"},
+         "breadcrumb": {"@id": url + "#kruimelpad"}, "inLanguage": "nl-NL"},
+        {"@type": "BreadcrumbList", "@id": url + "#kruimelpad", "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(kruimels)]},
+        {"@type": "Service", "@id": url + "#dienst", "name": pg['dienst'], "serviceType": "Verzekeringsadvies",
+         "provider": {"@id": BASIS + "#organisatie"}, "url": url,
+         "areaServed": [{"@type": "City", "name": c} for c in
+                        ["Apeldoorn", "Ugchelen", "Beekbergen", "Loenen", "Klarenbeek", "Twello", "Vaassen"]]}]}
+    t = re.sub(r'(<script type="application/ld\+json" class="yoast-schema-graph">).*?(</script>)',
+               lambda m: m.group(1) + json.dumps(graaf, ensure_ascii=False, separators=(',', ':')) + m.group(2),
+               t, count=1, flags=re.S)
+    m = re.search(r'(<script type="application/ld\+json" id="fx-bedrijfsgegevens">)(.*?)(</script>)', t, re.S)
+    org = json.loads(m.group(2))
+    org["hasMap"] = "https://www.google.com/maps?cid=9247328396419147947"
+    org["geo"] = {"@type": "GeoCoordinates", "latitude": 52.2186011, "longitude": 5.9704508}
+    t = t[:m.start(2)] + json.dumps(org, ensure_ascii=False, separators=(',', ':')) + t[m.end(2):]
+    t = re.sub(r'\s*<script type="application/ld\+json" id="fx-persoon">.*?</script>', '', t, count=1, flags=re.S)
+    vragen = [{"@type": "Question", "name": schoon(v.group(1)),
+               "acceptedAnswer": {"@type": "Answer", "text": schoon(v.group(2))}}
+              for v in re.finditer(r'<details[^>]*>\s*<summary><h3>(.*?)</h3></summary>\s*<p>(.*?)</p>\s*</details>', inhoud, re.S)]
+    assert len(vragen) == pg['vragen'], (pg['bron'], len(vragen))
+    faq = {"@context": "https://schema.org", "@type": "FAQPage", "@id": url + "#vragen", "mainEntity": vragen}
+    t = re.sub(r'(<script type="application/ld\+json" id="fx-vragen">).*?(</script>)',
+               lambda m: m.group(1) + json.dumps(faq, ensure_ascii=False, separators=(',', ':')) + m.group(2),
+               t, count=1, flags=re.S)
+
+    # ----- opmaak -----
+    voorladen = ''
+    if pg.get('held'):
+        voorladen = ('<link rel="preload" as="image" href="../' + BEELD + '" media="(min-width: 769px)" fetchpriority="high">\n'
+                     '<link rel="preload" as="image" href="../' + BEELD_M + '" media="(max-width: 768px)" fetchpriority="high">\n')
+    vervang('</head>', voorladen + css + '\n</head>')
+
+    # ----- lichaam -----
+    a = t.find('<div class="page-header'); b = t.find('<main id="main"')
+    assert 0 < a < b
+    t = t[:a] + t[b:]
+    a = t.find('<div class="fx-ct">'); eind = t.find('</main>', a); b = t.rfind('</div>', a, eind)
+    assert 0 < a < b < eind
+    t = t[:a] + '<div class="fx-ct">\n' + inhoud + '\n</div>' + t[b + len('</div>'):]
+
+    # menu: Verzekeringen is de huidige pagina
+    t = t.replace('current-menu-item page_item page-item-31 current_page_item ', '')
+    assert t.count('<a href=".">') == 4
+    t = t.replace('<a href=".">', '<a href="../over-finect">')
+    t, n = re.subn(r'menu-item-object-page menu-item-3876"',
+                   'menu-item-object-page current-menu-item current_page_item menu-item-3876"', t)
+    assert n >= 1, n
+
+    # restanten van Over ons (pagina 31): nu die van Verzekeringen (pagina 3871)
+    vervang('finect.nl%252Fover-finect%252F', 'finect.nl%252Fverzekeringen%252F', 2)
+    vervang('href="../wp-json/wp/v2/pages/31"', 'href="../wp-json/wp/v2/pages/3871"')
+    t, n = re.subn(r"<link rel='stylesheet' id='elementor-post-31-css' [^>]*/>\n", '', t)
+    assert n == 1
+    vervang('page-id-31 ', 'page-id-3871 ')
+    vervang('elementor-page-31"', 'elementor-page-3871"')
+
+    if VOORBEELD:
+        t = re.sub(r'\s*<link rel="canonical" href="[^"]*" />', '', t, count=1)
+        t = t.replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
+        t = t.replace('<title>', '<title>VOORBEELD | ', 1)
+        banier = ('<div style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#b5004a;'
+                  'color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.45;'
+                  'padding:10px 16px;text-align:center;">Voorbeeld van de nieuwe pagina ' + html.escape(pg['naam']) +
+                  '. Deze pagina staat niet in Google en hoort nog niet bij de website.</div>\n')
+        t = t.replace('</body>', banier + '</body>', 1)
+
+    t, _ = opruimen(t)
+    t, n = zoeken_weg(t); assert n == 3
+    t = pagina_aanpassen(t)
+    t = kleine_punten(t)
+    t, _ = links_en_voettekst(t)
+
+    # ----- paden: de voorbeelden staan onder /voorbeeld/, en subpagina's liggen dieper -----
+    pad = pg['pad']
+    if VOORBEELD:
+        t = t.replace('"../verzekeringen/', '"../voorbeeld/verzekeringen/')
+        pad = 'voorbeeld/' + pad
+    diepte = pad.count('/')
+    if diepte != 1:
+        t = t.replace('../', '../' * diepte)
+    dst = 'site/' + pad + 'index.html'
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    io.open(dst, 'w', encoding='utf-8').write(t)
+    h1 = re.findall(r'<h1[^>]*>(.*?)</h1>', t)
+    woorden = len(schoon(inhoud).split())
+    print(f"{dst}: titel {len(pg['titel'])} tekens, beschrijving {len(pg['beschr'])}, h1 {h1}, ~{woorden} woorden")
+
+
+for pg in PAGINAS:
+    if os.path.exists(SP + pg['bron']):
+        bouw(pg)
+    else:
+        print('nog geen inhoud voor', pg['pad'])

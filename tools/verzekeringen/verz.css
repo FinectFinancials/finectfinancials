@@ -1,0 +1,114 @@
+<style id="fx-verz-css">
+/* Verzekeringen: hoofdpagina en subpagina's. Bouwt voort op fx-ct en fx-home */
+.fx-verz .fx-home__held .fx-ct__wrap{padding-bottom:110px;}
+.fx-verz .fx-home__held h1{font-size:54px;}
+
+/* waarom via een adviseur */
+.fx-verz__redenen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
+.fx-verz__redenen > div{border:1px solid var(--lijn);border-radius:16px;padding:32px 30px;background:#fff;}
+.fx-ct .fx-verz__redenen h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;line-height:1.3;
+  color:var(--navy);margin:0 0 10px;text-transform:none;}
+.fx-ct .fx-verz__redenen p{font-size:16px;line-height:1.65;margin:0;}
+
+/* overzicht in groepen */
+.fx-verz__groepen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;align-items:start;}
+.fx-verz__groep{background:#fff;border:1px solid var(--lijn);border-radius:16px;padding:32px 34px 14px;}
+.fx-verz__groepkop{display:flex;align-items:center;gap:16px;margin-bottom:8px;}
+.fx-verz__groepkop .fx-ct__ico{margin-bottom:0;flex:none;}
+.fx-ct .fx-verz__groepkop h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:26px;font-weight:500;line-height:1.2;
+  color:var(--navy);margin:0;text-transform:none;}
+.fx-verz__product{padding:18px 0;border-top:1px solid var(--lijn);}
+.fx-verz__groepkop + .fx-verz__product{border-top:0;}
+.fx-ct .fx-verz__product h4{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:18px;font-weight:700;line-height:1.35;
+  color:var(--navy);margin:0 0 6px;text-transform:none;letter-spacing:0;}
+.fx-ct .fx-verz__product h4 a{color:var(--navy);text-decoration:none;}
+.fx-ct .fx-verz__product h4 a:hover{color:var(--mag);text-decoration:underline;}
+.fx-ct .fx-verz__product p{font-size:16px;line-height:1.65;margin:0;}
+.fx-ct .fx-verz__product p a,.fx-ct .fx-verz__zakelijk a{color:var(--mag);font-weight:600;}
+.fx-ct .fx-verz__zakelijk{margin:34px 0 0;font-size:17px;line-height:1.6;}
+
+/* wegwijzer */
+.fx-verz__wegwijzer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;}
+.fx-verz__situatie{border:1px solid var(--lijn);border-radius:16px;padding:30px 32px;border-top:4px solid var(--mag);}
+.fx-ct .fx-verz__situatie h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:22px;font-weight:600;line-height:1.3;
+  color:var(--navy);margin:0 0 14px;text-transform:none;}
+.fx-ct .fx-verz__situatie p{font-size:16px;line-height:1.65;margin:0 0 12px;}
+.fx-verz__label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);margin-bottom:2px;}
+.fx-verz__label--let{color:var(--navy);}
+
+/* pakket en polischeck */
+.fx-verz__duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start;}
+.fx-ct .fx-verz__check h2{margin-top:0;}
+.fx-verz__check .fx-ct__stap{margin-top:22px;}
+.fx-ct .fx-verz__check .fx-ct__stap li{padding:0 0 0 48px;border-top:0;margin:0 0 16px;}
+.fx-ct .fx-verz__product h4 a{display:inline-block;padding:3px 0;}
+
+/* kop van de subpagina's: donkere balk zonder foto */
+.fx-verz__kop{background:var(--navy);color:#fff;}
+.fx-verz__kop .fx-ct__wrap{padding-top:64px;padding-bottom:64px;}
+.fx-ct .fx-verz__kop .fx-ct__sub{color:#fff;letter-spacing:.06em;}
+.fx-ct .fx-verz__kop h1{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:48px;font-weight:600;line-height:1.1;
+  color:#fff;margin:0 0 18px;text-transform:none;max-width:22ch;}
+.fx-ct .fx-verz__kop .fx-ct__lead{color:rgba(255,255,255,.9);max-width:60ch;}
+.fx-ct .fx-verz__kop a.fx-ct__btn--o{color:#fff;border-color:rgba(255,255,255,.75);}
+.fx-ct .fx-verz__kop a.fx-ct__btn--o:hover,.fx-ct .fx-verz__kop a.fx-ct__btn--o:focus{background:#fff;border-color:#fff;color:#14212b;}
+
+/* schade */
+.fx-verz__schadelijst{margin:18px 0 0;padding:0;list-style:none;}
+.fx-ct .fx-verz__schadelijst li{position:relative;padding-left:26px;margin:0 0 10px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.85);}
+.fx-verz__schadelijst li::before{content:"";position:absolute;left:2px;top:6px;width:6px;height:11px;
+  border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);}
+.fx-ct a.fx-verz__licht{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+
+/* subpagina's: tekst met een smalle kolom ernaast */
+.fx-verz__artikel{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:64px;align-items:start;}
+.fx-verz__tekst{max-width:72ch;}
+.fx-verz__artikel > *{min-width:0;}
+.fx-verz .fx-ct__faq > *{min-width:0;}
+.fx-verz h1,.fx-verz h2,.fx-verz h3,.fx-verz h4{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto;}
+.fx-verz__tabel{table-layout:fixed;}
+.fx-verz__tabel th,.fx-verz__tabel td{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto;}
+.fx-ct .fx-verz__tekst h2{margin-top:44px;}
+.fx-ct .fx-verz__tekst h2:first-child{margin-top:0;}
+.fx-ct .fx-verz__tekst h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;line-height:1.3;
+  color:var(--navy);margin:28px 0 8px;text-transform:none;}
+.fx-ct .fx-verz__tekst p,.fx-ct .fx-verz__tekst li{font-size:17px;line-height:1.75;}
+.fx-verz__tekst ul{margin:0 0 18px;padding-left:22px;}
+.fx-ct .fx-verz__tekst a{color:var(--mag);font-weight:600;}
+.fx-verz__zij{position:sticky;top:180px;display:grid;gap:22px;}
+.fx-verz__zijkaart{border:1px solid var(--lijn);border-radius:16px;padding:26px 26px 22px;background:#fff;}
+.fx-verz__zijkaart--navy{background:var(--navy);border-color:var(--navy);color:#fff;}
+.fx-ct .fx-verz__zijkaart h2{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;line-height:1.3;
+  margin:0 0 10px;color:var(--navy);text-transform:none;}
+.fx-ct .fx-verz__zijkaart--navy h2{color:#fff;}
+.fx-ct .fx-verz__zijkaart p{font-size:15px;line-height:1.6;margin:0 0 14px;}
+.fx-ct .fx-verz__zijkaart--navy p{color:rgba(255,255,255,.85);}
+.fx-verz__zijkaart ul{list-style:none;margin:0;padding:0;}
+.fx-ct .fx-verz__zijkaart li{margin:0;border-top:1px solid var(--lijn);}
+.fx-ct .fx-verz__zijkaart li a{display:block;padding:11px 0;font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;}
+.fx-ct .fx-verz__zijkaart li a:hover{color:var(--mag);}
+.fx-verz__kruimel{font-size:14px;margin:0 0 14px;color:rgba(255,255,255,.85);}
+.fx-ct .fx-verz__kruimel a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.fx-verz__tabel{width:100%;border-collapse:collapse;margin:8px 0 22px;font-size:16px;}
+.fx-verz__tabel th,.fx-verz__tabel td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--lijn);line-height:1.55;}
+.fx-verz__tabel th{color:var(--navy);font-weight:700;background:var(--band);}
+
+@media (max-width:1024px){
+  .fx-verz .fx-home__held h1{font-size:46px;}
+  .fx-verz__redenen{grid-template-columns:1fr;}
+  .fx-verz__artikel{grid-template-columns:1fr;gap:40px;}
+  .fx-verz__zij{position:static;}
+}
+@media (max-width:900px){
+  .fx-verz__groepen,.fx-verz__wegwijzer,.fx-verz__duo{grid-template-columns:1fr;gap:26px;}
+}
+@media (max-width:768px){
+  .fx-verz .fx-home__held .fx-ct__wrap{padding-bottom:60px;}
+  .fx-verz__kop .fx-ct__wrap{padding-top:44px;padding-bottom:48px;}
+  .fx-ct .fx-verz__kop h1{font-size:34px;}
+  .fx-verz .fx-home__held h1{font-size:36px;}
+  .fx-verz__groep{padding:26px 22px 8px;}
+  .fx-verz__situatie{padding:24px 22px;}
+  .fx-verz__tabel th,.fx-verz__tabel td{padding:10px 8px;font-size:15px;}
+}
+</style>
