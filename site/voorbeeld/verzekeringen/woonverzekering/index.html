@@ -345,6 +345,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <script type="application/ld+json" id="fx-bedrijfsgegevens">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://finect.nl/#organisatie","name":"Finect Financials","description":"Onafhankelijk advies over verzekeringen en hypotheken in Apeldoorn.","url":"https://finect.nl/","logo":"https://finect.nl/wp-content/uploads/2020/04/finect-financials-logo-retina.png","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressRegion":"Gelderland","addressCountry":"NL"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:30"}],"areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Ugchelen"},{"@type":"City","name":"Beekbergen"},{"@type":"City","name":"Loenen"},{"@type":"City","name":"Klarenbeek"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Vaassen"}],"knowsLanguage":"nl-NL","identifier":[{"@type":"PropertyValue","name":"KvK","value":"62201735"},{"@type":"PropertyValue","name":"AFM-vergunning","value":"12047700"},{"@type":"PropertyValue","name":"Kifid","value":"300.017906"}],"founder":{"@type":"Person","name":"Fred Koeling","jobTitle":"Certified Financial Planner"},"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/"],"hasMap":"https://www.google.com/maps?cid=9247328396419147947","geo":{"@type":"GeoCoordinates","latitude":52.2186011,"longitude":5.9704508}}</script>
 <script type="application/ld+json" id="fx-vragen">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://finect.nl/verzekeringen/woonverzekering/#vragen","mainEntity":[{"@type":"Question","name":"Is een woonhuisverzekering verplicht?","acceptedAnswer":{"@type":"Answer","text":"Niet volgens de wet. Heeft u een hypotheek, dan vraagt de geldverstrekker er wel bijna altijd om."}},{"@type":"Question","name":"Wat is het verschil tussen herbouwwaarde en WOZ-waarde?","acceptedAnswer":{"@type":"Answer","text":"De herbouwwaarde is wat het kost om uw huis opnieuw op te bouwen. De WOZ-waarde is de marktwaarde die de gemeente vaststelt, inclusief de grond. Voor uw woonhuisverzekering telt de herbouwwaarde."}},{"@type":"Question","name":"Is glas verzekerd?","acceptedAnswer":{"@type":"Answer","text":"Bij veel woonhuisverzekeringen kunt u glas meeverzekeren, en soms zit het er standaard in. Dat verschilt per verzekeraar."}},{"@type":"Question","name":"Moet ik een verbouwing doorgeven?","acceptedAnswer":{"@type":"Answer","text":"Dat is verstandig. Een verbouwing verhoogt vaak de herbouwwaarde. Geeft u het niet door, dan loopt u het risico onderverzekerd te zijn."}},{"@type":"Question","name":"Kan ik opstal en inboedel bij verschillende verzekeraars hebben?","acceptedAnswer":{"@type":"Answer","text":"Dat kan. Het heeft wel voordelen om ze bij dezelfde verzekeraar te hebben. Bij schade aan zowel het huis als uw spullen, bijvoorbeeld na een brand, heeft u dan één aanspreekpunt."}},{"@type":"Question","name":"Wat is huurdersbelang?","acceptedAnswer":{"@type":"Answer","text":"Huurdersbelang zijn verbeteringen die u als huurder zelf aan de woning heeft laten aanbrengen, zoals een nieuwe keuken, vloer of schuur. U kunt die vaak meeverzekeren op uw inboedelverzekering."}},{"@type":"Question","name":"Zijn zonnepanelen verzekerd?","acceptedAnswer":{"@type":"Answer","text":"Zonnepanelen op uw eigen dak vallen meestal onder de woonhuisverzekering, omdat ze vast aan het huis zitten. Geef ze wel door, zodat het verzekerde bedrag klopt. Huurt u de panelen, dan ligt het anders."}}]}</script>
+<link rel="preload" as="image" href="../../../wp-content/uploads/finect/verz-woon.jpg" media="(min-width: 769px)" fetchpriority="high">
+<link rel="preload" as="image" href="../../../wp-content/uploads/finect/verz-woon-mobiel.jpg" media="(max-width: 768px)" fetchpriority="high">
 <style id="fx-home-css">
 /* Homepage. Bouwt voort op fx-ct; alleen wat de homepage extra nodig heeft */
 /* het thema geeft main 40px ruimte bovenaan; hier moet de foto direct onder de kop */
@@ -623,7 +625,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-verz__producten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;}
 .fx-verz__pkaart{position:relative;background:#fff;border:1px solid var(--lijn);border-radius:14px;padding:24px 24px 22px;
   display:flex;flex-direction:column;}
-.fx-ct .fx-verz__pkaart h4{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:700;line-height:1.3;
+.fx-ct .fx-verz__pkaart h4,.fx-ct .fx-verz__pkaart h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:700;line-height:1.3;
   color:var(--navy);margin:0 0 8px;text-transform:none;letter-spacing:0;}
 .fx-ct .fx-verz__pkaart p{font-size:15px;line-height:1.65;margin:0 0 14px;flex:1;}
 .fx-verz__pkaart--link{border-color:transparent;box-shadow:0 8px 26px rgba(20,33,43,.08);transition:transform .25s ease,box-shadow .25s ease;}
@@ -927,6 +929,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-verz__andere{padding-top:56px;}
 }
 @media (prefers-reduced-motion:reduce){.fx-verz__hulpuit{transition:none;}}
+/* ===== ronde 7 ===== */
+.fx-ct .fx-verz__schadetel{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:22px;font-weight:600;color:#fff;margin:0 0 12px;}
+.fx-ct .fx-verz__schadetel a{color:#fff;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;}
+.fx-ct .fx-verz__schadetel a:hover{color:var(--roze2);}
+.fx-ct .fx-ct__dots button{color:#fff;}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -1127,7 +1134,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <!-- kop -->
   <section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../../../wp-content/uploads/finect/verz-woon.jpg);--kop-m:url(../../../wp-content/uploads/finect/verz-woon-mobiel.jpg)"><div class="fx-ct__wrap">
     <p class="fx-verz__kruimel"><a href="../../../">Home</a> &rsaquo; <a href="../../../voorbeeld/verzekeringen/">Verzekeringen</a> &rsaquo; Woonverzekering</p>
-    <div class="fx-verz__adviseur"><img src="../../../wp-content/uploads/2025/07/DSCF4417.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
+    <div class="fx-verz__adviseur"><img src="../../../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
     <p class="fx-ct__sub">Wonen</p>
     <h1>Woonverzekering: opstal en inboedel</h1>
     <p class="fx-ct__lead">Uw huis en alles wat erin staat, goed verzekerd. Ik leg uit wat een woonhuis- en een inboedelverzekering dekken, en zoek de dekking die bij uw woning past.</p>
@@ -1155,7 +1162,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <h2>Twee verzekeringen voor uw woning</h2>
       <p>Een woonverzekering bestaat meestal uit twee delen: de woonhuisverzekering en de inboedelverzekering. Veel verzekeraars bieden ze samen aan, maar het blijven twee dekkingen met elk een eigen verzekerd bedrag.</p>
       <table class="fx-verz__tabel">
-        <thead><tr><th></th><th>Woonhuisverzekering (opstal)</th><th>Inboedelverzekering</th></tr></thead>
+        <thead><tr><td></td><th>Woonhuisverzekering (opstal)</th><th>Inboedelverzekering</th></tr></thead>
         <tbody>
           <tr><th>Wat is verzekerd</th><td>Het huis zelf: muren, dak, vloeren, ramen en vaste onderdelen zoals keuken en badkamer</td><td>Wat u bij een verhuizing meeneemt, zoals meubels, kleding en apparatuur</td></tr>
           <tr><th>Voor wie</th><td>Huiseigenaren</td><td>Huurders en huiseigenaren</td></tr>
@@ -1186,10 +1193,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <h2>Huurt u een woning?</h2>
       <p>Dan heeft u geen woonhuisverzekering nodig, want het gebouw verzekert de verhuurder. Een inboedelverzekering wel. Heeft u zelf iets aan de woning verbeterd, zoals een nieuwe keuken of vloer? Dan kunt u dat vaak meeverzekeren op uw inboedelverzekering. Dat heet huurdersbelang.</p>
     </div>
-    <aside class="fx-verz__zij">
+    <div class="fx-verz__zij">
       <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
         <h2>Liever even overleggen?</h2>
-        <p>Bel of mail mij. Het eerste gesprek is gratis en vrijblijvend.</p>
+        <p>Twijfelt u over het verzekerde bedrag van uw huis? Bel of mail mij. Het eerste gesprek is gratis.</p>
         <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a></div>
         <p style="margin:14px 0 0;"><a class="fx-verz__licht" href="mailto:info@finect.nl">info@finect.nl</a></p>
       </div>
@@ -1197,7 +1204,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <h2>Meer over verzekeringen</h2>
         <ul><li><a href="../../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Aansprakelijkheidsverzekering</a></li><li><a href="../../../voorbeeld/verzekeringen/autoverzekering/">Autoverzekering</a></li><li><a href="../../../voorbeeld/verzekeringen/polischeck/">Polischeck</a></li><li><a href="../../../voorbeeld/verzekeringen/">Alle verzekeringen</a></li></ul>
       </div>
-    </aside>
+    </div>
   </section></div>
 
   <!-- hulpmiddel -->
@@ -1217,7 +1224,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
             <label><input type="checkbox" name="vink" value="0"><span>Ik heb verbouwd of een uitbouw laten maken</span></label><label><input type="checkbox" name="vink" value="1"><span>Er is een nieuwe keuken of badkamer geplaatst</span></label><label><input type="checkbox" name="vink" value="2"><span>Ik heb zonnepanelen, een laadpaal of een warmtepomp</span></label><label><input type="checkbox" name="vink" value="3"><span>Ik heb dure spullen gekocht, zoals een e-bike, sieraden of apparatuur</span></label><label><input type="checkbox" name="vink" value="4"><span>Ik weet niet welk bedrag er op mijn polis staat</span></label><label><input type="checkbox" name="vink" value="5"><span>Mijn polis is ouder dan vijf jaar</span></label>
           </fieldset>
           <div class="fx-verz__hulpuit" id="fxHulpUit" aria-live="polite"><p data-min="0" data-max="0">Vink aan wat voor u geldt. U ziet direct of het slim is om uw woonverzekering te laten nakijken.</p><p data-min="1" data-max="2" hidden><b>Laat uw verzekerde bedrag nakijken.</b> Er is iets veranderd aan uw huis of uw spullen. Dan klopt het bedrag op uw polis misschien niet meer, en bij schade krijgt u dan maar een deel vergoed.</p><p data-min="3" data-max="99" hidden><b>Grote kans dat uw polis niet meer klopt.</b> Er is veel veranderd sinds u de verzekering afsloot. Een polischeck laat zien of u onderverzekerd bent, en of het voordeliger kan.</p></div>
-          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
+          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
         </div>
       </div>
     </div>
@@ -1242,7 +1249,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <h2>Hoe ik u help</h2>
       <p>Ik vergelijk de woonverzekeringen van verschillende verzekeraars en kijk verder dan de premie. U hoort wat u echt nodig heeft, en wat niet.</p>
       <ul class="fx-verz__lijst fx-verz__lijst--ruim"><li>Ik vergelijk dekking, eigen risico en premie voor u.</li><li>Ik kijk of het verzekerde bedrag past bij uw huis en uw spullen.</li><li>Ik kijk of een pakket met uw andere verzekeringen voordeliger is.</li><li>Bij schade belt u mij, en ik help u verder.</li></ul>
-      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
     </div>
   </section></div></div>
 
@@ -1250,17 +1257,13 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__schade">
     <div>
       <p class="fx-ct__sub">Schade</p>
-      <h2>Schade? Dan belt u mij</h2>
-      <p>Bij schade wilt u geen keuzemenu. U belt mij. Ik kijk mee welke stappen nodig zijn en neem waar mogelijk het contact met de verzekeraar over.</p>
-      <ul class="fx-verz__schadelijst">
-        <li>Beperk de schade als dat veilig kan, bijvoorbeeld door bij een lekkage het water af te sluiten.</li>
-        <li>Maak foto's van de schade en bewaar kapotte spullen en bonnen.</li>
-        <li>Bel mij, het liefst binnen een paar dagen.</li>
-      </ul>
+      <h2>Schade aan uw huis of spullen?</h2>
+      <p>Een lekkage, stormschade of inbraak komt altijd onverwacht. Dit kunt u meteen doen:</p>
+      <ul class="fx-verz__schadelijst"><li>Beperk de schade als dat veilig kan. Sluit bij een lekkage de hoofdkraan af, en dek na storm een kapot raam of dak tijdelijk af.</li><li>Doe bij inbraak of diefstal altijd aangifte bij de politie.</li><li>Maak foto's van de schade en bewaar kapotte spullen en bonnen.</li><li>Laat grote reparaties pas uitvoeren als de verzekeraar akkoord is. Een noodreparatie mag meteen.</li></ul>
     </div>
     <div class="fx-home__schade-bel">
-      <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
-      <p>Maandag t/m vrijdag 09:00 tot 17:30. Daarbuiten spreekt u de voicemail in en bel ik u zo snel mogelijk terug.</p>
+      <p class="fx-verz__schadetel">Bel mij op <a href="tel:+31630679790">06 30 67 97 90</a></p>
+      <p>Bij een grote schade, zoals brand of een flinke lekkage, stuurt de verzekeraar vaak een schade-expert. Ik help u bij dat contact en kijk mee of de vergoeding klopt.</p>
       <p><a class="fx-verz__licht" href="../../../vergelijkingskaarten/">Bekijk de vergelijkingskaarten</a></p>
     </div>
   </section></div></div>
@@ -1268,53 +1271,34 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <!-- werkwijze -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__werk">
     <p class="fx-ct__sub">Werkwijze</p>
-    <h2>Zo werk ik</h2>
-    <p style="margin-bottom:38px;max-width:66ch;">Van het eerste gesprek tot de jaren daarna. De eerste stap kost u niets.</p>
-    <ol class="fx-ct__stap fx-ct__stap--breed">
-      <li><b>Kennismaken</b><span>U vertelt wat er speelt. Bij u thuis, op uw bedrijf, op kantoor of online. Gratis en vrijblijvend.</span></li>
-      <li><b>Uitzoeken en vergelijken</b><span>Ik breng uw situatie in kaart en vergelijk het aanbod van verschillende verzekeraars.</span></li>
-      <li><b>Advies</b><span>U krijgt de keuzes op een rij, met de bedragen erbij. U beslist zelf.</span></li>
-      <li><b>Regelen en bijhouden</b><span>Ik verzorg de aanvraag en blijf daarna uw aanspreekpunt, ook bij schade.</span></li>
-    </ol>
+    <h2>Zo regel ik uw woonverzekering</h2>
+    <p style="margin-bottom:38px;max-width:66ch;">Van de eerste vraag tot de jaren daarna. Het eerste gesprek kost u niets.</p>
+    <ol class="fx-ct__stap fx-ct__stap--breed"><li><b>Kennismaken</b><span>We bespreken uw woning, wat erin staat en of u huurt of een eigen huis heeft.</span></li><li><b>Waarde bepalen</b><span>We bepalen samen de herbouwwaarde en de waarde van uw inboedel, zodat u niet onderverzekerd bent.</span></li><li><b>Vergelijken en advies</b><span>U krijgt de keuzes op een rij, met dekking, eigen risico en premie.</span></li><li><b>Regelen en bijhouden</b><span>Ik regel de aanvraag. Na een verbouwing kijken we samen of het bedrag nog klopt.</span></li></ol>
   </section></div>
 
-  <!-- klantervaringen -->
+  <!-- klantervaring -->
   <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
     <div class="fx-ct__rev">
       <div>
-        <p class="fx-ct__sub">Klantervaringen</p>
-        <h2>Wat klanten van mij vinden</h2>
-        <p>Een verzekering merkt u pas echt als er iets gebeurt. Deze klanten vertellen hoe zij het hebben ervaren.</p>
+        <p class="fx-ct__sub">Klantervaring</p>
+        <h2>Klanten over mijn advies</h2>
+        <p>Een woonverzekering regelt u niet elk jaar. Des te fijner als iemand de tijd neemt om het goed uit te leggen.</p>
         <div class="fx-ct__score">
           <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <span class="fx-ct__cijfer">5,0</span>
           <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
         </div>
         <div class="fx-ct__btns">
-          <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
           <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
         </div>
       </div>
       <div>
-        <div class="fx-ct__stage" id="fxCtStage">
+        <div class="fx-ct__stage">
           <figure class="fx-ct__quote is-on">
-            <blockquote>&ldquo;Fred heeft de verzekeringen voor onze VVE uitgezocht, we hebben nu een completere verzekering dan we hadden, voor minder geld, top!&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">MG</span><span class="fx-ct__wie"><b>Marcel de G.</b>Google, 5 sterren</span></figcaption>
-          </figure>
-          <figure class="fx-ct__quote">
-            <blockquote>&ldquo;Fred heeft mij en mijn ouders heel goed geholpen met de schadeafhandeling van de zakelijke bus. Heel vriendelijk en zeer behulpzaam.&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">TP</span><span class="fx-ct__wie"><b>Tony P.</b>Google, 5 sterren</span></figcaption>
-          </figure>
-          <figure class="fx-ct__quote">
             <blockquote>&ldquo;Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.&rdquo;</blockquote>
             <figcaption><span class="fx-ct__ini">FS</span><span class="fx-ct__wie"><b>Fleur S.</b>Google, 5 sterren</span></figcaption>
           </figure>
-          <figure class="fx-ct__quote">
-            <blockquote>&ldquo;Fred heeft verstand van zaken, houdt contact met je en denkt echt met je mee. Heel blij mee!&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">KD</span><span class="fx-ct__wie"><b>Kyra D.</b>Ondernemer &middot; Google, 5 sterren</span></figcaption>
-          </figure>
         </div>
-        <ul class="fx-ct__dots" id="fxCtDots"></ul>
       </div>
     </div>
   </section></div></div>
@@ -1324,11 +1308,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div class="fx-verz__wiefoto"><img src="../../../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, onafhankelijk verzekeringsadviseur in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
     <div>
       <p class="fx-ct__sub">Uw adviseur</p>
-      <h2>U spreekt steeds mij</h2>
-      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik regel verzekeringen voor particulieren en ondernemers in Apeldoorn en omgeving, en ik blijf daarna uw aanspreekpunt.</p>
-      <p>Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring in het vak. Als Certified Financial Planner kijk ik niet alleen naar losse polissen, maar naar het geheel: uw huis, uw inkomen en uw gezin.</p>
-      <blockquote class="fx-verz__citaat">&ldquo;Ik zeg het ook als u iets niet nodig heeft.&rdquo;</blockquote>
-      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../../over-finect/">Lees meer over mij</a></div>
+      <h2>Uw adviseur voor wonen en verzekeren</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Omdat ik ook hypotheken adviseer, kijk ik bij uw woonverzekering naar het geheel: uw huis, uw hypotheek en wat erin staat.</p>
+      <p>Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring in het vak. Als Certified Financial Planner kijk ik verder dan één polis.</p>
+      <blockquote class="fx-verz__citaat">&ldquo;Een goed verzekerd huis begint met het juiste bedrag op de polis.&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--o" href="../../../over-finect/">Lees meer over mij</a></div>
     </div>
   </section></div>
 
@@ -1336,7 +1320,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
     <p class="fx-ct__sub">Ook interessant</p>
     <h2 style="margin-bottom:28px;">Andere verzekeringen</h2>
-    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h4>Aansprakelijkheids&shy;verzekering</h4><p>Voor schade die u of uw gezin bij een ander veroorzaakt.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span><h4>Autoverzekering</h4><p>WA, beperkt casco of allrisk: welke dekking past bij uw auto?</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/autoverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span><h4>Polischeck</h4><p>Uw verzekeringen nagekeken: te veel, te weinig of goed.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/polischeck/">Lees verder</a></div></div>
+    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Aansprakelijkheids&shy;verzekering</h3><p>Voor schade die u of uw gezin bij een ander veroorzaakt.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span><h3>Autoverzekering</h3><p>WA, beperkt casco of allrisk: welke dekking past bij uw auto?</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/autoverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span><h3>Polischeck</h3><p>Uw verzekeringen nagekeken: te veel, te weinig of goed.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/polischeck/">Lees verder</a></div></div>
   </section></div>
 
   <!-- vragen -->
@@ -1344,7 +1328,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div>
       <p class="fx-ct__sub">Vragen</p>
       <h2>Vragen over woonverzekering</h2>
-      <p>Staat uw vraag er niet tussen? Bel gerust. Daar hoeft u geen afspraak voor te maken.</p>
+      <p>Nog een vraag over uw woonverzekering? Bel gerust, daar hoeft u geen afspraak voor te maken.</p>
       <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../../../contact/">Plan een gesprek</a></p>
     </div>
     <div>
@@ -1383,8 +1367,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
     <div>
       <p class="fx-ct__sub">Contact</p>
-      <h2>Advies nodig?</h2>
-      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving. Woont u verder weg? Ook dan help ik u graag, online of ik kom bij u langs.</p>
+      <h2>Uw woonverzekering laten nakijken?</h2>
+      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving, dan zie ik de woning meteen. Liever online? Dat kan ook.</p>
       <div class="fx-ct__btns">
         <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
         <a class="fx-ct__btn fx-ct__btn--o" href="../../../contact/">Naar contact</a>

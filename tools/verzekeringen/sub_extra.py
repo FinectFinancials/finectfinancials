@@ -21,8 +21,8 @@ REVIEWS = hub_blok('klantervaringen')
 WIE = hub_blok('uw adviseur')
 CHIP = re.search(r'<div class="fx-verz__adviseur">.*?</div>', HUB).group(0)
 
-KNOPPEN = ('<div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>'
-           '<a class="fx-ct__btn fx-ct__btn--o" href="{u}">{t}</a></div>')
+# in de hulpmiddelen en bij 'hoe ik u help' alleen de vervolgstap; bellen kan via de kop, de zijkaart, contact en de balk
+KNOPPEN = '<div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="{u}">{t}</a></div>'
 
 
 def duo(foto, alt, br, ho, sub, kop, tekst, punten, knop):
@@ -239,3 +239,167 @@ DUO_CHECK = duo('dienst-inzicht.jpg', 'Overzicht van verzekeringen en kosten op 
      'Waar u te weinig verzekerd bent.',
      'Wat ik zou aanpassen, en wat dat u oplevert.'],
     ('Stuur uw polissen', 'mailto:info@finect.nl'))
+
+
+# ================================================================ ronde 7: eigen blokken per onderwerp
+
+
+def schade(kop, intro, punten, rechts):
+    li = ''.join('<li>%s</li>' % p for p in punten)
+    return '''  <!-- schade -->
+  <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__schade">
+    <div>
+      <p class="fx-ct__sub">Schade</p>
+      <h2>%s</h2>
+      <p>%s</p>
+      <ul class="fx-verz__schadelijst">%s</ul>
+    </div>
+    <div class="fx-home__schade-bel">
+      <p class="fx-verz__schadetel">Bel mij op <a href="tel:+31630679790">06 30 67 97 90</a></p>
+      <p>%s</p>
+      <p><a class="fx-verz__licht" href="../vergelijkingskaarten/">Bekijk de vergelijkingskaarten</a></p>
+    </div>
+  </section></div></div>
+
+''' % (kop, intro, li, rechts)
+
+
+def werkwijze(kop, intro, stappen):
+    li = ''.join('<li><b>%s</b><span>%s</span></li>' % s for s in stappen)
+    return '''  <!-- werkwijze -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__werk">
+    <p class="fx-ct__sub">Werkwijze</p>
+    <h2>%s</h2>
+    <p style="margin-bottom:38px;max-width:66ch;">%s</p>
+    <ol class="fx-ct__stap fx-ct__stap--breed">%s</ol>
+  </section></div>
+
+''' % (kop, intro, li)
+
+
+def review(kop, intro, citaat, ini, naam, bron='Google, 5 sterren'):
+    return '''  <!-- klantervaring -->
+  <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-ct__rev">
+      <div>
+        <p class="fx-ct__sub">Klantervaring</p>
+        <h2>%s</h2>
+        <p>%s</p>
+        <div class="fx-ct__score">
+          <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="fx-ct__cijfer">5,0</span>
+          <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
+        </div>
+        <div class="fx-ct__btns">
+          <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
+        </div>
+      </div>
+      <div>
+        <div class="fx-ct__stage">
+          <figure class="fx-ct__quote is-on">
+            <blockquote>&ldquo;%s&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">%s</span><span class="fx-ct__wie"><b>%s</b>%s</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section></div></div>
+
+''' % (kop, intro, citaat, ini, naam, bron)
+
+
+def wie(kop, lead, tekst, citaat):
+    return '''  <!-- uw adviseur -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__wie">
+    <div class="fx-verz__wiefoto"><img src="../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, onafhankelijk verzekeringsadviseur in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
+    <div>
+      <p class="fx-ct__sub">Uw adviseur</p>
+      <h2>%s</h2>
+      <p class="fx-ct__lead">%s</p>
+      <p>%s</p>
+      <blockquote class="fx-verz__citaat">&ldquo;%s&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--o" href="../over-finect/">Lees meer over mij</a></div>
+    </div>
+  </section></div>
+
+''' % (kop, lead, tekst, citaat)
+
+
+REVIEW_FLEUR = ('Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.', 'FS', 'Fleur S.')
+REVIEW_TONY = ('Fred heeft mij en mijn ouders heel goed geholpen met de schadeafhandeling van de zakelijke bus. Heel vriendelijk en zeer behulpzaam.', 'TP', 'Tony P.')
+REVIEW_KYRA = ('Fred heeft verstand van zaken, houdt contact met je en denkt echt met je mee. Heel blij mee!', 'KD', 'Kyra D.')
+REVIEW_MARCEL = ('Fred heeft de verzekeringen voor onze VVE uitgezocht, we hebben nu een completere verzekering dan we hadden, voor minder geld, top!', 'MG', 'Marcel de G.')
+
+WERK_TEKST = 'Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring in het vak.'
+
+EIGEN = {
+    'Woonverzekering': dict(
+        schade=schade('Schade aan uw huis of spullen?',
+            'Een lekkage, stormschade of inbraak komt altijd onverwacht. Dit kunt u meteen doen:',
+            ['Beperk de schade als dat veilig kan. Sluit bij een lekkage de hoofdkraan af, en dek na storm een kapot raam of dak tijdelijk af.',
+             'Doe bij inbraak of diefstal altijd aangifte bij de politie.',
+             'Maak foto\'s van de schade en bewaar kapotte spullen en bonnen.',
+             'Laat grote reparaties pas uitvoeren als de verzekeraar akkoord is. Een noodreparatie mag meteen.'],
+            'Bij een grote schade, zoals brand of een flinke lekkage, stuurt de verzekeraar vaak een schade-expert. Ik help u bij dat contact en kijk mee of de vergoeding klopt.'),
+        werk=werkwijze('Zo regel ik uw woonverzekering', 'Van de eerste vraag tot de jaren daarna. Het eerste gesprek kost u niets.',
+            [('Kennismaken', 'We bespreken uw woning, wat erin staat en of u huurt of een eigen huis heeft.'),
+             ('Waarde bepalen', 'We bepalen samen de herbouwwaarde en de waarde van uw inboedel, zodat u niet onderverzekerd bent.'),
+             ('Vergelijken en advies', 'U krijgt de keuzes op een rij, met dekking, eigen risico en premie.'),
+             ('Regelen en bijhouden', 'Ik regel de aanvraag. Na een verbouwing kijken we samen of het bedrag nog klopt.')]),
+        review=review('Klanten over mijn advies', 'Een woonverzekering regelt u niet elk jaar. Des te fijner als iemand de tijd neemt om het goed uit te leggen.', *REVIEW_FLEUR),
+        wie=wie('Uw adviseur voor wonen en verzekeren',
+            'Mijn naam is Fred Koeling. Omdat ik ook hypotheken adviseer, kijk ik bij uw woonverzekering naar het geheel: uw huis, uw hypotheek en wat erin staat.',
+            WERK_TEKST + ' Als Certified Financial Planner kijk ik verder dan één polis.',
+            'Een goed verzekerd huis begint met het juiste bedrag op de polis.'),
+        zij='Twijfelt u over het verzekerde bedrag van uw huis? Bel of mail mij. Het eerste gesprek is gratis.',
+        contact=('Uw woonverzekering laten nakijken?', 'Ik kom bij u thuis in Apeldoorn en omgeving, dan zie ik de woning meteen. Liever online? Dat kan ook.')),
+    'Aansprakelijkheidsverzekering': dict(
+        schade=schade('Schade veroorzaakt bij een ander?',
+            'Een ongelukje is zo gebeurd. Zo pakt u het goed aan:',
+            ['Geef niet zelf schriftelijk toe dat u aansprakelijk bent. Dat beoordeelt de verzekeraar.',
+             'Wissel gegevens uit met de ander en schrijf op wat er is gebeurd.',
+             'Maak foto\'s van de schade en vraag de ander om een offerte of de rekening van de reparatie.',
+             'Bel mij voordat u iets toezegt of betaalt.'],
+            'Wordt u per brief of mail aansprakelijk gesteld? Stuur die door naar mij. Dan kijk ik mee voordat u reageert.'),
+        werk=werkwijze('Zo regel ik uw aansprakelijkheids&shy;verzekering', 'Het is een eenvoudige verzekering, maar de details maken het verschil. Het eerste gesprek kost u niets.',
+            [('Kennismaken', 'We bespreken wie er bij u wonen, en of er huisdieren of kinderen op kamers zijn.'),
+             ('Uitzoeken', 'Ik kijk welke polissen passen, met aandacht voor geleende spullen en het eigen risico.'),
+             ('Advies', 'U hoort welke verzekering ik aanraad en waarom. Vaak kan het voordelig in een pakket.'),
+             ('Regelen en bijhouden', 'Ik regel de aanvraag. Verandert uw gezin, dan passen we de dekking aan.')]),
+        review=review('Wat klanten van mij vinden', 'Klanten waarderen vooral dat ik meedenk en bereikbaar blijf, ook lang na het afsluiten.', *REVIEW_KYRA),
+        wie=wie('Persoonlijk advies voor uw gezin',
+            'Mijn naam is Fred Koeling. Ik kijk niet alleen naar de premie, maar naar uw gezin: kinderen, huisdieren en wat u leent of huurt.',
+            WERK_TEKST + ' U heeft bij mij één vast aanspreekpunt.',
+            'Een lage premie, maar een groot risico. Deze verzekering raad ik bijna iedereen aan.'),
+        zij='Twijfelt u of uw gezin goed verzekerd is? Bel of mail mij. Het eerste gesprek is gratis.',
+        contact=('Goed verzekerd voor schade bij een ander?', 'Bel of mail mij. Ik kom bij u thuis in Apeldoorn en omgeving, of we spreken online af.')),
+    'Autoverzekering': dict(
+        schade=schade('Een aanrijding gehad?',
+            'Na een aanrijding is het vaak even schrikken. Met deze stappen maakt u het uzelf makkelijker:',
+            ['Zorg eerst voor uw veiligheid en die van anderen. Zet de alarmlichten aan en trek een veiligheidshesje aan als u dat heeft.',
+             'Vul samen met de tegenpartij het Europees schadeformulier in, op papier of in een app. Teken alleen als u het eens bent met wat er staat.',
+             'Maak foto\'s van beide auto\'s, de kentekens en de situatie op de weg.',
+             'Noteer de namen en telefoonnummers van getuigen.'],
+            'Staat u stil langs de weg? Bel dan eerst de hulpdienst van uw verzekeraar. Het nummer staat op uw verzekeringsbewijs of in de app. Daarna help ik u verder.'),
+        werk=werkwijze('Zo regel ik uw autoverzekering', 'Van de eerste vraag tot de jaren daarna. Het eerste gesprek kost u niets.',
+            [('Kennismaken', 'U vertelt over uw auto, hoeveel u rijdt en wie er nog meer in rijdt.'),
+             ('Dekking kiezen', 'We kijken naar de leeftijd en de waarde van de auto, en welk risico u zelf kunt dragen.'),
+             ('Vergelijken en advies', 'Ik vergelijk verzekeraars op premie, eigen risico en voorwaarden.'),
+             ('Regelen en bijhouden', 'Ik regel de overstap met uw schadevrije jaren. Na een paar jaar kijken we of een lichtere dekking kan.')]),
+        review=review('Hulp bij schade', 'Juist bij schade merkt u het verschil van een vaste adviseur die u kent.', *REVIEW_TONY),
+        wie=wie('Een vaste adviseur, ook na een aanrijding',
+            'Mijn naam is Fred Koeling. Bij schade aan uw auto wilt u één persoon die u kent en die meedenkt. Dat ben ik.',
+            WERK_TEKST + ' Ik kom bij u langs in Apeldoorn en omgeving.',
+            'Allrisk is niet altijd nodig. Ik reken het eerlijk voor u door.'),
+        zij='Twijfelt u tussen beperkt casco en allrisk? Bel of mail mij. Het eerste gesprek is gratis.',
+        contact=('Advies over uw autoverzekering?', 'Stuur mij uw kenteken en uw huidige polis, dan zoek ik uit welke dekking het best past. Ik kom ook graag bij u langs in Apeldoorn en omgeving.')),
+    'Polischeck': dict(
+        schade='', werk='',
+        review=review('Een polischeck in de praktijk', 'Na een check had deze VvE een betere dekking, en betaalde ze minder.', *REVIEW_MARCEL),
+        wie=wie('Wie kijkt uw polissen na?',
+            'Mijn naam is Fred Koeling. Ik ben Certified Financial Planner en werk sinds 2015 als zelfstandig adviseur.',
+            'Met ruim 22 jaar ervaring weet ik waar polissen van elkaar verschillen, en waar het vaak misgaat.',
+            'Ik adviseer alleen wat u echt iets oplevert.'),
+        zij='Vragen over de polischeck? Bel of mail mij. Het eerste gesprek is gratis.',
+        contact=('Een polischeck aanvragen?', 'Mail uw polissen naar <a href="mailto:info@finect.nl">info@finect.nl</a> of bel mij. Ik kom ook bij u langs in Apeldoorn en omgeving om ze samen door te nemen.')),
+}

@@ -164,6 +164,11 @@ def bouw(pg):
 
     # ----- opmaak -----
     voorladen = ''
+    if pg.get('beeld'):
+        # de kopfoto van een subpagina is het grootste element bovenaan: vooraf laden
+        m_beeld = pg['beeld'].replace('.jpg', '-mobiel.jpg')
+        voorladen = ('<link rel="preload" as="image" href="../' + pg['beeld'] + '" media="(min-width: 769px)" fetchpriority="high">\n'
+                     '<link rel="preload" as="image" href="../' + m_beeld + '" media="(max-width: 768px)" fetchpriority="high">\n')
     if pg.get('held'):
         voorladen = ('<link rel="preload" as="image" href="../' + BEELD + '" media="(min-width: 769px)" fetchpriority="high">\n'
                      '<link rel="preload" as="image" href="../' + BEELD_M + '" media="(max-width: 768px)" fetchpriority="high">\n')

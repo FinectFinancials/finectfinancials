@@ -34,7 +34,7 @@ def kort(punten):
 
 def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag een polischeck aan', '../verzekeringen/polischeck/'), schade=True):
     andere = ''.join(f'<li><a href="{u}">{n}</a></li>' for n, u in ANDERE if n != naam)
-    gerel = ''.join(f'<div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{UITLEG[n][0]}</span><h4>{n.replace("heidsverzekering","heids&shy;verzekering")}</h4>'
+    gerel = ''.join(f'<div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{UITLEG[n][0]}</span><h3>{n.replace("heidsverzekering","heids&shy;verzekering")}</h3>'
                     f'<p>{UITLEG[n][1]}</p><a class="fx-verz__pmeer" href="{u}">Lees verder</a></div>'
                     for n, u in ANDERE if n != naam and n in UITLEG)
     vr = ''.join(f'''
@@ -64,10 +64,10 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
     <div class="fx-verz__tekst">
 {tekst}
     </div>
-    <aside class="fx-verz__zij">
+    <div class="fx-verz__zij">
       <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
         <h2>Liever even overleggen?</h2>
-        <p>Bel of mail mij. Het eerste gesprek is gratis en vrijblijvend.</p>
+        <p>{EIGEN[naam]['zij']}</p>
         <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a></div>
         <p style="margin:14px 0 0;"><a class="fx-verz__licht" href="mailto:info@finect.nl">info@finect.nl</a></p>
       </div>
@@ -75,10 +75,10 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
         <h2>Meer over verzekeringen</h2>
         <ul>{andere}</ul>
       </div>
-    </aside>
+    </div>
   </section></div>
 
-{hulp}{hoe}{SCHADE if schade else ''}{WERKWIJZE if schade else ''}{REVIEWS}{WIE}  <!-- ook interessant -->
+{hulp}{hoe}{EIGEN[naam]['schade']}{EIGEN[naam]['werk']}{EIGEN[naam]['review']}{EIGEN[naam]['wie']}  <!-- ook interessant -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
     <p class="fx-ct__sub">Ook interessant</p>
     <h2 style="margin-bottom:28px;">Andere verzekeringen</h2>
@@ -90,7 +90,7 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
     <div>
       <p class="fx-ct__sub">Vragen</p>
       <h2>Vragen over {(naam[0].lower() + naam[1:]).replace('heidsverzekering','heids&shy;verzekering')}</h2>
-      <p>Staat uw vraag er niet tussen? Bel gerust. Daar hoeft u geen afspraak voor te maken.</p>
+      <p>Nog een vraag over uw {naam.lower().replace('polischeck','verzekeringen').replace('heidsverzekering','heids&shy;verzekering')}? Bel gerust, daar hoeft u geen afspraak voor te maken.</p>
       <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gesprek</a></p>
     </div>
     <div>{vr}
@@ -101,8 +101,8 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
     <div>
       <p class="fx-ct__sub">Contact</p>
-      <h2>Advies nodig?</h2>
-      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving. Woont u verder weg? Ook dan help ik u graag, online of ik kom bij u langs.</p>
+      <h2>{EIGEN[naam]['contact'][0]}</h2>
+      <p class="fx-ct__lead">{EIGEN[naam]['contact'][1]}</p>
       <div class="fx-ct__btns">
         <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
         <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Naar contact</a>
@@ -126,7 +126,7 @@ KORT_AVP = kort(['Voor schade die u of uw gezin per ongeluk bij een ander veroor
                  'Een lage premie voor een risico dat groot kan zijn.',
                  'Let op bij geleende spullen en bij schade tijdens uw werk.'])
 KORT_AUTO = kort(['WA is wettelijk verplicht.',
-                  'Hoe nieuwer en duurder de auto, hoe eerder allrisk loont.',
+                  'Bij een nieuwe, dure auto is allrisk meestal verstandig.',
                   'Uw schadevrije jaren neemt u mee als u overstapt.'])
 KORT_CHECK = kort(['Ik kijk naar dekking, verzekerde bedragen, eigen risico en premie.',
                    'U krijgt mijn advies zonder verplichting.',
@@ -141,7 +141,7 @@ WELNIET_WOON = welniet(
 WOON = KORT_WOON + '''      <h2>Twee verzekeringen voor uw woning</h2>
       <p>Een woonverzekering bestaat meestal uit twee delen: de woonhuisverzekering en de inboedelverzekering. Veel verzekeraars bieden ze samen aan, maar het blijven twee dekkingen met elk een eigen verzekerd bedrag.</p>
       <table class="fx-verz__tabel">
-        <thead><tr><th></th><th>Woonhuisverzekering (opstal)</th><th>Inboedelverzekering</th></tr></thead>
+        <thead><tr><td></td><th>Woonhuisverzekering (opstal)</th><th>Inboedelverzekering</th></tr></thead>
         <tbody>
           <tr><th>Wat is verzekerd</th><td>Het huis zelf: muren, dak, vloeren, ramen en vaste onderdelen zoals keuken en badkamer</td><td>Wat u bij een verhuizing meeneemt, zoals meubels, kleding en apparatuur</td></tr>
           <tr><th>Voor wie</th><td>Huiseigenaren</td><td>Huurders en huiseigenaren</td></tr>
@@ -287,7 +287,7 @@ CHECK = KORT_CHECK + '''      <h2>Waarom een polischeck?</h2>
 
       <h2>Hoe werkt het?</h2>
       <ol class="fx-ct__stap">
-        <li><b>U stuurt uw polissen</b><span>De polisbladen of een overzicht van uw verzekeringen. Een foto of scan is genoeg.</span></li>
+        <li><b>U stuurt uw polissen</b><span>De polisbladen of een overzicht van uw verzekeringen, bijvoorbeeld uit de app van uw verzekeraar.</span></li>
         <li><b>Ik zoek het uit</b><span>Ik kijk naar dekking, verzekerde bedragen, eigen risico en premie, en vergelijk dat met wat er nu te krijgen is.</span></li>
         <li><b>We bespreken het</b><span>Bij u thuis, op kantoor of online. U hoort wat ik zou aanpassen en waarom.</span></li>
         <li><b>U beslist</b><span>Wilt u iets veranderen, dan regel ik het, ook het opzeggen van de oude polis.</span></li>
@@ -307,13 +307,13 @@ CHECK = KORT_CHECK + '''      <h2>Waarom een polischeck?</h2>
 
 CHECK_VR = [
     ('Moet ik na de polischeck overstappen?',
-     'Nee. U krijgt mijn advies en beslist zelf. Klopt alles al, dan hoort u dat ook.'),
+     'Nee. U krijgt mijn advies en beslist zelf. Is er niets te verbeteren, dan zeg ik dat eerlijk.'),
     ('Kan ik mijn verzekeringen tussentijds opzeggen?',
      'Bij de meeste particuliere schadeverzekeringen kunt u na het eerste contractjaar per maand opzeggen. Als u overstapt, regel ik het zo dat u niet onverzekerd raakt.'),
     ('Doet u ook een polischeck voor ondernemers?',
      'Ja. Voor ondernemers kijk ik ook naar bedrijfsaansprakelijkheid, gebouw en inventaris, bedrijfsschade en het wagenpark.'),
     ('Hoe lever ik mijn polissen aan?',
-     'Per mail naar info@finect.nl, of ik neem ze mee als ik bij u langskom. Een foto of scan is genoeg.'),
+     'Per mail naar info@finect.nl, of ik neem ze mee als ik bij u langskom. Een foto met uw telefoon volstaat.'),
     ('Wat als ik dubbel verzekerd ben?',
      'Dan zoek ik uit welke verzekering u het beste kunt houden en regel ik het opzeggen van de andere. Soms lijkt iets dubbel, maar is het dat niet helemaal. Ook dat zoek ik voor u uit.'),
     ('Kijkt u ook naar verzekeringen via mijn werkgever?',

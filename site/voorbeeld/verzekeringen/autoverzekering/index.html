@@ -345,6 +345,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <script type="application/ld+json" id="fx-bedrijfsgegevens">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://finect.nl/#organisatie","name":"Finect Financials","description":"Onafhankelijk advies over verzekeringen en hypotheken in Apeldoorn.","url":"https://finect.nl/","logo":"https://finect.nl/wp-content/uploads/2020/04/finect-financials-logo-retina.png","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressRegion":"Gelderland","addressCountry":"NL"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:30"}],"areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Ugchelen"},{"@type":"City","name":"Beekbergen"},{"@type":"City","name":"Loenen"},{"@type":"City","name":"Klarenbeek"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Vaassen"}],"knowsLanguage":"nl-NL","identifier":[{"@type":"PropertyValue","name":"KvK","value":"62201735"},{"@type":"PropertyValue","name":"AFM-vergunning","value":"12047700"},{"@type":"PropertyValue","name":"Kifid","value":"300.017906"}],"founder":{"@type":"Person","name":"Fred Koeling","jobTitle":"Certified Financial Planner"},"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/"],"hasMap":"https://www.google.com/maps?cid=9247328396419147947","geo":{"@type":"GeoCoordinates","latitude":52.2186011,"longitude":5.9704508}}</script>
 <script type="application/ld+json" id="fx-vragen">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://finect.nl/verzekeringen/autoverzekering/#vragen","mainEntity":[{"@type":"Question","name":"Is een autoverzekering verplicht?","acceptedAnswer":{"@type":"Answer","text":"Ja. Een WA-verzekering is wettelijk verplicht voor elke auto met een Nederlands kenteken, ook als u er niet mee rijdt. Alleen als het kenteken geschorst is, hoeft het niet."}},{"@type":"Question","name":"Wat is het verschil tussen dagwaarde en aanschafwaarde?","acceptedAnswer":{"@type":"Answer","text":"De dagwaarde is wat uw auto op dit moment waard is. Veel allriskverzekeringen vergoeden in de eerste jaren de aanschafwaarde of werken met een vaste waarderegeling. Hoe lang dat geldt, verschilt per verzekeraar."}},{"@type":"Question","name":"Wat gebeurt er met mijn schadevrije jaren als ik overstap?","acceptedAnswer":{"@type":"Answer","text":"Die neemt u mee. Schadevrije jaren worden centraal geregistreerd, zodat uw nieuwe verzekeraar ze kan overnemen."}},{"@type":"Question","name":"Is ruitschade verzekerd?","acceptedAnswer":{"@type":"Answer","text":"Bij beperkt casco en allrisk meestal wel. Laat u de ruit herstellen bij een bedrijf waar de verzekeraar mee samenwerkt, dan geldt vaak geen of een laag eigen risico."}},{"@type":"Question","name":"Mag iemand anders in mijn auto rijden?","acceptedAnswer":{"@type":"Answer","text":"Meestal wel. Rijdt er regelmatig iemand anders in uw auto, zoals uw partner of een kind, geef dat dan door. Voor jonge bestuurders geldt vaak een hoger eigen risico."}},{"@type":"Question","name":"Wanneer is allrisk niet meer nodig?","acceptedAnswer":{"@type":"Answer","text":"Daar is geen vaste leeftijd voor. Kijk naar de waarde van de auto en de premie. Is de extra premie voor allrisk in een paar jaar hoger dan wat de auto nog waard is, dan is beperkt casco vaak genoeg."}},{"@type":"Question","name":"Ben ik in het buitenland verzekerd?","acceptedAnswer":{"@type":"Answer","text":"In de landen op uw internationale verzekeringsbewijs, vroeger de groene kaart, bent u in elk geval voor WA verzekerd. Daar staan de meeste Europese landen op. Of casco en pechhulp ook in het buitenland gelden, verschilt per polis."}}]}</script>
+<link rel="preload" as="image" href="../../../wp-content/uploads/finect/verz-auto.jpg" media="(min-width: 769px)" fetchpriority="high">
+<link rel="preload" as="image" href="../../../wp-content/uploads/finect/verz-auto-mobiel.jpg" media="(max-width: 768px)" fetchpriority="high">
 <style id="fx-home-css">
 /* Homepage. Bouwt voort op fx-ct; alleen wat de homepage extra nodig heeft */
 /* het thema geeft main 40px ruimte bovenaan; hier moet de foto direct onder de kop */
@@ -623,7 +625,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-verz__producten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;}
 .fx-verz__pkaart{position:relative;background:#fff;border:1px solid var(--lijn);border-radius:14px;padding:24px 24px 22px;
   display:flex;flex-direction:column;}
-.fx-ct .fx-verz__pkaart h4{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:700;line-height:1.3;
+.fx-ct .fx-verz__pkaart h4,.fx-ct .fx-verz__pkaart h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:700;line-height:1.3;
   color:var(--navy);margin:0 0 8px;text-transform:none;letter-spacing:0;}
 .fx-ct .fx-verz__pkaart p{font-size:15px;line-height:1.65;margin:0 0 14px;flex:1;}
 .fx-verz__pkaart--link{border-color:transparent;box-shadow:0 8px 26px rgba(20,33,43,.08);transition:transform .25s ease,box-shadow .25s ease;}
@@ -927,6 +929,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-verz__andere{padding-top:56px;}
 }
 @media (prefers-reduced-motion:reduce){.fx-verz__hulpuit{transition:none;}}
+/* ===== ronde 7 ===== */
+.fx-ct .fx-verz__schadetel{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:22px;font-weight:600;color:#fff;margin:0 0 12px;}
+.fx-ct .fx-verz__schadetel a{color:#fff;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;}
+.fx-ct .fx-verz__schadetel a:hover{color:var(--roze2);}
+.fx-ct .fx-ct__dots button{color:#fff;}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -1127,7 +1134,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <!-- kop -->
   <section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../../../wp-content/uploads/finect/verz-auto.jpg);--kop-m:url(../../../wp-content/uploads/finect/verz-auto-mobiel.jpg)"><div class="fx-ct__wrap">
     <p class="fx-verz__kruimel"><a href="../../../">Home</a> &rsaquo; <a href="../../../voorbeeld/verzekeringen/">Verzekeringen</a> &rsaquo; Autoverzekering</p>
-    <div class="fx-verz__adviseur"><img src="../../../wp-content/uploads/2025/07/DSCF4417.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
+    <div class="fx-verz__adviseur"><img src="../../../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
     <p class="fx-ct__sub">Onderweg</p>
     <h1>Autoverzekering: WA, beperkt casco of allrisk?</h1>
     <p class="fx-ct__lead">Welke dekking past bij uw auto? Ik zet de verschillen op een rij en vergelijk premie, eigen risico en voorwaarden voor u.</p>
@@ -1151,7 +1158,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <!-- tekst -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
     <div class="fx-verz__tekst">
-      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst"><li>WA is wettelijk verplicht.</li><li>Hoe nieuwer en duurder de auto, hoe eerder allrisk loont.</li><li>Uw schadevrije jaren neemt u mee als u overstapt.</li></ul></div>
+      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst"><li>WA is wettelijk verplicht.</li><li>Bij een nieuwe, dure auto is allrisk meestal verstandig.</li><li>Uw schadevrije jaren neemt u mee als u overstapt.</li></ul></div>
       <h2>De drie dekkingen</h2>
       <table class="fx-verz__tabel">
         <thead><tr><th>Dekking</th><th>Wat is verzekerd</th><th>Past vaak bij</th></tr></thead>
@@ -1177,10 +1184,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       </ul>
       <p>Niet alles is voor iedereen nodig. Heeft u al pechhulp via een lidmaatschap? Dan hoeft u het niet dubbel te verzekeren.</p>
     </div>
-    <aside class="fx-verz__zij">
+    <div class="fx-verz__zij">
       <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
         <h2>Liever even overleggen?</h2>
-        <p>Bel of mail mij. Het eerste gesprek is gratis en vrijblijvend.</p>
+        <p>Twijfelt u tussen beperkt casco en allrisk? Bel of mail mij. Het eerste gesprek is gratis.</p>
         <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a></div>
         <p style="margin:14px 0 0;"><a class="fx-verz__licht" href="mailto:info@finect.nl">info@finect.nl</a></p>
       </div>
@@ -1188,7 +1195,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <h2>Meer over verzekeringen</h2>
         <ul><li><a href="../../../voorbeeld/verzekeringen/woonverzekering/">Woonverzekering</a></li><li><a href="../../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Aansprakelijkheidsverzekering</a></li><li><a href="../../../voorbeeld/verzekeringen/polischeck/">Polischeck</a></li><li><a href="../../../voorbeeld/verzekeringen/">Alle verzekeringen</a></li></ul>
       </div>
-    </aside>
+    </div>
   </section></div>
 
   <!-- hulpmiddel -->
@@ -1207,7 +1214,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
           <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Wat is uw auto ongeveer waard?</legend><label><input type="radio" name="waarde" value="laag"><span>Minder dan &euro;&nbsp;5.000</span></label><label><input type="radio" name="waarde" value="midden"><span>&euro;&nbsp;5.000 tot &euro;&nbsp;15.000</span></label><label><input type="radio" name="waarde" value="hoog"><span>Meer dan &euro;&nbsp;15.000</span></label></fieldset>
           <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Heeft u de auto gefinancierd of in private lease?</legend><label><input type="radio" name="financiering" value="ja"><span>Ja</span></label><label><input type="radio" name="financiering" value="nee"><span>Nee</span></label></fieldset>
           <div class="fx-verz__hulpuit" id="fxDekkingUit" aria-live="polite"><p>Beantwoord de drie vragen, dan ziet u hier welke dekking waarschijnlijk past.</p></div>
-          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
+          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
         </form>
       </div>
     </div>
@@ -1240,7 +1247,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <h2>Hoe ik u help</h2>
       <p>Ik vergelijk autoverzekeringen van verschillende verzekeraars en let op meer dan alleen de premie.</p>
       <ul class="fx-verz__lijst fx-verz__lijst--ruim"><li>Ik kijk welke dekking past bij de leeftijd en de waarde van uw auto.</li><li>Ik let op het eigen risico en de voorwaarden, zoals de regeling voor nieuwe auto's.</li><li>Ik kijk of de verzekering voordeliger is in een pakket met uw andere verzekeringen.</li><li>Heeft u schade, dan belt u mij en kijk ik mee wat er moet gebeuren.</li></ul>
-      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../../voorbeeld/verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
     </div>
   </section></div></div>
 
@@ -1248,17 +1255,13 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__schade">
     <div>
       <p class="fx-ct__sub">Schade</p>
-      <h2>Schade? Dan belt u mij</h2>
-      <p>Bij schade wilt u geen keuzemenu. U belt mij. Ik kijk mee welke stappen nodig zijn en neem waar mogelijk het contact met de verzekeraar over.</p>
-      <ul class="fx-verz__schadelijst">
-        <li>Beperk de schade als dat veilig kan, bijvoorbeeld door bij een lekkage het water af te sluiten.</li>
-        <li>Maak foto's van de schade en bewaar kapotte spullen en bonnen.</li>
-        <li>Bel mij, het liefst binnen een paar dagen.</li>
-      </ul>
+      <h2>Een aanrijding gehad?</h2>
+      <p>Na een aanrijding is het vaak even schrikken. Met deze stappen maakt u het uzelf makkelijker:</p>
+      <ul class="fx-verz__schadelijst"><li>Zorg eerst voor uw veiligheid en die van anderen. Zet de alarmlichten aan en trek een veiligheidshesje aan als u dat heeft.</li><li>Vul samen met de tegenpartij het Europees schadeformulier in, op papier of in een app. Teken alleen als u het eens bent met wat er staat.</li><li>Maak foto's van beide auto's, de kentekens en de situatie op de weg.</li><li>Noteer de namen en telefoonnummers van getuigen.</li></ul>
     </div>
     <div class="fx-home__schade-bel">
-      <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
-      <p>Maandag t/m vrijdag 09:00 tot 17:30. Daarbuiten spreekt u de voicemail in en bel ik u zo snel mogelijk terug.</p>
+      <p class="fx-verz__schadetel">Bel mij op <a href="tel:+31630679790">06 30 67 97 90</a></p>
+      <p>Staat u stil langs de weg? Bel dan eerst de hulpdienst van uw verzekeraar. Het nummer staat op uw verzekeringsbewijs of in de app. Daarna help ik u verder.</p>
       <p><a class="fx-verz__licht" href="../../../vergelijkingskaarten/">Bekijk de vergelijkingskaarten</a></p>
     </div>
   </section></div></div>
@@ -1266,53 +1269,34 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <!-- werkwijze -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__werk">
     <p class="fx-ct__sub">Werkwijze</p>
-    <h2>Zo werk ik</h2>
-    <p style="margin-bottom:38px;max-width:66ch;">Van het eerste gesprek tot de jaren daarna. De eerste stap kost u niets.</p>
-    <ol class="fx-ct__stap fx-ct__stap--breed">
-      <li><b>Kennismaken</b><span>U vertelt wat er speelt. Bij u thuis, op uw bedrijf, op kantoor of online. Gratis en vrijblijvend.</span></li>
-      <li><b>Uitzoeken en vergelijken</b><span>Ik breng uw situatie in kaart en vergelijk het aanbod van verschillende verzekeraars.</span></li>
-      <li><b>Advies</b><span>U krijgt de keuzes op een rij, met de bedragen erbij. U beslist zelf.</span></li>
-      <li><b>Regelen en bijhouden</b><span>Ik verzorg de aanvraag en blijf daarna uw aanspreekpunt, ook bij schade.</span></li>
-    </ol>
+    <h2>Zo regel ik uw autoverzekering</h2>
+    <p style="margin-bottom:38px;max-width:66ch;">Van de eerste vraag tot de jaren daarna. Het eerste gesprek kost u niets.</p>
+    <ol class="fx-ct__stap fx-ct__stap--breed"><li><b>Kennismaken</b><span>U vertelt over uw auto, hoeveel u rijdt en wie er nog meer in rijdt.</span></li><li><b>Dekking kiezen</b><span>We kijken naar de leeftijd en de waarde van de auto, en welk risico u zelf kunt dragen.</span></li><li><b>Vergelijken en advies</b><span>Ik vergelijk verzekeraars op premie, eigen risico en voorwaarden.</span></li><li><b>Regelen en bijhouden</b><span>Ik regel de overstap met uw schadevrije jaren. Na een paar jaar kijken we of een lichtere dekking kan.</span></li></ol>
   </section></div>
 
-  <!-- klantervaringen -->
+  <!-- klantervaring -->
   <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
     <div class="fx-ct__rev">
       <div>
-        <p class="fx-ct__sub">Klantervaringen</p>
-        <h2>Wat klanten van mij vinden</h2>
-        <p>Een verzekering merkt u pas echt als er iets gebeurt. Deze klanten vertellen hoe zij het hebben ervaren.</p>
+        <p class="fx-ct__sub">Klantervaring</p>
+        <h2>Hulp bij schade</h2>
+        <p>Juist bij schade merkt u het verschil van een vaste adviseur die u kent.</p>
         <div class="fx-ct__score">
           <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <span class="fx-ct__cijfer">5,0</span>
           <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
         </div>
         <div class="fx-ct__btns">
-          <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
           <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
         </div>
       </div>
       <div>
-        <div class="fx-ct__stage" id="fxCtStage">
+        <div class="fx-ct__stage">
           <figure class="fx-ct__quote is-on">
-            <blockquote>&ldquo;Fred heeft de verzekeringen voor onze VVE uitgezocht, we hebben nu een completere verzekering dan we hadden, voor minder geld, top!&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">MG</span><span class="fx-ct__wie"><b>Marcel de G.</b>Google, 5 sterren</span></figcaption>
-          </figure>
-          <figure class="fx-ct__quote">
             <blockquote>&ldquo;Fred heeft mij en mijn ouders heel goed geholpen met de schadeafhandeling van de zakelijke bus. Heel vriendelijk en zeer behulpzaam.&rdquo;</blockquote>
             <figcaption><span class="fx-ct__ini">TP</span><span class="fx-ct__wie"><b>Tony P.</b>Google, 5 sterren</span></figcaption>
           </figure>
-          <figure class="fx-ct__quote">
-            <blockquote>&ldquo;Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">FS</span><span class="fx-ct__wie"><b>Fleur S.</b>Google, 5 sterren</span></figcaption>
-          </figure>
-          <figure class="fx-ct__quote">
-            <blockquote>&ldquo;Fred heeft verstand van zaken, houdt contact met je en denkt echt met je mee. Heel blij mee!&rdquo;</blockquote>
-            <figcaption><span class="fx-ct__ini">KD</span><span class="fx-ct__wie"><b>Kyra D.</b>Ondernemer &middot; Google, 5 sterren</span></figcaption>
-          </figure>
         </div>
-        <ul class="fx-ct__dots" id="fxCtDots"></ul>
       </div>
     </div>
   </section></div></div>
@@ -1322,11 +1306,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div class="fx-verz__wiefoto"><img src="../../../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, onafhankelijk verzekeringsadviseur in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
     <div>
       <p class="fx-ct__sub">Uw adviseur</p>
-      <h2>U spreekt steeds mij</h2>
-      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik regel verzekeringen voor particulieren en ondernemers in Apeldoorn en omgeving, en ik blijf daarna uw aanspreekpunt.</p>
-      <p>Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring in het vak. Als Certified Financial Planner kijk ik niet alleen naar losse polissen, maar naar het geheel: uw huis, uw inkomen en uw gezin.</p>
-      <blockquote class="fx-verz__citaat">&ldquo;Ik zeg het ook als u iets niet nodig heeft.&rdquo;</blockquote>
-      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../../over-finect/">Lees meer over mij</a></div>
+      <h2>Een vaste adviseur, ook na een aanrijding</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Bij schade aan uw auto wilt u één persoon die u kent en die meedenkt. Dat ben ik.</p>
+      <p>Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring in het vak. Ik kom bij u langs in Apeldoorn en omgeving.</p>
+      <blockquote class="fx-verz__citaat">&ldquo;Allrisk is niet altijd nodig. Ik reken het eerlijk voor u door.&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--o" href="../../../over-finect/">Lees meer over mij</a></div>
     </div>
   </section></div>
 
@@ -1334,7 +1318,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
     <p class="fx-ct__sub">Ook interessant</p>
     <h2 style="margin-bottom:28px;">Andere verzekeringen</h2>
-    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span><h4>Woonverzekering</h4><p>Opstal en inboedel: uw huis en alles wat erin staat.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/woonverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h4>Aansprakelijkheids&shy;verzekering</h4><p>Voor schade die u of uw gezin bij een ander veroorzaakt.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span><h4>Polischeck</h4><p>Uw verzekeringen nagekeken: te veel, te weinig of goed.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/polischeck/">Lees verder</a></div></div>
+    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span><h3>Woonverzekering</h3><p>Opstal en inboedel: uw huis en alles wat erin staat.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/woonverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Aansprakelijkheids&shy;verzekering</h3><p>Voor schade die u of uw gezin bij een ander veroorzaakt.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span><h3>Polischeck</h3><p>Uw verzekeringen nagekeken: te veel, te weinig of goed.</p><a class="fx-verz__pmeer" href="../../../voorbeeld/verzekeringen/polischeck/">Lees verder</a></div></div>
   </section></div>
 
   <!-- vragen -->
@@ -1342,7 +1326,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div>
       <p class="fx-ct__sub">Vragen</p>
       <h2>Vragen over autoverzekering</h2>
-      <p>Staat uw vraag er niet tussen? Bel gerust. Daar hoeft u geen afspraak voor te maken.</p>
+      <p>Nog een vraag over uw autoverzekering? Bel gerust, daar hoeft u geen afspraak voor te maken.</p>
       <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../../../contact/">Plan een gesprek</a></p>
     </div>
     <div>
@@ -1381,8 +1365,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
     <div>
       <p class="fx-ct__sub">Contact</p>
-      <h2>Advies nodig?</h2>
-      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving. Woont u verder weg? Ook dan help ik u graag, online of ik kom bij u langs.</p>
+      <h2>Advies over uw autoverzekering?</h2>
+      <p class="fx-ct__lead">Stuur mij uw kenteken en uw huidige polis, dan zoek ik uit welke dekking het best past. Ik kom ook graag bij u langs in Apeldoorn en omgeving.</p>
       <div class="fx-ct__btns">
         <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
         <a class="fx-ct__btn fx-ct__btn--o" href="../../../contact/">Naar contact</a>
