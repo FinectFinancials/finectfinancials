@@ -11,8 +11,30 @@ ANDERE = [('Woonverzekering', '../verzekeringen/woonverzekering/'),
           ('Alle verzekeringen', '../verzekeringen/')]
 
 
+FOTO = {'Woonverzekering': 'verzekeringen-woonhuis', 'Aansprakelijkheidsverzekering': 'verz-avp',
+        'Autoverzekering': 'verz-auto', 'Polischeck': 'verz-polischeck'}
+UITLEG = {'Woonverzekering': ('{ICO_HUIS}', 'Opstal en inboedel: uw huis en alles wat erin staat.'),
+          'Aansprakelijkheidsverzekering': ('{ICO_SCHILD}', 'Voor schade die u of uw gezin bij een ander veroorzaakt.'),
+          'Autoverzekering': ('{ICO_AUTO}', 'WA, beperkt casco of allrisk: welke dekking past bij uw auto?'),
+          'Polischeck': ('{ICO_CHECK}', 'Uw verzekeringen nagekeken: te veel, te weinig of goed.')}
+
+
+def welniet(wel, niet, welkop='Wel verzekerd', nietkop='Niet verzekerd'):
+    w = ''.join(f'<li>{x}</li>' for x in wel); n = ''.join(f'<li>{x}</li>' for x in niet)
+    return (f'<div class="fx-verz__welniet"><div><span class="fx-verz__lijstkop">{welkop}</span><ul class="fx-verz__lijst">{w}</ul></div>'
+            f'<div><span class="fx-verz__lijstkop fx-verz__lijstkop--let">{nietkop}</span><ul class="fx-verz__lijst fx-verz__lijst--niet">{n}</ul></div></div>')
+
+
+def kort(punten):
+    return ('      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst">' +
+            ''.join(f'<li>{p}</li>' for p in punten) + '</ul></div>\n')
+
+
 def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan', '../verzekeringen/polischeck/')):
     andere = ''.join(f'<li><a href="{u}">{n}</a></li>' for n, u in ANDERE if n != naam)
+    gerel = ''.join(f'<div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{UITLEG[n][0]}</span><h4>{n.replace("heidsverzekering","heids&shy;verzekering")}</h4>'
+                    f'<p>{UITLEG[n][1]}</p><a class="fx-verz__pmeer" href="{u}">Lees verder</a></div>'
+                    for n, u in ANDERE if n != naam and n in UITLEG)
     vr = ''.join(f'''
       <details{' open' if i == 0 else ''}>
         <summary><h3>{v}</h3></summary>
@@ -21,7 +43,7 @@ def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan'
     return f'''<div class="fx-verz">
 
   <!-- kop -->
-  <section class="fx-verz__kop"><div class="fx-ct__wrap">
+  <section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../wp-content/uploads/finect/{FOTO[naam]}.jpg);--kop-m:url(../wp-content/uploads/finect/{FOTO[naam]}-mobiel.jpg)"><div class="fx-ct__wrap">
     <p class="fx-verz__kruimel"><a href="../">Home</a> &rsaquo; <a href="../verzekeringen/">Verzekeringen</a> &rsaquo; {naam}</p>
     <p class="fx-ct__sub">{sub}</p>
     <h1>{h1}</h1>
@@ -51,11 +73,18 @@ def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan'
     </aside>
   </section></div>
 
+  <!-- ook interessant -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec" style="padding-top:0;">
+    <p class="fx-ct__sub">Ook interessant</p>
+    <h2 style="margin-bottom:28px;">Meer over verzekeringen</h2>
+    <div class="fx-verz__gerelateerd">{gerel}</div>
+  </section></div>
+
   <!-- vragen -->
   <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
     <div>
       <p class="fx-ct__sub">Vragen</p>
-      <h2>Vragen over {naam[0].lower() + naam[1:]}</h2>
+      <h2>Vragen over {(naam[0].lower() + naam[1:]).replace('heidsverzekering','heids&shy;verzekering')}</h2>
       <p>Staat uw vraag er niet tussen? Bel gerust. Daar hoeft u geen afspraak voor te maken.</p>
       <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gesprek</a></p>
     </div>
@@ -85,8 +114,26 @@ def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan'
 '''
 
 
+KORT_WOON = kort(['De woonhuisverzekering is voor het huis zelf, de inboedelverzekering voor wat erin staat.',
+                  'Huurt u? Dan heeft u alleen een inboedelverzekering nodig.',
+                  'Laat na een verbouwing het verzekerde bedrag nakijken, anders bent u misschien onderverzekerd.'])
+KORT_AVP = kort(['Voor schade die u of uw gezin per ongeluk bij een ander veroorzaakt.',
+                 'Een lage premie voor een risico dat groot kan zijn.',
+                 'Let op bij geleende spullen en bij schade tijdens uw werk.'])
+KORT_AUTO = kort(['WA is wettelijk verplicht.',
+                  'Hoe nieuwer en duurder de auto, hoe eerder allrisk loont.',
+                  'Uw schadevrije jaren neemt u mee als u overstapt.'])
+KORT_CHECK = kort(['Ik kijk naar dekking, verzekerde bedragen, eigen risico en premie.',
+                   'U krijgt mijn advies zonder verplichting.',
+                   'Een foto of scan van uw polissen is genoeg.'])
+WELNIET_WOON = welniet(
+    ['Brand, blikseminslag en ontploffing', 'Storm', 'Inbraak en diefstal',
+     'Water dat plotseling uit een leiding of apparaat stroomt'],
+    ['Slijtage en achterstallig onderhoud', 'Schade door grondwater', 'Overstroming door een dijkdoorbraak',
+     'Schade die met opzet is veroorzaakt'], nietkop='Meestal niet verzekerd')
+
 # ------------------------------------------------------------------ woonverzekering
-WOON = '''      <h2>Twee verzekeringen voor uw woning</h2>
+WOON = KORT_WOON + '''      <h2>Twee verzekeringen voor uw woning</h2>
       <p>Een woonverzekering bestaat meestal uit twee delen: de woonhuisverzekering en de inboedelverzekering. Veel verzekeraars bieden ze samen aan, maar het blijven twee dekkingen met elk een eigen verzekerd bedrag.</p>
       <table class="fx-verz__tabel">
         <thead><tr><th></th><th>Woonhuisverzekering (opstal)</th><th>Inboedelverzekering</th></tr></thead>
@@ -106,6 +153,9 @@ WOON = '''      <h2>Twee verzekeringen voor uw woning</h2>
       <p>De inboedelverzekering vergoedt schade aan of verlies van uw spullen in huis, bijvoorbeeld door brand, inbraak of waterschade. Vaak kunt u kiezen tussen een basisdekking en een uitgebreide dekking die ook een ongelukje dekt, zoals koffie over de laptop.</p>
       <p>Let op bij sieraden, computers en andere kostbaarheden. Daarvoor gelden vaak maximale bedragen. Heeft u veel waardevolle spullen, dan kan een aparte dekking verstandig zijn.</p>
 
+      <h2>Wat is wel en niet verzekerd?</h2>
+      <p>De precieze dekking verschilt per verzekeraar en per polis. Dit geldt in de meeste gevallen:</p>
+''' + WELNIET_WOON + '''
       <h2>Onderverzekering voorkomen</h2>
       <p>U bent onderverzekerd als het verzekerde bedrag lager is dan de werkelijke waarde. Bij schade krijgt u dan maar een deel vergoed. Veel verzekeraars bieden een garantie tegen onderverzekering als u de waarde bepaalt met hun rekenhulp. Laat het verzekerde bedrag in elk geval nakijken:</p>
       <ul>
@@ -135,24 +185,18 @@ WOON_VR = [
 ]
 
 # ------------------------------------------------------------------ aansprakelijkheid
-AVP = '''      <h2>Wat is een aansprakelijkheidsverzekering?</h2>
+AVP = KORT_AVP + '''      <h2>Wat is een aansprakelijkheidsverzekering?</h2>
       <p>Veroorzaakt u schade bij een ander, dan bent u daar volgens de wet vaak aansprakelijk voor. De aansprakelijkheidsverzekering voor particulieren, ook wel AVP genoemd, betaalt die schade. Het gaat om schade aan spullen van een ander en om letselschade.</p>
       <p>De premie is laag, maar een schade kan groot zijn. Daarom raad ik bijna iedereen aan om deze verzekering te hebben.</p>
-      <h3>Voorbeelden</h3>
-      <ul>
-        <li>U stoot bij vrienden een dure vaas om.</li>
-        <li>Uw kind fietst tegen een geparkeerde auto.</li>
-        <li>Uw hond bijt een voorbijganger.</li>
-        <li>U laat per ongeluk een lekkage ontstaan die schade geeft bij de benedenburen.</li>
-      </ul>
-
-      <h2>Wat is niet verzekerd?</h2>
-      <ul>
-        <li>Schade aan uw eigen spullen. Daarvoor is de <a href="../verzekeringen/woonverzekering/">inboedelverzekering</a>.</li>
-        <li>Schade die u met opzet veroorzaakt.</li>
-        <li>Schade die u met een auto, motor of scooter veroorzaakt. Daarvoor is de <a href="../verzekeringen/autoverzekering/">autoverzekering</a>.</li>
-        <li>Schade die u tijdens uw werk veroorzaakt. Bent u ondernemer, dan is daarvoor een <a href="../zakelijk/">bedrijfsaansprakelijkheidsverzekering</a>.</li>
-      </ul>
+      <h2>Wat is wel en niet verzekerd?</h2>
+''' + welniet(
+    ['U stoot bij vrienden een dure vaas om.', 'Uw kind fietst tegen een geparkeerde auto.', 'Uw hond bijt een voorbijganger.',
+     'U laat per ongeluk een lekkage ontstaan die schade geeft bij de benedenburen.'],
+    ['Schade aan uw eigen spullen. Daarvoor is de <a href="../verzekeringen/woonverzekering/">inboedelverzekering</a>.',
+     'Schade die u met opzet veroorzaakt.',
+     'Schade met een auto, motor of scooter. Daarvoor is de <a href="../verzekeringen/autoverzekering/">autoverzekering</a>.',
+     'Schade tijdens uw werk. Bent u ondernemer, dan is daarvoor een <a href="../zakelijk/">bedrijfs&shy;aansprakelijkheids&shy;verzekering</a>.'],
+    welkop='Wel verzekerd, bijvoorbeeld') + '''
 
       <h2>Waar moet u op letten?</h2>
       <h3>Alleenstaand of gezin</h3>
@@ -181,7 +225,7 @@ AVP_VR = [
 ]
 
 # ------------------------------------------------------------------ autoverzekering
-AUTO = '''      <h2>De drie dekkingen</h2>
+AUTO = KORT_AUTO + '''      <h2>De drie dekkingen</h2>
       <table class="fx-verz__tabel">
         <thead><tr><th>Dekking</th><th>Wat is verzekerd</th><th>Past vaak bij</th></tr></thead>
         <tbody>
@@ -223,7 +267,7 @@ AUTO_VR = [
 ]
 
 # ------------------------------------------------------------------ polischeck
-CHECK = '''      <h2>Waarom een polischeck?</h2>
+CHECK = KORT_CHECK + '''      <h2>Waarom een polischeck?</h2>
       <p>Verzekeringen sluit u vaak af op een moment dat er iets verandert, zoals bij het kopen van een huis. Daarna kijkt bijna niemand er nog naar, terwijl uw situatie wel verandert. Het gevolg is dat u dubbel verzekerd bent, onderverzekerd, of meer premie betaalt dan nodig.</p>
       <h3>Wat ik vaak tegenkom</h3>
       <ul>
@@ -271,7 +315,7 @@ BESTANDEN = {
         'Uw huis en alles wat erin staat, goed verzekerd. Ik leg uit wat een woonhuis- en een inboedelverzekering dekken, en zoek de dekking die bij uw woning past.',
         WOON, WOON_VR),
     'aansprakelijkheid.html': pagina(
-        'Aansprakelijkheidsverzekering', 'Persoonlijk', 'Aansprakelijkheidsverzekering voor particulieren',
+        'Aansprakelijkheidsverzekering', 'Persoonlijk', 'Aansprakelijkheids&shy;verzekering voor particulieren',
         'Een ongelukje zit in een klein hoekje. Met een aansprakelijkheidsverzekering bent u verzekerd als u of uw gezin per ongeluk schade veroorzaakt bij een ander.',
         AVP, AVP_VR),
     'autoverzekering.html': pagina(
