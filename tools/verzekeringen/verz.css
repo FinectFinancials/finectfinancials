@@ -445,4 +445,5 @@
 .fx-ct .fx-verz__schadetel a{color:#fff;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;}
 .fx-ct .fx-verz__schadetel a:hover{color:var(--roze2);}
 .fx-ct .fx-ct__dots button{color:#fff;}
+.fx-ct .fx-verz .fx-ct__lead a{text-decoration:underline;text-underline-offset:3px;}
 </style>
