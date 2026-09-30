@@ -74,7 +74,7 @@ PAGINAS = [
          beschr='Wat dekt een aansprakelijkheidsverzekering voor particulieren en waar let u op met kinderen, huisdieren en geleende spullen? Advies in Apeldoorn.',
          naam='Aansprakelijkheidsverzekering', dienst='Advies over aansprakelijkheidsverzekering', vragen=7, beeld='wp-content/uploads/finect/verz-avp.jpg'),
     dict(pad='verzekeringen/autoverzekering/', bron='autoverzekering.html', menu='Autoverzekering',
-         titel='Autoverzekering: WA, beperkt casco of allrisk? | Finect',
+         titel='Autoverzekering: WA, casco of allrisk? | Finect Apeldoorn',
          beschr='WA, beperkt casco of allrisk? Uitleg over dekking, eigen risico en schadevrije jaren, en onafhankelijk advies over uw autoverzekering in Apeldoorn.',
          naam='Autoverzekering', dienst='Advies over autoverzekering', vragen=7, beeld='wp-content/uploads/finect/verz-auto.jpg'),
     dict(pad='verzekeringen/polischeck/', bron='polischeck.html', menu='Polischeck',
@@ -150,6 +150,9 @@ def bouw(pg):
     m = re.search(r'(<script type="application/ld\+json" id="fx-bedrijfsgegevens">)(.*?)(</script>)', t, re.S)
     org = json.loads(m.group(2))
     org["hasMap"] = "https://www.google.com/maps?cid=9247328396419147947"
+    # het Google Bedrijfsprofiel als officieel profiel van het bedrijf
+    if org["hasMap"] not in org.setdefault("sameAs", []):
+        org["sameAs"].append(org["hasMap"])
     org["geo"] = {"@type": "GeoCoordinates", "latitude": 52.2186011, "longitude": 5.9704508}
     t = t[:m.start(2)] + json.dumps(org, ensure_ascii=False, separators=(',', ':')) + t[m.end(2):]
     t = re.sub(r'\s*<script type="application/ld\+json" id="fx-persoon">.*?</script>', '', t, count=1, flags=re.S)

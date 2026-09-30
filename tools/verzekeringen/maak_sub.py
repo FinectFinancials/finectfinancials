@@ -112,6 +112,7 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
       <li><span class="fx-home__rond">{{ICO_TEL}}</span><span><b><a href="tel:+31630679790">06 30 67 97 90</a></b><span>Maandag t/m vrijdag 09:00 tot 17:30</span></span></li>
       <li><span class="fx-home__rond">{{ICO_MAIL}}</span><span><b><a href="mailto:info@finect.nl">info@finect.nl</a></b><span>Antwoord binnen één werkdag</span></span></li>
       <li><span class="fx-home__rond">{{ICO_PIN}}</span><span><b>Kantoor</b><span>Vlijtseweg 16, 7317 AH Apeldoorn</span></span></li>
+      <li><span class="fx-home__rond">{{ICO_KAART}}</span><span><b>Werkgebied</b><span>Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello, Vaassen en omgeving</span></span></li>
     </ul>
   </section></div>
 

@@ -34,6 +34,10 @@
 /* werkwijze en polischeck: stapnummers in groen */
 .fx-verz .fx-ct__stap li::before{background:var(--groen);}
 
+/* afgeronde knoppen */
+.fx-ct .fx-verz .fx-ct__btn,.fx-ct .fx-verz .fx-verz__verder{border-radius:999px;}
+.fx-verz__balk a{border-radius:999px!important;}
+
 /* schade: vinkjes in licht groen op donkerblauw */
 .fx-verz__schadelijst li::before{border-color:#7fd3bf;}
 </style>
