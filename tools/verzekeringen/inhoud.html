@@ -12,6 +12,7 @@
           <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
           <a class="fx-ct__btn fx-ct__btn--o" href="#polischeck">Vraag een polischeck aan</a>
         </div>
+        <p class="fx-verz__heldlink"><a href="#check">Of doe eerst de verzekeringscheck in één minuut</a></p>
       </div>
     </div>
   </section>
@@ -32,6 +33,127 @@
       <li><b>1</b><span>vaste adviseur, ook bij schade</span></li>
     </ul>
   </div>
+
+  <!-- verzekeringscheck -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__checksec" id="check">
+    <div class="fx-verz__checkkaart">
+      <div class="fx-verz__checkintro">
+        <p class="fx-ct__sub">Verzekeringscheck</p>
+        <h2>Welke verzekeringen passen bij u?</h2>
+        <p>Beantwoord vijf korte vragen en zie direct welke verzekeringen belangrijk zijn in uw situatie. Het kost u een minuut.</p>
+        <ul class="fx-verz__checkpunten">
+          <li>Vijf vragen</li>
+          <li>Direct resultaat</li>
+          <li>U hoeft niets in te vullen</li>
+        </ul>
+      </div>
+      <div class="fx-verz__checkvak">
+        <noscript><p class="fx-verz__checkgeenjs">De check werkt met JavaScript. Bel mij gerust op <a href="tel:+31630679790">06 30 67 97 90</a>, dan lopen we het samen door.</p></noscript>
+        <form class="fx-verz__vragen" id="fxCheck" hidden>
+          <div class="fx-verz__voortgang" aria-hidden="true"><span></span></div>
+          <p class="fx-verz__stapnr" aria-live="polite">Vraag 1 van 5</p>
+          <fieldset class="fx-verz__vraag" data-v="wonen">
+            <legend>Hoe woont u?</legend>
+            <label><input type="radio" name="wonen" value="huur"><span>In een huurwoning</span></label>
+            <label><input type="radio" name="wonen" value="koop"><span>In een eigen huis</span></label>
+            <label><input type="radio" name="wonen" value="appartement"><span>In een eigen appartement</span></label>
+          </fieldset>
+          <fieldset class="fx-verz__vraag" data-v="auto" hidden>
+            <legend>Heeft u een auto?</legend>
+            <label><input type="radio" name="auto" value="ja"><span>Ja</span></label>
+            <label><input type="radio" name="auto" value="nee"><span>Nee</span></label>
+          </fieldset>
+          <fieldset class="fx-verz__vraag" data-v="huishouden" hidden>
+            <legend>Met wie woont u?</legend>
+            <label><input type="radio" name="huishouden" value="alleen"><span>Alleen</span></label>
+            <label><input type="radio" name="huishouden" value="samen"><span>Samen met mijn partner</span></label>
+            <label><input type="radio" name="huishouden" value="kinderen"><span>Met kinderen</span></label>
+          </fieldset>
+          <fieldset class="fx-verz__vraag" data-v="werk" hidden>
+            <legend>Wat doet u voor werk?</legend>
+            <label><input type="radio" name="werk" value="loondienst"><span>Ik werk in loondienst</span></label>
+            <label><input type="radio" name="werk" value="zzp"><span>Ik ben zzp'er of ondernemer</span></label>
+            <label><input type="radio" name="werk" value="pensioen"><span>Ik ben met pensioen</span></label>
+            <label><input type="radio" name="werk" value="anders"><span>Anders</span></label>
+          </fieldset>
+          <fieldset class="fx-verz__vraag" data-v="reizen" hidden>
+            <legend>Hoe vaak gaat u naar het buitenland?</legend>
+            <label><input type="radio" name="reizen" value="vaak"><span>Meerdere keren per jaar</span></label>
+            <label><input type="radio" name="reizen" value="soms"><span>Ongeveer één keer per jaar</span></label>
+            <label><input type="radio" name="reizen" value="zelden"><span>Zelden of nooit</span></label>
+          </fieldset>
+          <div class="fx-verz__checknav">
+            <button type="submit" class="fx-verz__verder" hidden>Volgende vraag</button>
+            <button type="button" class="fx-verz__terug" hidden>Vorige vraag</button>
+          </div>
+        </form>
+        <div class="fx-verz__uitslag" id="fxUitslag" hidden tabindex="-1">
+          <h3>Uw eerste indruk</h3>
+          <div class="fx-verz__uitslaggrid">
+            <div><span class="fx-verz__lijstkop">Belangrijk</span><ul class="fx-verz__lijst" data-lijst="nodig"></ul></div>
+            <div><span class="fx-verz__lijstkop fx-verz__lijstkop--let">Het overwegen waard</span><ul class="fx-verz__lijst fx-verz__lijst--let" data-lijst="overweeg"></ul></div>
+          </div>
+          <div class="fx-verz__letop" data-lijst="letop"></div>
+          <p class="fx-verz__klein">Dit is een eerste indruk op basis van vijf vragen, geen advies. In een gesprek kijk ik samen met u wat u al heeft en wat echt nodig is.</p>
+          <div class="fx-ct__btns">
+            <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bespreek het met mij</a>
+            <a class="fx-ct__btn fx-ct__btn--o" href="../verzekeringen/polischeck/">Vraag een polischeck aan</a>
+            <button type="button" class="fx-verz__opnieuw">Opnieuw beginnen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var f=document.getElementById('fxCheck'), u=document.getElementById('fxUitslag'); if(!f||!u) return;
+      f.hidden=false;
+      var vr=[].slice.call(f.querySelectorAll('.fx-verz__vraag')), nr=f.querySelector('.fx-verz__stapnr'),
+          balk=f.querySelector('.fx-verz__voortgang span'), terug=f.querySelector('.fx-verz__terug'),
+          knop=f.querySelector('.fx-verz__verder'), i=0, a={};
+      var P='../verzekeringen/';
+      function toon(n){i=n; vr.forEach(function(v,k){v.hidden=k!==n;}); nr.textContent='Vraag '+(n+1)+' van '+vr.length;
+        balk.style.width=((n)/vr.length*100)+'%'; terug.hidden=n===0;
+        knop.hidden=!a[vr[n].getAttribute('data-v')]; knop.textContent=n===vr.length-1?'Bekijk de uitslag':'Volgende vraag';}
+      function li(t,l){return '<li>'+(l?'<a href="'+l+'">'+t+'</a>':t)+'</li>';}
+      function uitslag(){
+        var n=[],o=[],w=[];
+        n.push(li('Inboedelverzekering',P+'woonverzekering/'));
+        n.push(li(a.huishouden==='alleen'?'Aansprakelijkheids&shy;verzekering':'Aansprakelijkheids&shy;verzekering voor het hele gezin',P+'aansprakelijkheidsverzekering/'));
+        if(a.wonen==='koop') n.push(li('Woonhuisverzekering (opstal)',P+'woonverzekering/'));
+        if(a.auto==='ja') n.push(li('Autoverzekering, WA is wettelijk verplicht',P+'autoverzekering/'));
+        if(a.werk==='zzp'){n.push(li('Een oplossing voor uw inkomen als u niet kunt werken','../arbeidsongeschiktheidsverzekeringen-aov/'));
+          n.push(li('Bedrijfs&shy;aansprakelijkheids&shy;verzekering, als u schade bij klanten kunt veroorzaken','../zakelijk/'));}
+        if((a.wonen==='koop'||a.wonen==='appartement')&&a.huishouden!=='alleen') o.push(li('Overlijdensrisico&shy;verzekering, zodat uw gezin in het huis kan blijven wonen'));
+        o.push(li('Rechtsbijstand&shy;verzekering, voor hulp bij een conflict'));
+        if(a.reizen==='vaak') o.push(li('Doorlopende reisverzekering'));
+        if(a.reizen==='soms') o.push(li('Reisverzekering, doorlopend of per reis'));
+        if(a.wonen==='huur') w.push('U huurt: een woonhuisverzekering heeft u niet nodig, die sluit de verhuurder af.');
+        if(a.wonen==='appartement') w.push('Bij een appartement verzekert de VvE meestal het gebouw. Kijk of uw eigen verbeteringen, zoals een nieuwe keuken, daaronder vallen.');
+        if(a.wonen==='koop') w.push('Heeft u verbouwd of zonnepanelen laten plaatsen? Laat dan het verzekerde bedrag nakijken.');
+        if(a.werk==='zzp') w.push('Uw aansprakelijkheidsverzekering voor particulieren dekt geen schade die u tijdens uw werk veroorzaakt.');
+        if(a.werk==='pensioen') w.push('Met pensioen verandert er vaak iets in uw situatie. Een goed moment voor een polischeck.');
+        u.querySelector('[data-lijst=nodig]').innerHTML=n.join('');
+        u.querySelector('[data-lijst=overweeg]').innerHTML=o.join('');
+        u.querySelector('[data-lijst=letop]').innerHTML=w.map(function(x){return '<p><b>Let op:</b> '+x+'</p>';}).join('');
+        f.hidden=true; u.hidden=false; u.focus();
+      }
+      function verder(){ if(!a[vr[i].getAttribute('data-v')]) return;
+        if(i<vr.length-1){toon(i+1); var r=vr[i].querySelector('input:checked')||vr[i].querySelector('input'); r.focus();} else uitslag(); }
+      /* met muis of vinger gaat de check vanzelf door; met het toetsenbord kiest u en gaat u verder met de knop of Enter */
+      var wijs=0;
+      vr.forEach(function(v){
+        v.addEventListener('pointerdown',function(){wijs=Date.now();});
+        v.addEventListener('click',function(e){ if(e.target.type!=='radio') return;
+          a[v.getAttribute('data-v')]=e.target.value; knop.hidden=false;
+          if(Date.now()-wijs<1500){ wijs=0; setTimeout(verder,180); } });
+      });
+      f.addEventListener('submit',function(e){e.preventDefault(); verder();});
+      terug.addEventListener('click',function(){ if(i>0) toon(i-1); });
+      u.querySelector('.fx-verz__opnieuw').addEventListener('click',function(){ a={}; f.reset(); u.hidden=true; f.hidden=false; toon(0); vr[0].querySelector('input').focus(); });
+      toon(0);
+    })();
+    </script>
+  </section></div>
 
   <!-- waarom via een adviseur -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec">
@@ -181,6 +303,44 @@
       </div>
     </div>
   </section></div></div>
+
+  <!-- handig om te weten -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__weetjes">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Handig om te weten</p>
+      <h2>Momenten om uw verzekeringen na te lopen</h2>
+      <p>Uw leven verandert, uw verzekeringen soms niet mee. Op deze momenten is het slim om even te kijken.</p>
+    </div>
+    <div class="fx-home__kaarten">
+      <a class="fx-home__dienst" href="../verzekeringen/woonverzekering/" data-foto="../wp-content/uploads/finect/verz-woon-mobiel.jpg" style="--pos:50% 40%">
+        <span class="fx-home__dienst-ico">{ICO_HUIS}</span>
+        <h3>Verbouwd of verduurzaamd?</h3>
+        <p>Een nieuwe keuken, een uitbouw of zonnepanelen maken uw huis meer waard. Past het verzekerde bedrag nog?</p>
+        <span class="fx-home__dienst-meer">Over de woonverzekering</span>
+      </a>
+      <a class="fx-home__dienst" href="../verzekeringen/aansprakelijkheidsverzekering/" data-foto="../wp-content/uploads/finect/verz-avp-mobiel.jpg" style="--pos:50% 35%">
+        <span class="fx-home__dienst-ico">{ICO_GEZIN}</span>
+        <h3>Kinderen op de fiets</h3>
+        <p>Een kras op een geparkeerde auto is zo gebeurd. Staan uw kinderen op uw aansprakelijkheidsverzekering?</p>
+        <span class="fx-home__dienst-meer">Over aansprakelijkheid</span>
+      </a>
+      <a class="fx-home__dienst" href="../verzekeringen/autoverzekering/" data-foto="../wp-content/uploads/finect/verz-auto-mobiel.jpg" style="--pos:50% 50%">
+        <span class="fx-home__dienst-ico">{ICO_AUTO}</span>
+        <h3>Wordt uw auto ouder?</h3>
+        <p>Na een aantal jaar is allrisk vaak niet meer nodig. Zo bespaart u premie zonder onnodig risico.</p>
+        <span class="fx-home__dienst-meer">Over de autoverzekering</span>
+      </a>
+    </div>
+    <script>
+    (function(){
+      var k=document.querySelectorAll('.fx-home__dienst[data-foto]');
+      function laad(el){el.style.setProperty('--foto','url('+el.getAttribute('data-foto')+')');}
+      if(!('IntersectionObserver' in window)){k.forEach(laad);return;}
+      var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){laad(x.target);io.unobserve(x.target);}});},{rootMargin:'400px 0px'});
+      k.forEach(function(el){io.observe(el);});
+    })();
+    </script>
+  </section></div>
 
   <!-- schade -->
   <div class="fx-ct__band--navy"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-home__schade">

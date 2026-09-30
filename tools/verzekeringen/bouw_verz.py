@@ -98,6 +98,13 @@ def bouw(pg):
 
     url = BASIS + pg['pad']
     inhoud = io.open(SP + pg['bron'], encoding='utf-8').read()
+    # vaste balk onderin op mobiel: bellen en polischeck (op de polischeckpagina zelf: mailen)
+    if pg['bron'] == 'polischeck.html':
+        tweede = '<a href="mailto:info@finect.nl">{ICO_MAIL}Mail mij</a>'
+    else:
+        tweede = '<a href="../verzekeringen/polischeck/">{ICO_CHECK}Polischeck</a>'
+    inhoud += ('\n  <div class="fx-verz__balk" role="region" aria-label="Direct contact">'
+               '<a href="tel:+31630679790">{ICO_TEL}Bel mij</a>' + tweede + '</div>\n')
     for k, v in ICONEN.items():
         inhoud = inhoud.replace('{' + k + '}', v)
     assert not re.search(r'\{[A-Z_0-9]+\}', inhoud), ('niet alle iconen ingevuld', pg['bron'])
@@ -190,10 +197,12 @@ def bouw(pg):
         t = re.sub(r'\s*<link rel="canonical" href="[^"]*" />', '', t, count=1)
         t = t.replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
         t = t.replace('<title>', '<title>VOORBEELD | ', 1)
-        banier = ('<div style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#b5004a;'
+        banier = ('<div id="fxBanier" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#b5004a;'
                   'color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.45;'
                   'padding:10px 16px;text-align:center;">Voorbeeld van de nieuwe pagina ' + html.escape(pg['naam']) +
-                  '. Deze pagina staat niet in Google en hoort nog niet bij de website.</div>\n')
+                  '. Deze pagina staat niet in Google en hoort nog niet bij de website.</div>\n'
+                  '<script>(function(){var b=document.getElementById("fxBanier"),r=document.documentElement;'
+                  'function z(){r.style.setProperty("--fx-onder",b.offsetHeight+"px");}z();addEventListener("resize",z);})();</script>\n')
         t = t.replace('</body>', banier + '</body>', 1)
 
     t, _ = opruimen(t)
@@ -206,6 +215,7 @@ def bouw(pg):
     pad = pg['pad']
     if VOORBEELD:
         t = t.replace('"../verzekeringen/', '"../voorbeeld/verzekeringen/')
+        t = t.replace("'../verzekeringen/", "'../voorbeeld/verzekeringen/")
         pad = 'voorbeeld/' + pad
     diepte = pad.count('/')
     if diepte != 1:

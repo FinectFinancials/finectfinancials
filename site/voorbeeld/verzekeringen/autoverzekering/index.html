@@ -774,6 +774,96 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-verz__cijfers{padding:22px 6px;}
   .fx-verz__wie{padding:30px 22px;}
 }
+/* ===== ronde 5: verzekeringscheck, momenten en vaste balk op mobiel ===== */
+.fx-ct .fx-verz__heldlink{margin:18px 0 0;font-size:15px;}
+.fx-ct .fx-verz__heldlink a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.fx-ct .fx-verz__heldlink a:hover{color:var(--roze2);}
+.fx-verz__checksec{padding-top:70px;padding-bottom:30px;}
+.fx-verz__checkkaart{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center;
+  padding:56px;border-radius:24px;color:#fff;
+  background:radial-gradient(circle at 0% 100%,rgba(181,0,74,.55),rgba(181,0,74,0) 55%),linear-gradient(135deg,#14212b 0%,#1f3342 100%);}
+.fx-ct .fx-verz__checkintro .fx-ct__sub{color:var(--roze2);}
+.fx-ct .fx-verz__checkintro h2{color:#fff;font-size:40px;}
+.fx-ct .fx-verz__checkintro p{color:rgba(255,255,255,.88);font-size:17px;line-height:1.65;}
+.fx-verz__checkpunten{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;}
+.fx-ct .fx-verz__checkpunten li{position:relative;margin:0;padding-left:34px;font-size:16px;font-weight:600;color:#fff;}
+.fx-verz__checkpunten li::before{content:"";position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;background:var(--mag);}
+.fx-verz__checkpunten li::after{content:"";position:absolute;left:8px;top:7px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+.fx-verz__checkvak{background:#fff;color:var(--ink);border-radius:18px;padding:34px 36px;box-shadow:0 22px 50px rgba(0,0,0,.25);min-height:360px;}
+.fx-ct .fx-verz__checkgeenjs{margin:0;font-size:17px;}
+.fx-verz__voortgang{height:8px;border-radius:8px;background:var(--roze);overflow:hidden;}
+.fx-verz__voortgang span{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--mag),var(--mag2));transition:width .3s ease;}
+.fx-ct .fx-verz__stapnr{margin:14px 0 6px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mag);}
+.fx-ct .fx-verz__vraag{border:0;margin:0;padding:0;min-width:0;display:grid;gap:12px;}
+.fx-ct .fx-verz__vraag[hidden]{display:none;}
+.fx-ct .fx-verz__vraag legend{float:left;width:100%;padding:0;margin:0 0 8px;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;
+  font-size:26px;font-weight:500;line-height:1.25;color:var(--navy);}
+.fx-ct .fx-verz__vraag label{position:relative;display:block;margin:0;cursor:pointer;}
+.fx-verz__vraag input{position:absolute;opacity:0;width:1px;height:1px;margin:0;}
+.fx-verz__vraag label span{display:flex;align-items:center;gap:14px;padding:15px 18px;border:2px solid #ebbdd0;border-radius:12px;
+  font-size:17px;font-weight:600;line-height:1.35;color:var(--navy);background:#fff;transition:border-color .15s ease,background .15s ease;}
+.fx-verz__vraag label span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:2px solid #8a939a;background:#fff;}
+.fx-verz__vraag label:hover span{border-color:var(--mag);background:var(--zacht);}
+.fx-verz__vraag input:focus-visible + span{outline:3px solid var(--navy);outline-offset:2px;}
+.fx-verz__vraag input:checked + span{border-color:var(--mag);background:var(--mag);color:#fff;}
+.fx-verz__vraag input:checked + span::before{border-color:#fff;background:var(--mag);box-shadow:inset 0 0 0 4px #fff;}
+.fx-verz__checknav{min-height:44px;margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;}
+.fx-ct .fx-verz__verder{order:2;margin-left:auto;background:var(--mag);color:#fff;border:0;border-radius:3px;padding:14px 22px;min-height:44px;
+  font-size:15px;font-weight:700;line-height:1.1;}
+.fx-ct .fx-verz__verder:hover{background:var(--navy);color:#fff;}
+.fx-ct .fx-verz__verder[hidden]{display:none;}
+.fx-ct .fx-verz__checkvak button{font-family:inherit;cursor:pointer;text-transform:none;letter-spacing:0;}
+.fx-ct .fx-verz__terug,.fx-ct .fx-verz__opnieuw{background:none;border:0;padding:10px 0;min-height:44px;font-size:15px;font-weight:700;
+  color:var(--navy);text-decoration:underline;text-underline-offset:3px;border-radius:0;box-shadow:none;}
+.fx-ct .fx-verz__terug:hover,.fx-ct .fx-verz__opnieuw:hover{background:none;color:var(--mag);}
+.fx-ct .fx-verz__terug[hidden]{display:none;}
+.fx-verz__uitslag:focus{outline:none;}
+.fx-ct .fx-verz__uitslag h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:28px;font-weight:500;line-height:1.2;
+  color:var(--navy);margin:0 0 18px;text-transform:none;}
+.fx-verz__uitslaggrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;}
+.fx-verz__uitslaggrid > div{background:var(--zacht);border-radius:12px;padding:18px 20px;}
+.fx-verz__lijstkop{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);margin-bottom:8px;}
+.fx-verz__lijstkop--let{color:var(--navy);}
+.fx-verz__lijst{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.fx-ct .fx-verz__lijst li{position:relative;margin:0;padding-left:26px;font-size:15px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;}
+.fx-verz__lijst li::before{content:"";position:absolute;left:4px;top:4px;border-radius:0;background:none;width:5px;height:10px;border:solid var(--mag);border-width:0 2px 2px 0;transform:rotate(45deg);}
+.fx-verz__lijst--let li::before{top:8px;left:0;width:10px;height:10px;border:0;border-radius:50%;background:var(--navy);transform:none;}
+.fx-ct .fx-verz__lijst a{color:var(--navy);font-weight:700;}
+.fx-ct .fx-verz__lijst a:hover{color:var(--mag);}
+.fx-verz__letop{margin-top:16px;}
+.fx-ct .fx-verz__letop p{margin:0 0 8px;padding:12px 16px;border-radius:10px;background:var(--roze);font-size:15px;line-height:1.55;max-width:none;}
+.fx-ct .fx-verz__klein{margin:14px 0 18px;font-size:14px;line-height:1.55;color:var(--grijs);}
+.fx-verz__uitslag .fx-ct__btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;}
+.fx-verz__weetjes .fx-home__kop{margin-bottom:76px;}
+/* vaste balk onderin op mobiel */
+.fx-verz__balk{display:none;}
+@media (max-width:1024px){
+  .fx-verz__checkkaart{grid-template-columns:1fr;gap:30px;padding:44px 40px;}
+  .fx-verz__checkvak{min-height:0;}
+}
+@media (max-width:768px){
+  .fx-verz__checksec{padding-top:48px;padding-bottom:10px;}
+  .fx-verz__checkkaart{padding:30px 18px 18px;border-radius:18px;gap:24px;}
+  .fx-ct .fx-verz__checkintro h2{font-size:30px;}
+  .fx-verz__checkpunten{grid-template-columns:1fr;margin-top:16px;}
+  .fx-verz__checkvak{padding:24px 18px;border-radius:14px;}
+  .fx-ct .fx-verz__vraag legend{font-size:22px;}
+  .fx-verz__uitslaggrid{grid-template-columns:1fr;gap:14px;}
+  .fx-verz__weetjes .fx-home__kop{margin-bottom:64px;}
+  body{padding-bottom:74px;}
+  .fx-verz__balk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;position:fixed;left:0;right:0;
+    bottom:var(--fx-onder,0px);z-index:9990;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;
+    box-shadow:0 -6px 24px rgba(20,33,43,.16);font-family:Barlow,"Helvetica Neue",Arial,sans-serif;}
+  .fx-verz__balk a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;
+    font-size:16px;font-weight:700;line-height:1.2;text-decoration:none;text-align:center;}
+  .fx-verz__balk a svg{width:20px;height:20px;flex:none;}
+  .fx-verz__balk a:first-child{background:#b5004a;color:#fff;}
+  .fx-verz__balk a:last-child{background:#14212b;color:#fff;}
+  #scroll_up{bottom:calc(84px + var(--fx-onder,0px))!important;}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx-verz__voortgang span,.fx-verz__vraag label span{transition:none;}
+}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -1084,6 +1174,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 </div>
 
+  <div class="fx-verz__balk" role="region" aria-label="Direct contact"><a href="tel:+31630679790"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>Bel mij</a><a href="../../../voorbeeld/verzekeringen/polischeck/"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>Polischeck</a></div>
+
 </div>
 
 	</main>
@@ -1271,6 +1363,7 @@ var wgl_core = {"ajaxurl":"https://finect.nl/wp-admin/admin-ajax.php"};
 <script id="zikzag-theme-js" src="../../../wp-content/themes/zikzag/js/theme.js@ver=1.2.2" defer></script>
 <script id="perfect-scrollbar-js" src="../../../wp-content/themes/zikzag/js/perfect-scrollbar.min.js@ver=1.0.0" defer></script>
 <script id="jquery-appear-js" src="../../../wp-content/themes/zikzag/js/jquery.appear.js@ver=1.0.0" defer></script>
-<div style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#b5004a;color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.45;padding:10px 16px;text-align:center;">Voorbeeld van de nieuwe pagina Autoverzekering. Deze pagina staat niet in Google en hoort nog niet bij de website.</div>
+<div id="fxBanier" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#b5004a;color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.45;padding:10px 16px;text-align:center;">Voorbeeld van de nieuwe pagina Autoverzekering. Deze pagina staat niet in Google en hoort nog niet bij de website.</div>
+<script>(function(){var b=document.getElementById("fxBanier"),r=document.documentElement;function z(){r.style.setProperty("--fx-onder",b.offsetHeight+"px");}z();addEventListener("resize",z);})();</script>
 </body>
 </html>
