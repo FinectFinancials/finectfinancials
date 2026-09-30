@@ -57,8 +57,8 @@ ICONEN = {
 }
 
 # ---------- de pagina's ----------
-BEELD = 'wp-content/uploads/finect/verzekeringen-woonhuis.jpg'
-BEELD_M = 'wp-content/uploads/finect/verzekeringen-woonhuis-mobiel.jpg'
+BEELD = 'wp-content/uploads/finect/verz-kleur.jpg'
+BEELD_M = 'wp-content/uploads/finect/verz-kleur-mobiel.jpg'
 PAGINAS = [
     dict(pad='verzekeringen/', bron='inhoud.html', held=True,
          titel='Verzekeringsadvies in Apeldoorn | Finect Financials',

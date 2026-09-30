@@ -11,7 +11,7 @@ ANDERE = [('Woonverzekering', '../verzekeringen/woonverzekering/'),
           ('Alle verzekeringen', '../verzekeringen/')]
 
 
-FOTO = {'Woonverzekering': 'verzekeringen-woonhuis', 'Aansprakelijkheidsverzekering': 'verz-avp',
+FOTO = {'Woonverzekering': 'verz-woon', 'Aansprakelijkheidsverzekering': 'verz-avp',
         'Autoverzekering': 'verz-auto', 'Polischeck': 'verz-polischeck'}
 UITLEG = {'Woonverzekering': ('{ICO_HUIS}', 'Opstal en inboedel: uw huis en alles wat erin staat.'),
           'Aansprakelijkheidsverzekering': ('{ICO_SCHILD}', 'Voor schade die u of uw gezin bij een ander veroorzaakt.'),
