@@ -377,4 +377,67 @@
 @media (prefers-reduced-motion:reduce){
   .fx-verz__voortgang span,.fx-verz__vraag label span{transition:none;}
 }
+/* ===== ronde 6: uitgebreide subpagina's ===== */
+.fx-verz__kop--foto .fx-verz__adviseur{margin-top:6px;}
+.fx-verz__kop--foto + .fx-ct__wrap .fx-verz__cijfers{margin-top:40px;}
+/* vinkjes */
+.fx-verz__vraag--vink label span::before{border-radius:6px;}
+.fx-verz__vraag--vink input:checked + span::before{background:#fff;box-shadow:none;border-color:#fff;}
+.fx-verz__vraag--vink label span{position:relative;}
+.fx-verz__vraag--vink input:checked + span::after{content:"";position:absolute;left:25px;top:50%;width:6px;height:11px;margin-top:-8px;
+  border:solid var(--mag);border-width:0 3px 3px 0;transform:rotate(45deg);}
+.fx-ct .fx-verz__vraag--vink{gap:10px;}
+.fx-ct .fx-verz__vraag--vink legend{font-size:22px;}
+.fx-ct .fx-verz__vraag--vink label span{font-size:16px;padding:13px 16px;}
+/* rij met keuzes (dekkingswijzer) */
+.fx-ct .fx-verz__vraag--rij{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 20px;}
+.fx-ct .fx-verz__vraag--rij legend{font-size:19px;font-weight:600;margin-bottom:10px;}
+.fx-ct .fx-verz__vraag--rij label span{padding:12px 14px;font-size:15px;height:100%;}
+/* uitkomst */
+.fx-verz__hulpuit{margin:18px 0 20px;padding:16px 20px;border-radius:12px;background:var(--zacht);transition:background .2s ease;}
+.fx-verz__hulpuit.is-uit{background:var(--roze);box-shadow:inset 4px 0 0 var(--mag);}
+.fx-ct .fx-verz__hulpuit p{margin:0;font-size:16px;line-height:1.6;max-width:none;}
+.fx-ct .fx-verz__hulpuit p + p{margin-top:10px;}
+.fx-ct .fx-verz__hulpuit b{color:var(--navy);}
+.fx-ct .fx-verz__hulpuit .fx-verz__klein{margin:10px 0 0;}
+.fx-verz__dekking{display:block;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:26px;font-weight:600;line-height:1.25;margin:0 0 6px;}
+.fx-verz__hulp .fx-ct__btns{display:flex;flex-wrap:wrap;gap:12px;}
+/* verzekerd of niet */
+.fx-verz__checkkaart--breed{grid-template-columns:1fr;gap:30px;}
+.fx-verz__checkkaart--breed .fx-verz__checkintro{max-width:640px;}
+.fx-verz__scen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start;}
+.fx-ct .fx-verz__scenario{background:#fff;border:0;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--ink);}
+.fx-ct .fx-verz__scenario summary::after,.fx-ct .fx-verz__scenario[open] summary::after{content:none;display:none;}
+.fx-verz__scenario summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:14px;padding:22px 22px 20px;border-radius:14px;}
+.fx-verz__scenario summary::-webkit-details-marker{display:none;}
+.fx-verz__scenario summary:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+.fx-verz__scenvraag{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;line-height:1.35;color:var(--navy);}
+.fx-verz__scenknop{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--mag);}
+.fx-verz__scenknop::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;}
+.fx-verz__scenario[open] .fx-verz__scenknop{display:none;}
+.fx-ct .fx-verz__scenario p{margin:0;padding:0 22px 22px;font-size:15px;line-height:1.6;max-width:none;color:var(--ink);}
+.fx-verz__oordeel{display:table;margin:0 0 10px;padding:5px 12px;border-radius:30px;font-size:13px;font-weight:700;letter-spacing:.03em;color:#fff;}
+.fx-verz__oordeel--wel{background:#1d6f42;}
+.fx-verz__oordeel--let{background:#8a4b00;}
+.fx-verz__oordeel--niet{background:var(--mag);}
+.fx-ct .fx-verz__scenvoet{margin:0;font-size:15px;line-height:1.6;color:rgba(255,255,255,.88);max-width:none;}
+.fx-ct .fx-verz__scenvoet a{color:#fff;font-weight:700;}
+/* hoe ik u help, met foto */
+.fx-verz__hulpduo{align-items:center;}
+.fx-verz__hulpduo .fx-verz__pakfoto{margin:0;aspect-ratio:4/3;box-shadow:0 18px 44px rgba(20,33,43,.16);}
+.fx-verz__lijst--ruim{margin:6px 0 26px;gap:10px;}
+.fx-ct .fx-verz__lijst--ruim li{font-size:16px;}
+.fx-ct .fx-verz__lijst--ruim a{color:var(--mag);}
+.fx-verz__andere{padding-top:80px;}
+.fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:0;}
+@media (max-width:1024px){.fx-verz__scen{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:900px){.fx-verz__hulpduo{grid-template-columns:1fr;gap:30px;}}
+@media (max-width:768px){
+  .fx-verz__scen{grid-template-columns:1fr;gap:12px;}
+  .fx-verz__scenario summary{padding:18px 18px 16px;}
+  .fx-ct .fx-verz__scenario p{padding:0 18px 18px;}
+  .fx-ct .fx-verz__vraag--rij{grid-template-columns:1fr;}
+  .fx-verz__andere{padding-top:56px;}
+}
+@media (prefers-reduced-motion:reduce){.fx-verz__hulpuit{transition:none;}}
 </style>

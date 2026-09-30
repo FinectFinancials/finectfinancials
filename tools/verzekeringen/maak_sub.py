@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Maakt de inhoud van de vier subpagina's onder Verzekeringen, in één vaste opbouw."""
-import io
+import io, sys
+sys.path.insert(0, '/tmp/claude-0/-home-user-finectfinancials/eb3bde67-f228-5f8e-b9ee-dcd3a00cb56a/scratchpad/home/verz/')
+from sub_extra import *
 
 SP = '/tmp/claude-0/-home-user-finectfinancials/eb3bde67-f228-5f8e-b9ee-dcd3a00cb56a/scratchpad/home/verz/'
 
@@ -30,7 +32,7 @@ def kort(punten):
             ''.join(f'<li>{p}</li>' for p in punten) + '</ul></div>\n')
 
 
-def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan', '../verzekeringen/polischeck/')):
+def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag een polischeck aan', '../verzekeringen/polischeck/'), schade=True):
     andere = ''.join(f'<li><a href="{u}">{n}</a></li>' for n, u in ANDERE if n != naam)
     gerel = ''.join(f'<div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{UITLEG[n][0]}</span><h4>{n.replace("heidsverzekering","heids&shy;verzekering")}</h4>'
                     f'<p>{UITLEG[n][1]}</p><a class="fx-verz__pmeer" href="{u}">Lees verder</a></div>'
@@ -45,6 +47,7 @@ def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan'
   <!-- kop -->
   <section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../wp-content/uploads/finect/{FOTO[naam]}.jpg);--kop-m:url(../wp-content/uploads/finect/{FOTO[naam]}-mobiel.jpg)"><div class="fx-ct__wrap">
     <p class="fx-verz__kruimel"><a href="../">Home</a> &rsaquo; <a href="../verzekeringen/">Verzekeringen</a> &rsaquo; {naam}</p>
+    {CHIP}
     <p class="fx-ct__sub">{sub}</p>
     <h1>{h1}</h1>
     <p class="fx-ct__lead">{lead}</p>
@@ -52,8 +55,10 @@ def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan'
       <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
       <a class="fx-ct__btn fx-ct__btn--o" href="{knop2[1]}">{knop2[0]}</a>
     </div>
+    <p class="fx-verz__heldlink"><a href="#hulp">{hulpkop}</a></p>
   </div></section>
 
+{CIJFERS}
   <!-- tekst -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
     <div class="fx-verz__tekst">
@@ -73,10 +78,10 @@ def pagina(naam, sub, h1, lead, tekst, vragen, knop2=('Vraag een polischeck aan'
     </aside>
   </section></div>
 
-  <!-- ook interessant -->
-  <div class="fx-ct__wrap"><section class="fx-ct__sec" style="padding-top:0;">
+{hulp}{hoe}{SCHADE if schade else ''}{WERKWIJZE if schade else ''}{REVIEWS}{WIE}  <!-- ook interessant -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
     <p class="fx-ct__sub">Ook interessant</p>
-    <h2 style="margin-bottom:28px;">Meer over verzekeringen</h2>
+    <h2 style="margin-bottom:28px;">Andere verzekeringen</h2>
     <div class="fx-verz__gerelateerd">{gerel}</div>
   </section></div>
 
@@ -165,11 +170,7 @@ WOON = KORT_WOON + '''      <h2>Twee verzekeringen voor uw woning</h2>
       </ul>
 
       <h2>Huurt u een woning?</h2>
-      <p>Dan heeft u geen woonhuisverzekering nodig, want het gebouw verzekert de verhuurder. Een inboedelverzekering wel. Heeft u zelf iets aan de woning verbeterd, zoals een nieuwe keuken of vloer? Dan kunt u dat vaak meeverzekeren op uw inboedelverzekering. Dat heet huurdersbelang.</p>
-
-      <h2>Hoe ik u help</h2>
-      <p>Ik vergelijk de woonverzekeringen van verschillende verzekeraars op dekking, eigen risico en premie. U hoort wat u echt nodig heeft, en wat niet. Vaak is het voordelig om uw woonverzekering te combineren met andere verzekeringen in een pakket. En als er schade is, belt u mij.</p>
-      <p>Twijfelt u of uw huidige woonverzekering nog klopt? Dan is een <a href="../verzekeringen/polischeck/">polischeck</a> een goed begin.</p>'''
+      <p>Dan heeft u geen woonhuisverzekering nodig, want het gebouw verzekert de verhuurder. Een inboedelverzekering wel. Heeft u zelf iets aan de woning verbeterd, zoals een nieuwe keuken of vloer? Dan kunt u dat vaak meeverzekeren op uw inboedelverzekering. Dat heet huurdersbelang.</p>'''
 
 WOON_VR = [
     ('Is een woonhuisverzekering verplicht?',
@@ -182,6 +183,10 @@ WOON_VR = [
      'Dat is verstandig. Een verbouwing verhoogt vaak de herbouwwaarde. Geeft u het niet door, dan loopt u het risico onderverzekerd te zijn.'),
     ('Kan ik opstal en inboedel bij verschillende verzekeraars hebben?',
      'Dat kan. Het heeft wel voordelen om ze bij dezelfde verzekeraar te hebben. Bij schade aan zowel het huis als uw spullen, bijvoorbeeld na een brand, heeft u dan één aanspreekpunt.'),
+    ('Wat is huurdersbelang?',
+     'Huurdersbelang zijn verbeteringen die u als huurder zelf aan de woning heeft laten aanbrengen, zoals een nieuwe keuken, vloer of schuur. U kunt die vaak meeverzekeren op uw inboedelverzekering.'),
+    ('Zijn zonnepanelen verzekerd?',
+     'Zonnepanelen op uw eigen dak vallen meestal onder de woonhuisverzekering, omdat ze vast aan het huis zitten. Geef ze wel door, zodat het verzekerde bedrag klopt. Huurt u de panelen, dan ligt het anders.'),
 ]
 
 # ------------------------------------------------------------------ aansprakelijkheid
@@ -206,10 +211,7 @@ AVP = KORT_AVP + '''      <h2>Wat is een aansprakelijkheidsverzekering?</h2>
       <h3>Kinderen jonger dan 14 jaar</h3>
       <p>Kinderen onder de 14 zijn volgens de wet niet zelf aansprakelijk. Veel verzekeringen vergoeden de schade dan toch als u dat wilt, zodat u de verhouding met de buren of vrienden goed houdt.</p>
       <h3>Verzekerd bedrag en eigen risico</h3>
-      <p>Het verzekerde bedrag is meestal minimaal een miljoen euro per gebeurtenis. Kijk ook naar het eigen risico, zeker bij schade door kinderen.</p>
-
-      <h2>Hoe ik u help</h2>
-      <p>Ik vergelijk aansprakelijkheidsverzekeringen op dekking, eigen risico en premie, en let op de punten hierboven. Vaak is de verzekering voordelig mee te nemen in een pakket met uw <a href="../verzekeringen/woonverzekering/">woonverzekering</a>.</p>'''
+      <p>Het verzekerde bedrag is meestal minimaal een miljoen euro per gebeurtenis. Kijk ook naar het eigen risico, zeker bij schade door kinderen.</p>'''
 
 AVP_VR = [
     ('Is een aansprakelijkheidsverzekering verplicht?',
@@ -222,6 +224,10 @@ AVP_VR = [
      'Bij de meeste verzekeraars wel. De aansprakelijkheidsverzekering voor particulieren geldt meestal wereldwijd.'),
     ('Ben ik als zzp\'er verzekerd tijdens mijn werk?',
      'Nee. Schade die u tijdens uw werk veroorzaakt, valt niet onder de aansprakelijkheidsverzekering voor particulieren. Daarvoor is een bedrijfsaansprakelijkheidsverzekering.'),
+    ('Is mijn kind op kamers nog meeverzekerd?',
+     'Vaak wel, zolang uw kind studeert en niet samenwoont of getrouwd is. De voorwaarden verschillen per verzekeraar. Het is goed om dit na te kijken.'),
+    ('Wat is het verschil tussen een gezinsdekking en een alleenstaandendekking?',
+     'Een alleenstaandendekking geldt alleen voor u. Een gezinsdekking geldt voor iedereen die bij u woont, zoals uw partner en kinderen. Gaat u samenwonen of krijgt u kinderen, pas uw verzekering dan aan.'),
 ]
 
 # ------------------------------------------------------------------ autoverzekering
@@ -248,10 +254,7 @@ AUTO = KORT_AUTO + '''      <h2>De drie dekkingen</h2>
         <li>Rechtsbijstand voor het verkeer, bijvoorbeeld als de tegenpartij de schade niet wil betalen.</li>
         <li>Vervangend vervoer na een schade.</li>
       </ul>
-      <p>Niet alles is voor iedereen nodig. Heeft u al pechhulp via een lidmaatschap? Dan hoeft u het niet dubbel te verzekeren.</p>
-
-      <h2>Hoe ik u help</h2>
-      <p>Ik vergelijk autoverzekeringen van verschillende verzekeraars, let op het eigen risico en de voorwaarden, en kijk of de verzekering voordeliger is in een pakket met uw andere verzekeringen. Heeft u schade, dan belt u mij en kijk ik mee wat er moet gebeuren.</p>'''
+      <p>Niet alles is voor iedereen nodig. Heeft u al pechhulp via een lidmaatschap? Dan hoeft u het niet dubbel te verzekeren.</p>'''
 
 AUTO_VR = [
     ('Is een autoverzekering verplicht?',
@@ -264,6 +267,10 @@ AUTO_VR = [
      'Bij beperkt casco en allrisk meestal wel. Laat u de ruit herstellen bij een bedrijf waar de verzekeraar mee samenwerkt, dan geldt vaak geen of een laag eigen risico.'),
     ('Mag iemand anders in mijn auto rijden?',
      'Meestal wel. Rijdt er regelmatig iemand anders in uw auto, zoals uw partner of een kind, geef dat dan door. Voor jonge bestuurders geldt vaak een hoger eigen risico.'),
+    ('Wanneer is allrisk niet meer nodig?',
+     'Daar is geen vaste leeftijd voor. Kijk naar de waarde van de auto en de premie. Is de extra premie voor allrisk in een paar jaar hoger dan wat de auto nog waard is, dan is beperkt casco vaak genoeg.'),
+    ('Ben ik in het buitenland verzekerd?',
+     'In de landen op uw internationale verzekeringsbewijs, vroeger de groene kaart, bent u in elk geval voor WA verzekerd. Daar staan de meeste Europese landen op. Of casco en pechhulp ook in het buitenland gelden, verschilt per polis.'),
 ]
 
 # ------------------------------------------------------------------ polischeck
@@ -307,25 +314,30 @@ CHECK_VR = [
      'Ja. Voor ondernemers kijk ik ook naar bedrijfsaansprakelijkheid, gebouw en inventaris, bedrijfsschade en het wagenpark.'),
     ('Hoe lever ik mijn polissen aan?',
      'Per mail naar info@finect.nl, of ik neem ze mee als ik bij u langskom. Een foto of scan is genoeg.'),
+    ('Wat als ik dubbel verzekerd ben?',
+     'Dan zoek ik uit welke verzekering u het beste kunt houden en regel ik het opzeggen van de andere. Soms lijkt iets dubbel, maar is het dat niet helemaal. Ook dat zoek ik voor u uit.'),
+    ('Kijkt u ook naar verzekeringen via mijn werkgever?',
+     'Ja, als u die meestuurt. Denk aan een arbeidsongeschiktheidsverzekering of een collectieve korting. Zo voorkomt u dat u iets dubbel verzekert.'),
 ]
 
 BESTANDEN = {
     'woonverzekering.html': pagina(
         'Woonverzekering', 'Wonen', 'Woonverzekering: opstal en inboedel',
         'Uw huis en alles wat erin staat, goed verzekerd. Ik leg uit wat een woonhuis- en een inboedelverzekering dekken, en zoek de dekking die bij uw woning past.',
-        WOON, WOON_VR),
+        WOON, WOON_VR, HULP_WOON, 'Doe de snelle check: klopt uw woonverzekering nog?', DUO_WOON),
     'aansprakelijkheid.html': pagina(
         'Aansprakelijkheidsverzekering', 'Persoonlijk', 'Aansprakelijkheids&shy;verzekering voor particulieren',
         'Een ongelukje zit in een klein hoekje. Met een aansprakelijkheidsverzekering bent u verzekerd als u of uw gezin per ongeluk schade veroorzaakt bij een ander.',
-        AVP, AVP_VR),
+        AVP, AVP_VR, HULP_AVP, 'Test uzelf: verzekerd of niet?', DUO_AVP),
     'autoverzekering.html': pagina(
         'Autoverzekering', 'Onderweg', 'Autoverzekering: WA, beperkt casco of allrisk?',
         'Welke dekking past bij uw auto? Ik zet de verschillen op een rij en vergelijk premie, eigen risico en voorwaarden voor u.',
-        AUTO, AUTO_VR),
+        AUTO, AUTO_VR, HULP_AUTO, 'Welke dekking past bij uw auto? Zie het in drie vragen', DUO_AUTO),
     'polischeck.html': pagina(
         'Polischeck', 'Polischeck', 'Polischeck: weet hoe u ervoor staat',
         'Ik loop uw bestaande verzekeringen na en zeg wat er te veel is, wat er te weinig is en wat er goed staat. Vaak levert dat premie op. Klopt alles al, dan hoort u dat ook.',
-        CHECK, CHECK_VR, knop2=('Stuur uw polissen', 'mailto:info@finect.nl')),
+        CHECK, CHECK_VR, HULP_CHECK, 'Doe de snelle check: is het tijd voor een polischeck?', DUO_CHECK,
+        knop2=('Stuur uw polissen', 'mailto:info@finect.nl'), schade=False),
 }
 for naam, inhoud in BESTANDEN.items():
     io.open(SP + naam, 'w', encoding='utf-8').write(inhoud)

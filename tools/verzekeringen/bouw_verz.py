@@ -65,22 +65,22 @@ PAGINAS = [
          beschr='Onafhankelijk verzekeringsadvies in Apeldoorn voor uw huis, auto en gezin. '
                 'Ik vergelijk verzekeraars en blijf uw vaste aanspreekpunt, ook bij schade.',
          naam='Verzekeringen', dienst='Verzekeringsadvies voor particulieren', vragen=7),
-    dict(pad='verzekeringen/woonverzekering/', bron='woonverzekering.html',
+    dict(pad='verzekeringen/woonverzekering/', bron='woonverzekering.html', menu='Woonverzekering',
          titel='Woonverzekering: opstal en inboedel | Finect Apeldoorn',
          beschr='Woonhuis- en inboedelverzekering uitgelegd: wat is verzekerd, hoe voorkomt u onderverzekering en wat heeft u als huurder nodig? Advies in Apeldoorn.',
-         naam='Woonverzekering', dienst='Advies over woonhuis- en inboedelverzekering', vragen=5),
-    dict(pad='verzekeringen/aansprakelijkheidsverzekering/', bron='aansprakelijkheid.html',
+         naam='Woonverzekering', dienst='Advies over woonhuis- en inboedelverzekering', vragen=7, beeld='wp-content/uploads/finect/verz-woon.jpg'),
+    dict(pad='verzekeringen/aansprakelijkheidsverzekering/', bron='aansprakelijkheid.html', menu='Aansprakelijkheid',
          titel='Aansprakelijkheidsverzekering (AVP) | Finect Apeldoorn',
          beschr='Wat dekt een aansprakelijkheidsverzekering voor particulieren en waar let u op met kinderen, huisdieren en geleende spullen? Advies in Apeldoorn.',
-         naam='Aansprakelijkheidsverzekering', dienst='Advies over aansprakelijkheidsverzekering', vragen=5),
-    dict(pad='verzekeringen/autoverzekering/', bron='autoverzekering.html',
+         naam='Aansprakelijkheidsverzekering', dienst='Advies over aansprakelijkheidsverzekering', vragen=7, beeld='wp-content/uploads/finect/verz-avp.jpg'),
+    dict(pad='verzekeringen/autoverzekering/', bron='autoverzekering.html', menu='Autoverzekering',
          titel='Autoverzekering: WA, beperkt casco of allrisk? | Finect',
          beschr='WA, beperkt casco of allrisk? Uitleg over dekking, eigen risico en schadevrije jaren, en onafhankelijk advies over uw autoverzekering in Apeldoorn.',
-         naam='Autoverzekering', dienst='Advies over autoverzekering', vragen=5),
-    dict(pad='verzekeringen/polischeck/', bron='polischeck.html',
+         naam='Autoverzekering', dienst='Advies over autoverzekering', vragen=7, beeld='wp-content/uploads/finect/verz-auto.jpg'),
+    dict(pad='verzekeringen/polischeck/', bron='polischeck.html', menu='Polischeck',
          titel='Polischeck in Apeldoorn: uw verzekeringen nagekeken | Finect',
          beschr='Een polischeck laat zien waar u te veel of te weinig verzekerd bent. Zo werkt het en dit heb ik van u nodig. Onafhankelijk adviseur in Apeldoorn.',
-         naam='Polischeck', dienst='Polischeck', vragen=4),
+         naam='Polischeck', dienst='Polischeck', vragen=6, beeld='wp-content/uploads/finect/verz-polischeck.jpg'),
 ]
 HOOFD = PAGINAS[0]
 
@@ -125,7 +125,7 @@ def bouw(pg):
                '<meta property="og:description" content="' + html.escape(pg['beschr'], quote=True) + '" />', t, count=1)
     vervang('<meta property="og:url" content="https://finect.nl/over-finect/" />',
             '<meta property="og:url" content="' + url + '" />\n'
-            '\t<meta property="og:image" content="' + BASIS + BEELD + '" />\n'
+            '\t<meta property="og:image" content="' + BASIS + pg.get('beeld', BEELD) + '" />\n'
             '\t<meta property="og:image:width" content="1920" />\n'
             '\t<meta property="og:image:height" content="1080" />')
     t = re.sub(r'\s*<meta property="article:modified_time" content="[^"]*" />', '', t, count=1)
@@ -183,6 +183,15 @@ def bouw(pg):
     t = t.replace('<a href=".">', '<a href="../over-finect">')
     t, n = re.subn(r'menu-item-object-page menu-item-3876"',
                    'menu-item-object-page current-menu-item current_page_item menu-item-3876"', t)
+    # uitklaplijst onder Verzekeringen met de subpagina's
+    subs = [p for p in PAGINAS if p is not HOOFD]
+    items = ''.join('\t<li class="menu-item menu-item-type-post_type menu-item-object-page%s menu-item-fx%d">'
+                    '<a href="../%s"><span><span class="item_text">%s</span></span><span class="menu-item_plus"></span></a></li>'
+                    % (' current-menu-item current_page_item' if p is pg else '', i, p['pad'], p['menu'])
+                    for i, p in enumerate(subs, 1))
+    t, n = re.subn(r'(<li (?:id="menu-item-3876" )?class="menu-item menu-item-type-post_type menu-item-object-page)([^"]*"><a href="[^"]*"><span><span class="item_text">Verzekeringen</span></span><span class="menu-item_plus"></span></a>)</li>',
+                   lambda m: m.group(1) + ' menu-item-has-children' + (' current-menu-ancestor current-menu-parent' if pg is not HOOFD else '') + m.group(2) + '<ul class="sub-menu">' + items + '</ul>\n</li>', t)
+    assert n == 4, n
     assert n >= 1, n
 
     # restanten van Over ons (pagina 31): nu die van Verzekeringen (pagina 3871)
