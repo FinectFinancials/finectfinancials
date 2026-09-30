@@ -698,6 +698,39 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 @media (prefers-reduced-motion:reduce){
   .fx-ct a.fx-verz__snelkaart,.fx-verz__pkaart--link{transition:none;}
 }
+/* ===== ronde 3 ===== */
+.fx-verz__adviseur{display:inline-flex;align-items:center;gap:12px;margin:0 0 22px;padding:6px 16px 6px 6px;border-radius:40px;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(4px);}
+.fx-verz__adviseur img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;}
+.fx-ct .fx-verz__adviseur span{font-size:14px;line-height:1.35;color:rgba(255,255,255,.9);}
+.fx-verz__adviseur b{display:block;font-size:15px;color:#fff;}
+.fx-verz__cijfers{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;}
+.fx-ct .fx-verz__cijfers li{margin:0;padding:6px 20px;text-align:center;border-left:1px solid var(--lijn);}
+.fx-ct .fx-verz__cijfers li:first-child{border-left:0;}
+.fx-verz__cijfers li::before{display:none!important;}
+.fx-verz__cijfers b{display:block;font-family:Barlow,Arial,sans-serif;font-size:44px;font-weight:600;line-height:1.1;color:var(--mag);}
+.fx-verz__cijfers span{display:block;font-size:15px;line-height:1.45;color:var(--grijs);margin-top:4px;}
+.fx-ct .fx-verz__cijfers a{color:var(--navy);font-weight:600;}
+.fx-verz__pico{width:44px;height:44px;border-radius:12px;background:var(--band);color:var(--mag);display:grid;place-items:center;margin-bottom:14px;}
+.fx-verz__pico svg{width:24px;height:24px;}
+.fx-ct .fx-verz__tip{max-width:none;margin:16px 0 0;padding:16px 20px;border-radius:12px;background:#fff;border:1px dashed rgba(181,0,74,.45);font-size:15px;line-height:1.6;}
+.fx-verz__tip b{color:var(--navy);}
+.fx-verz__wie{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;}
+.fx-verz__wiefoto{position:relative;}
+.fx-verz__wiefoto::before{content:"";position:absolute;inset:26px -18px -18px 26px;border-radius:18px;background:var(--mag);opacity:.12;}
+.fx-verz__wiefoto img{position:relative;display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 18px 44px rgba(20,33,43,.18);}
+.fx-ct .fx-verz__citaat{margin:20px 0 26px;padding:4px 0 4px 20px;border-left:4px solid var(--mag);font-size:22px;line-height:1.45;
+  color:var(--navy);font-style:normal;background:none;}
+.fx-verz__pakfoto{margin:0 0 26px;border-radius:16px;overflow:hidden;aspect-ratio:16/9;}
+.fx-verz__pakfoto img{display:block;width:100%;height:100%;object-fit:cover;}
+@media (max-width:1024px){.fx-verz__cijfers b{font-size:36px;}}
+@media (max-width:900px){.fx-verz__wie{grid-template-columns:1fr;gap:34px;}.fx-verz__wiefoto{max-width:420px;}}
+@media (max-width:768px){
+  .fx-verz__cijfers{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px;}
+  .fx-ct .fx-verz__cijfers li:nth-child(3){border-left:0;}
+  .fx-verz__cijfers b{font-size:32px;}
+  .fx-verz__adviseur{margin-bottom:18px;}
+}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>

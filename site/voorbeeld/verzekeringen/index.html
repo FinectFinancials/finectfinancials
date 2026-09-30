@@ -700,6 +700,39 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 @media (prefers-reduced-motion:reduce){
   .fx-ct a.fx-verz__snelkaart,.fx-verz__pkaart--link{transition:none;}
 }
+/* ===== ronde 3 ===== */
+.fx-verz__adviseur{display:inline-flex;align-items:center;gap:12px;margin:0 0 22px;padding:6px 16px 6px 6px;border-radius:40px;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(4px);}
+.fx-verz__adviseur img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;}
+.fx-ct .fx-verz__adviseur span{font-size:14px;line-height:1.35;color:rgba(255,255,255,.9);}
+.fx-verz__adviseur b{display:block;font-size:15px;color:#fff;}
+.fx-verz__cijfers{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;}
+.fx-ct .fx-verz__cijfers li{margin:0;padding:6px 20px;text-align:center;border-left:1px solid var(--lijn);}
+.fx-ct .fx-verz__cijfers li:first-child{border-left:0;}
+.fx-verz__cijfers li::before{display:none!important;}
+.fx-verz__cijfers b{display:block;font-family:Barlow,Arial,sans-serif;font-size:44px;font-weight:600;line-height:1.1;color:var(--mag);}
+.fx-verz__cijfers span{display:block;font-size:15px;line-height:1.45;color:var(--grijs);margin-top:4px;}
+.fx-ct .fx-verz__cijfers a{color:var(--navy);font-weight:600;}
+.fx-verz__pico{width:44px;height:44px;border-radius:12px;background:var(--band);color:var(--mag);display:grid;place-items:center;margin-bottom:14px;}
+.fx-verz__pico svg{width:24px;height:24px;}
+.fx-ct .fx-verz__tip{max-width:none;margin:16px 0 0;padding:16px 20px;border-radius:12px;background:#fff;border:1px dashed rgba(181,0,74,.45);font-size:15px;line-height:1.6;}
+.fx-verz__tip b{color:var(--navy);}
+.fx-verz__wie{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;}
+.fx-verz__wiefoto{position:relative;}
+.fx-verz__wiefoto::before{content:"";position:absolute;inset:26px -18px -18px 26px;border-radius:18px;background:var(--mag);opacity:.12;}
+.fx-verz__wiefoto img{position:relative;display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 18px 44px rgba(20,33,43,.18);}
+.fx-ct .fx-verz__citaat{margin:20px 0 26px;padding:4px 0 4px 20px;border-left:4px solid var(--mag);font-size:22px;line-height:1.45;
+  color:var(--navy);font-style:normal;background:none;}
+.fx-verz__pakfoto{margin:0 0 26px;border-radius:16px;overflow:hidden;aspect-ratio:16/9;}
+.fx-verz__pakfoto img{display:block;width:100%;height:100%;object-fit:cover;}
+@media (max-width:1024px){.fx-verz__cijfers b{font-size:36px;}}
+@media (max-width:900px){.fx-verz__wie{grid-template-columns:1fr;gap:34px;}.fx-verz__wiefoto{max-width:420px;}}
+@media (max-width:768px){
+  .fx-verz__cijfers{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px;}
+  .fx-ct .fx-verz__cijfers li:nth-child(3){border-left:0;}
+  .fx-verz__cijfers b{font-size:32px;}
+  .fx-verz__adviseur{margin-bottom:18px;}
+}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -897,6 +930,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <section class="fx-home__held">
     <div class="fx-ct__wrap">
       <div class="fx-home__in">
+        <div class="fx-verz__adviseur"><img src="../../wp-content/uploads/2025/07/DSCF4417.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
         <p class="fx-ct__sub">Verzekeringen in Apeldoorn en omgeving</p>
         <h1>Onafhankelijk verzekeringsadvies</h1>
         <p class="fx-ct__lead">Voor uw huis, uw auto en uw gezin. Ik zoek de verzekeringen die bij u passen en blijf daarna uw vaste aanspreekpunt, ook als er schade is.</p>
@@ -917,11 +951,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <a class="fx-verz__snelkaart" href="../../voorbeeld/verzekeringen/autoverzekering/"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span><b>Autoverzekering</b><span class="fx-verz__sneltekst">WA, beperkt casco, allrisk</span><i>Meer weten</i></a>
       <a class="fx-verz__snelkaart" href="../../voorbeeld/verzekeringen/polischeck/"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span><b>Polischeck</b><span class="fx-verz__sneltekst">Weet hoe u ervoor staat</span><i>Meer weten</i></a>
     </nav>
-    <ul class="fx-verz__vertrouwen">
-      <li><span><span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5,0 uit 16 beoordelingen op <a href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Google</a></span></li>
-      <li>Onafhankelijk sinds 2015</li>
-      <li>Certified Financial Planner</li>
-      <li>AFM-vergunning 12047700</li>
+    <ul class="fx-verz__cijfers">
+      <li><b>5,0</b><span>uit 16 beoordelingen op <a href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Google</a></span></li>
+      <li><b>22+</b><span>jaar ervaring in het vak</span></li>
+      <li><b>2015</b><span>onafhankelijk sinds</span></li>
+      <li><b>1</b><span>vaste adviseur, ook bij schade</span></li>
     </ul>
   </div>
 
@@ -961,30 +995,31 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div class="fx-verz__groeprij">
         <div class="fx-verz__groepkop"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span><h3>Wonen</h3></div>
         <div class="fx-verz__producten">
-          <div class="fx-verz__pkaart fx-verz__pkaart--link"><h4>Woonhuisverzekering (opstal)</h4><p>Verzekert het huis zelf: muren, dak, vloeren en vaste onderdelen zoals de keuken. Bij een hypotheek vraagt de geldverstrekker er bijna altijd om.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/woonverzekering/">Meer over de woonhuisverzekering</a></div>
-          <div class="fx-verz__pkaart fx-verz__pkaart--link"><h4>Inboedelverzekering</h4><p>Verzekert alles wat u bij een verhuizing meeneemt, zoals meubels, kleding en apparatuur. Voor huurders en huiseigenaren.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/woonverzekering/">Meer over de inboedelverzekering</a></div>
+          <div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span><h4>Woonhuisverzekering (opstal)</h4><p>Verzekert het huis zelf: muren, dak, vloeren en vaste onderdelen zoals de keuken. Bij een hypotheek vraagt de geldverstrekker er bijna altijd om.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/woonverzekering/">Meer over de woonhuisverzekering</a></div>
+          <div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3"/><path d="M2 12a2 2 0 014 0v3h12v-3a2 2 0 014 0v5H2z"/><path d="M5 17v2M19 17v2"/></svg></span><h4>Inboedelverzekering</h4><p>Verzekert alles wat u bij een verhuizing meeneemt, zoals meubels, kleding en apparatuur. Voor huurders en huiseigenaren.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/woonverzekering/">Meer over de inboedelverzekering</a></div>
         </div>
+        <p class="fx-verz__tip"><b>Zonnepanelen, een laadpaal of een warmtepomp?</b> Uw huis verandert mee met de tijd. Laat nakijken of die nieuwe onderdelen goed verzekerd zijn, en of het verzekerde bedrag nog klopt.</p>
       </div>
       <div class="fx-verz__groeprij">
         <div class="fx-verz__groepkop"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Persoonlijk</h3></div>
         <div class="fx-verz__producten">
-          <div class="fx-verz__pkaart fx-verz__pkaart--link"><h4>Aansprakelijkheids&shy;verzekering (AVP)</h4><p>Voor schade die u of uw kinderen per ongeluk bij een ander veroorzaken. Een kleine premie voor een risico dat groot kan zijn.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Meer over de aansprakelijkheidsverzekering</a></div>
-          <div class="fx-verz__pkaart"><h4>Rechtsbijstandverzekering</h4><p>Hulp van een jurist bij een conflict, bijvoorbeeld met een werkgever, een verkoper of de buren.</p></div>
+          <div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h4>Aansprakelijkheids&shy;verzekering (AVP)</h4><p>Voor schade die u of uw kinderen per ongeluk bij een ander veroorzaken. Een kleine premie voor een risico dat groot kan zijn.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/aansprakelijkheidsverzekering/">Meer over de aansprakelijkheidsverzekering</a></div>
+          <div class="fx-verz__pkaart"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0z"/><path d="M19 7l-3 6a3 3 0 006 0z"/><path d="M8 21h8"/></svg></span><h4>Rechtsbijstandverzekering</h4><p>Hulp van een jurist bij een conflict, bijvoorbeeld met een werkgever, een verkoper of de buren.</p></div>
         </div>
       </div>
       <div class="fx-verz__groeprij">
         <div class="fx-verz__groepkop"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span><h3>Onderweg en reizen</h3></div>
         <div class="fx-verz__producten">
-          <div class="fx-verz__pkaart fx-verz__pkaart--link"><h4>Autoverzekering</h4><p>WA is wettelijk verplicht. Daarnaast kiest u voor beperkt casco of allrisk, afhankelijk van de waarde en de leeftijd van uw auto.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/autoverzekering/">Meer over de autoverzekering</a></div>
-          <div class="fx-verz__pkaart"><h4>Reisverzekering</h4><p>Voor medische kosten, bagage en hulp in het buitenland. Doorlopend of per reis, eventueel met een annuleringsverzekering.</p></div>
+          <div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span><h4>Autoverzekering</h4><p>WA is wettelijk verplicht. Daarnaast kiest u voor beperkt casco of allrisk, afhankelijk van de waarde en de leeftijd van uw auto.</p><a class="fx-verz__pmeer" href="../../voorbeeld/verzekeringen/autoverzekering/">Meer over de autoverzekering</a></div>
+          <div class="fx-verz__pkaart"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span><h4>Reisverzekering</h4><p>Voor medische kosten, bagage en hulp in het buitenland. Doorlopend of per reis, eventueel met een annuleringsverzekering.</p></div>
         </div>
       </div>
       <div class="fx-verz__groeprij">
         <div class="fx-verz__groepkop"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg></span><h3>Leven en inkomen</h3></div>
         <div class="fx-verz__producten">
-          <div class="fx-verz__pkaart"><h4>Overlijdensrisicoverzekering</h4><p>Keert uit als u overlijdt, zodat uw partner of kinderen in het huis kunnen blijven wonen. Vaak afgesloten samen met een hypotheek.</p></div>
-          <div class="fx-verz__pkaart"><h4>Uitvaartverzekering</h4><p>Zorgt dat de kosten van een uitvaart geregeld zijn, zodat uw nabestaanden zich daar geen zorgen over hoeven te maken.</p></div>
-          <div class="fx-verz__pkaart fx-verz__pkaart--link"><h4>Arbeids&shy;ongeschiktheids&shy;verzekering voor zzp'ers</h4><p>Voor uw inkomen als u langere tijd niet kunt werken.</p><a class="fx-verz__pmeer" href="../../arbeidsongeschiktheidsverzekeringen-aov/">Meer over de AOV</a></div>
+          <div class="fx-verz__pkaart"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg></span><h4>Overlijdensrisicoverzekering</h4><p>Keert uit als u overlijdt, zodat uw partner of kinderen in het huis kunnen blijven wonen. Vaak afgesloten samen met een hypotheek.</p></div>
+          <div class="fx-verz__pkaart"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="3"/><path d="M12 2a3 3 0 010 4M12 16a3 3 0 010-4M5 9a3 3 0 014 0M19 9a3 3 0 00-4 0M12 12v10M8 18c2 0 4 1 4 4M16 18c-2 0-4 1-4 4"/></svg></span><h4>Uitvaartverzekering</h4><p>Zorgt dat de kosten van een uitvaart geregeld zijn, zodat uw nabestaanden zich daar geen zorgen over hoeven te maken.</p></div>
+          <div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-verz__pico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><h4>Arbeids&shy;ongeschiktheids&shy;verzekering voor zzp'ers</h4><p>Voor uw inkomen als u langere tijd niet kunt werken.</p><a class="fx-verz__pmeer" href="../../arbeidsongeschiktheidsverzekeringen-aov/">Meer over de AOV</a></div>
         </div>
       </div>
     </div>
@@ -999,7 +1034,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <p>Dat hangt af van uw situatie. Hieronder een eerste indruk. In een gesprek kijk ik samen met u wat echt nodig is.</p>
     </div>
     <div class="fx-verz__wegwijzer2" id="wegwijzer">
-      <div class="fx-verz__tabs" role="tablist" aria-label="Kies uw situatie" hidden><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-0" aria-controls="wg-0" aria-selected="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L21 2M16 7l3 3M18 5l2 2"/></svg>Huurder</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-1" aria-controls="wg-1" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>Eigen huis</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-2" aria-controls="wg-2" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Gezin</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-3" aria-controls="wg-3" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Zzp'er</button></div>
+      <div class="fx-verz__tabs" role="tablist" aria-label="Kies uw situatie" hidden><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-0" aria-controls="wg-0" aria-selected="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L21 2M16 7l3 3M18 5l2 2"/></svg>Huurder</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-1" aria-controls="wg-1" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>Eigen huis</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-2" aria-controls="wg-2" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Gezin</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-3" aria-controls="wg-3" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Zzp'er</button><button class="fx-verz__tab" type="button" role="tab" id="wg-tab-4" aria-controls="wg-4" aria-selected="false" tabindex="-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg>Appartement</button></div>
       <div class="fx-verz__paneel" role="tabpanel" id="wg-0" aria-labelledby="wg-tab-0">
         <h3>U huurt een woning</h3>
         <div class="fx-verz__paneelgrid">
@@ -1028,6 +1063,13 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
           <div><span class="fx-verz__lijstkop fx-verz__lijstkop--let">Let op</span><ul class="fx-verz__lijst fx-verz__lijst--let"><li>Uw aansprakelijkheidsverzekering voor particulieren dekt geen schade die u tijdens uw werk veroorzaakt.</li></ul></div>
         </div>
       </div>
+      <div class="fx-verz__paneel" role="tabpanel" id="wg-4" aria-labelledby="wg-tab-4">
+        <h3>U heeft een appartement</h3>
+        <div class="fx-verz__paneelgrid">
+          <div><span class="fx-verz__lijstkop">Belangrijk</span><ul class="fx-verz__lijst"><li>Een inboedelverzekering en een aansprakelijkheidsverzekering.</li><li>Het gebouw zelf verzekert de VvE meestal met een opstalverzekering voor het hele complex.</li></ul></div>
+          <div><span class="fx-verz__lijstkop fx-verz__lijstkop--let">Let op</span><ul class="fx-verz__lijst fx-verz__lijst--let"><li>Heeft u uw keuken of badkamer vernieuwd? Kijk dan of die verbetering onder de polis van de VvE valt, of dat u hem zelf moet meeverzekeren.</li></ul></div>
+        </div>
+      </div>
     </div>
     <script>
     (function(){
@@ -1045,6 +1087,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <!-- pakket en polischeck -->
   <div class="fx-ct__band" id="polischeck"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__duo">
     <div>
+      <div class="fx-verz__pakfoto"><img src="../../wp-content/uploads/finect/dienst-hypotheek.jpg" alt="" width="1259" height="840" loading="lazy" decoding="async"></div>
       <p class="fx-ct__sub">Pakketpolis</p>
       <h2>Alles in één pakket</h2>
       <p>Veel verzekeraars bieden een pakket waarin u uw woon-, auto-, aansprakelijkheids- en reisverzekering combineert. Vaak krijgt u daarop korting, en u heeft één overzicht met één betaalmoment.</p>
@@ -1137,6 +1180,19 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       </div>
     </div>
   </section></div></div>
+
+  <!-- uw adviseur -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__wie">
+    <div class="fx-verz__wiefoto"><img src="../../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, onafhankelijk verzekeringsadviseur in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
+    <div>
+      <p class="fx-ct__sub">Uw adviseur</p>
+      <h2>U spreekt steeds mij</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik regel verzekeringen voor particulieren en ondernemers in Apeldoorn en omgeving, en ik blijf daarna uw aanspreekpunt.</p>
+      <p>Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring in het vak. Als Certified Financial Planner kijk ik niet alleen naar losse polissen, maar naar het geheel: uw huis, uw inkomen en uw gezin.</p>
+      <blockquote class="fx-verz__citaat">&ldquo;Ik zeg het ook als u iets niet nodig heeft.&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a><a class="fx-ct__btn fx-ct__btn--o" href="../../over-finect/">Lees meer over mij</a></div>
+    </div>
+  </section></div>
 
   <!-- vragen -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
