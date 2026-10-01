@@ -3,11 +3,16 @@
 Kopieert site/voorbeeld/verzekeringen/index.html naar site/voorbeeld/verzekeringen-kleur/index.html
 (zelfde diepte, dus alle paden blijven kloppen), voegt kleur.css toe, haalt de wegwijzer weg
 en zet de bruikbare zinnen daaruit als extra vragen onderaan (ook in de gestructureerde gegevens)."""
-import io, os, re, json
+import io, os, re, json, sys
 
 SP = os.path.dirname(os.path.abspath(__file__)) + '/'
-BRON = 'site/voorbeeld/verzekeringen/index.html'
-DOEL = 'site/voorbeeld/verzekeringen-kleur/index.html'
+LIVE = len(sys.argv) > 1 and sys.argv[1] == 'live'
+if LIVE:
+    # na 'bouw_verz.py live': de echte pagina zelf omzetten naar de kleurversie
+    BRON = DOEL = 'site/verzekeringen/index.html'
+else:
+    BRON = 'site/voorbeeld/verzekeringen/index.html'
+    DOEL = 'site/voorbeeld/verzekeringen-kleur/index.html'
 
 EXTRA_VRAGEN = [
     ('Welke verzekeringen zijn belangrijk voor een gezin?',
@@ -54,10 +59,13 @@ zichtbaar = len(re.findall(r'<summary><h3>', t))
 assert zichtbaar == len(faq['mainEntity']), (zichtbaar, len(faq['mainEntity']))
 
 # voorbeeldbalk en titel
-oud = 'Voorbeeld van de nieuwe pagina Verzekeringen.'
-assert t.count(oud) == 1
-t = t.replace(oud, 'Proef met een extra steunkleur (groen) en zonder wegwijzer op de pagina Verzekeringen.')
-t = t.replace('<title>VOORBEELD | ', '<title>VOORBEELD KLEUR | ', 1)
+if LIVE:
+    assert 'fxBanier' not in t and 'noindex' not in t and 'id="fx-kleur-css"' in t
+else:
+    oud = 'Voorbeeld van de nieuwe pagina Verzekeringen.'
+    assert t.count(oud) == 1
+    t = t.replace(oud, 'Proef met een extra steunkleur (groen) en zonder wegwijzer op de pagina Verzekeringen.')
+    t = t.replace('<title>VOORBEELD | ', '<title>VOORBEELD KLEUR | ', 1)
 
 os.makedirs(os.path.dirname(DOEL), exist_ok=True)
 io.open(DOEL, 'w', encoding='utf-8').write(t)

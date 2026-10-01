@@ -57,8 +57,28 @@
   </url>
   <url>
     <loc>https://finect.nl/verzekeringen/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://finect.nl/verzekeringen/woonverzekering/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://finect.nl/verzekeringen/aansprakelijkheidsverzekering/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://finect.nl/verzekeringen/autoverzekering/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://finect.nl/verzekeringen/polischeck/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://finect.nl/zakelijk/</loc>
