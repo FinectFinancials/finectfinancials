@@ -167,7 +167,7 @@ def bouw(pg):
 
     # ----- opmaak -----
     voorladen = ''
-    if pg.get('beeld'):
+    if pg.get('beeld') and 'fx-verz__kop--foto' in inhoud:
         # de kopfoto van een subpagina is het grootste element bovenaan: vooraf laden
         m_beeld = pg['beeld'].replace('.jpg', '-mobiel.jpg')
         voorladen = ('<link rel="preload" as="image" href="../' + pg['beeld'] + '" media="(min-width: 769px)" fetchpriority="high">\n'

@@ -42,10 +42,21 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
         <summary><h3>{v}</h3></summary>
         <p>{a}</p>
       </details>''' for i, (v, a) in enumerate(vragen))
+    eigen = EIGEN[naam]
+    if eigen.get('licht'):
+        # lichte kop met een ronde foto naast de tekst
+        kop_open = ('<section class="fx-verz__kop fx-verz__kop--licht"><div class="fx-ct__wrap fx-verz__kopgrid"><div>')
+        kop_dicht = (f'</div>\n    <div class="fx-verz__kopfoto"><img src="../wp-content/uploads/finect/{FOTO[naam]}-mobiel.jpg" '
+                     f'alt="" width="780" height="1219" fetchpriority="high" decoding="async"></div>\n  </div></section>')
+    else:
+        kop_open = (f'<section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../wp-content/uploads/finect/{FOTO[naam]}.jpg);'
+                    f'--kop-m:url(../wp-content/uploads/finect/{FOTO[naam]}-mobiel.jpg)"><div class="fx-ct__wrap">')
+        kop_dicht = '</div></section>'
+    extra = eigen.get('extra', '')
     return f'''<div class="fx-verz">
 
   <!-- kop -->
-  <section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../wp-content/uploads/finect/{FOTO[naam]}.jpg);--kop-m:url(../wp-content/uploads/finect/{FOTO[naam]}-mobiel.jpg)"><div class="fx-ct__wrap">
+  {kop_open}
     <p class="fx-verz__kruimel"><a href="../">Home</a> &rsaquo; <a href="../verzekeringen/">Verzekeringen</a> &rsaquo; {naam}</p>
     {CHIP}
     <p class="fx-ct__sub">{sub}</p>
@@ -57,9 +68,9 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
     </div>
     <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
     <p class="fx-verz__heldlink"><a href="#hulp">{hulpkop}</a></p>
-  </div></section>
+  {kop_dicht}
 
-{CIJFERS}{hulp}
+{CIJFERS}{hulp}{extra}
   <!-- tekst -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
     <div class="fx-verz__tekst">

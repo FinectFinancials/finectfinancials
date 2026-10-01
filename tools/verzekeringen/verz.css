@@ -503,6 +503,73 @@
 .fx-verz__sterren b{font-size:17px;}
 .fx-verz__sterren span:last-child{color:rgba(255,255,255,.9);}
 .fx-ct .fx-verz__sterren + .fx-verz__heldlink{margin-top:14px;}
+/* ===== ronde 10: eigen opbouw per pagina ===== */
+/* lichte kop met ronde foto (Woonverzekering) */
+.fx-ct .fx-verz__kop--licht{background:var(--mint);color:var(--navy);overflow:hidden;}
+.fx-ct .fx-verz__kop--licht .fx-ct__wrap{padding-top:40px;padding-bottom:60px;}
+.fx-verz__kopgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;}
+.fx-ct .fx-verz__kop--licht h1,.fx-ct .fx-verz__kop--licht .fx-ct__sub{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht .fx-ct__sub{color:var(--groen2);}
+.fx-ct .fx-verz__kop--licht .fx-ct__lead{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__kruimel{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__kruimel a{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht a.fx-ct__btn--o{color:var(--navy);border-color:var(--navy);}
+.fx-ct .fx-verz__kop--licht a.fx-ct__btn--o:hover,.fx-ct .fx-verz__kop--licht a.fx-ct__btn--o:focus{background:var(--navy);border-color:var(--navy);color:#fff;}
+.fx-verz__kop--licht .fx-verz__adviseur{background:#fff;box-shadow:0 6px 18px rgba(20,33,43,.08);backdrop-filter:none;}
+.fx-ct .fx-verz__kop--licht .fx-verz__adviseur span{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__adviseur b{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht a.fx-verz__sterren{background:#fff;color:var(--navy);box-shadow:0 6px 18px rgba(20,33,43,.08);backdrop-filter:none;}
+.fx-ct .fx-verz__kop--licht a.fx-verz__sterren:hover{background:#fff;box-shadow:0 8px 22px rgba(20,33,43,.14);}
+.fx-verz__kop--licht .fx-verz__sterren span:last-child{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__sterrij{color:#d99a00;}
+.fx-ct .fx-verz__kop--licht .fx-verz__heldlink a{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht .fx-verz__heldlink a:hover{color:var(--mag);}
+.fx-verz__kopfoto{position:relative;justify-self:center;width:min(100%,430px);aspect-ratio:1;}
+.fx-verz__kopfoto::before{content:"";position:absolute;right:-6%;top:-6%;width:34%;aspect-ratio:1;border-radius:50%;background:var(--groen);opacity:.22;}
+.fx-verz__kopfoto::after{content:"";position:absolute;left:-4%;bottom:2%;width:18%;aspect-ratio:1;border-radius:50%;background:var(--mag);opacity:.9;}
+.fx-verz__kopfoto img{position:relative;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%;border-radius:50%;
+  box-shadow:0 24px 60px rgba(20,33,43,.18);}
+/* interactief huis: opstal of inboedel */
+.fx-verz__huis .fx-home__kop{margin-bottom:44px;}
+.fx-verz__huisgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:40px;align-items:center;}
+.fx-verz__huisbeeld{position:relative;}
+.fx-verz__huisbeeld svg{display:block;width:100%;height:auto;}
+.fx-ct .fx-verz__hs{display:none;position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;padding:0;border-radius:50%;
+  border:2px solid #fff;background:var(--mag);color:#fff;font:700 24px/1 Barlow,Arial,sans-serif;place-items:center;cursor:pointer;
+  text-transform:none;letter-spacing:0;box-shadow:0 4px 12px rgba(20,33,43,.25);animation:fxPuls 2.4s ease-out infinite;transition:transform .15s ease;}
+.fx-verz__huis.is-js .fx-verz__hs{display:grid;}
+.fx-ct .fx-verz__hs:hover{transform:scale(1.1);background:var(--mag2);}
+.fx-ct .fx-verz__hs.is-aan{background:var(--navy);animation:none;transform:scale(1.15);}
+.fx-ct .fx-verz__hs:focus-visible{outline:3px solid var(--navy);outline-offset:3px;}
+.fx-verz__vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@keyframes fxPuls{0%{box-shadow:0 0 0 0 rgba(181,0,74,.45),0 4px 12px rgba(20,33,43,.25)}70%{box-shadow:0 0 0 12px rgba(181,0,74,0),0 4px 12px rgba(20,33,43,.25)}100%{box-shadow:0 0 0 0 rgba(181,0,74,0),0 4px 12px rgba(20,33,43,.25)}}
+.fx-verz__huislijst{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.fx-ct .fx-verz__huislijst li{margin:0;padding:24px 26px;border-radius:16px;background:#fff;box-shadow:0 12px 32px rgba(20,33,43,.10);
+  border-top:5px solid var(--navy);}
+.fx-verz__huislijst li::before{display:none!important;}
+.fx-ct .fx-verz__huislijst li[data-soort="inboedel"]{border-top-color:var(--groen);}
+.fx-ct .fx-verz__huislijst li[data-soort="beide"]{border-top-color:#8a4b00;}
+.fx-verz__soort{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--navy);}
+.fx-verz__soort--inboedel{background:var(--groen);}
+.fx-verz__soort--beide{background:#8a4b00;}
+.fx-ct .fx-verz__huislijst b{display:block;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:24px;font-weight:600;line-height:1.25;color:var(--navy);margin:12px 0 8px;}
+.fx-ct .fx-verz__huislijst p{margin:0;font-size:16px;line-height:1.65;max-width:none;}
+.fx-verz__legenda{display:flex;flex-wrap:wrap;gap:8px 18px;margin:18px 0 0;padding:0;list-style:none;}
+.fx-ct .fx-verz__legenda li{margin:0;padding:0;font-size:14px;color:#33424d;display:inline-flex;align-items:center;gap:8px;}
+.fx-verz__legenda li::before{display:none!important;}
+.fx-verz__legenda i{width:12px;height:12px;border-radius:50%;background:var(--navy);}
+.fx-verz__legenda i.fx-verz__stip--inboedel{background:var(--groen);}
+@media (max-width:900px){
+  .fx-verz__kopgrid{grid-template-columns:1fr;gap:28px;}
+  .fx-verz__kopfoto{width:min(70%,300px);}
+  .fx-verz__huisgrid{grid-template-columns:1fr;gap:20px;}
+}
+@media (max-width:768px){
+  .fx-ct .fx-verz__kop--licht .fx-ct__wrap{padding-top:28px;padding-bottom:40px;}
+  .fx-ct .fx-verz__hs{width:30px;height:30px;margin:-15px 0 0 -15px;font-size:20px;}
+  .fx-verz__huis .fx-home__kop{margin-bottom:28px;}
+}
+@media (prefers-reduced-motion:reduce){.fx-ct .fx-verz__hs{animation:none;transition:none;}}
 @media (max-width:768px){
   .fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:40px;}
   .fx-ct a.fx-verz__sterren{font-size:14px;gap:8px;padding:7px 14px;}

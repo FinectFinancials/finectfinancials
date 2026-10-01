@@ -403,3 +403,91 @@ EIGEN = {
         zij='Vragen over de polischeck? Bel of mail mij. Het eerste gesprek is gratis.',
         contact=('Een polischeck aanvragen?', 'Mail uw polissen naar <a href="mailto:info@finect.nl">info@finect.nl</a> of bel mij. Ik kom ook bij u langs in Apeldoorn en omgeving om ze samen door te nemen.')),
 }
+
+
+# ================================================================ ronde 10: eigen opbouw voor Woonverzekering
+HUIS_ITEMS = [
+    ('dak', 35, 29.5, 'opstal', 'Opstal', 'Dak en dakpannen',
+     'Waait er bij een storm een stuk dak weg, of lekt het daarna? Dan valt de schade onder de woonhuisverzekering.'),
+    ('zon', 70, 29, 'opstal', 'Opstal', 'Zonnepanelen',
+     'Zonnepanelen op uw eigen dak horen meestal bij het huis en vallen onder de woonhuisverzekering. Geef ze wel door, zodat het verzekerde bedrag klopt.'),
+    ('raam', 55.8, 54.5, 'opstal', 'Opstal', 'Ramen en glas',
+     'Glas hoort bij het huis. Bij veel woonhuisverzekeringen is glasschade standaard verzekerd, bij andere kunt u het erbij nemen.'),
+    ('cv', 45.8, 53.4, 'opstal', 'Opstal', 'Cv-ketel en leidingen',
+     'De cv-ketel en de leidingen zitten vast aan het huis. Springt er een leiding, dan valt de schade aan het huis onder de woonhuisverzekering en de schade aan uw spullen onder de inboedelverzekering.'),
+    ('keuken', 30, 73, 'opstal', 'Opstal', 'Keuken',
+     'Een ingebouwde keuken hoort bij het huis, net als de badkamer. Huurt u en heeft u zelf een keuken laten plaatsen? Dan verzekert u die als huurdersbelang op uw inboedelverzekering.'),
+    ('vloer', 62, 86, 'beide', 'Het hangt ervan af', 'Vloer',
+     'Bent u eigenaar, dan valt een vaste vloer meestal onder de woonhuisverzekering. Heeft u als huurder zelf een vloer gelegd, dan valt die als huurdersbelang onder de inboedelverzekering.'),
+    ('tv', 53, 68, 'inboedel', 'Inboedel', 'Televisie en laptop',
+     'Apparatuur is inboedel. Valt de laptop van tafel, dan is dat alleen verzekerd met een uitgebreide dekking die ook een ongelukje vergoedt.'),
+    ('bank', 71.7, 68, 'inboedel', 'Inboedel', 'Bank en meubels',
+     'Alles wat u meeneemt als u verhuist, is inboedel. Uw meubels vallen dus onder de inboedelverzekering.'),
+]
+
+HUIS_SVG = '''<svg viewBox="0 0 600 440" role="img" aria-labelledby="huisTitel"><title id="huisTitel">Doorsnede van een woning met dak, zonnepanelen, keuken, cv-ketel, vloer, televisie en bank</title>
+  <rect x="0" y="0" width="600" height="440" rx="24" fill="#ecf6f3"/>
+  <g fill="#fff"><ellipse cx="92" cy="78" rx="38" ry="20"/><ellipse cx="124" cy="66" rx="30" ry="22"/><ellipse cx="150" cy="82" rx="28" ry="16"/></g>
+  <rect x="0" y="392" width="600" height="48" fill="#cfe8e0"/>
+  <rect x="540" y="330" width="9" height="64" fill="#6b4f3a"/><circle cx="544" cy="312" r="36" fill="#12705f"/><circle cx="526" cy="326" r="22" fill="#0d5a4c"/>
+  <rect x="392" y="84" width="30" height="64" fill="#8f0a45"/>
+  <rect x="110" y="180" width="380" height="214" fill="#fff" stroke="#14212b" stroke-width="3"/>
+  <rect x="113" y="183" width="374" height="206" fill="#fdf4f8"/>
+  <polygon points="88,188 300,56 512,188" fill="#b5004a"/><polygon points="88,188 300,56 512,188" fill="none" stroke="#8f0a45" stroke-width="3" stroke-linejoin="round"/>
+  <g transform="translate(372 96) rotate(31.6)" fill="#1f3342" stroke="#cfe8e0" stroke-width="1.2">
+    <rect x="0" y="0" width="38" height="24"/><rect x="40" y="0" width="38" height="24"/><rect x="0" y="26" width="38" height="24"/><rect x="40" y="26" width="38" height="24"/>
+    <path d="M19 0v24M59 0v24M19 26v24M59 26v24" fill="none"/></g>
+  <rect x="113" y="350" width="374" height="39" fill="#e9d6c3"/>
+  <path d="M143 350v39M173 350v39M203 350v39M233 350v39M263 350v39M293 350v39M323 350v39M353 350v39M383 350v39M413 350v39M443 350v39M473 350v39" stroke="#d8bfa6" stroke-width="2"/>
+  <rect x="253" y="183" width="6" height="140" fill="#14212b" opacity=".12"/>
+  <rect x="125" y="205" width="112" height="38" rx="3" fill="#14212b" opacity=".88"/>
+  <rect x="122" y="294" width="118" height="8" rx="2" fill="#8a939a"/><rect x="125" y="302" width="112" height="48" fill="#14212b"/>
+  <path d="M162 302v48M199 302v48" stroke="#33424d" stroke-width="2"/><rect x="140" y="288" width="26" height="6" rx="2" fill="#33424d"/><path d="M210 294v-16h10" fill="none" stroke="#8a939a" stroke-width="3"/>
+  <rect x="300" y="208" width="72" height="62" fill="#cfe8e0" stroke="#14212b" stroke-width="3"/><path d="M336 208v62M300 239h72" stroke="#14212b" stroke-width="3"/>
+  <rect x="262" y="214" width="26" height="42" rx="3" fill="#fff" stroke="#14212b" stroke-width="2"/><circle cx="275" cy="244" r="3" fill="#12705f"/>
+  <path d="M268 256v94M282 256v94" stroke="#8a939a" stroke-width="3"/>
+  <rect x="290" y="324" width="56" height="26" rx="2" fill="#8a939a"/><rect x="292" y="282" width="52" height="36" rx="3" fill="#14212b"/><rect x="314" y="318" width="8" height="6" fill="#14212b"/>
+  <rect x="362" y="290" width="112" height="28" rx="9" fill="#0d5a4c"/><rect x="362" y="312" width="112" height="28" rx="6" fill="#12705f"/>
+  <rect x="354" y="304" width="16" height="36" rx="6" fill="#0d5a4c"/><rect x="466" y="304" width="16" height="36" rx="6" fill="#0d5a4c"/>
+  <path d="M368 340v8M468 340v8" stroke="#14212b" stroke-width="4"/>
+</svg>'''
+
+HUIS = '''  <!-- opstal of inboedel -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__huis" id="opstal-inboedel">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Opstal of inboedel?</p>
+      <h2>Wat valt onder welke verzekering?</h2>
+      <p>Klik op de plusjes in het huis. Zo ziet u in één oogopslag wat bij het huis hoort, en wat bij uw spullen.</p>
+    </div>
+    <div class="fx-verz__huisgrid">
+      <div class="fx-verz__huisbeeld">
+        ''' + HUIS_SVG + '''
+        ''' + ''.join('<button type="button" class="fx-verz__hs" data-id="%s" style="left:%s%%;top:%s%%" aria-pressed="false" aria-controls="hs-%s"><span aria-hidden="true">+</span><span class="fx-verz__vh">%s</span></button>'
+                      % (i, x, y, i, t) for i, x, y, s, l, t, u in HUIS_ITEMS) + '''
+      </div>
+      <div class="fx-verz__huisinfo">
+        <ul class="fx-verz__huislijst" aria-live="polite">''' + ''.join('''
+          <li id="hs-%s" data-soort="%s"><span class="fx-verz__soort fx-verz__soort--%s">%s</span><b>%s</b><p>%s</p></li>'''
+                                                                         % (i, s, s, l, t, u) for i, x, y, s, l, t, u in HUIS_ITEMS) + '''
+        </ul>
+        <ul class="fx-verz__legenda" aria-hidden="true"><li><i class="fx-verz__stip--opstal"></i>Opstal: het huis zelf</li><li><i class="fx-verz__stip--inboedel"></i>Inboedel: uw spullen</li></ul>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var s=document.getElementById('opstal-inboedel'); if(!s) return;
+      s.classList.add('is-js');
+      var kn=[].slice.call(s.querySelectorAll('.fx-verz__hs')), it=[].slice.call(s.querySelectorAll('.fx-verz__huislijst li'));
+      function kies(id){
+        kn.forEach(function(b){var a=b.getAttribute('data-id')===id; b.setAttribute('aria-pressed',a?'true':'false'); b.classList.toggle('is-aan',a);});
+        it.forEach(function(l){l.hidden=l.id!=='hs-'+id;});
+      }
+      kn.forEach(function(b){ b.addEventListener('click',function(){kies(b.getAttribute('data-id'));}); });
+      kies('dak');
+    })();
+    </script>
+  </section></div>
+
+'''
+EIGEN['Woonverzekering']['licht'] = True
+EIGEN['Woonverzekering']['extra'] = HUIS

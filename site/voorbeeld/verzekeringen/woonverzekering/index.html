@@ -345,8 +345,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <script type="application/ld+json" id="fx-bedrijfsgegevens">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://finect.nl/#organisatie","name":"Finect Financials","description":"Onafhankelijk advies over verzekeringen en hypotheken in Apeldoorn.","url":"https://finect.nl/","logo":"https://finect.nl/wp-content/uploads/2020/04/finect-financials-logo-retina.png","image":"https://finect.nl/wp-content/uploads/2025/07/DSCF4417.jpg","telephone":"+31630679790","email":"info@finect.nl","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Vlijtseweg 16","postalCode":"7317 AH","addressLocality":"Apeldoorn","addressRegion":"Gelderland","addressCountry":"NL"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:30"}],"areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Ugchelen"},{"@type":"City","name":"Beekbergen"},{"@type":"City","name":"Loenen"},{"@type":"City","name":"Klarenbeek"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Vaassen"}],"knowsLanguage":"nl-NL","identifier":[{"@type":"PropertyValue","name":"KvK","value":"62201735"},{"@type":"PropertyValue","name":"AFM-vergunning","value":"12047700"},{"@type":"PropertyValue","name":"Kifid","value":"300.017906"}],"founder":{"@type":"Person","name":"Fred Koeling","jobTitle":"Certified Financial Planner"},"sameAs":["https://www.linkedin.com/in/fred-koeling-65a0a016b/","https://www.google.com/maps?cid=9247328396419147947"],"hasMap":"https://www.google.com/maps?cid=9247328396419147947","geo":{"@type":"GeoCoordinates","latitude":52.2186011,"longitude":5.9704508}}</script>
 <script type="application/ld+json" id="fx-vragen">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://finect.nl/verzekeringen/woonverzekering/#vragen","mainEntity":[{"@type":"Question","name":"Is een woonhuisverzekering verplicht?","acceptedAnswer":{"@type":"Answer","text":"Niet volgens de wet. Heeft u een hypotheek, dan vraagt de geldverstrekker er wel bijna altijd om."}},{"@type":"Question","name":"Wat is het verschil tussen herbouwwaarde en WOZ-waarde?","acceptedAnswer":{"@type":"Answer","text":"De herbouwwaarde is wat het kost om uw huis opnieuw op te bouwen. De WOZ-waarde is de marktwaarde die de gemeente vaststelt, inclusief de grond. Voor uw woonhuisverzekering telt de herbouwwaarde."}},{"@type":"Question","name":"Is glas verzekerd?","acceptedAnswer":{"@type":"Answer","text":"Bij veel woonhuisverzekeringen kunt u glas meeverzekeren, en soms zit het er standaard in. Dat verschilt per verzekeraar."}},{"@type":"Question","name":"Moet ik een verbouwing doorgeven?","acceptedAnswer":{"@type":"Answer","text":"Dat is verstandig. Een verbouwing verhoogt vaak de herbouwwaarde. Geeft u het niet door, dan loopt u het risico onderverzekerd te zijn."}},{"@type":"Question","name":"Kan ik opstal en inboedel bij verschillende verzekeraars hebben?","acceptedAnswer":{"@type":"Answer","text":"Dat kan. Het heeft wel voordelen om ze bij dezelfde verzekeraar te hebben. Bij schade aan zowel het huis als uw spullen, bijvoorbeeld na een brand, heeft u dan één aanspreekpunt."}},{"@type":"Question","name":"Wat is huurdersbelang?","acceptedAnswer":{"@type":"Answer","text":"Huurdersbelang zijn verbeteringen die u als huurder zelf aan de woning heeft laten aanbrengen, zoals een nieuwe keuken, vloer of schuur. U kunt die vaak meeverzekeren op uw inboedelverzekering."}},{"@type":"Question","name":"Zijn zonnepanelen verzekerd?","acceptedAnswer":{"@type":"Answer","text":"Zonnepanelen op uw eigen dak vallen meestal onder de woonhuisverzekering, omdat ze vast aan het huis zitten. Geef ze wel door, zodat het verzekerde bedrag klopt. Huurt u de panelen, dan ligt het anders."}}]}</script>
-<link rel="preload" as="image" href="../../../wp-content/uploads/finect/verz-woon.jpg" media="(min-width: 769px)" fetchpriority="high">
-<link rel="preload" as="image" href="../../../wp-content/uploads/finect/verz-woon-mobiel.jpg" media="(max-width: 768px)" fetchpriority="high">
 <style id="fx-home-css">
 /* Homepage. Bouwt voort op fx-ct; alleen wat de homepage extra nodig heeft */
 /* het thema geeft main 40px ruimte bovenaan; hier moet de foto direct onder de kop */
@@ -1004,6 +1002,73 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-verz__sterren b{font-size:17px;}
 .fx-verz__sterren span:last-child{color:rgba(255,255,255,.9);}
 .fx-ct .fx-verz__sterren + .fx-verz__heldlink{margin-top:14px;}
+/* ===== ronde 10: eigen opbouw per pagina ===== */
+/* lichte kop met ronde foto (Woonverzekering) */
+.fx-ct .fx-verz__kop--licht{background:var(--mint);color:var(--navy);overflow:hidden;}
+.fx-ct .fx-verz__kop--licht .fx-ct__wrap{padding-top:40px;padding-bottom:60px;}
+.fx-verz__kopgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;}
+.fx-ct .fx-verz__kop--licht h1,.fx-ct .fx-verz__kop--licht .fx-ct__sub{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht .fx-ct__sub{color:var(--groen2);}
+.fx-ct .fx-verz__kop--licht .fx-ct__lead{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__kruimel{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__kruimel a{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht a.fx-ct__btn--o{color:var(--navy);border-color:var(--navy);}
+.fx-ct .fx-verz__kop--licht a.fx-ct__btn--o:hover,.fx-ct .fx-verz__kop--licht a.fx-ct__btn--o:focus{background:var(--navy);border-color:var(--navy);color:#fff;}
+.fx-verz__kop--licht .fx-verz__adviseur{background:#fff;box-shadow:0 6px 18px rgba(20,33,43,.08);backdrop-filter:none;}
+.fx-ct .fx-verz__kop--licht .fx-verz__adviseur span{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__adviseur b{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht a.fx-verz__sterren{background:#fff;color:var(--navy);box-shadow:0 6px 18px rgba(20,33,43,.08);backdrop-filter:none;}
+.fx-ct .fx-verz__kop--licht a.fx-verz__sterren:hover{background:#fff;box-shadow:0 8px 22px rgba(20,33,43,.14);}
+.fx-verz__kop--licht .fx-verz__sterren span:last-child{color:#33424d;}
+.fx-verz__kop--licht .fx-verz__sterrij{color:#d99a00;}
+.fx-ct .fx-verz__kop--licht .fx-verz__heldlink a{color:var(--navy);}
+.fx-ct .fx-verz__kop--licht .fx-verz__heldlink a:hover{color:var(--mag);}
+.fx-verz__kopfoto{position:relative;justify-self:center;width:min(100%,430px);aspect-ratio:1;}
+.fx-verz__kopfoto::before{content:"";position:absolute;right:-6%;top:-6%;width:34%;aspect-ratio:1;border-radius:50%;background:var(--groen);opacity:.22;}
+.fx-verz__kopfoto::after{content:"";position:absolute;left:-4%;bottom:2%;width:18%;aspect-ratio:1;border-radius:50%;background:var(--mag);opacity:.9;}
+.fx-verz__kopfoto img{position:relative;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%;border-radius:50%;
+  box-shadow:0 24px 60px rgba(20,33,43,.18);}
+/* interactief huis: opstal of inboedel */
+.fx-verz__huis .fx-home__kop{margin-bottom:44px;}
+.fx-verz__huisgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:40px;align-items:center;}
+.fx-verz__huisbeeld{position:relative;}
+.fx-verz__huisbeeld svg{display:block;width:100%;height:auto;}
+.fx-ct .fx-verz__hs{display:none;position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;padding:0;border-radius:50%;
+  border:2px solid #fff;background:var(--mag);color:#fff;font:700 24px/1 Barlow,Arial,sans-serif;place-items:center;cursor:pointer;
+  text-transform:none;letter-spacing:0;box-shadow:0 4px 12px rgba(20,33,43,.25);animation:fxPuls 2.4s ease-out infinite;transition:transform .15s ease;}
+.fx-verz__huis.is-js .fx-verz__hs{display:grid;}
+.fx-ct .fx-verz__hs:hover{transform:scale(1.1);background:var(--mag2);}
+.fx-ct .fx-verz__hs.is-aan{background:var(--navy);animation:none;transform:scale(1.15);}
+.fx-ct .fx-verz__hs:focus-visible{outline:3px solid var(--navy);outline-offset:3px;}
+.fx-verz__vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@keyframes fxPuls{0%{box-shadow:0 0 0 0 rgba(181,0,74,.45),0 4px 12px rgba(20,33,43,.25)}70%{box-shadow:0 0 0 12px rgba(181,0,74,0),0 4px 12px rgba(20,33,43,.25)}100%{box-shadow:0 0 0 0 rgba(181,0,74,0),0 4px 12px rgba(20,33,43,.25)}}
+.fx-verz__huislijst{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.fx-ct .fx-verz__huislijst li{margin:0;padding:24px 26px;border-radius:16px;background:#fff;box-shadow:0 12px 32px rgba(20,33,43,.10);
+  border-top:5px solid var(--navy);}
+.fx-verz__huislijst li::before{display:none!important;}
+.fx-ct .fx-verz__huislijst li[data-soort="inboedel"]{border-top-color:var(--groen);}
+.fx-ct .fx-verz__huislijst li[data-soort="beide"]{border-top-color:#8a4b00;}
+.fx-verz__soort{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--navy);}
+.fx-verz__soort--inboedel{background:var(--groen);}
+.fx-verz__soort--beide{background:#8a4b00;}
+.fx-ct .fx-verz__huislijst b{display:block;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:24px;font-weight:600;line-height:1.25;color:var(--navy);margin:12px 0 8px;}
+.fx-ct .fx-verz__huislijst p{margin:0;font-size:16px;line-height:1.65;max-width:none;}
+.fx-verz__legenda{display:flex;flex-wrap:wrap;gap:8px 18px;margin:18px 0 0;padding:0;list-style:none;}
+.fx-ct .fx-verz__legenda li{margin:0;padding:0;font-size:14px;color:#33424d;display:inline-flex;align-items:center;gap:8px;}
+.fx-verz__legenda li::before{display:none!important;}
+.fx-verz__legenda i{width:12px;height:12px;border-radius:50%;background:var(--navy);}
+.fx-verz__legenda i.fx-verz__stip--inboedel{background:var(--groen);}
+@media (max-width:900px){
+  .fx-verz__kopgrid{grid-template-columns:1fr;gap:28px;}
+  .fx-verz__kopfoto{width:min(70%,300px);}
+  .fx-verz__huisgrid{grid-template-columns:1fr;gap:20px;}
+}
+@media (max-width:768px){
+  .fx-ct .fx-verz__kop--licht .fx-ct__wrap{padding-top:28px;padding-bottom:40px;}
+  .fx-ct .fx-verz__hs{width:30px;height:30px;margin:-15px 0 0 -15px;font-size:20px;}
+  .fx-verz__huis .fx-home__kop{margin-bottom:28px;}
+}
+@media (prefers-reduced-motion:reduce){.fx-ct .fx-verz__hs{animation:none;transition:none;}}
 @media (max-width:768px){
   .fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:40px;}
   .fx-ct a.fx-verz__sterren{font-size:14px;gap:8px;padding:7px 14px;}
@@ -1206,7 +1271,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <div class="fx-verz">
 
   <!-- kop -->
-  <section class="fx-verz__kop fx-verz__kop--foto" style="--kop:url(../../../wp-content/uploads/finect/verz-woon.jpg);--kop-m:url(../../../wp-content/uploads/finect/verz-woon-mobiel.jpg)"><div class="fx-ct__wrap">
+  <section class="fx-verz__kop fx-verz__kop--licht"><div class="fx-ct__wrap fx-verz__kopgrid"><div>
     <p class="fx-verz__kruimel"><a href="../../../">Home</a> &rsaquo; <a href="../../../voorbeeld/verzekeringen/">Verzekeringen</a> &rsaquo; Woonverzekering</p>
     <div class="fx-verz__adviseur"><img src="../../../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
     <p class="fx-ct__sub">Wonen</p>
@@ -1218,6 +1283,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </div>
     <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
     <p class="fx-verz__heldlink"><a href="#hulp">Doe de snelle check: klopt uw woonverzekering nog?</a></p>
+  </div>
+    <div class="fx-verz__kopfoto"><img src="../../../wp-content/uploads/finect/verz-woon-mobiel.jpg" alt="" width="780" height="1219" fetchpriority="high" decoding="async"></div>
   </div></section>
 
   <div class="fx-ct__wrap">
@@ -1259,6 +1326,72 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         ps.forEach(function(p){ p.hidden=!(n>=+p.getAttribute('data-min')&&n<=+p.getAttribute('data-max')); });
         u.classList.toggle('is-uit', n>0); }
       bx.forEach(function(b){ b.addEventListener('change',tel); }); tel();
+    })();
+    </script>
+  </section></div>
+
+  <!-- opstal of inboedel -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__huis" id="opstal-inboedel">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Opstal of inboedel?</p>
+      <h2>Wat valt onder welke verzekering?</h2>
+      <p>Klik op de plusjes in het huis. Zo ziet u in één oogopslag wat bij het huis hoort, en wat bij uw spullen.</p>
+    </div>
+    <div class="fx-verz__huisgrid">
+      <div class="fx-verz__huisbeeld">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="huisTitel"><title id="huisTitel">Doorsnede van een woning met dak, zonnepanelen, keuken, cv-ketel, vloer, televisie en bank</title>
+  <rect x="0" y="0" width="600" height="440" rx="24" fill="#ecf6f3"/>
+  <g fill="#fff"><ellipse cx="92" cy="78" rx="38" ry="20"/><ellipse cx="124" cy="66" rx="30" ry="22"/><ellipse cx="150" cy="82" rx="28" ry="16"/></g>
+  <rect x="0" y="392" width="600" height="48" fill="#cfe8e0"/>
+  <rect x="540" y="330" width="9" height="64" fill="#6b4f3a"/><circle cx="544" cy="312" r="36" fill="#12705f"/><circle cx="526" cy="326" r="22" fill="#0d5a4c"/>
+  <rect x="392" y="84" width="30" height="64" fill="#8f0a45"/>
+  <rect x="110" y="180" width="380" height="214" fill="#fff" stroke="#14212b" stroke-width="3"/>
+  <rect x="113" y="183" width="374" height="206" fill="#fdf4f8"/>
+  <polygon points="88,188 300,56 512,188" fill="#b5004a"/><polygon points="88,188 300,56 512,188" fill="none" stroke="#8f0a45" stroke-width="3" stroke-linejoin="round"/>
+  <g transform="translate(372 96) rotate(31.6)" fill="#1f3342" stroke="#cfe8e0" stroke-width="1.2">
+    <rect x="0" y="0" width="38" height="24"/><rect x="40" y="0" width="38" height="24"/><rect x="0" y="26" width="38" height="24"/><rect x="40" y="26" width="38" height="24"/>
+    <path d="M19 0v24M59 0v24M19 26v24M59 26v24" fill="none"/></g>
+  <rect x="113" y="350" width="374" height="39" fill="#e9d6c3"/>
+  <path d="M143 350v39M173 350v39M203 350v39M233 350v39M263 350v39M293 350v39M323 350v39M353 350v39M383 350v39M413 350v39M443 350v39M473 350v39" stroke="#d8bfa6" stroke-width="2"/>
+  <rect x="253" y="183" width="6" height="140" fill="#14212b" opacity=".12"/>
+  <rect x="125" y="205" width="112" height="38" rx="3" fill="#14212b" opacity=".88"/>
+  <rect x="122" y="294" width="118" height="8" rx="2" fill="#8a939a"/><rect x="125" y="302" width="112" height="48" fill="#14212b"/>
+  <path d="M162 302v48M199 302v48" stroke="#33424d" stroke-width="2"/><rect x="140" y="288" width="26" height="6" rx="2" fill="#33424d"/><path d="M210 294v-16h10" fill="none" stroke="#8a939a" stroke-width="3"/>
+  <rect x="300" y="208" width="72" height="62" fill="#cfe8e0" stroke="#14212b" stroke-width="3"/><path d="M336 208v62M300 239h72" stroke="#14212b" stroke-width="3"/>
+  <rect x="262" y="214" width="26" height="42" rx="3" fill="#fff" stroke="#14212b" stroke-width="2"/><circle cx="275" cy="244" r="3" fill="#12705f"/>
+  <path d="M268 256v94M282 256v94" stroke="#8a939a" stroke-width="3"/>
+  <rect x="290" y="324" width="56" height="26" rx="2" fill="#8a939a"/><rect x="292" y="282" width="52" height="36" rx="3" fill="#14212b"/><rect x="314" y="318" width="8" height="6" fill="#14212b"/>
+  <rect x="362" y="290" width="112" height="28" rx="9" fill="#0d5a4c"/><rect x="362" y="312" width="112" height="28" rx="6" fill="#12705f"/>
+  <rect x="354" y="304" width="16" height="36" rx="6" fill="#0d5a4c"/><rect x="466" y="304" width="16" height="36" rx="6" fill="#0d5a4c"/>
+  <path d="M368 340v8M468 340v8" stroke="#14212b" stroke-width="4"/>
+</svg>
+        <button type="button" class="fx-verz__hs" data-id="dak" style="left:35%;top:29.5%" aria-pressed="false" aria-controls="hs-dak"><span aria-hidden="true">+</span><span class="fx-verz__vh">Dak en dakpannen</span></button><button type="button" class="fx-verz__hs" data-id="zon" style="left:70%;top:29%" aria-pressed="false" aria-controls="hs-zon"><span aria-hidden="true">+</span><span class="fx-verz__vh">Zonnepanelen</span></button><button type="button" class="fx-verz__hs" data-id="raam" style="left:55.8%;top:54.5%" aria-pressed="false" aria-controls="hs-raam"><span aria-hidden="true">+</span><span class="fx-verz__vh">Ramen en glas</span></button><button type="button" class="fx-verz__hs" data-id="cv" style="left:45.8%;top:53.4%" aria-pressed="false" aria-controls="hs-cv"><span aria-hidden="true">+</span><span class="fx-verz__vh">Cv-ketel en leidingen</span></button><button type="button" class="fx-verz__hs" data-id="keuken" style="left:30%;top:73%" aria-pressed="false" aria-controls="hs-keuken"><span aria-hidden="true">+</span><span class="fx-verz__vh">Keuken</span></button><button type="button" class="fx-verz__hs" data-id="vloer" style="left:62%;top:86%" aria-pressed="false" aria-controls="hs-vloer"><span aria-hidden="true">+</span><span class="fx-verz__vh">Vloer</span></button><button type="button" class="fx-verz__hs" data-id="tv" style="left:53%;top:68%" aria-pressed="false" aria-controls="hs-tv"><span aria-hidden="true">+</span><span class="fx-verz__vh">Televisie en laptop</span></button><button type="button" class="fx-verz__hs" data-id="bank" style="left:71.7%;top:68%" aria-pressed="false" aria-controls="hs-bank"><span aria-hidden="true">+</span><span class="fx-verz__vh">Bank en meubels</span></button>
+      </div>
+      <div class="fx-verz__huisinfo">
+        <ul class="fx-verz__huislijst" aria-live="polite">
+          <li id="hs-dak" data-soort="opstal"><span class="fx-verz__soort fx-verz__soort--opstal">Opstal</span><b>Dak en dakpannen</b><p>Waait er bij een storm een stuk dak weg, of lekt het daarna? Dan valt de schade onder de woonhuisverzekering.</p></li>
+          <li id="hs-zon" data-soort="opstal"><span class="fx-verz__soort fx-verz__soort--opstal">Opstal</span><b>Zonnepanelen</b><p>Zonnepanelen op uw eigen dak horen meestal bij het huis en vallen onder de woonhuisverzekering. Geef ze wel door, zodat het verzekerde bedrag klopt.</p></li>
+          <li id="hs-raam" data-soort="opstal"><span class="fx-verz__soort fx-verz__soort--opstal">Opstal</span><b>Ramen en glas</b><p>Glas hoort bij het huis. Bij veel woonhuisverzekeringen is glasschade standaard verzekerd, bij andere kunt u het erbij nemen.</p></li>
+          <li id="hs-cv" data-soort="opstal"><span class="fx-verz__soort fx-verz__soort--opstal">Opstal</span><b>Cv-ketel en leidingen</b><p>De cv-ketel en de leidingen zitten vast aan het huis. Springt er een leiding, dan valt de schade aan het huis onder de woonhuisverzekering en de schade aan uw spullen onder de inboedelverzekering.</p></li>
+          <li id="hs-keuken" data-soort="opstal"><span class="fx-verz__soort fx-verz__soort--opstal">Opstal</span><b>Keuken</b><p>Een ingebouwde keuken hoort bij het huis, net als de badkamer. Huurt u en heeft u zelf een keuken laten plaatsen? Dan verzekert u die als huurdersbelang op uw inboedelverzekering.</p></li>
+          <li id="hs-vloer" data-soort="beide"><span class="fx-verz__soort fx-verz__soort--beide">Het hangt ervan af</span><b>Vloer</b><p>Bent u eigenaar, dan valt een vaste vloer meestal onder de woonhuisverzekering. Heeft u als huurder zelf een vloer gelegd, dan valt die als huurdersbelang onder de inboedelverzekering.</p></li>
+          <li id="hs-tv" data-soort="inboedel"><span class="fx-verz__soort fx-verz__soort--inboedel">Inboedel</span><b>Televisie en laptop</b><p>Apparatuur is inboedel. Valt de laptop van tafel, dan is dat alleen verzekerd met een uitgebreide dekking die ook een ongelukje vergoedt.</p></li>
+          <li id="hs-bank" data-soort="inboedel"><span class="fx-verz__soort fx-verz__soort--inboedel">Inboedel</span><b>Bank en meubels</b><p>Alles wat u meeneemt als u verhuist, is inboedel. Uw meubels vallen dus onder de inboedelverzekering.</p></li>
+        </ul>
+        <ul class="fx-verz__legenda" aria-hidden="true"><li><i class="fx-verz__stip--opstal"></i>Opstal: het huis zelf</li><li><i class="fx-verz__stip--inboedel"></i>Inboedel: uw spullen</li></ul>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var s=document.getElementById('opstal-inboedel'); if(!s) return;
+      s.classList.add('is-js');
+      var kn=[].slice.call(s.querySelectorAll('.fx-verz__hs')), it=[].slice.call(s.querySelectorAll('.fx-verz__huislijst li'));
+      function kies(id){
+        kn.forEach(function(b){var a=b.getAttribute('data-id')===id; b.setAttribute('aria-pressed',a?'true':'false'); b.classList.toggle('is-aan',a);});
+        it.forEach(function(l){l.hidden=l.id!=='hs-'+id;});
+      }
+      kn.forEach(function(b){ b.addEventListener('click',function(){kies(b.getAttribute('data-id'));}); });
+      kies('dak');
     })();
     </script>
   </section></div>
