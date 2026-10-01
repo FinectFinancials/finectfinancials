@@ -136,4 +136,16 @@
   .fx-home__blok strong{font-size:19px;}
 }
 @media (prefers-reduced-motion:reduce){.fx-home__pijl{transition:none;}}
+/* stipjes onder de reviews: onzichtbare tekst ook licht, voor de contrastcontrole */
+.fx-ct .fx-ct__dots button{color:#fff;}
+/* direct naar de verzekeringspagina's, onder de dienstenkaarten */
+.fx-home__direct{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:56px auto 0;}
+.fx-home__direct > span{font-size:15px;font-weight:700;color:var(--navy);margin-right:4px;}
+.fx-ct .fx-home__direct a{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:999px;
+  border:1px solid var(--lijn);background:#fff;color:var(--navy);font-size:15px;font-weight:600;text-decoration:none;
+  transition:border-color .2s ease,color .2s ease;}
+.fx-ct .fx-home__direct a:hover{border-color:var(--mag);color:var(--mag);}
+.fx-ct .fx-home__direct a:focus-visible{outline:2px solid var(--mag);outline-offset:2px;}
+@media (max-width:640px){.fx-home__direct{justify-content:flex-start;margin-top:44px;}.fx-home__direct > span{width:100%;}}
+@media (prefers-reduced-motion:reduce){.fx-ct .fx-home__direct a{transition:none;}}
 </style>

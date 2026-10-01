@@ -64,7 +64,7 @@ PAGINAS = [
          titel='Verzekeringsadvies in Apeldoorn | Finect Financials',
          beschr='Onafhankelijk verzekeringsadvies in Apeldoorn voor uw huis, auto en gezin. '
                 'Ik vergelijk verzekeraars en blijf uw vaste aanspreekpunt, ook bij schade.',
-         naam='Verzekeringen', dienst='Verzekeringsadvies voor particulieren', vragen=7),
+         naam='Verzekeringen', dienst='Verzekeringsadvies voor particulieren', vragen=10),
     dict(pad='verzekeringen/woonverzekering/', bron='woonverzekering.html', menu='Woonverzekering',
          titel='Woonverzekering: opstal en inboedel | Finect Apeldoorn',
          beschr='Woonhuis- en inboedelverzekering uitgelegd: wat is verzekerd, hoe voorkomt u onderverzekering en wat heeft u als huurder nodig? Advies in Apeldoorn.',

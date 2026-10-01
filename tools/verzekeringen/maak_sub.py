@@ -55,10 +55,11 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
       <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
       <a class="fx-ct__btn fx-ct__btn--o" href="{knop2[1]}">{knop2[0]}</a>
     </div>
+    <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
     <p class="fx-verz__heldlink"><a href="#hulp">{hulpkop}</a></p>
   </div></section>
 
-{CIJFERS}
+{CIJFERS}{hulp}
   <!-- tekst -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
     <div class="fx-verz__tekst">
@@ -78,7 +79,7 @@ def pagina(naam, sub, h1, lead, tekst, vragen, hulp, hulpkop, hoe, knop2=('Vraag
     </div>
   </section></div>
 
-{hulp}{hoe}{EIGEN[naam]['schade']}{EIGEN[naam]['werk']}{EIGEN[naam]['review']}{EIGEN[naam]['wie']}  <!-- ook interessant -->
+{hoe}{EIGEN[naam]['schade']}{EIGEN[naam]['werk']}{EIGEN[naam]['review']}{EIGEN[naam]['wie']}  <!-- ook interessant -->
   <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
     <p class="fx-ct__sub">Ook interessant</p>
     <h2 style="margin-bottom:28px;">Andere verzekeringen</h2>

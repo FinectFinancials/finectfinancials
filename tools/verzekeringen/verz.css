@@ -446,4 +446,65 @@
 .fx-ct .fx-verz__schadetel a:hover{color:var(--roze2);}
 .fx-ct .fx-ct__dots button{color:#fff;}
 .fx-ct .fx-verz .fx-ct__lead a{text-decoration:underline;text-underline-offset:3px;}
+/* ===== ronde 8 en 9: groenblauwe steunkleur, nu op alle verzekeringspagina's.
+   Elke kleur één taak: magenta = merk en actie (knoppen, titels), donkerblauw = structuur (icoontjes, banden),
+   groen = alleen "in orde" (vinkjes, stappen, voortgang, 'Belangrijk'). Mint = koele achtergrond naast het roze. */
+.fx-verz{--groen:#12705f;--groen2:#0d5a4c;--mint:#ecf6f3;--mint2:#cfe8e0;}
+
+/* snelkeuze: derde tegel in mint, icoon donkerblauw */
+.fx-ct .fx-verz__snel a.fx-verz__snelkaart:nth-child(3){background:var(--mint);}
+.fx-verz__snel a:nth-child(3) .fx-ct__ico{background:var(--navy);color:#fff;}
+
+/* grote ronde icoontjes: donkerblauw (structuur) */
+.fx-verz__redenen .fx-ct__ico,.fx-verz__groepkop .fx-ct__ico{background:var(--navy);}
+.fx-verz__pico{background:var(--mint);color:var(--navy);}
+
+/* check: vinkjes, voortgang en de lijst 'Belangrijk' in groen */
+.fx-verz__checkpunten li::before{background:var(--groen);}
+.fx-verz__voortgang{background:var(--mint2);}
+.fx-verz__voortgang span{background:linear-gradient(90deg,var(--groen),#1f8f79);}
+.fx-verz__uitslaggrid > div:first-child{background:var(--mint);}
+.fx-verz__lijstkop{color:var(--groen);}
+.fx-verz__lijstkop--let{color:var(--navy);}
+.fx-verz__lijst li::before{border-color:var(--groen);}
+
+/* overzicht en contact: koele achtergrond */
+.fx-verz .fx-ct__band:not(#polischeck){background:var(--mint);}
+.fx-verz__groepkop{border-bottom-color:var(--mint2);}
+.fx-ct .fx-verz__tip{background:#fff;box-shadow:inset 4px 0 0 var(--navy);}
+
+/* wegwijzer: paneel mint met groene rand; 'Belangrijk' groen, 'Let op' donkerblauw */
+.fx-verz__paneel{background:var(--mint);box-shadow:inset 4px 0 0 var(--groen);}
+.fx-verz__label{color:var(--groen);}
+.fx-verz__label--let{color:var(--navy);}
+
+/* werkwijze en polischeck: stapnummers in groen */
+.fx-verz .fx-ct__stap li::before{background:var(--groen);}
+
+/* afgeronde knoppen */
+.fx-ct .fx-verz .fx-ct__btn,.fx-ct .fx-verz .fx-verz__verder{border-radius:999px;}
+.fx-verz__balk a{border-radius:999px!important;}
+
+/* schade: vinkjes in licht groen op donkerblauw */
+.fx-verz__schadelijst li::before{border-color:#7fd3bf;}
+
+/* ===== ronde 9 ===== */
+/* subpagina's in dezelfde stijl */
+.fx-verz__gerelateerd .fx-ct__ico{background:var(--navy);}
+.fx-verz__oordeel--wel{background:var(--groen);}
+/* hulpmiddel direct onder de cijfers */
+.fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:56px;padding-bottom:0;}
+/* sterren in de kop */
+.fx-ct a.fx-verz__sterren{display:inline-flex;align-items:center;gap:10px;margin:22px 0 0;padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#fff;text-decoration:none;font-size:15px;line-height:1.3;}
+.fx-ct a.fx-verz__sterren:hover{background:rgba(255,255,255,.2);}
+.fx-ct a.fx-verz__sterren:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.fx-verz__sterrij{color:#f5b301;font-size:18px;letter-spacing:2px;line-height:1;}
+.fx-verz__sterren b{font-size:17px;}
+.fx-verz__sterren span:last-child{color:rgba(255,255,255,.9);}
+.fx-ct .fx-verz__sterren + .fx-verz__heldlink{margin-top:14px;}
+@media (max-width:768px){
+  .fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:40px;}
+  .fx-ct a.fx-verz__sterren{font-size:14px;gap:8px;padding:7px 14px;}
+}
 </style>
