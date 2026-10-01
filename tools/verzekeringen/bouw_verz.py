@@ -186,6 +186,11 @@ def bouw(pg):
     t = t[:a] + '<div class="fx-ct">\n' + inhoud + '\n</div>' + t[b + len('</div>'):]
 
     # menu: Verzekeringen is de huidige pagina
+    # de basispagina (Over ons) heeft de uitklaplijst al (menu_alle.py); die eerst weghalen,
+    # zodat hieronder de lijst met de juiste paden en de huidige pagina gemaakt wordt
+    t = re.sub(r'(<li (?:id="menu-item-3876" )?class="menu-item menu-item-type-post_type menu-item-object-page)'
+               r' menu-item-has-children([^"]*"><a href="[^"]*"><span><span class="item_text">Verzekeringen</span></span>'
+               r'<span class="menu-item_plus"></span></a>)<ul class="sub-menu">.*?</ul>\n</li>', r'\1\2</li>', t, flags=re.S)
     t = t.replace('current-menu-item page_item page-item-31 current_page_item ', '')
     assert t.count('<a href=".">') == 4
     t = t.replace('<a href=".">', '<a href="../over-finect">')

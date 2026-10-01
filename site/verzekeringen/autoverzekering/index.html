@@ -485,6 +485,18 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-home__blok strong{font-size:19px;}
 }
 @media (prefers-reduced-motion:reduce){.fx-home__pijl{transition:none;}}
+/* stipjes onder de reviews: onzichtbare tekst ook licht, voor de contrastcontrole */
+.fx-ct .fx-ct__dots button{color:#fff;}
+/* direct naar de verzekeringspagina's, onder de dienstenkaarten */
+.fx-home__direct{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:56px auto 0;}
+.fx-home__direct > span{font-size:15px;font-weight:700;color:var(--navy);margin-right:4px;}
+.fx-ct .fx-home__direct a{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:999px;
+  border:1px solid var(--lijn);background:#fff;color:var(--navy);font-size:15px;font-weight:600;text-decoration:none;
+  transition:border-color .2s ease,color .2s ease;}
+.fx-ct .fx-home__direct a:hover{border-color:var(--mag);color:var(--mag);}
+.fx-ct .fx-home__direct a:focus-visible{outline:2px solid var(--mag);outline-offset:2px;}
+@media (max-width:640px){.fx-home__direct{justify-content:flex-start;margin-top:44px;}.fx-home__direct > span{width:100%;}}
+@media (prefers-reduced-motion:reduce){.fx-ct .fx-home__direct a{transition:none;}}
 </style>
 
 <style id="fx-verz-css">
@@ -935,6 +947,67 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-ct .fx-verz__schadetel a:hover{color:var(--roze2);}
 .fx-ct .fx-ct__dots button{color:#fff;}
 .fx-ct .fx-verz .fx-ct__lead a{text-decoration:underline;text-underline-offset:3px;}
+/* ===== ronde 8 en 9: groenblauwe steunkleur, nu op alle verzekeringspagina's.
+   Elke kleur één taak: magenta = merk en actie (knoppen, titels), donkerblauw = structuur (icoontjes, banden),
+   groen = alleen "in orde" (vinkjes, stappen, voortgang, 'Belangrijk'). Mint = koele achtergrond naast het roze. */
+.fx-verz{--groen:#12705f;--groen2:#0d5a4c;--mint:#ecf6f3;--mint2:#cfe8e0;}
+
+/* snelkeuze: derde tegel in mint, icoon donkerblauw */
+.fx-ct .fx-verz__snel a.fx-verz__snelkaart:nth-child(3){background:var(--mint);}
+.fx-verz__snel a:nth-child(3) .fx-ct__ico{background:var(--navy);color:#fff;}
+
+/* grote ronde icoontjes: donkerblauw (structuur) */
+.fx-verz__redenen .fx-ct__ico,.fx-verz__groepkop .fx-ct__ico{background:var(--navy);}
+.fx-verz__pico{background:var(--mint);color:var(--navy);}
+
+/* check: vinkjes, voortgang en de lijst 'Belangrijk' in groen */
+.fx-verz__checkpunten li::before{background:var(--groen);}
+.fx-verz__voortgang{background:var(--mint2);}
+.fx-verz__voortgang span{background:linear-gradient(90deg,var(--groen),#1f8f79);}
+.fx-verz__uitslaggrid > div:first-child{background:var(--mint);}
+.fx-verz__lijstkop{color:var(--groen);}
+.fx-verz__lijstkop--let{color:var(--navy);}
+.fx-verz__lijst li::before{border-color:var(--groen);}
+
+/* overzicht en contact: koele achtergrond */
+.fx-verz .fx-ct__band:not(#polischeck){background:var(--mint);}
+.fx-verz__groepkop{border-bottom-color:var(--mint2);}
+.fx-ct .fx-verz__tip{background:#fff;box-shadow:inset 4px 0 0 var(--navy);}
+
+/* wegwijzer: paneel mint met groene rand; 'Belangrijk' groen, 'Let op' donkerblauw */
+.fx-verz__paneel{background:var(--mint);box-shadow:inset 4px 0 0 var(--groen);}
+.fx-verz__label{color:var(--groen);}
+.fx-verz__label--let{color:var(--navy);}
+
+/* werkwijze en polischeck: stapnummers in groen */
+.fx-verz .fx-ct__stap li::before{background:var(--groen);}
+
+/* afgeronde knoppen */
+.fx-ct .fx-verz .fx-ct__btn,.fx-ct .fx-verz .fx-verz__verder{border-radius:999px;}
+.fx-verz__balk a{border-radius:999px!important;}
+
+/* schade: vinkjes in licht groen op donkerblauw */
+.fx-verz__schadelijst li::before{border-color:#7fd3bf;}
+
+/* ===== ronde 9 ===== */
+/* subpagina's in dezelfde stijl */
+.fx-verz__gerelateerd .fx-ct__ico{background:var(--navy);}
+.fx-verz__oordeel--wel{background:var(--groen);}
+/* hulpmiddel direct onder de cijfers */
+.fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:56px;padding-bottom:0;}
+/* sterren in de kop */
+.fx-ct a.fx-verz__sterren{display:inline-flex;align-items:center;gap:10px;margin:22px 0 0;padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#fff;text-decoration:none;font-size:15px;line-height:1.3;}
+.fx-ct a.fx-verz__sterren:hover{background:rgba(255,255,255,.2);}
+.fx-ct a.fx-verz__sterren:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.fx-verz__sterrij{color:#f5b301;font-size:18px;letter-spacing:2px;line-height:1;}
+.fx-verz__sterren b{font-size:17px;}
+.fx-verz__sterren span:last-child{color:rgba(255,255,255,.9);}
+.fx-ct .fx-verz__sterren + .fx-verz__heldlink{margin-top:14px;}
+@media (max-width:768px){
+  .fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:40px;}
+  .fx-ct a.fx-verz__sterren{font-size:14px;gap:8px;padding:7px 14px;}
+}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -1143,6 +1216,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
       <a class="fx-ct__btn fx-ct__btn--o" href="../../verzekeringen/polischeck/">Vraag een polischeck aan</a>
     </div>
+    <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
     <p class="fx-verz__heldlink"><a href="#hulp">Welke dekking past bij uw auto? Zie het in drie vragen</a></p>
   </div></section>
 
@@ -1154,6 +1228,47 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <li><b>1</b><span>vaste adviseur, ook bij schade</span></li>
     </ul>
   </div>
+
+  <!-- hulpmiddel -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__checksec" id="hulp">
+    <div class="fx-verz__checkkaart">
+      <div class="fx-verz__checkintro">
+        <p class="fx-ct__sub">Dekkingswijzer</p>
+        <h2>Welke dekking past bij uw auto?</h2>
+        <p>Beantwoord drie vragen en zie welke dekking waarschijnlijk het best past. Zo weet u of u niet te veel of te weinig verzekerd bent.</p>
+        <ul class="fx-verz__checkpunten"><li>Drie vragen</li><li>Direct antwoord</li><li>Niets invullen</li></ul>
+      </div>
+      <div class="fx-verz__checkvak">
+        <noscript><p class="fx-verz__checkgeenjs">Dit hulpmiddel werkt met JavaScript. Bel mij gerust op <a href="tel:+31630679790">06 30 67 97 90</a>, dan lopen we het samen door.</p></noscript>
+        <form class="fx-verz__hulp" id="fxDekking" hidden>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Hoe oud is uw auto?</legend><label><input type="radio" name="leeftijd" value="nieuw"><span>Jonger dan 4 jaar</span></label><label><input type="radio" name="leeftijd" value="midden"><span>4 tot 8 jaar</span></label><label><input type="radio" name="leeftijd" value="oud"><span>8 jaar of ouder</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Wat is uw auto ongeveer waard?</legend><label><input type="radio" name="waarde" value="laag"><span>Minder dan &euro;&nbsp;5.000</span></label><label><input type="radio" name="waarde" value="midden"><span>&euro;&nbsp;5.000 tot &euro;&nbsp;15.000</span></label><label><input type="radio" name="waarde" value="hoog"><span>Meer dan &euro;&nbsp;15.000</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Heeft u de auto gefinancierd of in private lease?</legend><label><input type="radio" name="financiering" value="ja"><span>Ja</span></label><label><input type="radio" name="financiering" value="nee"><span>Nee</span></label></fieldset>
+          <div class="fx-verz__hulpuit" id="fxDekkingUit" aria-live="polite"><p>Beantwoord de drie vragen, dan ziet u hier welke dekking waarschijnlijk past.</p></div>
+          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
+        </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var f=document.getElementById('fxDekking'), u=document.getElementById('fxDekkingUit'); if(!f||!u) return;
+      f.hidden=false;
+      f.addEventListener('submit',function(e){e.preventDefault();});
+      function w(n){var r=f.querySelector('input[name='+n+']:checked'); return r?r.value:'';}
+      f.addEventListener('change',function(){
+        var l=w('leeftijd'), v=w('waarde'), fi=w('financiering'); if(!l||!v||!fi) return;
+        var d, r;
+        if(fi==='ja'){d='Allrisk'; r='Bij een financiering of private lease is allrisk meestal verplicht. Kijk wel goed naar het eigen risico.';}
+        else if(v==='laag'){d='WA, eventueel met beperkt casco'; r='Bij een auto van minder dan 5.000 euro is de extra premie voor allrisk vaak hoger dan wat u ooit vergoed krijgt. Met beperkt casco bent u wel verzekerd voor onder meer diefstal, brand, storm en ruitschade.';}
+        else if(l==='nieuw'){d='Allrisk'; r='Uw auto is nog jong en veel waard. Met allrisk is ook schade verzekerd die u zelf veroorzaakt, zoals een aanrijding of een kras bij het parkeren.';}
+        else if(l==='midden'&&v==='hoog'){d='Allrisk of beperkt casco'; r='Dit is een twijfelgeval. Het hangt af van de premie en van of u een schade zelf zou kunnen betalen. Dat reken ik graag met u door.';}
+        else {d='WA met beperkt casco'; r='Voor een auto van deze leeftijd en waarde is beperkt casco vaak de beste balans tussen premie en dekking.';}
+        u.innerHTML='<p><span class="fx-verz__lijstkop">Waarschijnlijk past</span><b class="fx-verz__dekking">'+d+'</b>'+r+'</p><p class="fx-verz__klein">Dit is een vuistregel, geen advies. Ook uw schadevrije jaren en het eigen risico tellen mee.</p>';
+        u.classList.add('is-uit');
+      });
+    })();
+    </script>
+  </section></div>
 
 
   <!-- tekst -->
@@ -1197,47 +1312,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <ul><li><a href="../../verzekeringen/woonverzekering/">Woonverzekering</a></li><li><a href="../../verzekeringen/aansprakelijkheidsverzekering/">Aansprakelijkheidsverzekering</a></li><li><a href="../../verzekeringen/polischeck/">Polischeck</a></li><li><a href="../../verzekeringen/">Alle verzekeringen</a></li></ul>
       </div>
     </div>
-  </section></div>
-
-  <!-- hulpmiddel -->
-  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__checksec" id="hulp">
-    <div class="fx-verz__checkkaart">
-      <div class="fx-verz__checkintro">
-        <p class="fx-ct__sub">Dekkingswijzer</p>
-        <h2>Welke dekking past bij uw auto?</h2>
-        <p>Beantwoord drie vragen en zie welke dekking waarschijnlijk het best past. Zo weet u of u niet te veel of te weinig verzekerd bent.</p>
-        <ul class="fx-verz__checkpunten"><li>Drie vragen</li><li>Direct antwoord</li><li>Niets invullen</li></ul>
-      </div>
-      <div class="fx-verz__checkvak">
-        <noscript><p class="fx-verz__checkgeenjs">Dit hulpmiddel werkt met JavaScript. Bel mij gerust op <a href="tel:+31630679790">06 30 67 97 90</a>, dan lopen we het samen door.</p></noscript>
-        <form class="fx-verz__hulp" id="fxDekking" hidden>
-          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Hoe oud is uw auto?</legend><label><input type="radio" name="leeftijd" value="nieuw"><span>Jonger dan 4 jaar</span></label><label><input type="radio" name="leeftijd" value="midden"><span>4 tot 8 jaar</span></label><label><input type="radio" name="leeftijd" value="oud"><span>8 jaar of ouder</span></label></fieldset>
-          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Wat is uw auto ongeveer waard?</legend><label><input type="radio" name="waarde" value="laag"><span>Minder dan &euro;&nbsp;5.000</span></label><label><input type="radio" name="waarde" value="midden"><span>&euro;&nbsp;5.000 tot &euro;&nbsp;15.000</span></label><label><input type="radio" name="waarde" value="hoog"><span>Meer dan &euro;&nbsp;15.000</span></label></fieldset>
-          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Heeft u de auto gefinancierd of in private lease?</legend><label><input type="radio" name="financiering" value="ja"><span>Ja</span></label><label><input type="radio" name="financiering" value="nee"><span>Nee</span></label></fieldset>
-          <div class="fx-verz__hulpuit" id="fxDekkingUit" aria-live="polite"><p>Beantwoord de drie vragen, dan ziet u hier welke dekking waarschijnlijk past.</p></div>
-          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../verzekeringen/polischeck/">Vraag een polischeck aan</a></div>
-        </form>
-      </div>
-    </div>
-    <script>
-    (function(){
-      var f=document.getElementById('fxDekking'), u=document.getElementById('fxDekkingUit'); if(!f||!u) return;
-      f.hidden=false;
-      f.addEventListener('submit',function(e){e.preventDefault();});
-      function w(n){var r=f.querySelector('input[name='+n+']:checked'); return r?r.value:'';}
-      f.addEventListener('change',function(){
-        var l=w('leeftijd'), v=w('waarde'), fi=w('financiering'); if(!l||!v||!fi) return;
-        var d, r;
-        if(fi==='ja'){d='Allrisk'; r='Bij een financiering of private lease is allrisk meestal verplicht. Kijk wel goed naar het eigen risico.';}
-        else if(v==='laag'){d='WA, eventueel met beperkt casco'; r='Bij een auto van minder dan 5.000 euro is de extra premie voor allrisk vaak hoger dan wat u ooit vergoed krijgt. Met beperkt casco bent u wel verzekerd voor onder meer diefstal, brand, storm en ruitschade.';}
-        else if(l==='nieuw'){d='Allrisk'; r='Uw auto is nog jong en veel waard. Met allrisk is ook schade verzekerd die u zelf veroorzaakt, zoals een aanrijding of een kras bij het parkeren.';}
-        else if(l==='midden'&&v==='hoog'){d='Allrisk of beperkt casco'; r='Dit is een twijfelgeval. Het hangt af van de premie en van of u een schade zelf zou kunnen betalen. Dat reken ik graag met u door.';}
-        else {d='WA met beperkt casco'; r='Voor een auto van deze leeftijd en waarde is beperkt casco vaak de beste balans tussen premie en dekking.';}
-        u.innerHTML='<p><span class="fx-verz__lijstkop">Waarschijnlijk past</span><b class="fx-verz__dekking">'+d+'</b>'+r+'</p><p class="fx-verz__klein">Dit is een vuistregel, geen advies. Ook uw schadevrije jaren en het eigen risico tellen mee.</p>';
-        u.classList.add('is-uit');
-      });
-    })();
-    </script>
   </section></div>
 
   <!-- hoe ik u help -->

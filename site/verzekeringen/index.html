@@ -485,6 +485,18 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-home__blok strong{font-size:19px;}
 }
 @media (prefers-reduced-motion:reduce){.fx-home__pijl{transition:none;}}
+/* stipjes onder de reviews: onzichtbare tekst ook licht, voor de contrastcontrole */
+.fx-ct .fx-ct__dots button{color:#fff;}
+/* direct naar de verzekeringspagina's, onder de dienstenkaarten */
+.fx-home__direct{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:56px auto 0;}
+.fx-home__direct > span{font-size:15px;font-weight:700;color:var(--navy);margin-right:4px;}
+.fx-ct .fx-home__direct a{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:999px;
+  border:1px solid var(--lijn);background:#fff;color:var(--navy);font-size:15px;font-weight:600;text-decoration:none;
+  transition:border-color .2s ease,color .2s ease;}
+.fx-ct .fx-home__direct a:hover{border-color:var(--mag);color:var(--mag);}
+.fx-ct .fx-home__direct a:focus-visible{outline:2px solid var(--mag);outline-offset:2px;}
+@media (max-width:640px){.fx-home__direct{justify-content:flex-start;margin-top:44px;}.fx-home__direct > span{width:100%;}}
+@media (prefers-reduced-motion:reduce){.fx-ct .fx-home__direct a{transition:none;}}
 </style>
 
 <style id="fx-verz-css">
@@ -935,12 +947,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 .fx-ct .fx-verz__schadetel a:hover{color:var(--roze2);}
 .fx-ct .fx-ct__dots button{color:#fff;}
 .fx-ct .fx-verz .fx-ct__lead a{text-decoration:underline;text-underline-offset:3px;}
-</style>
-
-<style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
-<style id="fx-voet2-css">.elementor-element-c12419b .elementor-text-editor p{color:#6b737a;}</style>
-<style id="fx-kleur-css">
-/* Proef: een gedempte groenblauwe steunkleur naast magenta.
+/* ===== ronde 8 en 9: groenblauwe steunkleur, nu op alle verzekeringspagina's.
    Elke kleur één taak: magenta = merk en actie (knoppen, titels), donkerblauw = structuur (icoontjes, banden),
    groen = alleen "in orde" (vinkjes, stappen, voortgang, 'Belangrijk'). Mint = koele achtergrond naast het roze. */
 .fx-verz{--groen:#12705f;--groen2:#0d5a4c;--mint:#ecf6f3;--mint2:#cfe8e0;}
@@ -981,7 +988,30 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 /* schade: vinkjes in licht groen op donkerblauw */
 .fx-verz__schadelijst li::before{border-color:#7fd3bf;}
+
+/* ===== ronde 9 ===== */
+/* subpagina's in dezelfde stijl */
+.fx-verz__gerelateerd .fx-ct__ico{background:var(--navy);}
+.fx-verz__oordeel--wel{background:var(--groen);}
+/* hulpmiddel direct onder de cijfers */
+.fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:56px;padding-bottom:0;}
+/* sterren in de kop */
+.fx-ct a.fx-verz__sterren{display:inline-flex;align-items:center;gap:10px;margin:22px 0 0;padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#fff;text-decoration:none;font-size:15px;line-height:1.3;}
+.fx-ct a.fx-verz__sterren:hover{background:rgba(255,255,255,.2);}
+.fx-ct a.fx-verz__sterren:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.fx-verz__sterrij{color:#f5b301;font-size:18px;letter-spacing:2px;line-height:1;}
+.fx-verz__sterren b{font-size:17px;}
+.fx-verz__sterren span:last-child{color:rgba(255,255,255,.9);}
+.fx-ct .fx-verz__sterren + .fx-verz__heldlink{margin-top:14px;}
+@media (max-width:768px){
+  .fx-ct .fx-verz__kop--foto ~ .fx-ct__wrap .fx-verz__checksec{padding-top:40px;}
+  .fx-ct a.fx-verz__sterren{font-size:14px;gap:8px;padding:7px 14px;}
+}
 </style>
+
+<style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
+<style id="fx-voet2-css">.elementor-element-c12419b .elementor-text-editor p{color:#6b737a;}</style>
 </head>
 
 <body data-rsssl=1 class="wp-singular page-template-default page page-id-3871 wp-theme-zikzag elementor-default elementor-kit-1 elementor-page elementor-page-3871">
@@ -1187,6 +1217,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
           <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
           <a class="fx-ct__btn fx-ct__btn--o" href="#polischeck">Vraag een polischeck aan</a>
         </div>
+        <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
         <p class="fx-verz__heldlink"><a href="#check">Of doe eerst de verzekeringscheck in één minuut</a></p>
       </div>
     </div>
@@ -1590,7 +1621,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p>Het gebouw verzekert de VvE meestal met een opstalverzekering voor het hele complex. U heeft zelf een inboedelverzekering en een aansprakelijkheidsverzekering nodig. Heeft u uw keuken of badkamer vernieuwd? Kijk dan of die verbetering onder de polis van de VvE valt, of dat u hem zelf moet meeverzekeren.</p>
       </details>
       <details>
-        <summary><h3>Welke verzekeringen zijn belangrijk voor een zzp&#039;er?</h3></summary>
+        <summary><h3>Welke verzekeringen zijn belangrijk voor een zzp'er?</h3></summary>
         <p>Een oplossing voor uw inkomen als u niet kunt werken, en een bedrijfsaansprakelijkheidsverzekering als u schade bij klanten kunt veroorzaken. Uw aansprakelijkheidsverzekering voor particulieren dekt namelijk geen schade die u tijdens uw werk veroorzaakt.</p>
       </details>
     </div>

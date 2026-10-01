@@ -16,9 +16,11 @@ def zet_menu(pad):
     t = io.open(pad, encoding='utf-8').read()
     if 'menu-item-fx1' in t:
         return 'al aanwezig'
-    terug = os.path.relpath('site', os.path.dirname(pad)).replace(os.sep, '/')
+    terug = os.path.relpath('site', os.path.dirname(pad)).replace(os.sep, '/') + '/'
+    if terug == './':
+        terug = ''
     items = ''.join('\t<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-fx%d">'
-                    '<a href="%s/verzekeringen/%s/"><span><span class="item_text">%s</span></span>'
+                    '<a href="%sverzekeringen/%s/"><span><span class="item_text">%s</span></span>'
                     '<span class="menu-item_plus"></span></a></li>' % (i, terug, s, n)
                     for i, (s, n) in enumerate(SUBS, 1))
     t, n = PATROON.subn(lambda m: m.group(1) + ' menu-item-has-children' + m.group(2) +
