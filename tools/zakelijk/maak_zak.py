@@ -277,7 +277,7 @@ AVB_EIGEN = dict(
          'Leg vast wat er is gebeurd, met foto\'s, datum en namen van betrokkenen.',
          'Bewaar de aansprakelijkstelling, offertes en facturen.',
          'Bel mij voordat u iets toezegt of betaalt.'],
-        'Ik meld de schade bij de verzekeraar en houd het contact met de klant zakelijk en rustig. Zo blijft de relatie met uw klant zo goed mogelijk.'),
+        'Ik meld de schade bij de verzekeraar en denk met u mee over hoe u uw klant op de hoogte houdt. Zo blijft de relatie met uw klant zo goed mogelijk.'),
     werk=werkwijze('Zo regel ik uw aansprakelijkheid', 'Van de eerste kennismaking tot de jaren daarna. Het eerste gesprek kost u niets.',
         [('Kennismaken op uw bedrijf', 'Ik wil zien wat u doet, waar u werkt en voor wie. Dat bepaalt welke risico\'s er zijn.'),
          ('Risico\'s op een rij', 'We kijken samen of u een AVB, een BAV of allebei nodig heeft, en welk verzekerd bedrag past.'),
@@ -377,7 +377,7 @@ AOV_TEKST = kort(['Een AOV keert uit als u als ondernemer door ziekte of een ong
       <p>Tot welke leeftijd loopt de verzekering? Een eindleeftijd tot uw AOW-leeftijd geeft de meeste zekerheid. Een lagere eindleeftijd maakt de premie lager.</p>
 
       <h2>De verplichte basisverzekering voor zelfstandigen</h2>
-      <p>De overheid werkt aan een verplichte basisverzekering arbeidsongeschiktheid voor zelfstandigen, de BAZ. Het wetsvoorstel is in maart 2026 ingediend. De invoering wordt niet voor 2030 verwacht. De BAZ geeft straks een basisuitkering. Wilt u meer zekerheid, of eerder verzekerd zijn, dan blijft een eigen AOV nodig. Ik houd de ontwikkelingen voor u in de gaten.</p>
+      <p>De overheid werkt aan een verplichte basisverzekering arbeidsongeschiktheid voor zelfstandigen, de BAZ. Het wetsvoorstel is in maart 2026 ingediend. De invoering wordt niet voor 2030 verwacht. De BAZ keert straks pas uit na twee jaar ziekte, en dan hooguit op het niveau van het minimumloon. Wilt u meer zekerheid, of eerder verzekerd zijn, dan blijft een eigen AOV nodig. Ik houd de ontwikkelingen voor u in de gaten.</p>
 
       <h2>Alternatieven</h2>
       <p>Een AOV is niet de enige oplossing. Een broodfonds, waarin ondernemers elkaar bij ziekte tijdelijk ondersteunen, keert maximaal twee jaar uit. Een eigen buffer helpt vooral bij kortere uitval. Soms is een combinatie het beste. Ik zet de mogelijkheden eerlijk voor u naast elkaar.</p>'''
@@ -396,7 +396,7 @@ AOV_VR = [
     ('Wat is een broodfonds?',
      'Een broodfonds is een groep ondernemers die elkaar bij ziekte maandelijks een schenking geven, maximaal twee jaar lang. Het is betaalbaar en persoonlijk, maar het dekt geen lange uitval. Daarom combineren sommige ondernemers het met een AOV met een lange wachttijd.'),
     ('Kan ik mijn AOV aanpassen als mijn inkomen verandert?',
-     'Ja. Verdient u meer of minder dan toen u de verzekering afsloot, dan kunt u het verzekerde bedrag aanpassen. Bij veel verzekeraars kunt u de dekking ook tijdelijk verlagen als het even tegenzit.'),
+     'Ja. Verdient u meer of minder dan toen u de verzekering afsloot, dan kunt u het verzekerde bedrag aanpassen. Bij sommige verzekeraars kunt u de dekking ook tijdelijk verlagen als het even tegenzit.'),
 ]
 
 AOV_EIGEN = dict(
@@ -558,7 +558,7 @@ AUTO_HULP = '''  <!-- hulpmiddel -->
         else if(v==='bus') p.push('<b>Bestelautoverzekering:</b> WA is verplicht, en afhankelijk van de leeftijd en waarde van de bus beperkt casco of allrisk.');
         else p.push('<b>Zakelijke autoverzekering:</b> WA is verplicht, en afhankelijk van de leeftijd en waarde van de auto beperkt casco of allrisk.');
         if(n==='prive') p.push('<b>Zakelijk gebruik doorgeven:</b> op een particuliere polis is zakelijk rijden niet altijd verzekerd. Controleer wat er op uw polis staat.');
-        if(l==='ja') p.push('<b>Eigen vervoer- of gereedschapsverzekering:</b> gereedschap en goederen in uw auto of bus vallen niet onder de autoverzekering.');
+        if(l==='ja') p.push('<b>Eigen vervoer- of gereedschapsverzekering:</b> gereedschap en goederen in uw auto of bus vallen meestal niet onder de autoverzekering.');
         p.push('<b>Schadeverzekering inzittenden:</b> voor letsel en schade van u en uw passagiers, ook als u zelf de schade veroorzaakt.');
         u.innerHTML='<span class="fx-verz__lijstkop">Dit zou ik met u bekijken</span><ul class="fx-verz__lijst">'+p.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
         u.classList.add('is-uit');
@@ -570,7 +570,7 @@ AUTO_HULP = '''  <!-- hulpmiddel -->
 '''
 
 AUTO_TEKST = kort(['Voor een auto of bus van de zaak heeft u een zakelijke autoverzekering nodig. WA is wettelijk verplicht.',
-                   'Gereedschap en goederen in de bus zijn niet verzekerd op de autoverzekering.',
+                   'Gereedschap en goederen in de bus zijn meestal niet verzekerd op de autoverzekering.',
                    'Heeft u meerdere voertuigen, dan is een wagenparkpolis vaak voordeliger en overzichtelijker.']) + '''      <h2>Welke verzekering heeft u nodig?</h2>
       <p>Staat een auto of bestelbus op naam van uw bedrijf, dan verzekert u die met een zakelijke autoverzekering. Net als bij een privéauto is WA wettelijk verplicht. Daarnaast kiest u voor beperkt casco of allrisk, afhankelijk van de leeftijd en de waarde van het voertuig.</p>
       <table class="fx-verz__tabel">
@@ -584,13 +584,13 @@ AUTO_TEKST = kort(['Voor een auto of bus van de zaak heeft u een zakelijke autov
       <p>De keuze werkt hetzelfde als bij een <a href="../verzekeringen/autoverzekering/">particuliere autoverzekering</a>. Het verschil zit in de extra's die voor ondernemers belangrijk zijn.</p>
 
       <h2>Gereedschap en goederen in de bus</h2>
-      <p>Dit is het punt dat het vaakst misgaat. De autoverzekering dekt de bus, maar niet wat erin ligt. Wordt er 's nachts ingebroken en is uw gereedschap weg, dan betaalt de autoverzekering dat niet. Daarvoor is een eigen vervoerverzekering of een gereedschapsverzekering. Let op de eisen die verzekeraars stellen, bijvoorbeeld aan extra sloten of aan waar de bus 's nachts staat.</p>
+      <p>Dit is het punt dat het vaakst misgaat. De autoverzekering dekt de bus, maar meestal niet wat erin ligt. Wordt er 's nachts ingebroken en is uw gereedschap weg, dan betaalt de autoverzekering dat in de regel niet. Daarvoor is een eigen vervoer- of gereedschapsverzekering, of bij sommige verzekeraars een aanvullende dekking op de autopolis. Let op de eisen die verzekeraars stellen, bijvoorbeeld aan extra sloten of aan waar de bus 's nachts staat.</p>
 
       <h2>Een privéauto zakelijk gebruiken</h2>
       <p>Rijdt u met uw privéauto naar klanten? Dan staat de auto op uw naam en is een particuliere verzekering vaak voldoende. Controleer wel of zakelijk gebruik op uw polis staat, want niet elke verzekeraar dekt dat zonder meer. Een vergeten wijziging kan bij schade vervelende gevolgen hebben.</p>
 
       <h2>Meerdere voertuigen: een wagenparkpolis</h2>
-      <p>Heeft uw bedrijf meerdere auto's of bussen, dan kunt u ze vaak samen verzekeren op één wagenparkpolis. Dat is overzichtelijker, en meestal voordeliger. Bij veel verzekeraars kan dat vanaf drie tot vijf voertuigen. De premie hangt dan af van de schades van het hele wagenpark, niet van één bestuurder.</p>
+      <p>Heeft uw bedrijf meerdere auto's of bussen, dan kunt u ze vaak samen verzekeren op één wagenparkpolis. Dat is overzichtelijker, en vaak voordeliger. Afhankelijk van de verzekeraar kan dat vanaf ongeveer drie tot vijf voertuigen. De premie hangt dan af van de schades van het hele wagenpark, niet van één bestuurder.</p>
 
       <h2>Schadevrije jaren</h2>
       <p>Bij een nieuwe zakelijke polis vraagt de verzekeraar naar uw schadeverleden. Of u schadevrije jaren van privé naar zakelijk kunt meenemen, verschilt per verzekeraar. Dat zoek ik voor u uit.</p>'''
@@ -599,11 +599,11 @@ AUTO_VR = [
     ('Is een zakelijke autoverzekering verplicht?',
      'WA is wettelijk verplicht voor elk voertuig met een Nederlands kenteken, ook als het op naam van uw bedrijf staat. Beperkt casco en allrisk zijn een eigen keuze, al eist een leasemaatschappij of financier vaak allrisk.'),
     ('Is mijn gereedschap in de bus verzekerd?',
-     'Niet op de autoverzekering. Daarvoor is een eigen vervoerverzekering of gereedschapsverzekering. Verzekeraars stellen vaak eisen aan sloten en aan waar de bus staat, zeker voor diefstal uit de bus.'),
+     'Meestal niet op de autoverzekering. Daarvoor is een eigen vervoer- of gereedschapsverzekering, of soms een aanvullende dekking op de autopolis. Verzekeraars stellen vaak eisen aan sloten en aan waar de bus staat, zeker voor diefstal uit de bus.'),
     ('Kan ik met mijn privéauto zakelijk rijden?',
      'Ja, maar controleer of zakelijk gebruik op uw polis staat. Niet elke particuliere polis dekt dat zonder meer.'),
     ('Wat is een wagenparkpolis?',
-     'Eén polis voor alle auto\'s en bussen van uw bedrijf. Dat is overzichtelijker en vaak voordeliger. Bij veel verzekeraars kan het vanaf drie tot vijf voertuigen.'),
+     'Eén polis voor alle auto\'s en bussen van uw bedrijf. Dat is overzichtelijker en vaak voordeliger. Afhankelijk van de verzekeraar kan het vanaf ongeveer drie tot vijf voertuigen.'),
     ('Kan ik mijn schadevrije jaren meenemen naar een zakelijke polis?',
      'Dat verschilt per verzekeraar. Soms kan het, soms bouwt u op de zakelijke polis opnieuw op. Ik zoek uit wat voor u het gunstigst is.'),
     ('Wie mag er in de bedrijfsauto rijden?',
@@ -620,7 +620,7 @@ AUTO_EIGEN = dict(
          'Vul samen met de tegenpartij het Europees schadeformulier in, op papier of in een app.',
          'Is er ingebroken in de bus? Doe aangifte en maak een lijst van wat er weg is.',
          'Bel mij, dan regel ik de melding en kijk ik mee naar vervangend vervoer.'],
-        'Staat u stil langs de weg? Bel dan eerst de hulpdienst van uw verzekeraar. Het nummer staat op uw verzekeringsbewijs. Daarna help ik u verder.'),
+        'Kunt u na een ongeval niet verder rijden? Bel dan eerst de hulpdienst van uw verzekeraar, als u hulpverlening op uw polis heeft. Het nummer staat op uw verzekeringsbewijs. Daarna help ik u verder.'),
     werk=werkwijze('Zo regel ik uw bedrijfsauto', 'Van de eerste kennismaking tot de jaren daarna. Het eerste gesprek kost u niets.',
         [('Kennismaken', 'U vertelt welke voertuigen u heeft, wie erin rijdt en wat er meestal in ligt.'),
          ('Dekking kiezen', 'We kijken per voertuig naar leeftijd en waarde, en of een wagenparkpolis voordeliger is.'),
@@ -661,6 +661,20 @@ VVE_HULP = vinkjes(
      (4, 5, '<b>Bijna goed geregeld.</b> Een paar punten zijn het nalopen waard. Vaak is er ook premie te besparen door de polis eens te vergelijken.'),
      (6, 6, '<b>Goed geregeld.</b> Uw VvE heeft de basis op orde. Laat de herbouwwaarde wel eens in de paar jaar opnieuw bepalen.')],
     ('Laat de polis van uw VvE nakijken', 'tel:+31630679790'))
+
+VVE_STREN = """    <script>
+    (function(){
+      /* ontbreekt de opstal- of de aansprakelijkheidsverzekering, dan blijft de uitslag 'tijd voor een check' */
+      var h=document.getElementById('fxHulp'), u=document.getElementById('fxHulpUit'); if(!h||!u) return;
+      var bx=[].slice.call(h.querySelectorAll('input[type=checkbox]')), ps=[].slice.call(u.querySelectorAll('[data-min]'));
+      function streng(){ var n=bx.filter(function(b){return b.checked;}).length;
+        if(n>=4&&(!bx[0].checked||!bx[2].checked)) ps.forEach(function(p){ p.hidden=p.getAttribute('data-min')!=='1'; }); }
+      bx.forEach(function(b){ b.addEventListener('change',streng); });
+    })();
+    </script>
+"""
+assert VVE_HULP.count('    </script>\n  </section></div>') == 1
+VVE_HULP = VVE_HULP.replace('    </script>\n  </section></div>', '    </script>\n' + VVE_STREN + '  </section></div>')
 
 VVE_TEKST = kort(['Bijna elke VvE moet volgens het splitsingsreglement het gebouw verzekeren met een opstalverzekering.',
                   'Een aansprakelijkheidsverzekering is verplicht als het reglement dat voorschrijft, zoals bij het modelreglement van 1983 en later.',

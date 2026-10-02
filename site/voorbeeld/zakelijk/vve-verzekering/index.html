@@ -1377,6 +1377,16 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       bx.forEach(function(b){ b.addEventListener('change',tel); }); tel();
     })();
     </script>
+    <script>
+    (function(){
+      /* ontbreekt de opstal- of de aansprakelijkheidsverzekering, dan blijft de uitslag 'tijd voor een check' */
+      var h=document.getElementById('fxHulp'), u=document.getElementById('fxHulpUit'); if(!h||!u) return;
+      var bx=[].slice.call(h.querySelectorAll('input[type=checkbox]')), ps=[].slice.call(u.querySelectorAll('[data-min]'));
+      function streng(){ var n=bx.filter(function(b){return b.checked;}).length;
+        if(n>=4&&(!bx[0].checked||!bx[2].checked)) ps.forEach(function(p){ p.hidden=p.getAttribute('data-min')!=='1'; }); }
+      bx.forEach(function(b){ b.addEventListener('change',streng); });
+    })();
+    </script>
   </section></div>
 
 
