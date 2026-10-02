@@ -1,0 +1,27 @@
+<style id="fx-home-kleur-css">
+/* Homepage in dezelfde stijl als de verzekeringspagina's.
+   Alleen door bouw_home.py geladen; home.css (ook gebruikt door de verzekeringspagina's) blijft ongemoeid.
+   Elke kleur één taak: magenta = merk en actie, donkerblauw = structuur, groen = "in orde". */
+.fx-ct{--groen:#12705f;--groen2:#0d5a4c;--mint:#ecf6f3;--mint2:#cfe8e0;}
+
+/* ronde knoppen */
+.fx-ct .fx-ct__btn{border-radius:999px;}
+
+/* openingsbeeld: vinkjes in licht groen, Google-score als pil zoals op de verzekeringspagina's */
+.fx-ct .fx-home__feiten li::before{border-color:#7fd3bf;background:none;}
+.fx-ct a.fx-home__score{gap:10px;margin-top:20px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.12);
+  backdrop-filter:blur(4px);}
+.fx-ct a.fx-home__score:hover{background:rgba(255,255,255,.2);}
+.fx-ct a.fx-home__score:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.fx-home__score .fx-ct__sterren{color:#f5b301;}
+
+/* waarom Finect: koele achtergrond, groene vinkjes */
+.fx-ct .fx-ct__band{background:var(--mint);}
+.fx-ct .fx-ct__punt li::before{border-color:var(--groen);background:none;}
+.fx-home__kaart{border-color:var(--mint2);}
+
+/* werkwijze: stapnummers in groen */
+.fx-ct .fx-ct__stap li::before{background:var(--groen);}
+
+@media (max-width:768px){.fx-ct a.fx-home__score{padding:7px 14px;font-size:14px;}}
+</style>

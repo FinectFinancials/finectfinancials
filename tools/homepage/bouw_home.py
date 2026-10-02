@@ -57,6 +57,8 @@ assert not re.search(r'\{[A-Z_]+\}', inhoud), 'niet alle iconen ingevuld'
 css = io.open(SP + 'home.css', encoding='utf-8').read()
 css = css.replace('{BEELD}', P + BEELD).replace('{BEELD_MOBIEL}', P + BEELD_M)
 css = css.replace('{BEELD_DIENST}', P + 'wp-content/uploads/finect/diensten-handtekening.jpg')
+# stijl van de verzekeringspagina's (groen, mint, ronde knoppen); alleen voor de homepage
+css += '\n' + io.open(SP + 'home-kleur.css', encoding='utf-8').read()
 
 # ---------- kop: titel, beschrijving, canonical, deelinformatie ----------
 t = re.sub(r'<title>.*?</title>', '<title>' + html.escape(TITEL, quote=False) + '</title>', t, count=1, flags=re.S)
