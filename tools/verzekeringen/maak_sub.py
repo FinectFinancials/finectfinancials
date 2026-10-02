@@ -213,7 +213,7 @@ AVP = KORT_AVP + '''      <h2>Wat is een aansprakelijkheidsverzekering?</h2>
     ['Schade aan uw eigen spullen. Daarvoor is de <a href="../verzekeringen/woonverzekering/">inboedelverzekering</a>.',
      'Schade die u met opzet veroorzaakt.',
      'Schade met een auto, motor of scooter. Daarvoor is de <a href="../verzekeringen/autoverzekering/">autoverzekering</a>.',
-     'Schade tijdens uw werk. Bent u ondernemer, dan is daarvoor een <a href="../zakelijk/">bedrijfs&shy;aansprakelijkheids&shy;verzekering</a>.'],
+     'Schade tijdens uw werk. Bent u ondernemer, dan is daarvoor een <a href="../zakelijk/bedrijfsaansprakelijkheidsverzekering/">bedrijfs&shy;aansprakelijkheids&shy;verzekering</a>.'],
     welkop='Wel verzekerd, bijvoorbeeld') + '''
 
       <h2>Waar moet u op letten?</h2>
@@ -267,7 +267,10 @@ AUTO = KORT_AUTO + '''      <h2>De drie dekkingen</h2>
         <li>Rechtsbijstand voor het verkeer, bijvoorbeeld als de tegenpartij de schade niet wil betalen.</li>
         <li>Vervangend vervoer na een schade.</li>
       </ul>
-      <p>Niet alles is voor iedereen nodig. Heeft u al pechhulp via een lidmaatschap? Dan hoeft u het niet dubbel te verzekeren.</p>'''
+      <p>Niet alles is voor iedereen nodig. Heeft u al pechhulp via een lidmaatschap? Dan hoeft u het niet dubbel te verzekeren.</p>
+
+      <h2>Auto van de zaak of een bestelbus?</h2>
+      <p>Staat de auto op naam van uw bedrijf, of rijdt u een bestelbus met gereedschap? Dan heeft u een zakelijke autoverzekering nodig, en verzekert u het gereedschap meestal apart. Lees meer over de <a href="../zakelijk/bedrijfsautoverzekering/">bedrijfsautoverzekering</a>.</p>'''
 
 AUTO_VR = [
     ('Is een autoverzekering verplicht?',
@@ -324,7 +327,7 @@ CHECK_VR = [
     ('Kan ik mijn verzekeringen tussentijds opzeggen?',
      'Bij de meeste particuliere schadeverzekeringen kunt u na het eerste contractjaar per maand opzeggen. Als u overstapt, regel ik het zo dat u niet onverzekerd raakt.'),
     ('Doet u ook een polischeck voor ondernemers?',
-     'Ja. Voor ondernemers kijk ik ook naar bedrijfsaansprakelijkheid, gebouw en inventaris, bedrijfsschade en het wagenpark.'),
+     'Ja. Voor ondernemers kijk ik ook naar <a href="../zakelijk/bedrijfsaansprakelijkheidsverzekering/">bedrijfsaansprakelijkheid</a>, <a href="../zakelijk/bedrijfspand-en-inventaris/">gebouw, inventaris en bedrijfsschade</a> en het <a href="../zakelijk/bedrijfsautoverzekering/">wagenpark</a>.'),
     ('Hoe lever ik mijn polissen aan?',
      'Per mail naar info@finect.nl, of ik neem ze mee als ik bij u langskom. Een foto met uw telefoon volstaat.'),
     ('Wat als ik dubbel verzekerd ben?',

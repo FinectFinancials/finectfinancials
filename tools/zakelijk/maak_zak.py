@@ -422,7 +422,8 @@ AOV_TEKST = kort(['Een AOV keert uit als u als ondernemer door ziekte of een ong
       <p>De overheid werkt aan een verplichte basisverzekering arbeidsongeschiktheid voor zelfstandigen, de BAZ. Het wetsvoorstel is in maart 2026 ingediend. De invoering wordt niet voor 2030 verwacht. De BAZ keert straks pas uit na twee jaar ziekte, en dan hooguit op het niveau van het minimumloon. Wilt u meer zekerheid, of eerder verzekerd zijn, dan blijft een eigen AOV nodig. Ik houd de ontwikkelingen voor u in de gaten.</p>
 
       <h2>Alternatieven</h2>
-      <p>Een AOV is niet de enige oplossing. Een broodfonds, waarin ondernemers elkaar bij ziekte tijdelijk ondersteunen, keert maximaal twee jaar uit. Een eigen buffer helpt vooral bij kortere uitval. Soms is een combinatie het beste. Ik zet de mogelijkheden eerlijk voor u naast elkaar.</p>'''
+      <p>Een AOV is niet de enige oplossing. Een broodfonds, waarin ondernemers elkaar bij ziekte tijdelijk ondersteunen, keert maximaal twee jaar uit. Een eigen buffer helpt vooral bij kortere uitval. Soms is een combinatie het beste. Ik zet de mogelijkheden eerlijk voor u naast elkaar.</p>
+      <p>Is uw AOV te duur geworden? Lees dan mijn <a href="../ondernemer/het-betaalbaar-houden-van-de-arbeidsongeschiktheidsverzekering-aov/">tips om uw AOV betaalbaar te houden</a>.</p>'''
 
 AOV_VR = [
     ("Is een AOV verplicht voor zzp'ers?",
