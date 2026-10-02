@@ -59,6 +59,7 @@ ICONEN = {
     'ICO_GEREEDSCHAP': svg('<path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>'),
     'ICO_EURO': svg('<path d="M18 7a7 7 0 100 10"/><path d="M4 10h10M4 14h10"/>'),
     'ICO_LAPTOP': svg('<rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/>'),
+    'ICO_SCHILD20': svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>', 20, 1.8),
     'ICO_KAART': svg('<path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/>', 20, 1.8),
 }
 

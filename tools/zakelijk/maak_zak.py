@@ -26,6 +26,47 @@ UITLEG = {'Bedrijfsaansprakelijkheid': ('{ICO_SCHILD}', 'Voor schade die u of uw
           'VvE-verzekering': ('{ICO_GEBOUW}', 'Opstal, aansprakelijkheid en het bestuur van uw VvE verzekerd.')}
 
 
+REVIEW_MARITA = ('Zowel voor mijn privé situatie als risico&rsquo;s als ondernemer goed objectief advies van Finect/Fred gekregen.', 'MT', 'Marita T.')
+REVIEW_LARS = ('Ik ben zeer tevreden over de service van Finect. Fred is deskundig, meedenkend en weet zaken helder uit te leggen. Wat het extra prettig maakt, is dat hij goed bereikbaar is en snel reageert op vragen. Een betrouwbare adviseur waar je op kunt rekenen!', 'LS', 'Lars S.')
+REVIEW_ROB = ('Ik ben bij Finect terechtgekomen voor mijn autoverzekering en ik ben zelden zo goed geholpen als hier. Geen standaard verkooppraatjes, maar oprechte interesse in wat ik nodig had en wat het beste bij mijn situatie paste.', 'R', 'Rob')
+ONDERNEMER = 'Ondernemer &middot; Google, 5 sterren'
+BRON = {'Kyra D.': ONDERNEMER, 'Marita T.': ONDERNEMER}
+
+
+def reviews(kop, intro, lijst):
+    """klantervaringen als carrousel (zelfde opmaak en script als op de hoofdpagina's)"""
+    fig = ''.join('''
+          <figure class="fx-ct__quote%s">
+            <blockquote>&ldquo;%s&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">%s</span><span class="fx-ct__wie"><b>%s</b>%s</span></figcaption>
+          </figure>''' % (' is-on' if i == 0 else '', c, ini, n, BRON.get(n, 'Google, 5 sterren')) for i, (c, ini, n) in enumerate(lijst))
+    return '''  <!-- klantervaringen -->
+  <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-ct__rev">
+      <div>
+        <p class="fx-ct__sub">Klantervaringen</p>
+        <h2>%s</h2>
+        <p>%s</p>
+        <div class="fx-ct__score">
+          <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="fx-ct__cijfer">5,0</span>
+          <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
+        </div>
+        <div class="fx-ct__btns">
+          <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
+        </div>
+      </div>
+      <div>
+        <div class="fx-ct__stage" id="fxCtStage">%s
+        </div>
+        <ul class="fx-ct__dots" id="fxCtDots"></ul>
+      </div>
+    </div>
+  </section></div></div>
+
+''' % (kop, intro, fig)
+
+
 def kort(punten):
     return ('      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst">' +
             ''.join(f'<li>{p}</li>' for p in punten) + '</ul></div>\n')
@@ -127,6 +168,7 @@ def pagina(naam, kruimel, sub, h1, lead, tekst, vragen, vragenkop, hulp, hulpkop
       <li><span class="fx-home__rond">{{ICO_MAIL}}</span><span><b><a href="mailto:info@finect.nl">info@finect.nl</a></b><span>Antwoord binnen één werkdag</span></span></li>
       <li><span class="fx-home__rond">{{ICO_PIN}}</span><span><b>Kantoor</b><span>Vlijtseweg 16, 7317 AH Apeldoorn</span></span></li>
       <li><span class="fx-home__rond">{{ICO_KAART}}</span><span><b>Werkgebied</b><span>Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello, Vaassen en omgeving</span></span></li>
+      <li><span class="fx-home__rond">{{ICO_SCHILD20}}</span><span><b>Geregistreerd</b><span>AFM 12047700, Kifid 300.017906, KvK 62201735</span></span></li>
     </ul>
   </section></div>
 
@@ -283,7 +325,7 @@ AVB_EIGEN = dict(
          ('Risico\'s op een rij', 'We kijken samen of u een AVB, een BAV of allebei nodig heeft, en welk verzekerd bedrag past.'),
          ('Vergelijken en advies', 'Ik vraag offertes op en let op opzicht, uitsluitingen en eigen risico.'),
          ('Regelen en bijhouden', 'Groeit uw bedrijf of verandert uw werk, dan passen we de polis aan.')]),
-    review=review('Wat ondernemers zeggen', 'Een vaste adviseur die meedenkt, ook als uw bedrijf verandert.', *REVIEW_KYRA, bron='Ondernemer &middot; Google, 5 sterren'),
+    review=reviews('Wat ondernemers zeggen', 'Een vaste adviseur die meedenkt, ook als uw bedrijf verandert.', [REVIEW_MARITA, REVIEW_KYRA, REVIEW_TONY]),
     wie=wie('Uw adviseur voor ondernemers',
         'Mijn naam is Fred Koeling. Ik help ondernemers en zzp\'ers in Apeldoorn en omgeving met hun zakelijke verzekeringen, en kijk daarbij ook naar uw privésituatie.',
         'Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring. Ik weet dus uit eigen ervaring hoe het is om een bedrijf te runnen.',
@@ -413,7 +455,7 @@ AOV_EIGEN = dict(
          ('Rekenen', 'We bepalen samen welk bedrag, welke wachttijd en welke eindleeftijd bij u passen.'),
          ('Vergelijken en advies', 'Ik vergelijk verzekeraars op voorwaarden en premie, en kijk ook naar een broodfonds of een combinatie.'),
          ('Regelen en bijhouden', 'Ik help bij de gezondheidsverklaring en kijk elk jaar of de dekking nog past bij uw inkomen.')]),
-    review=review('Klanten over mijn advies', 'Bij een AOV draait het om vertrouwen en goede uitleg. Dat is wat klanten noemen.', *REVIEW_FLEUR),
+    review=reviews('Klanten over mijn advies', 'Bij een AOV draait het om vertrouwen en goede uitleg. Dat is wat klanten noemen.', [REVIEW_LARS, REVIEW_MARITA, REVIEW_FLEUR]),
     wie=wie('Advies dat verder kijkt dan de polis',
         'Mijn naam is Fred Koeling. Als Certified Financial Planner kijk ik bij een AOV niet alleen naar de premie, maar naar uw hele financiële situatie.',
         'Zo houd ik rekening met uw hypotheek, uw pensioen en uw buffer. Ik werk sinds 2015 als zelfstandig adviseur.',
@@ -507,7 +549,7 @@ PAND_EIGEN = dict(
          ('Waarden bepalen', 'We bepalen samen de herbouwwaarde, de waarde van uw inventaris en hoe lang herstel zou duren.'),
          ('Vergelijken en advies', 'Ik vergelijk verzekeraars op dekking, beveiligingseisen en premie.'),
          ('Regelen en bijhouden', 'Groeit uw bedrijf, dan passen we de verzekerde bedragen aan.')]),
-    review=review('Ondernemers over mijn advies', 'Een vaste adviseur die meedenkt en bereikbaar blijft, ook na het afsluiten.', *REVIEW_KYRA, bron='Ondernemer &middot; Google, 5 sterren'),
+    review=reviews('Ondernemers over mijn advies', 'Een vaste adviseur die meedenkt en bereikbaar blijft, ook na het afsluiten.', [REVIEW_KYRA, REVIEW_LARS, REVIEW_MARITA]),
     wie=wie('Een adviseur die uw bedrijf kent',
         'Mijn naam is Fred Koeling. Ik kom graag bij u langs, want een bedrijf leer ik pas echt kennen als ik er rondloop.',
         'Ik werk sinds 2015 als zelfstandig adviseur, met ruim 22 jaar ervaring, voor ondernemers in Apeldoorn en omgeving.',
@@ -626,7 +668,7 @@ AUTO_EIGEN = dict(
          ('Dekking kiezen', 'We kijken per voertuig naar leeftijd en waarde, en of een wagenparkpolis voordeliger is.'),
          ('Vergelijken en advies', 'Ik vergelijk verzekeraars op premie, eigen risico en de eisen voor gereedschap in de bus.'),
          ('Regelen en bijhouden', 'Koopt u een nieuw voertuig, dan regel ik het meteen, ook de overstap van uw schadevrije jaren.')]),
-    review=review('Hulp bij schade', 'Juist bij schade aan een bedrijfsvoertuig wilt u snel en goed geholpen worden.', *REVIEW_TONY),
+    review=reviews('Hulp bij schade', 'Juist bij schade aan een bedrijfsvoertuig wilt u snel en goed geholpen worden.', [REVIEW_TONY, REVIEW_ROB, REVIEW_KYRA]),
     wie=wie('Eén aanspreekpunt voor al uw voertuigen',
         'Mijn naam is Fred Koeling. Bij schade aan een bedrijfsauto wilt u niet in een keuzemenu hangen, maar iemand spreken die u kent.',
         'Ik werk sinds 2015 als zelfstandig adviseur, voor ondernemers in Apeldoorn en omgeving.',
@@ -732,7 +774,7 @@ VVE_EIGEN = dict(
          ('Dekking op een rij', 'Ik kijk wat verplicht is, wat er al geregeld is en of de herbouwwaarde nog klopt.'),
          ('Vergelijken en advies', 'Ik vergelijk verzekeraars en leg het voorstel zo uit dat het bestuur het in de vergadering kan voorleggen.'),
          ('Regelen en bijhouden', 'Ik regel de polissen en blijf aanspreekpunt bij schade, ook als het bestuur wisselt.')]),
-    review=review('Een VvE in de praktijk', 'Na het uitzoeken had deze VvE een completere verzekering, en betaalde ze minder.', *REVIEW_MARCEL),
+    review=reviews('Een VvE in de praktijk', 'Na het uitzoeken had deze VvE een completere verzekering, en betaalde ze minder.', [REVIEW_MARCEL, REVIEW_LARS, REVIEW_FLEUR]),
     wie=wie('Een vaste adviseur voor uw VvE',
         'Mijn naam is Fred Koeling. Een VvE-bestuur wisselt nogal eens. Ik blijf, en ken uw gebouw en uw polissen.',
         'Ik werk sinds 2015 als zelfstandig adviseur voor particulieren, ondernemers en VvE\'s in Apeldoorn en omgeving.',
