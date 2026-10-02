@@ -94,6 +94,21 @@ def schoon(t, pad):
     return t
 
 
+TOEGANKELIJK = ('<style id="fx-oud-toegankelijk">'
+                # stipjes onder de reviews: onzichtbare tekst ook licht, voor de contrastcontrole (zoals op de homepage)
+                '.fx-ct .fx-ct__dots button{color:#fff;}'
+                # links in lopende tekst niet alleen met kleur aangeven
+                '.fx-ct p a:not([class]),.fx-ct .fx-ct__punt li a:not([class]){text-decoration:underline;text-underline-offset:3px;}'
+                '</style>\n')
+
+
+def toegankelijk(t):
+    """Over ons en Contact: twee kleine punten uit de toegankelijkheidscontrole"""
+    if 'class="fx-ct' in t and 'fx-oud-toegankelijk' not in t:
+        t = t.replace('</head>', TOEGANKELIJK + '</head>', 1)
+    return t
+
+
 def voorbeeld(t, pad):
     """zelfde pagina, maar onder /voorbeeld/: een map dieper, niet in Google, met de balk onderin"""
     t = t.replace('../', '../../')
@@ -112,8 +127,8 @@ if __name__ == '__main__':
     for pad in paden:
         bron = 'site/' + pad + 'index.html'
         t = io.open(bron, encoding='utf-8').read()
-        assert 'finect-thema.css' not in t, ('al opgeschoond', pad)
-        nieuw = schoon(t, pad)
+        assert 'finect-thema' not in t, ('al opgeschoond', pad)
+        nieuw = toegankelijk(schoon(t, pad))
         if modus == 'voorbeeld':
             doel = 'site/voorbeeld/' + pad + 'index.html'
             nieuw = voorbeeld(nieuw, pad)

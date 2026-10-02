@@ -20,7 +20,7 @@ from slank import pagina_aanpassen
 MODUS = sys.argv[1] if len(sys.argv) > 1 else 'voorbeeld'
 VOORBEELD = MODUS == 'voorbeeld'
 BASIS = 'https://finect.nl/'
-SRC = 'site/over-finect/index.html'
+SRC = 'tools/basis/over-finect.html'   # vaste bouwbasis: Over ons zoals die was vóór het opschonen (stap 1)
 GOOGLE = 'https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9'
 
 # ---------- iconen ----------

@@ -7,7 +7,7 @@ inhoud, de kopgegevens en de gestructureerde data worden vervangen.
 import io, re, json, html, os, sys
 
 SP = '/tmp/claude-0/-home-user-finectfinancials/eb3bde67-f228-5f8e-b9ee-dcd3a00cb56a/scratchpad/home/'
-SRC = 'site/over-finect/index.html'
+SRC = 'tools/basis/over-finect.html'   # vaste bouwbasis: Over ons zoals die was vóór het opschonen (stap 1)
 DST = sys.argv[1] if len(sys.argv) > 1 else 'site/voorbeeld/index.html'
 VOORBEELD = '/voorbeeld/' in DST
 
