@@ -1,0 +1,10 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright/index.js');
+(async()=>{const b=await chromium.launch();const ctx=await b.newContext({viewport:{width:390,height:844},deviceScaleFactor:2});const pg=await ctx.newPage();
+const c=await ctx.newCDPSession(pg); await c.send('Network.enable');
+await c.send('Network.emulateNetworkConditions',{offline:false,latency:150,downloadThroughput:1.6e6/8,uploadThroughput:750e3/8});
+await c.send('Emulation.setCPUThrottlingRate',{rate:4});
+let bytes=0,n=0; c.on('Network.loadingFinished',e=>{bytes+=e.encodedDataLength;n++;});
+await pg.goto('http://127.0.0.1:8099/'+process.argv[2],{waitUntil:'load'});
+const r=await pg.evaluate(()=>new Promise(res=>{let l=0;new PerformanceObserver(x=>{for(const e of x.getEntries()) l=e.startTime;}).observe({type:'largest-contentful-paint',buffered:true});
+ const fcp=performance.getEntriesByName('first-contentful-paint')[0]; setTimeout(()=>res({fcp:fcp&&Math.round(fcp.startTime),lcp:Math.round(l)}),1500);}));
+console.log(JSON.stringify(r),'verzoeken',n,'kB',Math.round(bytes/1024));await b.close();})();
