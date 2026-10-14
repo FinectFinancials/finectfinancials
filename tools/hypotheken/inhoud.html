@@ -5,7 +5,7 @@
     <div class="fx-ct__wrap">
       <div class="fx-home__in">
         <div class="fx-verz__adviseur"><img src="../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
-        <p class="fx-ct__sub">Hypotheekadvies in Apeldoorn en omgeving</p>
+        <p class="fx-ct__sub">Hypotheekadviseur in Apeldoorn en omgeving</p>
         <h1>Onafhankelijk hypotheekadvies</h1>
         <p class="fx-ct__lead">Uw eerste huis, een volgend huis, oversluiten of verduurzamen. Ik zoek de hypotheek die past bij uw inkomen en uw plannen, en kijk daarbij ook naar uw verzekeringen en uw pensioen.</p>
         <div class="fx-ct__btns">
@@ -163,7 +163,7 @@
         if(a.inkomen==='pensioen') w.push('Gaat u binnen tien jaar met pensioen, dan kijkt de geldverstrekker ook naar uw inkomen daarna.');
         if((s==='starter'||s==='door')&&a.samen==='samen') w.push('Koopt u samen? Denk dan ook aan een overlijdensrisicoverzekering en aan afspraken voor als u uit elkaar gaat.');
         if(a.wanneer==='orient') w.push('U hoeft nog niets te beslissen. Een eerste gesprek geeft rust en duidelijkheid, en kost u niets.');
-        if(a.wanneer==='nu'&&(s==='starter'||s==='door')) w.push('Biedt u op een huis? Neem dan een financieringsvoorbehoud op. Lukt de hypotheek niet, dan kunt u de koop kosteloos ontbinden.');
+        if(a.wanneer==='nu'&&(s==='starter'||s==='door')) w.push('Biedt u op een huis? Neem dan een financieringsvoorbehoud op. Lukt de hypotheek niet, dan kunt u de koop binnen de afgesproken termijn kosteloos ontbinden.');
         u.querySelector('[data-lijst=stappen]').innerHTML=st.map(function(x){return '<li>'+x+'</li>';}).join('');
         u.querySelector('[data-lijst=nodig]').innerHTML=p.map(function(x){return '<li>'+x+'</li>';}).join('');
         u.querySelector('[data-lijst=letop]').innerHTML=w.map(function(x){return '<p><b>Let op:</b> '+x+'</p>';}).join('');
@@ -256,6 +256,24 @@
     </div>
   </section></div>
 
+  <!-- lokaal -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__lokaal">
+    <div>
+      <p class="fx-ct__sub">Lokaal</p>
+      <h2>Een huis kopen in Apeldoorn en omgeving</h2>
+      <p>Mijn kantoor staat aan de Vlijtseweg in Apeldoorn. Ik kom graag bij u thuis, of u nu een appartement zoekt in het centrum, een nieuwbouwwoning in Zuidbroek of een eengezinswoning in De Maten of Osseveld.</p>
+      <p>Koopt u nieuwbouw? Dan gaat het net iets anders. U betaalt in termijnen tijdens de bouw, meestal uit een bouwdepot, en soms heeft u een tijd dubbele woonlasten. Ik reken dat vooraf met u door, zodat u niet voor verrassingen komt te staan.</p>
+    </div>
+    <div class="fx-hyp__gebied">
+      <h3>Hier kom ik bij u langs</h3>
+      <ul>
+        <li>Apeldoorn</li><li>Ugchelen</li><li>Beekbergen</li><li>Loenen</li><li>Klarenbeek</li><li>Twello</li><li>Vaassen</li>
+      </ul>
+      <p>Woont u verder weg? Dan spreken we online af, of ik kom toch langs.</p>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../contact/">Plan een gratis gesprek</a></div>
+    </div>
+  </section></div>
+
   <!-- kerncijfers 2026 -->
   <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__feitsec">
     <div class="fx-home__kop">
@@ -292,7 +310,7 @@
   <div class="fx-ct__wrap"><section class="fx-ct__sec">
     <div class="fx-home__kop">
       <p class="fx-ct__sub">Waarom via een adviseur</p>
-      <h2>Waarom uw hypotheek via mij?</h2>
+      <h2>Waarom een onafhankelijke hypotheekadviseur?</h2>
     </div>
     <div class="fx-verz__redenen">
       <div>
@@ -404,7 +422,7 @@
       </details>
       <details>
         <summary><h3>Wat is NHG en heb ik het nodig?</h3></summary>
-        <p>NHG is de Nationale Hypotheek Garantie. Moet u uw huis verkopen door bijvoorbeeld werkloosheid, een scheiding of overlijden en blijft er een schuld over, dan kan NHG die overnemen. In 2026 kan het tot een hypotheek van € 470.000, of € 498.200 met energiebesparende maatregelen. U betaalt er eenmalig een kleine vergoeding voor, maar vaak krijgt u een lagere rente.</p>
+        <p>NHG is de Nationale Hypotheek Garantie. Moet u uw huis verkopen door bijvoorbeeld werkloosheid, een scheiding of overlijden en blijft er een schuld over, dan kan NHG die onder voorwaarden kwijtschelden. In 2026 kan het tot een hypotheek van € 470.000, of € 498.200 met energiebesparende maatregelen. U betaalt er eenmalig een kleine vergoeding voor, maar vaak krijgt u een lagere rente.</p>
       </details>
       <details>
         <summary><h3>Betaal ik als starter overdrachtsbelasting?</h3></summary>
@@ -416,11 +434,11 @@
       </details>
       <details>
         <summary><h3>Wanneer is oversluiten interessant?</h3></summary>
-        <p>Als uw huidige rente duidelijk hoger is dan wat er nu te krijgen is, of als uw rentevaste periode afloopt. Bij tussentijds oversluiten betaalt u meestal boeterente. Ik reken uit of de lagere rente daar tegenop weegt, ook bij uw eigen geldverstrekker.</p>
+        <p>Als uw huidige rente duidelijk hoger is dan wat er nu te krijgen is, of als uw rentevaste periode afloopt. Bij tussentijds oversluiten rekent de geldverstrekker vaak boeterente, zeker als uw rente hoger is dan de rente van nu. Ik reken uit of de lagere rente daar tegenop weegt, ook bij uw eigen geldverstrekker.</p>
       </details>
       <details>
         <summary><h3>Wat is een financieringsvoorbehoud?</h3></summary>
-        <p>Een afspraak in het koopcontract dat u de koop kosteloos kunt ontbinden als u de hypotheek niet rond krijgt. In een krappe woningmarkt wordt soms zonder voorbehoud geboden, maar dat brengt risico mee. Ik kijk met u wat in uw situatie verstandig is.</p>
+        <p>Een afspraak in het koopcontract dat u de koop kosteloos kunt ontbinden als u de hypotheek niet rond krijgt. Dat moet wel binnen de afgesproken termijn, meestal een paar weken, en meestal met een afwijzing van de geldverstrekker erbij. In een krappe woningmarkt wordt soms zonder voorbehoud geboden, maar dat brengt risico mee. Ik kijk met u wat in uw situatie verstandig is.</p>
       </details>
       <details>
         <summary><h3>Hoe lang duurt het om een hypotheek te regelen?</h3></summary>

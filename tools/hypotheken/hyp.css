@@ -42,6 +42,15 @@
 .fx-ct .fx-hyp__tijdlijn b{display:block;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;color:var(--navy);margin:0 0 6px;}
 .fx-hyp__tijdlijn li:last-child::before{background:var(--mag);}
 
+/* lokaal: tekst links, werkgebied rechts */
+.fx-hyp__lokaal{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:48px;align-items:center;}
+.fx-hyp__gebied{padding:30px 30px 26px;border-radius:16px;background:var(--navy);color:#fff;}
+.fx-ct .fx-hyp__gebied h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;color:#fff;margin:0 0 16px;}
+.fx-hyp__gebied ul{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+.fx-ct .fx-hyp__gebied li{margin:0;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);font-size:15px;line-height:1.4;color:#fff;}
+.fx-hyp__gebied li::before{display:none!important;}
+.fx-ct .fx-hyp__gebied p{color:rgba(255,255,255,.88);font-size:15px;line-height:1.6;margin:0 0 18px;}
+@media (max-width:900px){.fx-hyp__lokaal{grid-template-columns:1fr;gap:26px;}}
 @media (max-width:1100px){
   .fx-hyp__sitgrid,.fx-hyp__feiten{grid-template-columns:repeat(2,minmax(0,1fr));}
   .fx-hyp__tijdlijn{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:34px;}
