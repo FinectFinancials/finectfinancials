@@ -1,0 +1,317 @@
+<div class="fx-verz fx-hyp fx-start">
+
+  <!-- kop -->
+  <section class="fx-verz__kop fx-verz__kop--licht"><div class="fx-ct__wrap fx-verz__kopgrid"><div>
+    <p class="fx-verz__kruimel"><a href="../">Home</a> &rsaquo; <a href="../hypotheken/">Hypotheken</a> &rsaquo; Eerste huis kopen</p>
+    <div class="fx-verz__adviseur"><img src="../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
+    <p class="fx-ct__sub">Hypotheekadvies voor starters in Apeldoorn</p>
+    <h1>Uw eerste huis kopen</h1>
+    <p class="fx-ct__lead">Hoeveel kunt u lenen, hoeveel eigen geld heeft u nodig en hoe biedt u verstandig? Ik zet het voor u op een rij en begeleid u tot u de sleutel krijgt.</p>
+    <div class="fx-ct__btns">
+      <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
+      <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gratis gesprek</a>
+    </div>
+    <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
+    <p class="fx-verz__heldlink"><a href="#hulp">Reken uit: betaalt u overdrachtsbelasting?</a></p>
+  </div>
+    <div class="fx-verz__kopfoto"><img src="../wp-content/uploads/finect/hyp-start-mobiel.jpg" alt="" width="860" height="860" fetchpriority="high" decoding="async"></div>
+  </div></section>
+
+  <div class="fx-ct__wrap">
+    <ul class="fx-verz__cijfers">
+      <li><b>5,0</b><span>uit 16 beoordelingen op <a href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Google</a></span></li>
+      <li><b>22+</b><span>jaar ervaring in het vak</span></li>
+      <li><b>2015</b><span>onafhankelijk sinds</span></li>
+      <li><b>1</b><span>vaste adviseur, ook na de notaris</span></li>
+    </ul>
+  </div>
+
+  <!-- hulpmiddel -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__checksec" id="hulp">
+    <div class="fx-verz__checkkaart">
+      <div class="fx-verz__checkintro">
+        <p class="fx-ct__sub">Rekenhulp voor starters</p>
+        <h2>Betaalt u overdrachtsbelasting?</h2>
+        <p>Als starter betaalt u vaak geen overdrachtsbelasting. Of dat voor u geldt, hangt af van uw leeftijd en de prijs van het huis. U ziet ook meteen of u een hypotheek met NHG kunt krijgen.</p>
+        <ul class="fx-verz__checkpunten"><li>Vier korte vragen</li><li>Direct antwoord</li><li>Niets opsturen</li></ul>
+      </div>
+      <div class="fx-verz__checkvak">
+        <noscript><p class="fx-verz__checkgeenjs">Deze rekenhulp werkt met JavaScript. Bel mij gerust op <a href="tel:+31630679790">06 30 67 97 90</a>, dan rekenen we het samen uit.</p></noscript>
+        <form class="fx-verz__hulp" id="fxStart" hidden>
+          <div class="fx-zak__schuif">
+            <label for="fxKoop">De koopsom van het huis</label>
+            <output id="fxKoopUit" for="fxKoop">&euro;&nbsp;350.000</output>
+            <input type="range" id="fxKoop" min="150000" max="750000" step="5000" value="350000">
+          </div>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Wanneer tekent u bij de notaris?</legend><label><input type="radio" name="jaar" value="2026" checked><span>In 2026</span></label><label><input type="radio" name="jaar" value="2027"><span>In 2027</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Koopt u alleen of samen?</legend><label><input type="radio" name="samen" value="alleen" checked><span>Alleen</span></label><label><input type="radio" name="samen" value="samen"><span>Samen</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Uw leeftijd op de dag van de notaris</legend><label><input type="radio" name="leeftijd" value="jong" checked><span>Jonger dan 35</span></label><label><input type="radio" name="leeftijd" value="oud"><span>35 jaar of ouder</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij" id="fxPartner" hidden><legend>De leeftijd van uw partner op die dag</legend><label><input type="radio" name="partner" value="jong" checked><span>Jonger dan 35</span></label><label><input type="radio" name="partner" value="oud"><span>35 jaar of ouder</span></label></fieldset>
+          <div class="fx-verz__hulpuit is-uit" id="fxStartUit" aria-live="polite"></div>
+          <p class="fx-verz__klein">Een indicatie, geen advies. Ik ga ervan uit dat u zelf in het huis gaat wonen, dat u de vrijstelling nog niet eerder heeft gebruikt en dat u bij samen kopen ieder de helft bezit. Koopt u nieuwbouw van een projectontwikkelaar, dan zit er btw in de prijs en betaalt u geen overdrachtsbelasting.</p>
+          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Reken het met mij door</a></div>
+        </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var f=document.getElementById('fxStart'), u=document.getElementById('fxStartUit'); if(!f||!u) return;
+      f.hidden=false; f.addEventListener('submit',function(e){e.preventDefault();});
+      var k=document.getElementById('fxKoop'), ko=document.getElementById('fxKoopUit'), pv=document.getElementById('fxPartner');
+      function eur(x){return '€ '+Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+      function w(n){var r=f.querySelector('input[name='+n+']:checked'); return r?r.value:'';}
+      function reken(){
+        var s=+k.value, jaar=w('jaar'), samen=w('samen')==='samen';
+        k.style.setProperty('--p',((s-k.min)/(k.max-k.min)*100)+'%');
+        ko.textContent=eur(s); k.setAttribute('aria-valuetext',eur(s)); pv.hidden=!samen;
+        /* startersvrijstelling: grens op de dag van de notaris; boven de grens vervalt hij helemaal */
+        var grens=jaar==='2027'?615000:555000, onder=s<=grens, mensen=[w('leeftijd')];
+        if(samen) mensen.push(w('partner'));
+        var deel=1/mensen.length, vrij=0;
+        mensen.forEach(function(m){ if(onder&&m==='jong') vrij+=deel; });
+        var ob=Math.round(s*0.02*(1-vrij)), bes=Math.round(s*0.02*vrij), uitleg;
+        if(ob===0) uitleg='U komt in aanmerking voor de startersvrijstelling. Dat scheelt u '+eur(bes)+'.';
+        else if(!onder) uitleg='De koopsom ligt boven de grens van '+eur(grens)+'. Dan vervalt de vrijstelling helemaal, ook voor het deel eronder. U betaalt 2 procent over de hele koopsom.';
+        else if(vrij>0) uitleg='De vrijstelling geldt alleen voor de helft van wie jonger is dan 35. Over de andere helft betaalt u 2 procent. U bespaart '+eur(bes)+'.';
+        else uitleg='De startersvrijstelling geldt tot 35 jaar. Voor een huis waar u zelf gaat wonen, betaalt u 2 procent van de koopsom.';
+        /* NHG: de grens gaat over het hypotheekbedrag; die voor 2027 is nog niet bekend */
+        var nhg;
+        if(s<=470000) nhg='Leent u de hele koopsom, dan blijft uw hypotheek onder de NHG-grens van € 470.000. NHG geeft zekerheid en vaak een lagere rente.';
+        else if(s<=498200) nhg='NHG kan tot € 470.000, of tot € 498.200 als u energiebesparende maatregelen meefinanciert. Bij deze koopsom kan NHG dus nog.';
+        else nhg='NHG kan als u niet meer dan € 470.000 leent, of € 498.200 met energiebesparende maatregelen. Bij deze koopsom wordt het meestal een hypotheek zonder NHG.';
+        if(jaar==='2027') nhg+=' De NHG-grens voor 2027 wordt eind 2026 bekend.';
+        var eigen='U kunt maximaal de waarde van het huis lenen. De bijkomende kosten, zoals de notaris, de taxatie en het advies, betaalt u uit eigen geld'+(ob>0?', net als de overdrachtsbelasting.':'.');
+        u.innerHTML='<p><span class="fx-verz__lijstkop">Overdrachtsbelasting</span><b class="fx-verz__dekking">'+(ob===0?'U betaalt niets':eur(ob))+'</b>'+uitleg+'</p>'+
+          '<p><b>NHG:</b> '+nhg+'</p><p><b>Eigen geld:</b> '+eigen+'</p>';
+      }
+      f.addEventListener('change',reken); k.addEventListener('input',reken); reken();
+    })();
+    </script>
+  </section></div>
+
+
+  <!-- tekst -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
+    <div class="fx-verz__tekst">
+      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst"><li>Bent u jonger dan 35, dan betaalt u in 2026 meestal geen overdrachtsbelasting bij een huis tot &euro;&nbsp;555.000.</li><li>U leent maximaal de waarde van het huis. De kosten koper betaalt u zelf.</li><li>Met een financieringsvoorbehoud kunt u veilig bieden.</li></ul></div>
+
+      <h2>Hoeveel kunt u lenen als starter?</h2>
+      <p>De geldverstrekker kijkt vooral naar uw bruto inkomen en de rente. Daarmee bepaalt hij welk deel van uw inkomen naar woonlasten mag. Die regels, de leennormen, worden elk jaar opnieuw vastgesteld. Verder spelen mee:</p>
+      <ul>
+        <li><b>Samen of alleen:</b> koopt u samen, dan tellen beide inkomens volledig mee. Koopt u alleen, dan krijgt u wat extra leenruimte.</li>
+        <li><b>Een studieschuld:</b> sinds 2024 telt het bedrag dat u nu per maand aflost, niet meer het bedrag dat u ooit leende. Extra aflossen kan uw leenruimte vergroten.</li>
+        <li><b>Het energielabel:</b> hoe zuiniger het huis, hoe meer u mag lenen. Bij label A of B is dat &euro;&nbsp;10.000 extra, bij A+++ &euro;&nbsp;25.000.</li>
+        <li><b>Uw contract:</b> met een tijdelijk contract kan het vaak toch, bijvoorbeeld met een intentieverklaring van uw werkgever of een perspectiefverklaring. Bent u zzp'er, dan kijkt de geldverstrekker naar uw winst over de afgelopen jaren.</li>
+      </ul>
+      <p>Een rekentool op internet geeft een eerste idee, maar mist vaak details. In een gesprek reken ik het precies voor u uit, en ook wat het per maand betekent.</p>
+
+      <h2>Hoeveel eigen geld heeft u nodig?</h2>
+      <p>U kunt maximaal de marktwaarde van het huis lenen, zoals de taxateur die vaststelt. De bijkomende kosten, de kosten koper, betaalt u uit eigen geld:</p>
+      <ul>
+        <li>overdrachtsbelasting, als u niet in aanmerking komt voor de startersvrijstelling;</li>
+        <li>de notaris, voor de leveringsakte en de hypotheekakte;</li>
+        <li>de taxatie van het huis;</li>
+        <li>het hypotheekadvies en de aanvraag;</li>
+        <li>bij NHG een eenmalige vergoeding van 0,4 procent van de hypotheek;</li>
+        <li>eventueel een bankgarantie, een bouwkundige keuring en een aankoopmakelaar.</li>
+      </ul>
+      <p>Biedt u meer dan de taxatiewaarde, dan betaalt u ook dat verschil zelf. Een deel van de kosten, zoals het advies, de taxatie en de hypotheekakte, mag u in het jaar van aankoop meestal aftrekken van de belasting.</p>
+      <p>Heeft u weinig spaargeld? Ouders kunnen geld schenken of lenen, bijvoorbeeld met een familiehypotheek. De extra hoge schenkvrijstelling voor een eigen huis, de jubelton, bestaat sinds 2024 niet meer.</p>
+
+      <h2>De startersvrijstelling</h2>
+      <p>Bent u 18 jaar of ouder maar nog geen 35, en gaat u zelf in het huis wonen? Dan betaalt u geen overdrachtsbelasting als de waarde van het huis niet hoger is dan &euro;&nbsp;555.000. In 2027 wordt die grens &euro;&nbsp;615.000. Het gaat om de dag waarop u bij de notaris tekent, niet om de datum van het koopcontract.</p>
+      <p>Ligt de waarde ook maar iets boven de grens, dan vervalt de vrijstelling helemaal. U betaalt dan 2 procent over de hele koopsom. Koopt u samen, dan geldt de vrijstelling per persoon. Is uw partner 35 of ouder, dan betaalt die 2 procent over het eigen deel. U kunt de vrijstelling maar één keer gebruiken.</p>
+
+      <h2>Bieden op een huis</h2>
+      <p>Heeft u een huis gevonden, dan doet u een bod, meestal via de makelaar van de verkoper. Spreek bij uw bod de voorwaarden af die u nodig heeft:</p>
+      <ul>
+        <li><b>Een financieringsvoorbehoud:</b> lukt de hypotheek niet binnen de afgesproken termijn, dan kunt u de koop kosteloos ontbinden. Meestal heeft u daarvoor een afwijzing van een geldverstrekker nodig.</li>
+        <li><b>Een bouwkundige keuring:</b> zo weet u in welke staat het huis is, en wat er op termijn moet gebeuren.</li>
+        <li><b>Een passende opleverdatum:</b> stem die af op de opzegtermijn van uw huur, zodat u niet lang dubbele woonlasten heeft.</li>
+      </ul>
+      <p>Na het tekenen van de koopakte heeft u drie dagen bedenktijd. Daarna betaalt u meestal binnen een paar weken een waarborgsom of bankgarantie van 10 procent van de koopsom. In een krappe markt bieden sommige kopers zonder voorbehoud. Doe dat alleen als u zeker weet dat de financiering rond komt, en bel mij gerust eerst.</p>
+
+      <h2>Nieuwbouw in Apeldoorn</h2>
+      <p>In Apeldoorn wordt veel nieuw gebouwd, onder meer in Zuidbroek. Bij nieuwbouw gaat het net iets anders. U betaalt de aannemer in termijnen tijdens de bouw, uit een bouwdepot. Zolang u nog huurt, heeft u soms een tijd dubbele woonlasten. Daar staat tegenover dat nieuwbouw meestal een zuinig energielabel heeft, waardoor u vaak meer mag lenen. Bij nieuwbouw van een projectontwikkelaar zit btw in de prijs en betaalt u geen overdrachtsbelasting.</p>
+    </div>
+    <div class="fx-verz__zij">
+      <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
+        <h2>Liever even overleggen?</h2>
+        <p>Twijfelt u of u al kunt kopen, of hoeveel u kunt bieden? Bel of mail mij. Het eerste gesprek is gratis.</p>
+        <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a></div>
+        <p style="margin:14px 0 0;"><a class="fx-verz__licht" href="mailto:info@finect.nl">info@finect.nl</a></p>
+      </div>
+      <div class="fx-verz__zijkaart">
+        <h2>Meer over uw huis</h2>
+        <ul><li><a href="../hypotheken/">Alle hypotheekonderwerpen</a></li><li><a href="../verzekeringen/woonverzekering/">Woonverzekering</a></li><li><a href="../huis/woonhuis-en-energielabel/">Het energielabel van uw huis</a></li><li><a href="../verzekeringen/aansprakelijkheidsverzekering/">Aansprakelijkheidsverzekering</a></li></ul>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- werkwijze als tijdlijn -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__weg">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Stappenplan</p>
+      <h2>Van eerste gesprek tot de sleutel</h2>
+      <p>Zo verloopt het kopen van uw eerste huis met mij als adviseur. Het contact met de geldverstrekker, de taxateur en de notaris regel ik voor u.</p>
+    </div>
+    <ol class="fx-hyp__tijdlijn">
+      <li><b>Kennismaken</b><span>Gratis en vrijblijvend. We kijken wat u kunt lenen en wat dat per maand betekent.</span></li>
+      <li><b>Zoeken</b><span>U kent uw budget. Vindt u een huis, dan kijk ik mee voordat u biedt.</span></li>
+      <li><b>Bieden en tekenen</b><span>Met de juiste voorbehouden. Na het tekenen heeft u drie dagen bedenktijd.</span></li>
+      <li><b>Aanvragen</b><span>Ik vergelijk geldverstrekkers en regel de offerte, de taxatie en de papieren.</span></li>
+      <li><b>Notaris</b><span>U tekent de akten en krijgt de sleutel.</span></li>
+      <li><b>Daarna</b><span>Ik regel uw woonverzekering en blijf uw vaste adviseur.</span></li>
+    </ol>
+  </section></div></div>
+
+  <!-- voorbereiden en verzekeren -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__duo">
+    <div>
+      <p class="fx-ct__sub">Voorbereiden</p>
+      <h2>Wat u alvast kunt klaarleggen</h2>
+      <p>Hoe beter u voorbereid bent, hoe sneller ik uw hypotheek kan aanvragen. Dit heeft u meestal nodig:</p>
+      <ul class="fx-verz__lijst fx-verz__lijst--ruim">
+        <li>Een geldig paspoort of identiteitskaart</li>
+        <li>Een werkgeversverklaring en een recente loonstrook, of uw jaarcijfers als u ondernemer bent</li>
+        <li>Een overzicht van uw spaargeld</li>
+        <li>Heeft u een studieschuld, het overzicht van DUO met uw maandbedrag</li>
+        <li>Uw huurcontract, zodat we rekening houden met de opzegtermijn</li>
+      </ul>
+    </div>
+    <div class="fx-home__kaart fx-verz__check">
+      <p class="fx-ct__sub">Na de sleutel</p>
+      <h2>Verzekeringen bij uw eerste huis</h2>
+      <ul class="fx-verz__lijst">
+        <li>Een opstalverzekering vraagt de geldverstrekker vrijwel altijd. Koopt u een appartement, dan regelt de VvE die meestal.</li>
+        <li>Een inboedelverzekering voor uw spullen, samen met de opstal in een <a href="../verzekeringen/woonverzekering/">woonverzekering</a>.</li>
+        <li>Een overlijdensrisicoverzekering als u samen koopt, zodat uw partner in het huis kan blijven wonen.</li>
+        <li>Een <a href="../verzekeringen/aansprakelijkheidsverzekering/">aansprakelijkheidsverzekering</a>, als u die nog niet heeft.</li>
+      </ul>
+      <div class="fx-ct__btns">
+        <a class="fx-ct__btn fx-ct__btn--m" href="../verzekeringen/woonverzekering/">Bekijk de woonverzekering</a>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- klantervaringen -->
+  <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-ct__rev">
+      <div>
+        <p class="fx-ct__sub">Klantervaringen</p>
+        <h2>Klanten over mijn hypotheekadvies</h2>
+        <p>Een huis koopt u niet vaak. Deze klanten vertellen hoe zij de begeleiding hebben ervaren.</p>
+        <div class="fx-ct__score">
+          <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="fx-ct__cijfer">5,0</span>
+          <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
+        </div>
+        <div class="fx-ct__btns">
+          <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
+        </div>
+      </div>
+      <div>
+        <div class="fx-ct__stage" id="fxCtStage">
+          <figure class="fx-ct__quote is-on">
+            <blockquote>&ldquo;Fred heeft onze hypotheek geregeld en ons uitstekend begeleid gedurende het hele proces. Hij werkt zeer nauwkeurig, is deskundig en gaf ons steeds duidelijke uitleg. We zijn zeer tevreden over de persoonlijke en professionele begeleiding en kunnen Fred en Finect Financials van harte aanbevelen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">RV</span><span class="fx-ct__wie"><b>Robert V.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">FS</span><span class="fx-ct__wie"><b>Fleur S.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Ik ben zeer tevreden over de service van Finect. Fred is deskundig, meedenkend en weet zaken helder uit te leggen. Wat het extra prettig maakt, is dat hij goed bereikbaar is en snel reageert op vragen. Een betrouwbare adviseur waar je op kunt rekenen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">LS</span><span class="fx-ct__wie"><b>Lars S.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+        </div>
+        <ul class="fx-ct__dots" id="fxCtDots"></ul>
+      </div>
+    </div>
+  </section></div></div>
+
+  <!-- uw adviseur -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__wie">
+    <div class="fx-verz__wiefoto"><img src="../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, hypotheekadviseur voor starters in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
+    <div>
+      <p class="fx-ct__sub">Uw adviseur</p>
+      <h2>Rustig de tijd voor uw eerste huis</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik werk sinds 2015 als zelfstandig adviseur in Apeldoorn, en heb ruim 22 jaar ervaring in het vak.</p>
+      <p>Bij een eerste huis komt veel op u af. Ik neem de tijd om alles uit te leggen, ook de dingen waar u nog niet aan dacht. En als Certified Financial Planner kijk ik verder dan de hypotheek alleen: wat als u kinderen krijgt, minder gaat werken of uw huis later wilt verduurzamen?</p>
+      <blockquote class="fx-verz__citaat">&ldquo;Uw eerste huis koopt u maar één keer. Ik zorg dat u weet waar u aan begint.&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--o" href="../over-finect/">Lees meer over mij</a></div>
+    </div>
+  </section></div>
+
+  <!-- ook interessant -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
+    <p class="fx-ct__sub">Ook interessant</p>
+    <h2 style="margin-bottom:28px;">Meer over wonen en hypotheken</h2>
+    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_SLEUTEL}</span><h3>Hypotheken</h3><p>Volgend huis, oversluiten, verduurzamen of uit elkaar. Alle situaties op een rij.</p><a class="fx-verz__pmeer" href="../hypotheken/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_HUIS}</span><h3>Woonverzekering</h3><p>Uw huis en uw spullen goed verzekerd, met het juiste verzekerde bedrag.</p><a class="fx-verz__pmeer" href="../verzekeringen/woonverzekering/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_BLAD}</span><h3>Energielabel</h3><p>Wat het energielabel betekent voor uw huis, uw lasten en wat u kunt lenen.</p><a class="fx-verz__pmeer" href="../huis/woonhuis-en-energielabel/">Lees verder</a></div></div>
+  </section></div>
+
+  <!-- vragen -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
+    <div>
+      <p class="fx-ct__sub">Vragen</p>
+      <h2>Vragen van starters</h2>
+      <p>Staat uw vraag er niet tussen? Bel gerust, daar hoeft u geen afspraak voor te maken.</p>
+      <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gesprek</a></p>
+    </div>
+    <div>
+      <details open>
+        <summary><h3>Hoeveel kan ik lenen voor mijn eerste huis?</h3></summary>
+        <p>Dat hangt vooral af van uw bruto inkomen, de rente, eventuele schulden zoals een studieschuld en het energielabel van het huis. U kunt maximaal de waarde van het huis lenen. Koopt u samen, dan tellen beide inkomens volledig mee. In een eerste gesprek reken ik het voor u precies uit.</p>
+      </details>
+      <details>
+        <summary><h3>Hoeveel eigen geld heb ik nodig?</h3></summary>
+        <p>Genoeg voor de kosten koper: de notaris, de taxatie, het advies en eventueel overdrachtsbelasting en NHG. Die kunt u niet meelenen. Biedt u boven de taxatiewaarde, dan betaalt u ook dat verschil zelf. Hoeveel het voor u is, reken ik in het eerste gesprek uit.</p>
+      </details>
+      <details>
+        <summary><h3>Betaal ik als starter overdrachtsbelasting?</h3></summary>
+        <p>Niet als u 18 jaar of ouder maar nog geen 35 bent, er zelf gaat wonen, de vrijstelling nog niet eerder heeft gebruikt en de waarde van het huis in 2026 niet hoger is dan &euro;&nbsp;555.000. In 2027 is die grens &euro;&nbsp;615.000. Anders betaalt u 2 procent van de koopsom.</p>
+      </details>
+      <details>
+        <summary><h3>Kan ik een huis kopen met een studieschuld?</h3></summary>
+        <p>Ja. Uw studieschuld verlaagt wel wat u kunt lenen. Sinds 2024 kijkt de geldverstrekker naar het bedrag dat u nu per maand aflost, en niet meer naar wat u ooit leende. Extra aflossen op uw studieschuld kan uw leenruimte daardoor vergroten.</p>
+      </details>
+      <details>
+        <summary><h3>Krijg ik een hypotheek met een tijdelijk contract?</h3></summary>
+        <p>Vaak wel. Verklaart uw werkgever dat uw contract wordt verlengd als u goed blijft functioneren, dan telt uw inkomen meestal gewoon mee. Dat heet een intentieverklaring. Lukt dat niet, dan kan een perspectiefverklaring helpen. Die kijkt naar uw werkervaring en de vraag naar uw beroep.</p>
+      </details>
+      <details>
+        <summary><h3>Is een hypotheek met NHG verstandig voor een starter?</h3></summary>
+        <p>Vaak wel. Met NHG krijgt u meestal een lagere rente, en moet u uw huis verkopen door bijvoorbeeld werkloosheid of een scheiding, dan kan een restschuld onder voorwaarden worden kwijtgescholden. In 2026 kan NHG tot een hypotheek van &euro;&nbsp;470.000. U betaalt eenmalig 0,4 procent van de hypotheek.</p>
+      </details>
+      <details>
+        <summary><h3>Welke hypotheekvorm past bij een starter?</h3></summary>
+        <p>Meestal een annuïteitenhypotheek. Uw bruto maandlasten blijven dan gelijk, en in het begin betaalt u vooral rente. Bij een lineaire hypotheek lost u elke maand hetzelfde af: u begint hoger, maar uw lasten dalen. Voor de renteaftrek moet u in beide gevallen in 30 jaar aflossen.</p>
+      </details>
+      <details>
+        <summary><h3>Wanneer kan ik het beste naar een hypotheekadviseur?</h3></summary>
+        <p>Voordat u gaat bieden. Dan weet u wat u kunt lenen, kunt u snel schakelen als u een huis vindt en biedt u met meer zekerheid. Het eerste gesprek is gratis en vrijblijvend.</p>
+      </details>
+    </div>
+  </section></div></div>
+
+  <!-- contact -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
+    <div>
+      <p class="fx-ct__sub">Contact</p>
+      <h2>Klaar voor uw eerste huis?</h2>
+      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving, of we spreken af op kantoor of online. Het eerste gesprek is gratis en vrijblijvend.</p>
+      <div class="fx-ct__btns">
+        <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
+        <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Naar contact</a>
+      </div>
+    </div>
+    <ul class="fx-home__gegevens">
+      <li><span class="fx-home__rond">{ICO_TEL}</span><span><b><a href="tel:+31630679790">06 30 67 97 90</a></b><span>Maandag t/m vrijdag 09:00 tot 17:30</span></span></li>
+      <li><span class="fx-home__rond">{ICO_MAIL}</span><span><b><a href="mailto:info@finect.nl">info@finect.nl</a></b><span>Antwoord binnen één werkdag</span></span></li>
+      <li><span class="fx-home__rond">{ICO_PIN}</span><span><b>Kantoor</b><span>Vlijtseweg 16, 7317 AH Apeldoorn</span></span></li>
+      <li><span class="fx-home__rond">{ICO_KAART}</span><span><b>Werkgebied</b><span>Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello, Vaassen en omgeving</span></span></li>
+      <li><span class="fx-home__rond">{ICO_SCHILD20}</span><span><b>Geregistreerd</b><span>AFM 12047700, Kifid 300.017906, KvK 62201735</span></span></li>
+    </ul>
+  </section></div>
+
+</div>
