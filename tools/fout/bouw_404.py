@@ -1,0 +1,215 @@
+# -*- coding: utf-8 -*-
+"""Bouwt de foutpagina (404) in de nieuwe stijl (gemaakt op basis van bouw_hyp.py).
+
+Gebruik:
+  python3 bouw_404.py voorbeeld   -> site/voorbeeld/404/index.html
+  python3 bouw_404.py live        -> site/404.html
+
+GitHub Pages toont 404.html op elk adres dat niet bestaat, ook diep in de site.
+Daarom krijgen alle links en bestanden een vast pad vanaf de basis (/...), in plaats van ../
+"""
+import io, re, json, html, os, sys
+
+HOME = '/tmp/claude-0/-home-user-finectfinancials/eb3bde67-f228-5f8e-b9ee-dcd3a00cb56a/scratchpad/home/'
+SP = HOME + 'fout/'
+ZAK = HOME + 'zak/'
+VERZ = HOME + 'verz/'
+sys.path.insert(0, HOME)
+sys.path.insert(0, ZAK)
+from opruimen import opruimen, zoeken_weg, kleine_punten, links_en_voettekst
+from slank import pagina_aanpassen
+from menu_zak import zet_menu
+
+MODUS = sys.argv[1] if len(sys.argv) > 1 else 'voorbeeld'
+VOORBEELD = MODUS == 'voorbeeld'
+BASIS = 'https://finect.nl/'
+SRC = 'tools/basis/over-finect.html'   # vaste bouwbasis: Over ons zoals die was vóór het opschonen (stap 1)
+GOOGLE = 'https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9'
+
+# ---------- iconen ----------
+def svg(paden, maat=26, dikte=1.7):
+    return (f'<svg width="{maat}" height="{maat}" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            f'stroke-width="{dikte}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
+            f'focusable="false">{paden}</svg>')
+TEL = ('<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 '
+       '2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 '
+       '012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/>')
+ICONEN = {
+    'ICO_SCHILD': svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'),
+    'ICO_CHECK': svg('<path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>'
+                     '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>'),
+    'ICO_HUIS': svg('<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>'),
+    'ICO_VERGELIJK': svg('<path d="M12 3v18M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0z"/><path d="M19 7l-3 6a3 3 0 006 0z"/>'
+                         '<path d="M8 21h8"/>'),
+    'ICO_AUTO': svg('<path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/>'
+                    '<circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/>'),
+    'ICO_LEVEN': svg('<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>'),
+    'ICO_TEL26': svg(TEL),
+    'ICO_HART': svg('<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'),
+    'ICO_BANK': svg('<path d="M20 10V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3"/><path d="M2 12a2 2 0 014 0v3h12v-3a2 2 0 014 0v5H2z"/><path d="M5 17v2M19 17v2"/>'),
+    'ICO_VLIEG': svg('<path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>'),
+    'ICO_BLOEM': svg('<circle cx="12" cy="9" r="3"/><path d="M12 2a3 3 0 010 4M12 16a3 3 0 010-4M5 9a3 3 0 014 0M19 9a3 3 0 00-4 0M12 12v10M8 18c2 0 4 1 4 4M16 18c-2 0-4 1-4 4"/>'),
+    'ICO_GEBOUW': svg('<rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>'),
+    'ICO_SLEUTEL': svg('<circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L21 2M16 7l3 3M18 5l2 2"/>'),
+    'ICO_GEZIN': svg('<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>'),
+    'ICO_KOFFER': svg('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>'),
+    'ICO_TEL': svg(TEL, 20, 1.8),
+    'ICO_MAIL': svg('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', 20, 1.8),
+    'ICO_PIN': svg('<path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>', 20, 1.8),
+    'ICO_WINKEL': svg('<path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v1.5a3 3 0 01-6 0 3 3 0 01-6 0 3 3 0 01-6 0z"/><path d="M5 13v8h14v-8"/><path d="M10 21v-5h4v5"/>'),
+    'ICO_BUS': svg('<path d="M2 17V7a2 2 0 012-2h11l5 5v7h-2"/><path d="M15 5v5h5"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/>'),
+    'ICO_GEREEDSCHAP': svg('<path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>'),
+    'ICO_EURO': svg('<path d="M18 7a7 7 0 100 10"/><path d="M4 10h10M4 14h10"/>'),
+    'ICO_LAPTOP': svg('<rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/>'),
+    'ICO_SCHILD20': svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>', 20, 1.8),
+    'ICO_BLAD': svg('<path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.2-6.1C9.5 14.4 12 13 13 12"/>'),
+    'ICO_KAART': svg('<path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/>', 20, 1.8),
+}
+
+# ---------- de pagina ----------
+BEELD = 'wp-content/uploads/finect/hyp-held.jpg'
+BEELD_M = 'wp-content/uploads/finect/hyp-held-mobiel.jpg'
+F = 'wp-content/uploads/finect/'
+PAGINAS = [
+    dict(pad='404/', bron='fout.html',
+         titel='Pagina niet gevonden | Finect Financials',
+         beschr='Deze pagina bestaat niet (meer). Kies een onderwerp of bel Finect Financials in Apeldoorn.',
+         naam='foutpagina', vragen=0),
+]
+HOOFD = PAGINAS[0]
+
+def schoon(s):
+    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s))).replace('\xad', '').strip()
+
+
+def bouw(pg):
+    t = io.open(SRC, encoding='utf-8').read()
+
+    def vervang(oud, nieuw, n=1):
+        nonlocal t
+        assert t.count(oud) == n, (t.count(oud), oud[:80])
+        t = t.replace(oud, nieuw)
+
+    url = BASIS + pg['pad']
+    inhoud = io.open(SP + pg['bron'], encoding='utf-8').read()
+    # vaste balk onderin op mobiel: bellen en polischeck (op de polischeckpagina zelf: mailen)
+    tweede = '<a href="mailto:info@finect.nl">{ICO_MAIL}Mail mij</a>'
+    inhoud += ('\n  <div class="fx-verz__balk" role="region" aria-label="Direct contact">'
+               '<a href="tel:+31630679790">{ICO_TEL}Bel mij</a>' + tweede + '</div>\n')
+    for k, v in ICONEN.items():
+        inhoud = inhoud.replace('{' + k + '}', v)
+    assert not re.search(r'\{[A-Z][A-Z_0-9]*\}', inhoud), ('niet alle iconen ingevuld', pg['bron'])
+
+    css = io.open(HOME + 'home.css', encoding='utf-8').read()
+    css = css.replace('{BEELD}', '../' + BEELD).replace('{BEELD_MOBIEL}', '../' + BEELD_M)
+    css = css.replace('{BEELD_DIENST}', '../wp-content/uploads/finect/diensten-handtekening.jpg')
+    css += '\n' + io.open(VERZ + 'verz.css', encoding='utf-8').read()
+    css += '\n' + io.open(ZAK + 'zak.css', encoding='utf-8').read()
+    css += '\n' + io.open(SP + 'fout.css', encoding='utf-8').read()
+
+    # ----- kop -----
+    t = re.sub(r'<title>.*?</title>', '<title>' + html.escape(pg['titel'], quote=False) + '</title>', t, count=1, flags=re.S)
+    t = re.sub(r'<meta name="description" content="[^"]*" />',
+               '<meta name="description" content="' + html.escape(pg['beschr'], quote=True) + '" />', t, count=1)
+    vervang('<link rel="canonical" href="https://finect.nl/over-finect/" />', '')
+    t, n = re.subn(r"<meta name='robots' content='[^']*' />", "<meta name='robots' content='noindex, follow' />", t)
+    assert n == 1
+    t = re.sub(r'<meta property="og:title" content="[^"]*" />',
+               '<meta property="og:title" content="' + html.escape(pg['titel'], quote=True) + '" />', t, count=1)
+    t = re.sub(r'<meta property="og:description" content="[^"]*" />',
+               '<meta property="og:description" content="' + html.escape(pg['beschr'], quote=True) + '" />', t, count=1)
+    vervang('<meta property="og:url" content="https://finect.nl/over-finect/" />',
+            '<meta property="og:url" content="' + BASIS + '" />\n'
+            '\t<meta property="og:image" content="' + BASIS + pg.get('beeld', BEELD) + '" />\n'
+            '\t<meta property="og:image:width" content="1920" />\n'
+            '\t<meta property="og:image:height" content="1080" />')
+    t = re.sub(r'\s*<meta property="article:modified_time" content="[^"]*" />', '', t, count=1)
+
+    # ----- gestructureerde data: een foutpagina beschrijft geen pagina of dienst, alleen het bedrijf blijft staan -----
+    t, n = re.subn(r'\s*<script type="application/ld\+json" class="yoast-schema-graph">.*?</script>', '', t, count=1, flags=re.S)
+    assert n == 1
+    m = re.search(r'(<script type="application/ld\+json" id="fx-bedrijfsgegevens">)(.*?)(</script>)', t, re.S)
+    org = json.loads(m.group(2))
+    org["hasMap"] = "https://www.google.com/maps?cid=9247328396419147947"
+    # het Google Bedrijfsprofiel als officieel profiel van het bedrijf
+    if org["hasMap"] not in org.setdefault("sameAs", []):
+        org["sameAs"].append(org["hasMap"])
+    org["geo"] = {"@type": "GeoCoordinates", "latitude": 52.2186011, "longitude": 5.9704508}
+    t = t[:m.start(2)] + json.dumps(org, ensure_ascii=False, separators=(',', ':')) + t[m.end(2):]
+    t = re.sub(r'\s*<script type="application/ld\+json" id="fx-persoon">.*?</script>', '', t, count=1, flags=re.S)
+    t, n = re.subn(r'\s*<script type="application/ld\+json" id="fx-vragen">.*?</script>', '', t, count=1, flags=re.S)
+    assert n == 1
+
+    # ----- opmaak -----
+    voorladen = ''
+    if pg.get('beeld') and 'fx-verz__kop--foto' in inhoud:
+        # de kopfoto van een subpagina is het grootste element bovenaan: vooraf laden
+        m_beeld = pg['beeld'].replace('.jpg', '-mobiel.jpg')
+        voorladen = ('<link rel="preload" as="image" href="../' + pg['beeld'] + '" media="(min-width: 769px)" fetchpriority="high">\n'
+                     '<link rel="preload" as="image" href="../' + m_beeld + '" media="(max-width: 768px)" fetchpriority="high">\n')
+    if pg.get('held'):
+        voorladen = ('<link rel="preload" as="image" href="../' + BEELD + '" media="(min-width: 769px)" fetchpriority="high">\n'
+                     '<link rel="preload" as="image" href="../' + BEELD_M + '" media="(max-width: 768px)" fetchpriority="high">\n')
+    vervang('</head>', voorladen + css + '\n</head>')
+
+    # ----- lichaam -----
+    a = t.find('<div class="page-header'); b = t.find('<main id="main"')
+    assert 0 < a < b
+    t = t[:a] + t[b:]
+    a = t.find('<div class="fx-ct">'); eind = t.find('</main>', a); b = t.rfind('</div>', a, eind)
+    assert 0 < a < b < eind
+    t = t[:a] + '<div class="fx-ct">\n' + inhoud + '\n</div>' + t[b + len('</div>'):]
+
+    # menu: geen huidige pagina; Verzekeringen komt uit de basis, Zakelijk zet menu_zak.py er na het bouwen in
+    t = t.replace('current-menu-item page_item page-item-31 current_page_item ', '')
+    assert t.count('<a href=".">') == 4
+    t = t.replace('<a href=".">', '<a href="../over-finect/">')
+
+    # restanten van Over ons (pagina 31) weg: verwijzingen naar die pagina horen niet op een foutpagina
+    t, n = re.subn(r'\s*<link[^>]*(?:oembed|wp-json/wp/v2/pages/31)[^>]*>', '', t)
+    assert n >= 1, n
+    t, n = re.subn(r"<link rel='stylesheet' id='elementor-post-31-css' [^>]*/>\n", '', t)
+    assert n == 1
+    vervang('page-id-31 ', 'error404 ')
+    vervang('elementor-page-31"', 'elementor-page-404"')
+
+    if VOORBEELD:
+        t = re.sub(r'\s*<link rel="canonical" href="[^"]*" />', '', t, count=1)
+        t = t.replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
+        t = t.replace('<title>', '<title>VOORBEELD | ', 1)
+        banier = ('<div id="fxBanier" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#b5004a;'
+                  'color:#fff;font-family:Barlow,Arial,sans-serif;font-size:14px;line-height:1.45;'
+                  'padding:10px 16px;text-align:center;">Voorbeeld van de nieuwe foutpagina. Zo ziet een bezoeker het als een adres niet bestaat.</div>\n'
+                  '<script>(function(){var b=document.getElementById("fxBanier"),r=document.documentElement;'
+                  'function z(){r.style.setProperty("--fx-onder",b.offsetHeight+"px");}z();addEventListener("resize",z);})();</script>\n')
+        t = t.replace('</body>', banier + '</body>', 1)
+
+    t, _ = opruimen(t)
+    t, n = zoeken_weg(t); assert n == 3
+    t = pagina_aanpassen(t)
+    t = kleine_punten(t)
+    t, _ = links_en_voettekst(t)
+
+    # ----- paden: bouwen als pagina een map diep (../), menu erin, daarna alles vanaf de basis (/) -----
+    tmp = 'site/_fout_tmp/index.html'
+    os.makedirs(os.path.dirname(tmp), exist_ok=True)
+    io.open(tmp, 'w', encoding='utf-8').write(t)
+    zet_menu(tmp)
+    t = io.open(tmp, encoding='utf-8').read()
+    os.remove(tmp); os.rmdir(os.path.dirname(tmp))
+    assert '../../' not in t
+    t = t.replace('../', '/')
+    assert not re.search(r'(?:href|src)="//(?!fonts)', t), 'dubbele slash'
+    dst = 'site/voorbeeld/404/index.html' if VOORBEELD else 'site/404.html'
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    io.open(dst, 'w', encoding='utf-8').write(t)
+    h1 = re.findall(r'<h1[^>]*>(.*?)</h1>', t)
+    woorden = len(schoon(inhoud).split())
+    print(f"{dst}: titel {len(pg['titel'])} tekens, h1 {h1}, ~{woorden} woorden")
+
+
+for pg in PAGINAS:
+    if os.path.exists(SP + pg['bron']):
+        bouw(pg)
+    else:
+        print('nog geen inhoud voor', pg['pad'])

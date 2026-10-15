@@ -1,0 +1,24 @@
+<style id="fx-fout-css">
+/* Foutpagina (404): lichte kop met melding, daaronder de onderwerpen. Alleen door bouw_404.py geladen. */
+.fx-fout__kop{background:var(--mint);text-align:center;}
+.fx-ct .fx-fout__kop .fx-ct__wrap{padding-top:76px;padding-bottom:150px;}
+.fx-ct .fx-fout__kop .fx-ct__sub{color:var(--groen2);}
+.fx-ct .fx-fout__kop h1{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:clamp(32px,4.6vw,52px);font-weight:600;line-height:1.15;
+  color:var(--navy);margin:10px 0 18px;}
+.fx-ct .fx-fout__kop .fx-ct__lead{color:#33424d;max-width:640px;margin:0 auto 28px;}
+.fx-fout__kop .fx-ct__btns{justify-content:center;}
+.fx-ct .fx-fout__kop a.fx-ct__btn--o{color:var(--navy);border-color:var(--navy);}
+.fx-ct .fx-fout__kop a.fx-ct__btn--o:hover,.fx-ct .fx-fout__kop a.fx-ct__btn--o:focus{background:var(--navy);border-color:var(--navy);color:#fff;}
+.fx-ct .fx-fout__veel{padding-top:64px;}
+.fx-ct .fx-fout__veel h2{font-size:28px;margin:0 0 20px;color:var(--navy);}
+.fx-fout__veel ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px;}
+.fx-ct .fx-fout__veel li{margin:0;padding:0;}
+.fx-fout__veel li::before{display:none!important;}
+.fx-ct .fx-fout__veel a{display:inline-block;padding:11px 20px;border-radius:999px;border:1px solid var(--mint2);background:#fff;
+  color:var(--navy);font-weight:600;font-size:15px;text-decoration:none;}
+.fx-ct .fx-fout__veel a:hover,.fx-ct .fx-fout__veel a:focus-visible{border-color:var(--mag);color:var(--mag);}
+@media (max-width:768px){
+  .fx-ct .fx-fout__kop .fx-ct__wrap{padding-top:44px;padding-bottom:110px;}
+  .fx-ct .fx-fout__veel{padding-top:40px;}
+}
+</style>
