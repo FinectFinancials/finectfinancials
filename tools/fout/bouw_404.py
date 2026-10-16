@@ -19,6 +19,8 @@ sys.path.insert(0, ZAK)
 from opruimen import opruimen, zoeken_weg, kleine_punten, links_en_voettekst
 from slank import pagina_aanpassen
 from menu_zak import zet_menu
+sys.path.insert(0, HOME + 'hyp/')
+import menu_hyp
 
 MODUS = sys.argv[1] if len(sys.argv) > 1 else 'voorbeeld'
 VOORBEELD = MODUS == 'voorbeeld'
@@ -195,6 +197,7 @@ def bouw(pg):
     os.makedirs(os.path.dirname(tmp), exist_ok=True)
     io.open(tmp, 'w', encoding='utf-8').write(t)
     zet_menu(tmp)
+    menu_hyp.zet_menu(tmp)
     t = io.open(tmp, encoding='utf-8').read()
     os.remove(tmp); os.rmdir(os.path.dirname(tmp))
     assert '../../' not in t
