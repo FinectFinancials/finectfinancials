@@ -1236,6 +1236,102 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-ct .fx-hypsub .fx-verz__vraag--drie{grid-template-columns:1fr;}
   .fx-hypsub__uit b{font-size:21px;}
 }
+
+/* ===== vormgeving van de tekstdelen: blokken in plaats van een lange lap tekst ===== */
+.fx-ct .fx-hypsub .fx-verz__tekst p,.fx-ct .fx-hypsub .fx-verz__tekst li{color:#33424d;font-size:17px;line-height:1.7;}
+.fx-hypsub .fx-home__kop{margin-bottom:44px;}
+.fx-ct .fx-hypsub .fx-home__kop p{color:#33424d;}
+.fx-hypsub__midden{text-align:center;margin-left:auto!important;margin-right:auto!important;}
+
+/* kaarten met een icoon */
+.fx-hypsub__kaarten{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:6px 0 30px;}
+.fx-hypsub__kaarten--3{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:0;}
+.fx-hypsub__kaarten--4{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:0;}
+.fx-hypsub__kaart{display:flex;flex-direction:column;padding:24px 24px 22px;border-radius:16px;background:#fff;border:1px solid var(--lijn);
+  box-shadow:0 10px 28px rgba(20,33,43,.06);}
+.fx-hypsub__kaarten--3 .fx-hypsub__kaart,.fx-hypsub__kaarten--4 .fx-hypsub__kaart{padding:28px 26px 24px;border-top:5px solid var(--navy);}
+.fx-hypsub__kaarten--3 .fx-hypsub__kaart:nth-child(even),.fx-hypsub__kaarten--4 .fx-hypsub__kaart:nth-child(even){border-top-color:var(--groen);}
+.fx-ct .fx-hypsub__kaart .fx-ct__ico{margin:0;background:var(--mint);color:var(--navy);}
+.fx-ct .fx-hypsub__kaart h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;line-height:1.3;color:var(--navy);margin:16px 0 6px;padding:0;}
+.fx-ct .fx-hypsub__kaart p{font-size:16px;line-height:1.6;margin:0;color:#33424d;max-width:none;}
+.fx-ct .fx-hypsub__kaart p + p{margin-top:8px;}
+.fx-ct .fx-hypsub__kaart a{color:var(--mag);font-weight:600;}
+
+/* label boven een kaart */
+.fx-hypsub__label{display:inline-block;align-self:flex-start;margin:0 0 14px;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;
+  line-height:1.3;letter-spacing:.03em;background:var(--mint2);color:var(--groen2);}
+.fx-hypsub__label--let{background:var(--roze);color:var(--mag);}
+.fx-hypsub__label--navy{background:var(--navy);color:#fff;}
+
+/* grote cijfers met drie naast elkaar (op basis van fx-hyp__feiten) */
+.fx-hyp__feiten.fx-hypsub__feiten3{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+/* let op en tips */
+.fx-hypsub__letop{margin:26px 0 0;padding:22px 26px 20px;border-radius:14px;background:var(--zacht);box-shadow:inset 4px 0 0 var(--mag);}
+.fx-hypsub__letop--mint{background:#fff;box-shadow:inset 4px 0 0 var(--groen),0 10px 28px rgba(20,33,43,.06);}
+.fx-ct .fx-hypsub__letop h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;line-height:1.3;color:var(--navy);margin:0 0 6px;}
+.fx-ct .fx-hypsub__letop p{font-size:16px;line-height:1.65;margin:0;color:#33424d;max-width:none;}
+.fx-ct .fx-hypsub__letop p + p{margin-top:8px;}
+.fx-ct .fx-hypsub__letop a{color:var(--mag);font-weight:600;}
+
+/* een som in blokjes: verkoopprijs min hypotheek min kosten is overwaarde */
+.fx-hypsub__som{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;margin:8px 0 28px;}
+.fx-hypsub__somvak{flex:1 1 0;min-width:0;padding:16px 14px 14px;border-radius:14px;background:#fff;border:1px solid var(--lijn);text-align:center;
+  box-shadow:0 8px 22px rgba(20,33,43,.05);}
+.fx-hypsub__somvak span{display:block;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#4a5761;}
+.fx-hypsub__somvak b{display:block;margin-top:4px;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;line-height:1.25;color:var(--navy);white-space:nowrap;}
+.fx-hypsub__somvak--uit{background:var(--navy);border-color:var(--navy);}
+.fx-hypsub__somvak--uit span{color:rgba(255,255,255,.8);}
+.fx-hypsub__somvak--uit b{color:#fff;}
+.fx-hypsub__teken{flex:none;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:26px;font-weight:600;line-height:1;color:var(--mag);}
+
+/* twee kolommen naast elkaar */
+.fx-hypsub__vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch;}
+.fx-hypsub__vs > div{padding:30px 30px 24px;border-radius:16px;background:#fff;border:1px solid var(--lijn);box-shadow:0 10px 28px rgba(20,33,43,.06);}
+.fx-ct .fx-hypsub__vs h2,.fx-ct .fx-hypsub__vs h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-weight:600;line-height:1.25;color:var(--navy);margin:0 0 12px;}
+.fx-ct .fx-hypsub__vs h2{font-size:28px;}
+.fx-ct .fx-hypsub__vs h3{font-size:22px;}
+.fx-ct .fx-hypsub__vs p{font-size:16px;line-height:1.65;color:#33424d;max-width:none;}
+.fx-ct .fx-hypsub__vs a:not(.fx-ct__btn){color:var(--mag);font-weight:600;}
+.fx-hypsub__vs > .fx-hypsub__navy{background:var(--navy);border-color:var(--navy);}
+.fx-ct .fx-hypsub__navy h2,.fx-ct .fx-hypsub__navy h3,.fx-ct .fx-hypsub__navy .fx-ct__sub{color:#fff;}
+.fx-ct .fx-hypsub__navy p,.fx-ct .fx-hypsub__navy li{color:rgba(255,255,255,.88);}
+.fx-ct .fx-hypsub__navy a:not(.fx-ct__btn){color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.fx-hypsub__navy .fx-verz__lijst li::before{border-color:#8fd3c1;}
+.fx-ct .fx-hypsub__vs .fx-ct__ico{margin:0 0 16px;background:var(--mint);color:var(--navy);}
+.fx-ct .fx-hypsub__vs .fx-hypsub__navy .fx-ct__ico{background:rgba(255,255,255,.14);color:#fff;}
+.fx-hypsub__lijstkop{display:block;margin:18px 0 10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--groen2);}
+.fx-hypsub__lijstkop--min{color:var(--mag);}
+/* nadelen: een klein kruisje */
+.fx-ct .fx-hypsub__min li::before{top:5px;left:0;width:14px;height:14px;border:0;transform:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b5004a' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") 50%/14px no-repeat;}
+
+/* lokaal blok: grote WOZ-waarde in de donkere kaart */
+.fx-hypsub__woz{margin:0 0 20px;padding:0 0 20px;border-bottom:1px solid rgba(255,255,255,.18);}
+.fx-hypsub__woz span{display:block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);}
+.fx-hypsub__woz b{display:block;margin:6px 0 4px;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:42px;font-weight:600;line-height:1.1;color:#fff;}
+.fx-ct .fx-hypsub__woz p{margin:0;font-size:14px;line-height:1.5;color:rgba(255,255,255,.8);}
+.fx-ct .fx-hypsub__woz a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.fx-ct .fx-hyp__lokaal p{color:#33424d;}
+.fx-ct .fx-hyp__lokaal h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;color:var(--navy);margin:24px 0 8px;}
+.fx-ct .fx-hyp__lokaal .fx-hyp__gebied h3{color:#fff;margin:0 0 16px;}
+.fx-ct .fx-hyp__lokaal .fx-hyp__gebied p{color:rgba(255,255,255,.88);}
+
+@media (max-width:1100px){
+  .fx-hypsub__kaarten--4{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:900px){
+  .fx-hypsub__kaarten--3,.fx-hypsub__vs,.fx-hyp__feiten.fx-hypsub__feiten3{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .fx-hypsub__kaarten,.fx-hypsub__kaarten--4{grid-template-columns:1fr;gap:14px;}
+  .fx-hypsub__vs > div{padding:24px 22px 18px;}
+  .fx-ct .fx-hypsub__vs h2{font-size:24px;}
+  .fx-hypsub__som{flex-wrap:wrap;gap:8px;}
+  .fx-hypsub__somvak{flex-basis:100%;}
+  .fx-hypsub__teken{width:100%;text-align:center;font-size:22px;}
+  .fx-hypsub__woz b{font-size:36px;}
+}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -1529,28 +1625,13 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
       <h2>Hoe wordt uw inkomen berekend?</h2>
       <p>Geldverstrekkers rekenen uw inkomen meestal niet zelf uit. Dat doet een onafhankelijke rekenexpert, in een Inkomensverklaring Ondernemer. Die kijkt naar:</p>
-      <ul>
-        <li><b>Uw winst over de afgelopen jaren:</b> meestal het gemiddelde van de laatste drie jaar.</li>
-        <li><b>Het laatste jaar:</b> was dat lager dan het gemiddelde, dan telt meestal dat lagere bedrag.</li>
-        <li><b>Uw bedrijf:</b> de rekenexpert kijkt ook of uw bedrijf gezond is en de winst kan blijven maken.</li>
-      </ul>
-      <p>Wilt u een hypotheek met NHG, dan is de inkomensverklaring verplicht en moet het bureau door NHG zijn goedgekeurd. De verklaring is meestal zes maanden geldig. Ik regel de aanvraag voor u en stem waar nodig af met uw boekhouder.</p>
-
-      <h2>Met één, twee of drie jaar cijfers</h2>
-      <ul>
-        <li><b>Korter dan een jaar:</b> op basis van uw ondernemersinkomen lukt het meestal nog niet. Werkt u daarnaast in loondienst, of heeft uw partner een salaris, dan telt dat wel mee.</li>
-        <li><b>Eén tot drie jaar:</b> steeds meer geldverstrekkers doen mee, soms alleen onder de NHG-grens van &euro;&nbsp;470.000. U heeft dan ook een prognose van uw inkomen voor dit jaar nodig. Werkte u daarvoor in loondienst, dan kan dat inkomen ook meetellen.</li>
-        <li><b>Drie jaar of langer:</b> u heeft de meeste keuze uit geldverstrekkers.</li>
-      </ul>
-
-      <h2>Als dga met een bv</h2>
-      <p>Heeft u een bv, dan telt uw salaris als directeur-grootaandeelhouder mee. Vaak telt ook de winst in de bv mee. Dat hangt af van hoeveel aandelen u heeft en van de vraag of de bv die winst kan uitkeren zonder in de problemen te komen. De geldverstrekker kijkt daarom ook naar de balans van uw bv. Hoe dat precies uitpakt, verschilt per geldverstrekker.</p>
-
-      <h2>Uw inkomen beschermen</h2>
-      <p>Als ondernemer heeft u geen werkgever die doorbetaalt als u ziek wordt. Uw hypotheek loopt dan wel door. Daarom kijk ik bij een hypotheek ook naar een <a href="../../arbeidsongeschiktheidsverzekeringen-aov/">arbeidsongeschiktheidsverzekering</a>, en naar uw buffer. Meestal is dat geen eis van de geldverstrekker, maar het is wel uw vangnet. Omdat ik ook <a href="../../zakelijk/">zakelijke verzekeringen</a> regel, zie ik uw bedrijf en uw huis in samenhang.</p>
-
-      <h2>Ondernemers in Apeldoorn en omgeving</h2>
-      <p>Ik adviseer ondernemers in Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello en Vaassen. Van de zzp'er met een eenmanszaak tot de dga met personeel. Ik kom bij u thuis of op de zaak, of we spreken af op mijn kantoor aan de Vlijtseweg in Apeldoorn.</p>
+      <div class="fx-hypsub__kaarten">
+        <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><h3>Uw winst van de afgelopen jaren</h3><p>Meestal het gemiddelde van de laatste drie jaar.</p></div>
+        <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><h3>Het laatste jaar</h3><p>Was dat lager dan het gemiddelde, dan telt meestal dat lagere bedrag.</p></div>
+        <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v1.5a3 3 0 01-6 0 3 3 0 01-6 0 3 3 0 01-6 0z"/><path d="M5 13v8h14v-8"/><path d="M10 21v-5h4v5"/></svg></span><h3>Uw bedrijf</h3><p>De rekenexpert kijkt ook of uw bedrijf gezond is en de winst kan blijven maken.</p></div>
+        <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Met NHG</h3><p>Dan is de inkomensverklaring verplicht, van een bureau dat NHG heeft goedgekeurd. De verklaring is meestal zes maanden geldig.</p></div>
+      </div>
+      <p>Ik regel de aanvraag voor u en stem waar nodig af met uw boekhouder.</p>
     </div>
     <div class="fx-verz__zij">
       <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
@@ -1563,6 +1644,55 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <h2>Meer voor ondernemers</h2>
         <ul><li><a href="../../arbeidsongeschiktheidsverzekeringen-aov/">AOV voor ondernemers</a></li><li><a href="../../zakelijk/bedrijfsaansprakelijkheidsverzekering/">Bedrijfsaansprakelijkheid</a></li><li><a href="../../zakelijk/">Alle zakelijke verzekeringen</a></li><li><a href="../../hypotheken/">Alle hypotheekonderwerpen</a></li><li><a href="../../hypotheken/eerste-huis-kopen/">Eerste huis kopen</a></li></ul>
       </div>
+    </div>
+  </section></div>
+
+  <!-- jaren cijfers -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Hoe lang onderneemt u?</p>
+      <h2>Met één, twee of drie jaar cijfers</h2>
+      <p>Hoe langer u onderneemt, hoe meer geldverstrekkers meedoen. Zo ziet het er in het algemeen uit.</p>
+    </div>
+    <div class="fx-hypsub__kaarten fx-hypsub__kaarten--3">
+      <div class="fx-hypsub__kaart"><span class="fx-hypsub__label fx-hypsub__label--let">Meestal nog niet</span><h3>Korter dan een jaar</h3><p>Op basis van uw ondernemersinkomen lukt het meestal nog niet. Werkt u daarnaast in loondienst, of heeft uw partner een salaris, dan telt dat wel mee.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-hypsub__label">Vaak mogelijk</span><h3>Eén tot drie jaar</h3><p>Steeds meer geldverstrekkers doen mee, soms alleen onder de NHG-grens van &euro;&nbsp;470.000. U heeft dan ook een prognose van uw inkomen voor dit jaar nodig. Werkte u daarvoor in loondienst, dan kan dat inkomen ook meetellen.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-hypsub__label fx-hypsub__label--navy">Meeste keuze</span><h3>Drie jaar of langer</h3><p>U heeft de meeste keuze uit geldverstrekkers. Meestal telt het gemiddelde van uw winst over de laatste drie jaar.</p></div>
+    </div>
+  </section></div></div>
+
+  <!-- dga en inkomen beschermen -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-hypsub__vs">
+      <div>
+        <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></span>
+        <h2>Als dga met een bv</h2>
+        <p>Heeft u een bv, dan telt uw salaris als directeur-grootaandeelhouder mee. Vaak telt ook de winst in de bv mee. Dat hangt af van hoeveel aandelen u heeft en van de vraag of de bv die winst kan uitkeren zonder in de problemen te komen.</p>
+        <p>De geldverstrekker kijkt daarom ook naar de balans van uw bv. Hoe dat precies uitpakt, verschilt per geldverstrekker.</p>
+      </div>
+      <div class="fx-hypsub__navy">
+        <span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+        <h2>Uw inkomen beschermen</h2>
+        <p>Als ondernemer heeft u geen werkgever die doorbetaalt als u ziek wordt. Uw hypotheek loopt dan wel door. Daarom kijk ik bij een hypotheek ook naar een <a href="../../arbeidsongeschiktheidsverzekeringen-aov/">arbeidsongeschiktheidsverzekering</a>, en naar uw buffer. Meestal is dat geen eis van de geldverstrekker, maar het is wel uw vangnet.</p>
+        <p>Omdat ik ook <a href="../../zakelijk/">zakelijke verzekeringen</a> regel, zie ik uw bedrijf en uw huis in samenhang.</p>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- lokaal -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__lokaal">
+    <div>
+      <p class="fx-ct__sub">Lokaal</p>
+      <h2>Ondernemers in Apeldoorn en omgeving</h2>
+      <p>Ik adviseer ondernemers in Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello en Vaassen. Van de zzp'er met een eenmanszaak tot de dga met personeel.</p>
+      <p>Ik kom bij u thuis of op de zaak, of we spreken af op mijn kantoor aan de Vlijtseweg in Apeldoorn.</p>
+    </div>
+    <div class="fx-hyp__gebied">
+      <h3>Hier kom ik bij u langs</h3>
+      <ul>
+        <li>Apeldoorn</li><li>Ugchelen</li><li>Beekbergen</li><li>Loenen</li><li>Klarenbeek</li><li>Twello</li><li>Vaassen</li>
+      </ul>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../contact/">Plan een gratis gesprek</a></div>
     </div>
   </section></div>
 
