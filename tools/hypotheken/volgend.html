@@ -1,0 +1,310 @@
+<div class="fx-verz fx-hyp fx-hypsub">
+
+  <!-- kop -->
+  <section class="fx-verz__kop fx-verz__kop--licht"><div class="fx-ct__wrap fx-verz__kopgrid"><div>
+    <p class="fx-verz__kruimel"><a href="../">Home</a> &rsaquo; <a href="../hypotheken/">Hypotheken</a> &rsaquo; Volgend huis kopen</p>
+    <div class="fx-verz__adviseur"><img src="../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
+    <p class="fx-ct__sub">Hypotheekadvies bij verhuizen in Apeldoorn</p>
+    <h1>Uw volgende huis kopen</h1>
+    <p class="fx-ct__lead">Groter wonen, kleiner wonen of gewoon een andere plek. Ik reken uit wat uw overwaarde betekent, of u eerst koopt of eerst verkoopt, en of u uw huidige rente kunt meenemen.</p>
+    <div class="fx-ct__btns">
+      <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
+      <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gratis gesprek</a>
+    </div>
+    <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
+    <p class="fx-verz__heldlink"><a href="#hulp">Reken uit: wat is uw overwaarde?</a></p>
+  </div>
+    <div class="fx-verz__kopfoto"><img src="../wp-content/uploads/finect/hyp-volgend-mobiel.jpg" alt="" width="860" height="860" fetchpriority="high" decoding="async"></div>
+  </div></section>
+
+  <div class="fx-ct__wrap">
+    <ul class="fx-verz__cijfers">
+      <li><b>5,0</b><span>uit 16 beoordelingen op <a href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Google</a></span></li>
+      <li><b>22+</b><span>jaar ervaring in het vak</span></li>
+      <li><b>2015</b><span>onafhankelijk sinds</span></li>
+      <li><b>1</b><span>vaste adviseur, ook na de notaris</span></li>
+    </ul>
+  </div>
+
+  <!-- hulpmiddel -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__checksec" id="hulp">
+    <div class="fx-verz__checkkaart">
+      <div class="fx-verz__checkintro">
+        <p class="fx-ct__sub">Rekenhulp overwaarde</p>
+        <h2>Wat is uw overwaarde, en wat betekent dat?</h2>
+        <p>Verkoopt u uw huis met overwaarde, dan moet u die meestal in uw nieuwe huis stoppen. Anders is een deel van uw nieuwe hypotheek niet aftrekbaar. Reken hier uit wat dat voor u betekent.</p>
+        <ul class="fx-verz__checkpunten"><li>Vier schuifjes</li><li>Direct antwoord</li><li>Niets opsturen</li></ul>
+      </div>
+      <div class="fx-verz__checkvak">
+        <noscript><p class="fx-verz__checkgeenjs">Deze rekenhulp werkt met JavaScript. Bel mij gerust op <a href="tel:+31630679790">06 30 67 97 90</a>, dan rekenen we het samen uit.</p></noscript>
+        <form class="fx-verz__hulp" id="fxVolg" hidden>
+          <div class="fx-zak__schuif">
+            <label for="fxVerkoop">Verwachte verkoopprijs van uw huis</label>
+            <output id="fxVerkoopUit" for="fxVerkoop">&euro;&nbsp;450.000</output>
+            <input type="range" id="fxVerkoop" min="150000" max="1000000" step="5000" value="450000">
+          </div>
+          <div class="fx-zak__schuif">
+            <label for="fxHyp">Uw hypotheek nu</label>
+            <output id="fxHypUit" for="fxHyp">&euro;&nbsp;250.000</output>
+            <input type="range" id="fxHyp" min="0" max="800000" step="5000" value="250000">
+          </div>
+          <div class="fx-zak__schuif">
+            <label for="fxKosten">Verkoopkosten, zoals de makelaar</label>
+            <output id="fxKostenUit" for="fxKosten">&euro;&nbsp;6.000</output>
+            <input type="range" id="fxKosten" min="0" max="25000" step="500" value="6000">
+          </div>
+          <div class="fx-zak__schuif">
+            <label for="fxNieuw">Koopsom van uw nieuwe huis</label>
+            <output id="fxNieuwUit" for="fxNieuw">&euro;&nbsp;550.000</output>
+            <input type="range" id="fxNieuw" min="150000" max="1200000" step="5000" value="550000">
+          </div>
+          <div class="fx-verz__hulpuit is-uit" id="fxVolgUit" aria-live="polite"></div>
+          <p class="fx-verz__klein">Een indicatie, geen advies. Ik ga ervan uit dat uw hele hypotheek bij uw eigen huis hoort en dat u binnen drie jaar na de verkoop opnieuw koopt. De kosten koper komen hier nog bij.</p>
+          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Reken het met mij door</a></div>
+        </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var f=document.getElementById('fxVolg'), u=document.getElementById('fxVolgUit'); if(!f||!u) return;
+      f.hidden=false; f.addEventListener('submit',function(e){e.preventDefault();});
+      var v=document.getElementById('fxVerkoop'), h=document.getElementById('fxHyp'), k=document.getElementById('fxKosten'), n=document.getElementById('fxNieuw');
+      function eur(x){return '€ '+Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+      function reken(){
+        [v,h,k,n].forEach(function(x){ x.style.setProperty('--p',((x.value-x.min)/(x.max-x.min)*100)+'%');
+          document.getElementById(x.id+'Uit').textContent=eur(x.value); x.setAttribute('aria-valuetext',eur(x.value)); });
+        /* eigenwoningreserve: verkoopprijs min verkoopkosten min hypotheek */
+        var over=v.value-k.value-h.value, nieuw=+n.value, p=[];
+        if(over<=0){
+          u.innerHTML='<div class="fx-hypsub__uit"><div><span>Overwaarde</span><b>Geen</b></div><div><span>Nog af te lossen</span><b>'+eur(-over)+'</b></div></div>'+
+            '<p>Na de verkoop blijft er een schuld over. Dat is lastig, maar vaak op te lossen. Bel mij, dan kijken we samen wat er mogelijk is.</p>';
+          return;
+        }
+        var lenen=Math.max(0,nieuw-over);
+        p.push('<b>Bijleenregeling:</b> stop uw overwaarde in uw nieuwe huis. Leent u meer dan ongeveer '+eur(lenen)+' plus de kosten koper, dan is de rente over dat extra deel niet aftrekbaar. Dat geldt drie jaar na de verkoop.');
+        if(over>=nieuw) p.push('<b>Uw overwaarde is genoeg voor de hele koopsom.</b> U heeft dan voor de koopsom zelf geen hypotheek nodig.');
+        p.push('<b>Eerst kopen?</b> Dan kan een overbruggingskrediet uw overwaarde alvast beschikbaar maken, tot uw huis verkocht is.');
+        u.innerHTML='<div class="fx-hypsub__uit"><div><span>Uw overwaarde</span><b>'+eur(over)+'</b></div><div><span>Nodig voor het nieuwe huis</span><b>'+eur(lenen)+'</b></div></div>'+
+          '<ul class="fx-verz__lijst">'+p.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+      }
+      [v,h,k,n].forEach(function(x){x.addEventListener('input',reken);}); reken();
+    })();
+    </script>
+  </section></div>
+
+
+  <!-- tekst -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
+    <div class="fx-verz__tekst">
+      <p class="fx-hypsub__bij">Door <a href="../over-finect/">Fred Koeling</a>, Certified Financial Planner in Apeldoorn &middot; bijgewerkt op {BIJGEWERKT}</p>
+      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst"><li>Verkoopt u met overwaarde, stop die dan in uw nieuwe huis. Anders is een deel van de nieuwe hypotheek niet aftrekbaar.</li><li>Koopt u eerst, dan kan een overbruggingskrediet helpen.</li><li>Vaak kunt u uw huidige rente meenemen naar uw nieuwe huis.</li></ul></div>
+
+      <h2>Overwaarde en de bijleenregeling</h2>
+      <p>Uw overwaarde is wat er overblijft als u uw huis verkoopt en de hypotheek en de verkoopkosten aflost. De Belastingdienst noemt dat de eigenwoningreserve. Koopt u binnen drie jaar een nieuw huis, dan moet u die overwaarde daarin stoppen. Doet u dat niet en leent u meer, dan is de rente over dat extra deel niet aftrekbaar. Dat heet de bijleenregeling.</p>
+      <p>Een voorbeeld: u verkoopt uw huis met &euro;&nbsp;50.000 overwaarde en koopt een huis van &euro;&nbsp;300.000. Dan is de rente aftrekbaar over maximaal &euro;&nbsp;250.000, plus de kosten koper. Wilt u uw overwaarde liever voor iets anders gebruiken, dan kan dat. Alleen is de rente over het deel dat u daardoor meer leent dan niet aftrekbaar.</p>
+
+      <h2>Eerst kopen of eerst verkopen?</h2>
+      <p>Dit is de belangrijkste keuze bij verhuizen. Beide hebben voor- en nadelen:</p>
+      <ul>
+        <li><b>Eerst verkopen</b> geeft zekerheid: u weet precies wat uw overwaarde is. Maar u moet misschien tijdelijk ergens anders wonen, of snel een nieuw huis vinden.</li>
+        <li><b>Eerst kopen</b> geeft rust bij het zoeken. Maar u heeft een tijd twee huizen, en de geldverstrekker kijkt of u de lasten van beide kunt dragen.</li>
+      </ul>
+      <p>Koopt u eerst, dan kunt u met een overbruggingskrediet uw overwaarde alvast gebruiken voor het nieuwe huis. De geldverstrekker baseert dat op de verwachte overwaarde, met een taxatie of een getekend verkoopcontract. Meestal geldt het voor maximaal twee jaar. Staat uw oude huis daarna nog leeg en te koop, dan blijft de rente daarvan onder voorwaarden nog een tijd aftrekbaar.</p>
+
+      <h2>Uw huidige hypotheek meenemen</h2>
+      <p>Bij veel geldverstrekkers kunt u uw huidige hypotheek en rente meenemen naar uw nieuwe huis. Dat is gunstig als uw rente lager is dan de rente van nu. Leent u meer, dan krijgt u voor dat extra deel de rente van dat moment. Verkoopt u uw huis, dan kunt u uw hypotheek meestal zonder boete aflossen.</p>
+      <p>Heeft u nog een hypotheekdeel van voor 2013 zonder aflossing? Dan kunt u dat recht vaak meenemen naar uw nieuwe huis, als u binnen een bepaalde termijn opnieuw koopt. Ik zoek dat voor uw situatie precies uit.</p>
+
+      <h2>Kosten bij verhuizen</h2>
+      <p>Bij een volgend huis komen er kosten bij die u uit eigen geld of uit uw overwaarde betaalt:</p>
+      <ul>
+        <li>de makelaar en het energielabel bij de verkoop;</li>
+        <li>overdrachtsbelasting: 2 procent als u er zelf gaat wonen, behalve als u nog geen 35 bent en de startersvrijstelling nooit heeft gebruikt;</li>
+        <li>de notaris, de taxatie en het hypotheekadvies voor het nieuwe huis;</li>
+        <li>eventueel een tijd dubbele woonlasten, en de verhuizing zelf.</li>
+      </ul>
+
+      <h2>Verhuizen binnen Apeldoorn en omgeving</h2>
+      <p>De gemiddelde WOZ-waarde van een woning in Apeldoorn steeg van &euro;&nbsp;386.000 in 2025 naar &euro;&nbsp;435.000 in 2026 (bron: <a href="https://www.waarderingskamer.nl/gemeente/apeldoorn" target="_blank" rel="noopener">Waarderingskamer</a>). Heeft u uw huis een aantal jaar, dan heeft u waarschijnlijk overwaarde opgebouwd. Dat maakt een stap naar een ander huis vaak makkelijker, of het nu een eengezinswoning in De Maten of Zevenhuizen is, of juist kleiner wonen in Ugchelen of Beekbergen.</p>
+      <p>Ik reken uw situatie door voordat u gaat zoeken of biedt. Mijn kantoor staat aan de Vlijtseweg in Apeldoorn, en ik kom ook bij u thuis.</p>
+    </div>
+    <div class="fx-verz__zij">
+      <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
+        <h2>Huis op het oog?</h2>
+        <p>Bel mij voordat u biedt. Dan weet u wat u kunt besteden en hoe u het slimst koopt en verkoopt. Het eerste gesprek is gratis.</p>
+        <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a></div>
+        <p style="margin:14px 0 0;"><a class="fx-verz__licht" href="mailto:info@finect.nl">info@finect.nl</a></p>
+      </div>
+      <div class="fx-verz__zijkaart">
+        <h2>Meer over hypotheken</h2>
+        <ul><li><a href="../hypotheken/">Alle hypotheekonderwerpen</a></li><li><a href="../hypotheken/oversluiten/">Hypotheek oversluiten</a></li><li><a href="../hypotheken/eerste-huis-kopen/">Eerste huis kopen</a></li><li><a href="../hypotheken/zzp-en-ondernemers/">Hypotheek voor zzp'ers</a></li><li><a href="../verzekeringen/woonverzekering/">Woonverzekering</a></li></ul>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- werkwijze als tijdlijn -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__weg">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Stappenplan</p>
+      <h2>Van uw huidige naar uw volgende huis</h2>
+      <p>Bij verhuizen komen kopen en verkopen samen. Ik zorg dat het op elkaar aansluit, en houd contact met de makelaar, de taxateur en de notaris.</p>
+    </div>
+    <ol class="fx-hyp__tijdlijn">
+      <li><b>Kennismaken</b><span>We bekijken de waarde van uw huis en wat er nog over is van uw hypotheek.</span></li>
+      <li><b>Rekenen</b><span>Uw overwaarde, uw nieuwe hypotheek en of u eerst koopt of eerst verkoopt.</span></li>
+      <li><b>Bieden</b><span>Met de juiste voorbehouden, en zo nodig een overbruggingskrediet.</span></li>
+      <li><b>Aanvragen</b><span>Uw huidige hypotheek meenemen of een nieuwe, ik vergelijk het voor u.</span></li>
+      <li><b>Notaris</b><span>De verkoop en de aankoop, als het kan op dezelfde dag.</span></li>
+      <li><b>Daarna</b><span>Ik zet uw woonverzekering over naar uw nieuwe huis.</span></li>
+    </ol>
+  </section></div></div>
+
+  <!-- voorbereiden en verzekeren -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__duo">
+    <div>
+      <p class="fx-ct__sub">Voorbereiden</p>
+      <h2>Wat u alvast kunt klaarleggen</h2>
+      <p>Hoe beter u voorbereid bent, hoe sneller u kunt schakelen als u een huis vindt:</p>
+      <ul class="fx-verz__lijst fx-verz__lijst--ruim">
+        <li>Uw laatste jaaroverzicht van de hypotheek</li>
+        <li>Uw WOZ-beschikking, of een waardebepaling van de makelaar</li>
+        <li>Een werkgeversverklaring en een recente loonstrook, of uw jaarcijfers als u ondernemer bent</li>
+        <li>Een overzicht van uw spaargeld</li>
+        <li>Het verkoopcontract van uw huis, als dat er al is</li>
+      </ul>
+    </div>
+    <div class="fx-home__kaart fx-verz__check">
+      <p class="fx-ct__sub">Bij de verhuizing</p>
+      <h2>Uw verzekeringen verhuizen mee</h2>
+      <ul class="fx-verz__lijst">
+        <li>Uw <a href="../verzekeringen/woonverzekering/">woonverzekering</a> gaat over naar uw nieuwe huis, met een nieuw verzekerd bedrag.</li>
+        <li>Een grotere hypotheek? Dan kijk ik of uw overlijdensrisicoverzekering nog past.</li>
+        <li>Tijdens de verhuizing en in een leegstaand huis gelden soms andere regels. Ik let daarop.</li>
+      </ul>
+      <div class="fx-ct__btns">
+        <a class="fx-ct__btn fx-ct__btn--m" href="../verzekeringen/woonverzekering/">Bekijk de woonverzekering</a>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- klantervaringen -->
+  <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-ct__rev">
+      <div>
+        <p class="fx-ct__sub">Klantervaringen</p>
+        <h2>Klanten over mijn hypotheekadvies</h2>
+        <p>Bij verhuizen komt er veel tegelijk. Deze klanten vertellen hoe zij de begeleiding hebben ervaren.</p>
+        <div class="fx-ct__score">
+          <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="fx-ct__cijfer">5,0</span>
+          <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
+        </div>
+        <div class="fx-ct__btns">
+          <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
+        </div>
+      </div>
+      <div>
+        <div class="fx-ct__stage" id="fxCtStage">
+          <figure class="fx-ct__quote is-on">
+            <blockquote>&ldquo;Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">FS</span><span class="fx-ct__wie"><b>Fleur S.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Fred heeft onze hypotheek geregeld en ons uitstekend begeleid gedurende het hele proces. Hij werkt zeer nauwkeurig, is deskundig en gaf ons steeds duidelijke uitleg. We zijn zeer tevreden over de persoonlijke en professionele begeleiding en kunnen Fred en Finect Financials van harte aanbevelen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">RV</span><span class="fx-ct__wie"><b>Robert V.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Ik ben zeer tevreden over de service van Finect. Fred is deskundig, meedenkend en weet zaken helder uit te leggen. Wat het extra prettig maakt, is dat hij goed bereikbaar is en snel reageert op vragen. Een betrouwbare adviseur waar je op kunt rekenen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">LS</span><span class="fx-ct__wie"><b>Lars S.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+        </div>
+        <ul class="fx-ct__dots" id="fxCtDots"></ul>
+      </div>
+    </div>
+  </section></div></div>
+
+  <!-- uw adviseur -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__wie">
+    <div class="fx-verz__wiefoto"><img src="../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, hypotheekadviseur in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
+    <div>
+      <p class="fx-ct__sub">Uw adviseur</p>
+      <h2>Kopen en verkopen in één plan</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik werk sinds 2015 als zelfstandig adviseur in Apeldoorn, en heb ruim 22 jaar ervaring in het vak.</p>
+      <p>Bij verhuizen moet alles op elkaar aansluiten: de verkoop, de aankoop, uw hypotheek en uw verzekeringen. Als Certified Financial Planner kijk ik ook verder. Past de nieuwe hypotheek ook nog als u later minder gaat werken of met pensioen gaat?</p>
+      <blockquote class="fx-verz__citaat">&ldquo;Een volgend huis kiest u voor de komende jaren. De hypotheek moet daar ook bij passen.&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--o" href="../over-finect/">Lees meer over mij</a></div>
+    </div>
+  </section></div>
+
+  <!-- ook interessant -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
+    <p class="fx-ct__sub">Ook interessant</p>
+    <h2 style="margin-bottom:28px;">Meer over hypotheken in Apeldoorn</h2>
+    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_EURO}</span><h3>Hypotheek oversluiten</h3><p>Loopt uw rente af of is die hoog? Kijk of oversluiten loont, met de boeterente erbij.</p><a class="fx-verz__pmeer" href="../hypotheken/oversluiten/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_SLEUTEL}</span><h3>Eerste huis kopen</h3><p>Startersvrijstelling, NHG en bieden met de juiste voorbehouden.</p><a class="fx-verz__pmeer" href="../hypotheken/eerste-huis-kopen/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_KOFFER}</span><h3>Zzp'ers en ondernemers</h3><p>Een hypotheek met één, twee of drie jaar cijfers, en wat geldverstrekkers dan vragen.</p><a class="fx-verz__pmeer" href="../hypotheken/zzp-en-ondernemers/">Lees verder</a></div></div>
+  </section></div>
+
+  <!-- vragen -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
+    <div>
+      <p class="fx-ct__sub">Vragen</p>
+      <h2>Vragen over verhuizen</h2>
+      <p>Staat uw vraag er niet tussen? Bel gerust, daar hoeft u geen afspraak voor te maken.</p>
+      <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gesprek</a></p>
+    </div>
+    <div>
+      <details open>
+        <summary><h3>Moet ik mijn overwaarde in mijn nieuwe huis stoppen?</h3></summary>
+        <p>Verplicht is het niet, maar het is meestal wel verstandig. Koopt u binnen drie jaar een nieuw huis en stopt u uw overwaarde er niet in, dan is de rente over het deel dat u daardoor meer leent niet aftrekbaar.</p>
+      </details>
+      <details>
+        <summary><h3>Wat is de bijleenregeling?</h3></summary>
+        <p>De regel dat u de overwaarde van uw oude huis in uw nieuwe huis moet stoppen om de volledige renteaftrek te houden. De overwaarde heet bij de Belastingdienst de eigenwoningreserve: de verkoopprijs min de verkoopkosten en de hypotheek. Die telt drie jaar mee.</p>
+      </details>
+      <details>
+        <summary><h3>Kan ik een huis kopen voordat mijn huis verkocht is?</h3></summary>
+        <p>Ja. De geldverstrekker kijkt dan of u een tijd de lasten van beide huizen kunt dragen. Met een overbruggingskrediet kunt u uw overwaarde alvast gebruiken. Ik reken vooraf uit wat het betekent als de verkoop langer duurt dan gedacht.</p>
+      </details>
+      <details>
+        <summary><h3>Wat is een overbruggingskrediet?</h3></summary>
+        <p>Een tijdelijke lening op basis van de verwachte overwaarde van uw huidige huis. Zo kunt u die overwaarde al gebruiken voor uw nieuwe huis voordat het oude verkocht is. Meestal geldt het voor maximaal twee jaar, en de geldverstrekker vraagt een taxatie of een getekend verkoopcontract.</p>
+      </details>
+      <details>
+        <summary><h3>Kan ik mijn hypotheekrente meenemen naar mijn nieuwe huis?</h3></summary>
+        <p>Bij veel geldverstrekkers wel. Dat is gunstig als uw huidige rente lager is dan de rente van nu. Leent u meer, dan krijgt u voor dat extra deel de rente van dat moment. Ik vergelijk dat met een nieuwe hypotheek elders.</p>
+      </details>
+      <details>
+        <summary><h3>Betaal ik boete als ik mijn huis verkoop?</h3></summary>
+        <p>Meestal niet. Verkoopt u uw huis, dan kunt u de hypotheek bij de meeste geldverstrekkers zonder boete aflossen. Kijk voor de zekerheid in de voorwaarden van uw hypotheek; ik lees ze graag voor u door.</p>
+      </details>
+      <details>
+        <summary><h3>Betaal ik overdrachtsbelasting bij mijn volgende huis?</h3></summary>
+        <p>Meestal wel: 2 procent van de koopsom als u er zelf gaat wonen. Alleen als u nog geen 35 bent en de startersvrijstelling nooit heeft gebruikt, kan die ook bij een volgend huis gelden.</p>
+      </details>
+      <details>
+        <summary><h3>Hoe weet ik wat mijn huis in Apeldoorn waard is?</h3></summary>
+        <p>Een eerste indruk geeft uw WOZ-waarde; gemiddeld is die in Apeldoorn in 2026 &euro;&nbsp;435.000. Een makelaar kan een waardebepaling doen, en voor de hypotheek is meestal een taxatie nodig. De verkoopprijs kan hoger of lager uitvallen dan de WOZ-waarde.</p>
+      </details>
+    </div>
+  </section></div></div>
+
+  <!-- contact -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
+    <div>
+      <p class="fx-ct__sub">Contact</p>
+      <h2>Plannen om te verhuizen?</h2>
+      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving, of we spreken af op kantoor of online. Het eerste gesprek is gratis en vrijblijvend.</p>
+      <div class="fx-ct__btns">
+        <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
+        <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Naar contact</a>
+      </div>
+    </div>
+    <ul class="fx-home__gegevens">
+      <li><span class="fx-home__rond">{ICO_TEL}</span><span><b><a href="tel:+31630679790">06 30 67 97 90</a></b><span>Maandag t/m vrijdag 09:00 tot 17:30</span></span></li>
+      <li><span class="fx-home__rond">{ICO_MAIL}</span><span><b><a href="mailto:info@finect.nl">info@finect.nl</a></b><span>Antwoord binnen één werkdag</span></span></li>
+      <li><span class="fx-home__rond">{ICO_PIN}</span><span><b>Kantoor</b><span>Vlijtseweg 16, 7317 AH Apeldoorn</span></span></li>
+      <li><span class="fx-home__rond">{ICO_KAART}</span><span><b>Werkgebied</b><span>Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello, Vaassen en omgeving</span></span></li>
+      <li><span class="fx-home__rond">{ICO_SCHILD20}</span><span><b>Geregistreerd</b><span>AFM 12047700, Kifid 300.017906, KvK 62201735</span></span></li>
+    </ul>
+  </section></div>
+
+</div>

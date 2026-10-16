@@ -1,9 +1,0 @@
-<style id="fx-start-css">
-/* Eerste huis kopen: aanvullingen op hyp.css. Alleen door bouw_start.py geladen. */
-
-/* rekenhulp: op een telefoon de twee keuzes naast elkaar, de vraag erboven */
-@media (max-width:768px){
-  .fx-ct .fx-start .fx-verz__vraag--rij{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .fx-ct .fx-start .fx-verz__vraag--rij legend{grid-column:1/-1;}
-}
-</style>

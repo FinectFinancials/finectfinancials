@@ -22,9 +22,9 @@
   <!-- snelkeuze -->
   <div class="fx-ct__wrap">
     <nav class="fx-verz__snel" aria-label="Snel naar uw situatie">
-      <a class="fx-verz__snelkaart" href="#starter"><span class="fx-ct__ico">{ICO_SLEUTEL}</span><b>Eerste huis</b><span class="fx-verz__sneltekst">Starten op de woningmarkt</span><i>Meer weten</i></a>
-      <a class="fx-verz__snelkaart" href="#doorstromen"><span class="fx-ct__ico">{ICO_HUIS}</span><b>Volgend huis</b><span class="fx-verz__sneltekst">Verhuizen en overwaarde</span><i>Meer weten</i></a>
-      <a class="fx-verz__snelkaart" href="#oversluiten"><span class="fx-ct__ico">{ICO_EURO}</span><b>Oversluiten</b><span class="fx-verz__sneltekst">Uw rente loopt af of is hoog</span><i>Meer weten</i></a>
+      <a class="fx-verz__snelkaart" href="../hypotheken/eerste-huis-kopen/"><span class="fx-ct__ico">{ICO_SLEUTEL}</span><b>Eerste huis</b><span class="fx-verz__sneltekst">Starten op de woningmarkt</span><i>Meer weten</i></a>
+      <a class="fx-verz__snelkaart" href="../hypotheken/volgend-huis-kopen/"><span class="fx-ct__ico">{ICO_HUIS}</span><b>Volgend huis</b><span class="fx-verz__sneltekst">Verhuizen en overwaarde</span><i>Meer weten</i></a>
+      <a class="fx-verz__snelkaart" href="../hypotheken/oversluiten/"><span class="fx-ct__ico">{ICO_EURO}</span><b>Oversluiten</b><span class="fx-verz__sneltekst">Uw rente loopt af of is hoog</span><i>Meer weten</i></a>
       <a class="fx-verz__snelkaart" href="#verduurzamen"><span class="fx-ct__ico">{ICO_BLAD}</span><b>Verduurzamen</b><span class="fx-verz__sneltekst">Verbouwen en bijlenen</span><i>Meer weten</i></a>
     </nav>
     <ul class="fx-verz__cijfers">
@@ -91,6 +91,7 @@
             <div><span class="fx-verz__lijstkop fx-verz__lijstkop--let">Dit kunt u alvast klaarleggen</span><ul class="fx-verz__lijst fx-verz__lijst--let" data-lijst="nodig"></ul></div>
           </div>
           <div class="fx-verz__letop" data-lijst="letop"></div>
+          <p class="fx-hyp__meerrij" data-lijst="meer"></p>
           <p class="fx-verz__klein">Dit is een eerste indruk, geen advies. In een gesprek kijk ik samen met u naar uw eigen situatie en reken ik alles precies door.</p>
           <div class="fx-ct__btns">
             <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bespreek het met mij</a>
@@ -137,13 +138,16 @@
              'Waar nodig stem ik af met uw mediator of advocaat.']};
       var PAPIER={
         vast:'Een werkgeversverklaring en een recente loonstrook',
-        flex:'Uw jaaropgaven van de afgelopen jaren, of een perspectiefverklaring van uw werkgever',
+        flex:'Uw jaaropgaven van de afgelopen jaren, en als het kan een intentieverklaring van uw werkgever',
         zzp:'Uw jaarcijfers en aangiftes inkomstenbelasting van de afgelopen jaren',
         pensioen:'Uw pensioenoverzicht en het overzicht van uw AOW',
         door:'Uw huidige hypotheekgegevens en een indruk van de waarde van uw huis',
         over:'Uw huidige hypotheekgegevens, met de datum waarop de rentevaste periode afloopt',
         verb:'Offertes of een overzicht van de verbouwing',
         uit:'Uw huidige hypotheekgegevens en, als die er al zijn, uw afspraken over het huis'};
+      var MEER={starter:['../hypotheken/eerste-huis-kopen/','Alles over uw eerste huis kopen'],
+        door:['../hypotheken/volgend-huis-kopen/','Alles over een volgend huis kopen'],
+        over:['../hypotheken/oversluiten/','Alles over hypotheek oversluiten']};
       function uitslag(){
         var s=a.situatie, st=STAP[s].slice(), p=['Een geldig identiteitsbewijs'], w=[];
         if(a.wanneer==='nu') st.unshift('Bel mij, dan plannen we binnen een paar dagen een eerste gesprek.');
@@ -158,7 +162,7 @@
         if(s==='over') w.push('Vaak mag u elk jaar een deel boetevrij aflossen. Dat kan de boeterente bij oversluiten flink verlagen.');
         if(s==='verb') w.push('Voor energiebesparende maatregelen mag u in totaal tot 106 procent van de woningwaarde lenen.');
         if(s==='uit') w.push('Leg nog niets vast over het huis voordat u weet of het financieel haalbaar is. Bel mij gerust eerst.');
-        if(a.inkomen==='flex') w.push('Met een tijdelijk contract kunt u vaak toch een hypotheek krijgen, bijvoorbeeld met een perspectiefverklaring van uw werkgever.');
+        if(a.inkomen==='flex') w.push('Met een tijdelijk contract kunt u vaak toch een hypotheek krijgen, bijvoorbeeld met een intentieverklaring van uw werkgever of een perspectiefverklaring.');
         if(a.inkomen==='zzp') w.push('Hoe meer jaren cijfers u heeft, hoe meer geldverstrekkers meedoen. Een inkomensverklaring van een erkende rekenexpert helpt vaak.');
         if(a.inkomen==='pensioen') w.push('Gaat u binnen tien jaar met pensioen, dan kijkt de geldverstrekker ook naar uw inkomen daarna.');
         if((s==='starter'||s==='door')&&a.samen==='samen') w.push('Koopt u samen? Denk dan ook aan een overlijdensrisicoverzekering en aan afspraken voor als u uit elkaar gaat.');
@@ -167,6 +171,8 @@
         u.querySelector('[data-lijst=stappen]').innerHTML=st.map(function(x){return '<li>'+x+'</li>';}).join('');
         u.querySelector('[data-lijst=nodig]').innerHTML=p.map(function(x){return '<li>'+x+'</li>';}).join('');
         u.querySelector('[data-lijst=letop]').innerHTML=w.map(function(x){return '<p><b>Let op:</b> '+x+'</p>';}).join('');
+        var m=[]; if(MEER[s]) m.push(MEER[s]); if(a.inkomen==='zzp') m.push(['../hypotheken/zzp-en-ondernemers/','Hypotheek voor zzp\'ers en ondernemers']);
+        u.querySelector('[data-lijst=meer]').innerHTML=m.map(function(x){return '<a class="fx-hyp__meer" href="'+x[0]+'">'+x[1]+'</a>';}).join(' ');
         f.hidden=true; u.hidden=false; u.focus();
       }
       function verder(){ var vr=lijst(); if(!a[vr[i].getAttribute('data-v')]) return;
@@ -205,6 +211,7 @@
           <li>Bieden met een financieringsvoorbehoud</li>
           <li>Met een studieschuld of een tijdelijk contract</li>
         </ul>
+        <a class="fx-hyp__meer" href="../hypotheken/eerste-huis-kopen/">Alles over uw eerste huis kopen</a>
       </div>
       <div class="fx-hyp__sit" id="doorstromen">
         <span class="fx-ct__ico">{ICO_HUIS}</span>
@@ -216,6 +223,7 @@
           <li>Eerst kopen of eerst verkopen</li>
           <li>Een overbruggingskrediet, als dat nodig is</li>
         </ul>
+        <a class="fx-hyp__meer" href="../hypotheken/volgend-huis-kopen/">Alles over een volgend huis kopen</a>
       </div>
       <div class="fx-hyp__sit" id="oversluiten">
         <span class="fx-ct__ico">{ICO_EURO}</span>
@@ -227,6 +235,7 @@
           <li>Een andere rentevaste periode kiezen</li>
           <li>Ook als het niet loont, hoort u dat</li>
         </ul>
+        <a class="fx-hyp__meer" href="../hypotheken/oversluiten/">Alles over hypotheek oversluiten</a>
       </div>
       <div class="fx-hyp__sit" id="verduurzamen">
         <span class="fx-ct__ico">{ICO_BLAD}</span>
@@ -243,7 +252,7 @@
     <div class="fx-hyp__ook">
       <div>
         <h3>Ondernemer of zzp'er</h3>
-        <p>Ook als ondernemer kunt u een hypotheek krijgen. Ik weet welke geldverstrekkers welke cijfers vragen, en kijk meteen naar uw <a href="../arbeidsongeschiktheidsverzekeringen-aov/">AOV</a>.</p>
+        <p>Ook als ondernemer kunt u een hypotheek krijgen. Ik weet welke geldverstrekkers welke cijfers vragen, en kijk meteen naar uw <a href="../arbeidsongeschiktheidsverzekeringen-aov/">AOV</a>. <a href="../hypotheken/zzp-en-ondernemers/">Lees meer over een hypotheek als ondernemer</a>.</p>
       </div>
       <div>
         <h3>Uit elkaar</h3>
@@ -430,11 +439,11 @@
       </details>
       <details>
         <summary><h3>Kan ik als zzp'er of ondernemer een hypotheek krijgen?</h3></summary>
-        <p>Ja. Geldverstrekkers kijken dan naar uw winst over de afgelopen jaren. Hoe meer jaren cijfers u heeft, hoe meer keuze. Vaak helpt een inkomensverklaring van een erkende rekenexpert. Ik weet welke geldverstrekker welke eisen stelt.</p>
+        <p>Ja. Geldverstrekkers kijken dan naar uw winst over de afgelopen jaren. Hoe meer jaren cijfers u heeft, hoe meer keuze. Vaak helpt een inkomensverklaring van een erkende rekenexpert. Ik weet welke geldverstrekker welke eisen stelt. Lees meer over een <a href="../hypotheken/zzp-en-ondernemers/">hypotheek voor zzp'ers en ondernemers</a>.</p>
       </details>
       <details>
         <summary><h3>Wanneer is oversluiten interessant?</h3></summary>
-        <p>Als uw huidige rente duidelijk hoger is dan wat er nu te krijgen is, of als uw rentevaste periode afloopt. Bij tussentijds oversluiten rekent de geldverstrekker vaak boeterente, zeker als uw rente hoger is dan de rente van nu. Ik reken uit of de lagere rente daar tegenop weegt, ook bij uw eigen geldverstrekker.</p>
+        <p>Als uw huidige rente duidelijk hoger is dan wat er nu te krijgen is, of als uw rentevaste periode afloopt. Bij tussentijds oversluiten rekent de geldverstrekker vaak boeterente, zeker als uw rente hoger is dan de rente van nu. Ik reken uit of de lagere rente daar tegenop weegt, ook bij uw eigen geldverstrekker. Doe de <a href="../hypotheken/oversluiten/">oversluitcheck</a>.</p>
       </details>
       <details>
         <summary><h3>Wat is een financieringsvoorbehoud?</h3></summary>

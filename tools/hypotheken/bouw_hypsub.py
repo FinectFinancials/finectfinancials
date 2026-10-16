@@ -2,9 +2,10 @@
 """Bouwt de subpagina's van Hypotheken (gemaakt op basis van bouw_hyp.py).
 
 Gebruik:
-  python3 bouw_start.py voorbeeld   -> site/voorbeeld/hypotheken/eerste-huis-kopen/
-  python3 bouw_start.py live        -> site/hypotheken/eerste-huis-kopen/
-Na het bouwen zet menu_zak.py de uitklaplijst onder Zakelijk erin.
+  python3 bouw_hypsub.py voorbeeld   -> site/voorbeeld/hypotheken/<subpagina>/
+  python3 bouw_hypsub.py live        -> site/hypotheken/<subpagina>/
+Na het bouwen zetten menu_zak.py en menu_hyp.py de uitklaplijsten onder Zakelijk en Hypotheken erin.
+In de inhoud wordt {BIJGEWERKT} vervangen door de datum hieronder.
 
 Basis is Over ons, net als de homepage: dezelfde kop, voettekst en opmaak.
 Alle paden in de bron en in de inhoud gaan uit van een pagina die één map diep
@@ -13,7 +14,7 @@ staat (../). Voor dieper liggende pagina's worden ze aan het eind omgezet.
 import io, re, json, html, os, sys
 
 HOME = '/tmp/claude-0/-home-user-finectfinancials/eb3bde67-f228-5f8e-b9ee-dcd3a00cb56a/scratchpad/home/'
-SP = HOME + 'hypstart/'
+SP = HOME + 'hypsub/'
 HYP = HOME + 'hyp/'
 ZAK = HOME + 'zak/'
 VERZ = HOME + 'verz/'
@@ -22,6 +23,8 @@ sys.path.insert(0, ZAK)
 from opruimen import opruimen, zoeken_weg, kleine_punten, links_en_voettekst
 from slank import pagina_aanpassen
 from menu_zak import zet_menu
+sys.path.insert(0, HYP)
+import menu_hyp
 
 MODUS = sys.argv[1] if len(sys.argv) > 1 else 'voorbeeld'
 VOORBEELD = MODUS == 'voorbeeld'
@@ -74,12 +77,28 @@ BEELD = 'wp-content/uploads/finect/hyp-held.jpg'
 BEELD_M = 'wp-content/uploads/finect/hyp-held-mobiel.jpg'
 F = 'wp-content/uploads/finect/'
 HOOFD = dict(pad='hypotheken/', naam='Hypotheken')
+BIJGEWERKT = ('2026-10-16', '16 oktober 2026')
 PAGINAS = [
     dict(pad='hypotheken/eerste-huis-kopen/', bron='start.html', beeld=F + 'hyp-start.jpg',
          titel='Eerste huis kopen in Apeldoorn | Startershypotheek | Finect',
          beschr="Uw eerste huis kopen in Apeldoorn? Reken uit of u overdrachtsbelasting betaalt, zie wat u kunt lenen "
                 "en hoe bieden werkt. Onafhankelijk advies voor starters.",
-         naam='Eerste huis kopen', dienst='Hypotheekadvies voor starters', vragen=8),
+         naam='Eerste huis kopen', dienst='Hypotheekadvies voor starters', vragen=9),
+    dict(pad='hypotheken/volgend-huis-kopen/', bron='volgend.html', beeld=F + 'hyp-volgend.jpg',
+         titel='Volgend huis kopen in Apeldoorn | Overwaarde | Finect',
+         beschr="Verhuizen naar een ander huis in Apeldoorn? Reken uit wat uw overwaarde is en hoeveel hypotheek "
+                "aftrekbaar blijft. Advies over kopen, verkopen en overbruggen.",
+         naam='Volgend huis kopen', dienst='Hypotheekadvies bij verhuizen', vragen=8),
+    dict(pad='hypotheken/oversluiten/', bron='oversluiten.html', beeld=F + 'hyp-oversluiten.jpg',
+         titel='Hypotheek oversluiten in Apeldoorn | Loont het? | Finect',
+         beschr="Loont het om uw hypotheek over te sluiten? Doe de oversluitcheck: boeterente, rentemiddeling en een "
+                "lagere risico-opslag. Onafhankelijk advies in Apeldoorn.",
+         naam='Hypotheek oversluiten', dienst='Advies over hypotheek oversluiten', vragen=8),
+    dict(pad='hypotheken/zzp-en-ondernemers/', bron='zzp.html', beeld=F + 'hyp-zzp.jpg',
+         titel="Hypotheek voor zzp'ers en ondernemers in Apeldoorn | Finect",
+         beschr="Een hypotheek als zzp'er, ondernemer of dga in Apeldoorn? Zie wat geldverstrekkers vragen, met "
+                "één, twee of drie jaar cijfers. Onafhankelijk advies.",
+         naam="Zzp'ers en ondernemers", dienst="Hypotheekadvies voor zzp'ers en ondernemers", vragen=8),
 ]
 
 def schoon(s):
@@ -102,6 +121,7 @@ def bouw(pg):
                '<a href="tel:+31630679790">{ICO_TEL}Bel mij</a>' + tweede + '</div>\n')
     for k, v in ICONEN.items():
         inhoud = inhoud.replace('{' + k + '}', v)
+    inhoud = inhoud.replace('{BIJGEWERKT}', '<time datetime="' + BIJGEWERKT[0] + '">' + BIJGEWERKT[1] + '</time>')
     assert not re.search(r'\{[A-Z][A-Z_0-9]*\}', inhoud), ('niet alle iconen ingevuld', pg['bron'])
 
     css = io.open(HOME + 'home.css', encoding='utf-8').read()
@@ -110,8 +130,7 @@ def bouw(pg):
     css += '\n' + io.open(VERZ + 'verz.css', encoding='utf-8').read()
     css += '\n' + io.open(ZAK + 'zak.css', encoding='utf-8').read()
     css += '\n' + io.open(HYP + 'hyp.css', encoding='utf-8').read()
-    if os.path.exists(SP + 'start.css'):
-        css += '\n' + io.open(SP + 'start.css', encoding='utf-8').read()
+    css += '\n' + io.open(SP + 'sub.css', encoding='utf-8').read()
 
     # ----- kop -----
     t = re.sub(r'<title>.*?</title>', '<title>' + html.escape(pg['titel'], quote=False) + '</title>', t, count=1, flags=re.S)
@@ -136,7 +155,10 @@ def bouw(pg):
     graaf = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": pg['titel'], "description": pg['beschr'],
          "isPartOf": {"@id": BASIS + "#website"}, "about": {"@id": url + "#dienst"},
-         "breadcrumb": {"@id": url + "#kruimelpad"}, "inLanguage": "nl-NL"},
+         "breadcrumb": {"@id": url + "#kruimelpad"}, "inLanguage": "nl-NL", "dateModified": BIJGEWERKT[0],
+         "primaryImageOfPage": {"@type": "ImageObject", "url": BASIS + pg['beeld'], "width": 1920, "height": 1080},
+         "author": {"@type": "Person", "name": "Fred Koeling", "jobTitle": "Certified Financial Planner",
+                    "worksFor": {"@id": BASIS + "#organisatie"}, "url": BASIS + "over-finect/"}},
         {"@type": "BreadcrumbList", "@id": url + "#kruimelpad", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(kruimels)]},
         {"@type": "Service", "@id": url + "#dienst", "name": pg['dienst'], "serviceType": "Hypotheekadvies",
@@ -217,7 +239,7 @@ def bouw(pg):
     # ----- paden: de voorbeelden staan onder /voorbeeld/, en subpagina's liggen dieper -----
     pad = pg['pad']
     if VOORBEELD:
-        for p in [x['pad'] for x in PAGINAS]:
+        for p in ('hypotheken/',):   # ook de hoofdpagina: het voorbeeld daarvan linkt naar de subpagina's
             t = t.replace('"../' + p, '"../voorbeeld/' + p).replace("'../" + p, "'../voorbeeld/" + p)
         pad = 'voorbeeld/' + pad
     diepte = pad.count('/')
@@ -227,6 +249,7 @@ def bouw(pg):
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     io.open(dst, 'w', encoding='utf-8').write(t)
     zet_menu(dst)
+    menu_hyp.zet_menu(dst, voorbeeld=VOORBEELD, huidig=pg['pad'])
     h1 = re.findall(r'<h1[^>]*>(.*?)</h1>', t)
     woorden = len(schoon(inhoud).split())
     print(f"{dst}: titel {len(pg['titel'])} tekens, beschrijving {len(pg['beschr'])}, h1 {h1}, ~{woorden} woorden")

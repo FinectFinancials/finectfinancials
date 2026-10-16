@@ -1,0 +1,311 @@
+<div class="fx-verz fx-hyp fx-hypsub">
+
+  <!-- kop -->
+  <section class="fx-verz__kop fx-verz__kop--licht"><div class="fx-ct__wrap fx-verz__kopgrid"><div>
+    <p class="fx-verz__kruimel"><a href="../">Home</a> &rsaquo; <a href="../hypotheken/">Hypotheken</a> &rsaquo; Hypotheek oversluiten</p>
+    <div class="fx-verz__adviseur"><img src="../wp-content/uploads/finect/fred-rond.jpg" alt="" width="56" height="56" decoding="async"><span><b>Fred Koeling</b>Uw vaste adviseur, Certified Financial Planner</span></div>
+    <p class="fx-ct__sub">Hypotheekadviseur in Apeldoorn</p>
+    <h1>Hypotheek oversluiten</h1>
+    <p class="fx-ct__lead">Loopt uw rente af, of betaalt u meer dan nodig? Ik reken uit of oversluiten loont, met de boeterente erbij. En als het niet loont, hoort u dat ook.</p>
+    <div class="fx-ct__btns">
+      <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
+      <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gratis gesprek</a>
+    </div>
+    <a class="fx-verz__sterren" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener"><span class="fx-verz__sterrij" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5,0</b><span>uit 16 Google reviews</span></a>
+    <p class="fx-verz__heldlink"><a href="#hulp">Doe de oversluitcheck</a></p>
+  </div>
+    <div class="fx-verz__kopfoto"><img src="../wp-content/uploads/finect/hyp-oversluiten-mobiel.jpg" alt="" width="860" height="860" fetchpriority="high" decoding="async"></div>
+  </div></section>
+
+  <div class="fx-ct__wrap">
+    <ul class="fx-verz__cijfers">
+      <li><b>5,0</b><span>uit 16 beoordelingen op <a href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Google</a></span></li>
+      <li><b>22+</b><span>jaar ervaring in het vak</span></li>
+      <li><b>2015</b><span>onafhankelijk sinds</span></li>
+      <li><b>1</b><span>vaste adviseur, ook na de notaris</span></li>
+    </ul>
+  </div>
+
+  <!-- hulpmiddel -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__checksec" id="hulp">
+    <div class="fx-verz__checkkaart">
+      <div class="fx-verz__checkintro">
+        <p class="fx-ct__sub">Oversluitcheck</p>
+        <h2>Loont oversluiten voor u?</h2>
+        <p>Vul uw hypotheek en uw rente in, en beantwoord drie korte vragen. U ziet direct wat een lagere rente per maand scheelt, en waar u op moet letten.</p>
+        <ul class="fx-verz__checkpunten"><li>Geen naam of mail nodig</li><li>Direct antwoord</li><li>Ook de alternatieven</li></ul>
+      </div>
+      <div class="fx-verz__checkvak">
+        <noscript><p class="fx-verz__checkgeenjs">Deze check werkt met JavaScript. Bel mij gerust op <a href="tel:+31630679790">06 30 67 97 90</a>, dan rekenen we het samen uit.</p></noscript>
+        <form class="fx-verz__hulp" id="fxOver" hidden>
+          <div class="fx-zak__schuif">
+            <label for="fxSchuld">Uw hypotheek nu</label>
+            <output id="fxSchuldUit" for="fxSchuld">&euro;&nbsp;250.000</output>
+            <input type="range" id="fxSchuld" min="50000" max="800000" step="5000" value="250000">
+          </div>
+          <div class="fx-zak__schuif">
+            <label for="fxRente">Uw huidige rente</label>
+            <output id="fxRenteUit" for="fxRente">4,0%</output>
+            <input type="range" id="fxRente" min="1" max="7" step="0.1" value="4">
+          </div>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij fx-verz__vraag--drie"><legend>Wanneer loopt uw rentevaste periode af?</legend><label><input type="radio" name="eind" value="kort" checked><span>Binnen een jaar</span></label><label><input type="radio" name="eind" value="mid"><span>Over 1 tot 5 jaar</span></label><label><input type="radio" name="eind" value="lang"><span>Over meer dan 5 jaar</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Is uw huis meer waard geworden sinds u de hypotheek afsloot?</legend><label><input type="radio" name="waarde" value="ja" checked><span>Ja</span></label><label><input type="radio" name="waarde" value="nee"><span>Nee, of weet ik niet</span></label></fieldset>
+          <fieldset class="fx-verz__vraag fx-verz__vraag--rij"><legend>Heeft u een hypotheek met NHG?</legend><label><input type="radio" name="nhg" value="nee" checked><span>Nee</span></label><label><input type="radio" name="nhg" value="ja"><span>Ja</span></label></fieldset>
+          <div class="fx-verz__hulpuit is-uit" id="fxOverUit" aria-live="polite"></div>
+          <p class="fx-verz__klein">Een eerste indruk, geen advies. De bedragen zijn bruto, voor belastingaftrek. De echte boeterente rekent uw geldverstrekker uit; ik vraag die voor u op en zet alles op een rij.</p>
+          <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Laat het mij uitrekenen</a></div>
+        </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var f=document.getElementById('fxOver'), u=document.getElementById('fxOverUit'); if(!f||!u) return;
+      f.hidden=false; f.addEventListener('submit',function(e){e.preventDefault();});
+      var s=document.getElementById('fxSchuld'), r=document.getElementById('fxRente');
+      function eur(x){return '€ '+Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+      function pct(x){return (+x).toFixed(1).replace('.',',')+'%';}
+      function w(n){var x=f.querySelector('input[name='+n+']:checked'); return x?x.value:'';}
+      function reken(){
+        var schuld=+s.value, rente=+r.value;
+        [s,r].forEach(function(x){x.style.setProperty('--p',((x.value-x.min)/(x.max-x.min)*100)+'%');});
+        document.getElementById('fxSchuldUit').textContent=eur(schuld); s.setAttribute('aria-valuetext',eur(schuld));
+        document.getElementById('fxRenteUit').textContent=pct(rente); r.setAttribute('aria-valuetext',pct(rente));
+        var nu=schuld*rente/100/12, half=schuld*0.005/12, p=[];
+        if(w('eind')==='kort') p.push('<b>Uw rente loopt binnen een jaar af.</b> Wacht u tot de einddatum, dan betaalt u geen boete. Stapt u eerder over, dan is de boete meestal laag. Uw geldverstrekker stuurt u vaak een rentevoorstel. Vergelijk dat altijd met andere geldverstrekkers.');
+        else if(w('eind')==='mid') p.push('<b>Nog 1 tot 5 jaar vast.</b> Sluit u nu over, dan rekent de geldverstrekker meestal boeterente: ongeveer de rente die hij misloopt tot het einde van uw rentevaste periode. Die boete is vaak bijna even hoog als wat u bespaart. Oversluiten loont dan vooral als u een deel boetevrij kunt aflossen, of als u voor lange tijd een lagere rente wilt vastzetten.');
+        else p.push('<b>Nog meer dan 5 jaar vast.</b> Hoe langer uw rente nog vaststaat, hoe hoger de boete meestal is. Kijk eerst naar boetevrij extra aflossen, of naar rentemiddeling bij uw eigen geldverstrekker.');
+        if(w('nhg')==='ja') p.push('<b>NHG:</b> met NHG betaalt u meestal al de laagste rente, zonder risico-opslag. Een hogere waarde van uw huis verlaagt uw rente dan niet.');
+        else if(w('waarde')==='ja') p.push('<b>Lagere rente zonder oversluiten:</b> is uw huis meer waard geworden, dan valt uw hypotheek misschien in een lagere risicoklasse. Bij veel geldverstrekkers moet u dat zelf aanvragen, met een taxatie of uw WOZ-beschikking. In Apeldoorn ging de gemiddelde WOZ-waarde van € 386.000 naar € 435.000.');
+        p.push('<b>Boetevrij aflossen:</b> bij de meeste geldverstrekkers mag u elk jaar 10 tot 20 procent van de oorspronkelijke hypotheek zonder boete aflossen. Dat deel telt niet mee in de boete.');
+        u.innerHTML='<div class="fx-hypsub__uit"><div><span>Rente per maand nu</span><b>'+eur(nu)+'</b></div><div><span>Elke 0,5% lager scheelt</span><b>'+eur(half)+' per maand</b></div></div>'+
+          '<ul class="fx-verz__lijst">'+p.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+      }
+      f.addEventListener('change',reken); s.addEventListener('input',reken); r.addEventListener('input',reken); reken();
+    })();
+    </script>
+  </section></div>
+
+
+  <!-- tekst -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__artikel">
+    <div class="fx-verz__tekst">
+      <p class="fx-hypsub__bij">Door <a href="../over-finect/">Fred Koeling</a>, Certified Financial Planner in Apeldoorn &middot; bijgewerkt op {BIJGEWERKT}</p>
+      <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst"><li>Oversluiten loont vooral als uw rente duidelijk hoger is dan nu, en uw rentevaste periode bijna afloopt.</li><li>Boeterente is ongeveer de rente die de geldverstrekker misloopt tot het einde van uw rentevaste periode.</li><li>Soms kan uw rente omlaag zonder over te sluiten.</li></ul></div>
+
+      <h2>Wanneer loont oversluiten?</h2>
+      <p>Oversluiten betekent dat u uw hypotheek onderbrengt bij een andere geldverstrekker, of bij uw eigen geldverstrekker een nieuwe rente afspreekt. Dat kan om verschillende redenen interessant zijn:</p>
+      <ul>
+        <li><b>Uw rentevaste periode loopt af.</b> Dan kunt u zonder boete overstappen. Dit is het moment om te vergelijken, ook als het voorstel van uw eigen geldverstrekker er goed uitziet.</li>
+        <li><b>Uw rente is duidelijk hoger dan wat er nu te krijgen is.</b> Dan kan oversluiten lonen, maar alleen als de lagere rente opweegt tegen de boete en de kosten.</li>
+        <li><b>U wilt langer zekerheid.</b> Bijvoorbeeld door uw rente voor een langere periode vast te zetten.</li>
+        <li><b>Uw situatie is veranderd.</b> Denk aan een verbouwing, een scheiding of een andere aflosvorm.</li>
+      </ul>
+
+      <h2>Hoe werkt boeterente?</h2>
+      <p>Sluit u over voordat uw rentevaste periode afloopt, dan rekent de geldverstrekker meestal een vergoeding: de boeterente. Die is ongeveer gelijk aan de rente die hij misloopt tot het einde van uw rentevaste periode. Is uw rente hoger dan de rente van nu, dan is de boete dus vaak bijna even hoog als wat u met oversluiten bespaart.</p>
+      <p>Er zijn wel uitzonderingen. Bij de meeste geldverstrekkers mag u elk jaar 10 tot 20 procent van de oorspronkelijke hypotheek boetevrij aflossen. Over dat deel betaalt u geen boete. En verkoopt u uw huis, dan kunt u de hypotheek meestal zonder boete aflossen. Kijk voor de precieze regels in de voorwaarden van uw hypotheek; ik lees ze graag voor u door.</p>
+
+      <h2>Alternatieven voor oversluiten</h2>
+      <h3>Een lagere risico-opslag</h3>
+      <p>Veel geldverstrekkers rekenen een hogere rente als u veel leent ten opzichte van de waarde van uw huis. Is uw huis meer waard geworden, of heeft u afgelost, dan valt u misschien in een lagere risicoklasse. Uw rente gaat dan omlaag, zonder oversluiten en zonder boete. Bij veel geldverstrekkers moet u dat zelf aanvragen, met een taxatie of uw WOZ-beschikking. Heeft u NHG, dan betaalt u meestal al de laagste rente.</p>
+      <h3>Rentemiddeling</h3>
+      <p>Bij rentemiddeling blijft u bij uw eigen geldverstrekker. U kiest nu al een nieuwe rente, en de boete wordt in die rente verwerkt. U betaalt dus geen bedrag ineens, maar een rente die tussen uw oude en de nieuwe rente in ligt. Dat is handig als u de boete niet in één keer wilt betalen. Vergelijk wel goed: soms rekent de geldverstrekker er een opslag bij.</p>
+      <h3>Boetevrij extra aflossen</h3>
+      <p>Heeft u spaargeld over, dan kan het lonen om het boetevrije deel af te lossen. U betaalt dan minder rente, en houdt een kleinere hypotheek over als u later toch oversluit.</p>
+
+      <h2>Wat kost oversluiten?</h2>
+      <p>Naast een eventuele boete heeft u bij een andere geldverstrekker meestal te maken met:</p>
+      <ul>
+        <li>advies en bemiddeling voor de nieuwe hypotheek;</li>
+        <li>een taxatie van uw huis;</li>
+        <li>de notaris, voor de nieuwe hypotheekakte.</li>
+      </ul>
+      <p>Spreekt u bij uw eigen geldverstrekker een nieuwe rente af, dan is een notaris meestal niet nodig. De boeterente is aftrekbaar, voor zover die bij uw eigenwoningschuld hoort (<a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/content/boeterente-aftrekken-bij-oversluiten-hypotheek" target="_blank" rel="noopener">Belastingdienst</a>). Betaalt u de boete ineens, dan trekt u die af in het jaar van betalen. Bij rentemiddeling trekt u de hogere rente elk jaar af. Leent u de boete mee in uw nieuwe hypotheek, dan is de rente over dat extra deel niet aftrekbaar.</p>
+
+      <h2>Heeft u een hypotheek van voor 2013?</h2>
+      <p>Voor hypotheken die al op 31 december 2012 bestonden, geldt overgangsrecht. Een deel zonder aflossing kan dan aftrekbaar blijven. Bij oversluiten kunt u dat recht vaak meenemen, zolang u het bedrag niet verhoogt. Leent u meer, dan gelden voor dat extra deel de nieuwe regels. Ik zoek dat voor uw situatie precies uit, zodat u niets kwijtraakt.</p>
+
+      <h2>Oversluiten in Apeldoorn</h2>
+      <p>De gemiddelde WOZ-waarde van een woning in Apeldoorn steeg van &euro;&nbsp;386.000 in 2025 naar &euro;&nbsp;435.000 in 2026 (bron: <a href="https://www.waarderingskamer.nl/gemeente/apeldoorn" target="_blank" rel="noopener">Waarderingskamer</a>). Voor veel huiseigenaren in Apeldoorn betekent dat: de hypotheek is kleiner geworden ten opzichte van de waarde van het huis. Daardoor is een lagere rente vaak eerder binnen bereik dan u denkt.</p>
+      <p>Ik vergelijk het voorstel van uw eigen geldverstrekker met dat van andere geldverstrekkers, en zet de boete, de kosten en de besparing naast elkaar. Mijn kantoor staat aan de Vlijtseweg in Apeldoorn, en ik kom ook bij u thuis.</p>
+    </div>
+    <div class="fx-verz__zij">
+      <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
+        <h2>Rentevoorstel ontvangen?</h2>
+        <p>Stuur het mij, dan kijk ik of het een goed voorstel is. Het eerste gesprek is gratis.</p>
+        <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a></div>
+        <p style="margin:14px 0 0;"><a class="fx-verz__licht" href="mailto:info@finect.nl">info@finect.nl</a></p>
+      </div>
+      <div class="fx-verz__zijkaart">
+        <h2>Meer over hypotheken</h2>
+        <ul><li><a href="../hypotheken/">Alle hypotheekonderwerpen</a></li><li><a href="../hypotheken/volgend-huis-kopen/">Volgend huis kopen</a></li><li><a href="../hypotheken/eerste-huis-kopen/">Eerste huis kopen</a></li><li><a href="../hypotheken/zzp-en-ondernemers/">Hypotheek voor zzp'ers</a></li><li><a href="../verzekeringen/woonverzekering/">Woonverzekering</a></li></ul>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- werkwijze als tijdlijn -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__weg">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Werkwijze</p>
+      <h2>Zo kijk ik of oversluiten loont</h2>
+      <p>U hoeft niet zelf uit te zoeken hoe hoog de boete is of wat andere geldverstrekkers bieden. Dat doe ik voor u.</p>
+    </div>
+    <ol class="fx-hyp__tijdlijn">
+      <li><b>Uw gegevens</b><span>U stuurt mij uw hypotheekoverzicht en, als u die heeft, het rentevoorstel.</span></li>
+      <li><b>Boete opvragen</b><span>Ik vraag bij uw geldverstrekker op hoe hoog de boeterente is.</span></li>
+      <li><b>Vergelijken</b><span>Oversluiten, rentemiddeling en een lagere risico-opslag naast elkaar.</span></li>
+      <li><b>Eerlijk advies</b><span>Loont het, dan hoort u hoeveel. Loont het niet, dan hoort u dat ook.</span></li>
+      <li><b>Regelen</b><span>Ik regel de aanvraag, de taxatie en de notaris als dat nodig is.</span></li>
+      <li><b>Daarna</b><span>Ik zet de einddatum van uw nieuwe rente in mijn agenda.</span></li>
+    </ol>
+  </section></div></div>
+
+  <!-- voorbereiden en verzekeren -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__duo">
+    <div>
+      <p class="fx-ct__sub">Voorbereiden</p>
+      <h2>Wat u alvast kunt klaarleggen</h2>
+      <p>Met deze stukken kan ik snel uitrekenen of oversluiten voor u loont:</p>
+      <ul class="fx-verz__lijst fx-verz__lijst--ruim">
+        <li>Uw laatste jaaroverzicht van de hypotheek</li>
+        <li>Het rentevoorstel van uw geldverstrekker, als u dat al heeft</li>
+        <li>De voorwaarden van uw hypotheek, voor de regels over boetevrij aflossen</li>
+        <li>Uw WOZ-beschikking van dit jaar</li>
+        <li>Een recente loonstrook, of uw jaarcijfers als u ondernemer bent</li>
+      </ul>
+    </div>
+    <div class="fx-home__kaart fx-verz__check">
+      <p class="fx-ct__sub">Alles in één hand</p>
+      <h2>Ook uw verzekeringen bekijken</h2>
+      <ul class="fx-verz__lijst">
+        <li>Past uw overlijdensrisicoverzekering nog bij het bedrag van uw hypotheek?</li>
+        <li>Is uw huis goed verzekerd, ook na een verbouwing? Bekijk de <a href="../verzekeringen/woonverzekering/">woonverzekering</a>.</li>
+        <li>Bent u ondernemer, past uw <a href="../arbeidsongeschiktheidsverzekeringen-aov/">AOV</a> dan nog bij uw lasten?</li>
+      </ul>
+      <div class="fx-ct__btns">
+        <a class="fx-ct__btn fx-ct__btn--m" href="../verzekeringen/polischeck/">Doe de polischeck</a>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- klantervaringen -->
+  <div class="fx-ct__band--navy" id="ervaringen"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-ct__rev">
+      <div>
+        <p class="fx-ct__sub">Klantervaringen</p>
+        <h2>Klanten over mijn hypotheekadvies</h2>
+        <p>Klanten waarderen vooral de duidelijke uitleg. Bij oversluiten is dat precies wat u nodig heeft.</p>
+        <div class="fx-ct__score">
+          <span class="fx-ct__sterren" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="fx-ct__cijfer">5,0</span>
+          <span class="fx-ct__bron">uit 16 beoordelingen op Google</span>
+        </div>
+        <div class="fx-ct__btns">
+          <a class="fx-ct__btn fx-ct__btn--o fx-home__google" href="https://maps.app.goo.gl/CUqTeR8SEaGoE9rx9" target="_blank" rel="noopener">Lees alle reviews op Google</a>
+        </div>
+      </div>
+      <div>
+        <div class="fx-ct__stage" id="fxCtStage">
+          <figure class="fx-ct__quote is-on">
+            <blockquote>&ldquo;Fred heeft onze hypotheek geregeld en ons uitstekend begeleid gedurende het hele proces. Hij werkt zeer nauwkeurig, is deskundig en gaf ons steeds duidelijke uitleg. We zijn zeer tevreden over de persoonlijke en professionele begeleiding en kunnen Fred en Finect Financials van harte aanbevelen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">RV</span><span class="fx-ct__wie"><b>Robert V.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Ik ben zeer tevreden over de service van Finect. Fred is deskundig, meedenkend en weet zaken helder uit te leggen. Wat het extra prettig maakt, is dat hij goed bereikbaar is en snel reageert op vragen. Een betrouwbare adviseur waar je op kunt rekenen!&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">LS</span><span class="fx-ct__wie"><b>Lars S.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+          <figure class="fx-ct__quote">
+            <blockquote>&ldquo;Onlangs heeft Finect Financials mij geholpen met het regelen van mijn hypotheek en mijn huis- en autoverzekering, en ik ben echt ontzettend blij met hoe dat is gegaan. Fred neemt ruim de tijd om alles uit te leggen, denkt echt met je mee en zoekt actief naar de beste oplossingen voor jouw situatie.&rdquo;</blockquote>
+            <figcaption><span class="fx-ct__ini">FS</span><span class="fx-ct__wie"><b>Fleur S.</b>Google, 5 sterren</span></figcaption>
+          </figure>
+        </div>
+        <ul class="fx-ct__dots" id="fxCtDots"></ul>
+      </div>
+    </div>
+  </section></div></div>
+
+  <!-- uw adviseur -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__wie">
+    <div class="fx-verz__wiefoto"><img src="../wp-content/uploads/2025/07/DSCF4417.jpg" alt="Fred Koeling, onafhankelijk hypotheekadviseur in Apeldoorn" width="482" height="640" loading="lazy" decoding="async"></div>
+    <div>
+      <p class="fx-ct__sub">Uw adviseur</p>
+      <h2>Ik werk niet voor een bank</h2>
+      <p class="fx-ct__lead">Mijn naam is Fred Koeling. Ik werk sinds 2015 als zelfstandig adviseur in Apeldoorn, en heb ruim 22 jaar ervaring in het vak.</p>
+      <p>Omdat ik niet voor een geldverstrekker werk, kan ik eerlijk vergelijken: het voorstel van uw eigen bank tegen dat van anderen. En als Certified Financial Planner kijk ik ook verder dan de rente. Past de hypotheek ook nog bij uw pensioen, of als u minder gaat werken?</p>
+      <blockquote class="fx-verz__citaat">&ldquo;Soms is het beste advies: niets doen. Dat hoort u dan ook van mij.&rdquo;</blockquote>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--o" href="../over-finect/">Lees meer over mij</a></div>
+    </div>
+  </section></div>
+
+  <!-- ook interessant -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-verz__andere">
+    <p class="fx-ct__sub">Ook interessant</p>
+    <h2 style="margin-bottom:28px;">Meer over hypotheken in Apeldoorn</h2>
+    <div class="fx-verz__gerelateerd"><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_HUIS}</span><h3>Volgend huis kopen</h3><p>Verhuizen met uw overwaarde, en uw huidige rente meenemen als dat gunstig is.</p><a class="fx-verz__pmeer" href="../hypotheken/volgend-huis-kopen/">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_BLAD}</span><h3>Verduurzamen</h3><p>Bijlenen voor isolatie, zonnepanelen of een warmtepomp, met extra leenruimte.</p><a class="fx-verz__pmeer" href="../hypotheken/#verduurzamen">Lees verder</a></div><div class="fx-verz__pkaart fx-verz__pkaart--link"><span class="fx-ct__ico">{ICO_KOFFER}</span><h3>Zzp'ers en ondernemers</h3><p>Een hypotheek met één, twee of drie jaar cijfers, en wat geldverstrekkers dan vragen.</p><a class="fx-verz__pmeer" href="../hypotheken/zzp-en-ondernemers/">Lees verder</a></div></div>
+  </section></div>
+
+  <!-- vragen -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__faq">
+    <div>
+      <p class="fx-ct__sub">Vragen</p>
+      <h2>Vragen over oversluiten</h2>
+      <p>Staat uw vraag er niet tussen? Bel gerust, daar hoeft u geen afspraak voor te maken.</p>
+      <p style="margin-top:22px;"><a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Plan een gesprek</a></p>
+    </div>
+    <div>
+      <details open>
+        <summary><h3>Wanneer loont het om mijn hypotheek over te sluiten?</h3></summary>
+        <p>Vooral als uw rentevaste periode bijna afloopt, of als uw rente duidelijk hoger is dan wat er nu te krijgen is en de boete meevalt. Tussentijds is de boete vaak bijna even hoog als wat u bespaart. Ik reken het voor u uit, met de boete, de kosten en de besparing naast elkaar.</p>
+      </details>
+      <details>
+        <summary><h3>Hoe hoog is de boeterente?</h3></summary>
+        <p>Ongeveer de rente die de geldverstrekker misloopt tot het einde van uw rentevaste periode. Hoe groter het verschil tussen uw rente en de rente van nu, en hoe langer uw rente nog vaststaat, hoe hoger de boete. Over het deel dat u boetevrij mag aflossen, betaalt u geen boete. Uw geldverstrekker berekent het precieze bedrag.</p>
+      </details>
+      <details>
+        <summary><h3>Kan ik zonder boete oversluiten?</h3></summary>
+        <p>Ja, aan het einde van uw rentevaste periode. Daarnaast mag u bij de meeste geldverstrekkers elk jaar 10 tot 20 procent van de oorspronkelijke hypotheek boetevrij aflossen. En verkoopt u uw huis, dan kunt u de hypotheek meestal zonder boete aflossen.</p>
+      </details>
+      <details>
+        <summary><h3>Wat is rentemiddeling?</h3></summary>
+        <p>U blijft bij uw eigen geldverstrekker en kiest nu al een nieuwe rente. De boete wordt in die rente verwerkt, zodat u geen bedrag ineens betaalt. Uw nieuwe rente ligt dan tussen uw oude rente en de rente van nu in.</p>
+      </details>
+      <details>
+        <summary><h3>Is boeterente aftrekbaar?</h3></summary>
+        <p>Ja, voor het deel dat bij uw eigenwoningschuld hoort. Betaalt u de boete ineens, dan trekt u die af in het jaar van betalen. Bij rentemiddeling trekt u de hogere rente af. Leent u de boete mee, dan is de rente over dat extra deel niet aftrekbaar.</p>
+      </details>
+      <details>
+        <summary><h3>Kan mijn rente omlaag als mijn huis meer waard is?</h3></summary>
+        <p>Vaak wel. Veel geldverstrekkers rekenen een lagere rente als u minder leent ten opzichte van de waarde van uw huis. Bij veel geldverstrekkers moet u dat zelf aanvragen, met een taxatie of uw WOZ-beschikking. Heeft u NHG, dan betaalt u meestal al de laagste rente.</p>
+      </details>
+      <details>
+        <summary><h3>Wat kost oversluiten?</h3></summary>
+        <p>Naast een eventuele boete betaalt u bij een andere geldverstrekker meestal voor advies, een taxatie en de notaris. Blijft u bij uw eigen geldverstrekker, dan is een notaris meestal niet nodig. Ik zet alle kosten vooraf voor u op een rij, zodat u weet of het loont.</p>
+      </details>
+      <details>
+        <summary><h3>Hoe lang duurt oversluiten?</h3></summary>
+        <p>Bij een andere geldverstrekker meestal een paar weken, omdat er een taxatie en een notaris nodig zijn. Een nieuwe rente bij uw eigen geldverstrekker is vaak sneller geregeld. Begin op tijd, zeker als uw rentevaste periode binnenkort afloopt.</p>
+      </details>
+    </div>
+  </section></div></div>
+
+  <!-- contact -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-ct__hero">
+    <div>
+      <p class="fx-ct__sub">Contact</p>
+      <h2>Uw hypotheek laten nakijken?</h2>
+      <p class="fx-ct__lead">Ik kom bij u thuis in Apeldoorn en omgeving, of we spreken af op kantoor of online. Het eerste gesprek is gratis en vrijblijvend.</p>
+      <div class="fx-ct__btns">
+        <a class="fx-ct__btn fx-ct__btn--m" href="tel:+31630679790">Bel 06 30 67 97 90</a>
+        <a class="fx-ct__btn fx-ct__btn--o" href="../contact/">Naar contact</a>
+      </div>
+    </div>
+    <ul class="fx-home__gegevens">
+      <li><span class="fx-home__rond">{ICO_TEL}</span><span><b><a href="tel:+31630679790">06 30 67 97 90</a></b><span>Maandag t/m vrijdag 09:00 tot 17:30</span></span></li>
+      <li><span class="fx-home__rond">{ICO_MAIL}</span><span><b><a href="mailto:info@finect.nl">info@finect.nl</a></b><span>Antwoord binnen één werkdag</span></span></li>
+      <li><span class="fx-home__rond">{ICO_PIN}</span><span><b>Kantoor</b><span>Vlijtseweg 16, 7317 AH Apeldoorn</span></span></li>
+      <li><span class="fx-home__rond">{ICO_KAART}</span><span><b>Werkgebied</b><span>Apeldoorn, Ugchelen, Beekbergen, Loenen, Klarenbeek, Twello, Vaassen en omgeving</span></span></li>
+      <li><span class="fx-home__rond">{ICO_SCHILD20}</span><span><b>Geregistreerd</b><span>AFM 12047700, Kifid 300.017906, KvK 62201735</span></span></li>
+    </ul>
+  </section></div>
+
+</div>

@@ -24,6 +24,15 @@
 .fx-ct .fx-hyp__ook p{font-size:15px;line-height:1.6;margin:0;}
 .fx-ct .fx-hyp__ook a,.fx-ct .fx-hyp__sit a{color:var(--mag);font-weight:600;}
 
+/* link naar een subpagina, in de kaarten en in de uitslag van de check */
+.fx-ct a.fx-hyp__meer{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:6px;font-size:15px;font-weight:700;
+  color:var(--mag);text-decoration:none;}
+.fx-ct a.fx-hyp__meer::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);}
+.fx-ct a.fx-hyp__meer:hover,.fx-ct a.fx-hyp__meer:focus{text-decoration:underline;text-underline-offset:3px;}
+.fx-hyp__sit .fx-verz__lijst{margin-bottom:12px;}
+.fx-ct .fx-hyp__meerrij{display:flex;flex-wrap:wrap;gap:6px 22px;margin:14px 0 0;}
+.fx-ct .fx-hyp__meerrij:empty{display:none;}
+
 /* de regels van 2026: grote cijfers */
 .fx-hyp__feiten{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
 .fx-ct .fx-hyp__feiten li{margin:0;padding:28px 26px;border-radius:16px;background:#fff;box-shadow:0 12px 32px rgba(20,33,43,.07);

@@ -4,7 +4,7 @@
 Gebruik:
   python3 bouw_hyp.py voorbeeld   -> site/voorbeeld/hypotheken/
   python3 bouw_hyp.py live        -> site/hypotheken/
-Na het bouwen zet menu_zak.py de uitklaplijst onder Zakelijk erin.
+Na het bouwen zetten menu_zak.py en menu_hyp.py de uitklaplijsten onder Zakelijk en Hypotheken erin.
 
 Basis is Over ons, net als de homepage: dezelfde kop, voettekst en opmaak.
 Alle paden in de bron en in de inhoud gaan uit van een pagina die één map diep
@@ -21,6 +21,8 @@ sys.path.insert(0, ZAK)
 from opruimen import opruimen, zoeken_weg, kleine_punten, links_en_voettekst
 from slank import pagina_aanpassen
 from menu_zak import zet_menu
+sys.path.insert(0, SP)
+import menu_hyp
 
 MODUS = sys.argv[1] if len(sys.argv) > 1 else 'voorbeeld'
 VOORBEELD = MODUS == 'voorbeeld'
@@ -228,6 +230,7 @@ def bouw(pg):
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     io.open(dst, 'w', encoding='utf-8').write(t)
     zet_menu(dst)
+    menu_hyp.zet_menu(dst, voorbeeld=VOORBEELD)
     h1 = re.findall(r'<h1[^>]*>(.*?)</h1>', t)
     woorden = len(schoon(inhoud).split())
     print(f"{dst}: titel {len(pg['titel'])} tekens, beschrijving {len(pg['beschr'])}, h1 {h1}, ~{woorden} woorden")

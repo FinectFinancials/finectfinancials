@@ -1,0 +1,36 @@
+<style id="fx-hypsub-css">
+/* Subpagina's van Hypotheken: aanvullingen op hyp.css. Alleen door bouw_hypsub.py geladen. */
+
+/* wie schrijft het en wanneer bijgewerkt */
+.fx-ct .fx-hypsub__bij{margin:0 0 22px;font-size:14px;line-height:1.5;color:#4a5761;}
+.fx-ct .fx-hypsub__bij a{color:var(--navy);font-weight:600;}
+
+/* tabel in de tekst */
+.fx-hypsub__tabelvak{margin:6px 0 26px;overflow-x:auto;}
+.fx-hypsub__tabel{width:100%;border-collapse:collapse;font-size:16px;line-height:1.5;}
+.fx-hypsub__tabel caption{caption-side:top;text-align:left;margin:0 0 10px;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;
+  font-size:19px;font-weight:600;color:var(--navy);}
+.fx-hypsub__tabel th,.fx-hypsub__tabel td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--lijn);}
+.fx-hypsub__tabel thead th{background:var(--navy);color:#fff;font-weight:600;}
+.fx-hypsub__tabel thead th:first-child{border-radius:10px 0 0 0;}
+.fx-hypsub__tabel thead th:last-child{border-radius:0 10px 0 0;}
+.fx-hypsub__tabel tbody tr:nth-child(even){background:var(--mint);}
+.fx-hypsub__tabel td:last-child,.fx-hypsub__tabel th:last-child{text-align:right;white-space:nowrap;}
+.fx-ct .fx-hypsub__noot{font-size:15px;line-height:1.6;color:#4a5761;}
+
+/* een rij met twee of drie uitkomsten in een rekenhulp */
+.fx-hypsub__uit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin:0 0 12px;}
+.fx-hypsub__uit > div{display:flex;flex-direction:column;gap:2px;}
+.fx-hypsub__uit span{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);}
+.fx-hypsub__uit b{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:24px;font-weight:600;line-height:1.2;color:var(--groen2);}
+
+/* keuzes in een rekenhulp: de vraag erboven, de keuzes naast elkaar */
+.fx-ct .fx-hypsub .fx-verz__vraag--rij{grid-template-columns:repeat(2,minmax(0,1fr));}
+.fx-ct .fx-hypsub .fx-verz__vraag--drie{grid-template-columns:repeat(3,minmax(0,1fr));}
+.fx-ct .fx-hypsub .fx-verz__vraag--rij legend{grid-column:1/-1;}
+
+@media (max-width:768px){
+  .fx-ct .fx-hypsub .fx-verz__vraag--drie{grid-template-columns:1fr;}
+  .fx-hypsub__uit b{font-size:21px;}
+}
+</style>
