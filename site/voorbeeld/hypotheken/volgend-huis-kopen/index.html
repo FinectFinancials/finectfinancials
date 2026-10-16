@@ -1236,6 +1236,102 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   .fx-ct .fx-hypsub .fx-verz__vraag--drie{grid-template-columns:1fr;}
   .fx-hypsub__uit b{font-size:21px;}
 }
+
+/* ===== vormgeving van de tekstdelen: blokken in plaats van een lange lap tekst ===== */
+.fx-ct .fx-hypsub .fx-verz__tekst p,.fx-ct .fx-hypsub .fx-verz__tekst li{color:#33424d;font-size:17px;line-height:1.7;}
+.fx-hypsub .fx-home__kop{margin-bottom:44px;}
+.fx-ct .fx-hypsub .fx-home__kop p{color:#33424d;}
+.fx-hypsub__midden{text-align:center;margin-left:auto!important;margin-right:auto!important;}
+
+/* kaarten met een icoon */
+.fx-hypsub__kaarten{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:6px 0 30px;}
+.fx-hypsub__kaarten--3{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:0;}
+.fx-hypsub__kaarten--4{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:0;}
+.fx-hypsub__kaart{display:flex;flex-direction:column;padding:24px 24px 22px;border-radius:16px;background:#fff;border:1px solid var(--lijn);
+  box-shadow:0 10px 28px rgba(20,33,43,.06);}
+.fx-hypsub__kaarten--3 .fx-hypsub__kaart,.fx-hypsub__kaarten--4 .fx-hypsub__kaart{padding:28px 26px 24px;border-top:5px solid var(--navy);}
+.fx-hypsub__kaarten--3 .fx-hypsub__kaart:nth-child(even),.fx-hypsub__kaarten--4 .fx-hypsub__kaart:nth-child(even){border-top-color:var(--groen);}
+.fx-ct .fx-hypsub__kaart .fx-ct__ico{margin:0;background:var(--mint);color:var(--navy);}
+.fx-ct .fx-hypsub__kaart h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;line-height:1.3;color:var(--navy);margin:16px 0 6px;padding:0;}
+.fx-ct .fx-hypsub__kaart p{font-size:16px;line-height:1.6;margin:0;color:#33424d;max-width:none;}
+.fx-ct .fx-hypsub__kaart p + p{margin-top:8px;}
+.fx-ct .fx-hypsub__kaart a{color:var(--mag);font-weight:600;}
+
+/* label boven een kaart */
+.fx-hypsub__label{display:inline-block;align-self:flex-start;margin:0 0 14px;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;
+  line-height:1.3;letter-spacing:.03em;background:var(--mint2);color:var(--groen2);}
+.fx-hypsub__label--let{background:var(--roze);color:var(--mag);}
+.fx-hypsub__label--navy{background:var(--navy);color:#fff;}
+
+/* grote cijfers met drie naast elkaar (op basis van fx-hyp__feiten) */
+.fx-hyp__feiten.fx-hypsub__feiten3{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+/* let op en tips */
+.fx-hypsub__letop{margin:26px 0 0;padding:22px 26px 20px;border-radius:14px;background:var(--zacht);box-shadow:inset 4px 0 0 var(--mag);}
+.fx-hypsub__letop--mint{background:#fff;box-shadow:inset 4px 0 0 var(--groen),0 10px 28px rgba(20,33,43,.06);}
+.fx-ct .fx-hypsub__letop h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;line-height:1.3;color:var(--navy);margin:0 0 6px;}
+.fx-ct .fx-hypsub__letop p{font-size:16px;line-height:1.65;margin:0;color:#33424d;max-width:none;}
+.fx-ct .fx-hypsub__letop p + p{margin-top:8px;}
+.fx-ct .fx-hypsub__letop a{color:var(--mag);font-weight:600;}
+
+/* een som in blokjes: verkoopprijs min hypotheek min kosten is overwaarde */
+.fx-hypsub__som{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;margin:8px 0 28px;}
+.fx-hypsub__somvak{flex:1 1 0;min-width:0;padding:16px 14px 14px;border-radius:14px;background:#fff;border:1px solid var(--lijn);text-align:center;
+  box-shadow:0 8px 22px rgba(20,33,43,.05);}
+.fx-hypsub__somvak span{display:block;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#4a5761;}
+.fx-hypsub__somvak b{display:block;margin-top:4px;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;line-height:1.25;color:var(--navy);white-space:nowrap;}
+.fx-hypsub__somvak--uit{background:var(--navy);border-color:var(--navy);}
+.fx-hypsub__somvak--uit span{color:rgba(255,255,255,.8);}
+.fx-hypsub__somvak--uit b{color:#fff;}
+.fx-hypsub__teken{flex:none;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:26px;font-weight:600;line-height:1;color:var(--mag);}
+
+/* twee kolommen naast elkaar */
+.fx-hypsub__vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch;}
+.fx-hypsub__vs > div{padding:30px 30px 24px;border-radius:16px;background:#fff;border:1px solid var(--lijn);box-shadow:0 10px 28px rgba(20,33,43,.06);}
+.fx-ct .fx-hypsub__vs h2,.fx-ct .fx-hypsub__vs h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-weight:600;line-height:1.25;color:var(--navy);margin:0 0 12px;}
+.fx-ct .fx-hypsub__vs h2{font-size:28px;}
+.fx-ct .fx-hypsub__vs h3{font-size:22px;}
+.fx-ct .fx-hypsub__vs p{font-size:16px;line-height:1.65;color:#33424d;max-width:none;}
+.fx-ct .fx-hypsub__vs a:not(.fx-ct__btn){color:var(--mag);font-weight:600;}
+.fx-hypsub__vs > .fx-hypsub__navy{background:var(--navy);border-color:var(--navy);}
+.fx-ct .fx-hypsub__navy h2,.fx-ct .fx-hypsub__navy h3,.fx-ct .fx-hypsub__navy .fx-ct__sub{color:#fff;}
+.fx-ct .fx-hypsub__navy p,.fx-ct .fx-hypsub__navy li{color:rgba(255,255,255,.88);}
+.fx-ct .fx-hypsub__navy a:not(.fx-ct__btn){color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.fx-hypsub__navy .fx-verz__lijst li::before{border-color:#8fd3c1;}
+.fx-ct .fx-hypsub__vs .fx-ct__ico{margin:0 0 16px;background:var(--mint);color:var(--navy);}
+.fx-ct .fx-hypsub__vs .fx-hypsub__navy .fx-ct__ico{background:rgba(255,255,255,.14);color:#fff;}
+.fx-hypsub__lijstkop{display:block;margin:18px 0 10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--groen2);}
+.fx-hypsub__lijstkop--min{color:var(--mag);}
+/* nadelen: een klein kruisje */
+.fx-ct .fx-hypsub__min li::before{top:5px;left:0;width:14px;height:14px;border:0;transform:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b5004a' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") 50%/14px no-repeat;}
+
+/* lokaal blok: grote WOZ-waarde in de donkere kaart */
+.fx-hypsub__woz{margin:0 0 20px;padding:0 0 20px;border-bottom:1px solid rgba(255,255,255,.18);}
+.fx-hypsub__woz span{display:block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);}
+.fx-hypsub__woz b{display:block;margin:6px 0 4px;font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:42px;font-weight:600;line-height:1.1;color:#fff;}
+.fx-ct .fx-hypsub__woz p{margin:0;font-size:14px;line-height:1.5;color:rgba(255,255,255,.8);}
+.fx-ct .fx-hypsub__woz a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.fx-ct .fx-hyp__lokaal p{color:#33424d;}
+.fx-ct .fx-hyp__lokaal h3{font-family:Barlow,"Helvetica Neue",Arial,sans-serif;font-size:21px;font-weight:600;color:var(--navy);margin:24px 0 8px;}
+.fx-ct .fx-hyp__lokaal .fx-hyp__gebied h3{color:#fff;margin:0 0 16px;}
+.fx-ct .fx-hyp__lokaal .fx-hyp__gebied p{color:rgba(255,255,255,.88);}
+
+@media (max-width:1100px){
+  .fx-hypsub__kaarten--4{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:900px){
+  .fx-hypsub__kaarten--3,.fx-hypsub__vs,.fx-hyp__feiten.fx-hypsub__feiten3{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .fx-hypsub__kaarten,.fx-hypsub__kaarten--4{grid-template-columns:1fr;gap:14px;}
+  .fx-hypsub__vs > div{padding:24px 22px 18px;}
+  .fx-ct .fx-hypsub__vs h2{font-size:24px;}
+  .fx-hypsub__som{flex-wrap:wrap;gap:8px;}
+  .fx-hypsub__somvak{flex-basis:100%;}
+  .fx-hypsub__teken{width:100%;text-align:center;font-size:22px;}
+  .fx-hypsub__woz b{font-size:36px;}
+}
 </style>
 
 <style id="fx-voet-css">.wgl-infobox .fx-voet-tel{display:block;font-family:Barlow,Arial,sans-serif;font-size:24px;font-weight:400;line-height:1.4;letter-spacing:-.5px;color:#fff;margin:0 0 4px;padding:0;}</style>
@@ -1541,33 +1637,22 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <div class="fx-verz__kort"><h2>In het kort</h2><ul class="fx-verz__lijst"><li>Verkoopt u met overwaarde, stop die dan in uw nieuwe huis. Anders is een deel van de nieuwe hypotheek niet aftrekbaar.</li><li>Koopt u eerst, dan kan een overbruggingskrediet helpen.</li><li>Vaak kunt u uw huidige rente meenemen naar uw nieuwe huis.</li></ul></div>
 
       <h2>Overwaarde en de bijleenregeling</h2>
-      <p>Uw overwaarde is wat er overblijft als u uw huis verkoopt en de hypotheek en de verkoopkosten aflost. De Belastingdienst noemt dat de eigenwoningreserve. Koopt u binnen drie jaar een nieuw huis, dan moet u die overwaarde daarin stoppen. Doet u dat niet en leent u meer, dan is de rente over dat extra deel niet aftrekbaar. Dat heet de bijleenregeling.</p>
-      <p>Een voorbeeld: u verkoopt uw huis met &euro;&nbsp;50.000 overwaarde en koopt een huis van &euro;&nbsp;300.000. Dan is de rente aftrekbaar over maximaal &euro;&nbsp;250.000, plus de kosten koper. Wilt u uw overwaarde liever voor iets anders gebruiken, dan kan dat. Alleen is de rente over het deel dat u daardoor meer leent dan niet aftrekbaar.</p>
-
-      <h2>Eerst kopen of eerst verkopen?</h2>
-      <p>Dit is de belangrijkste keuze bij verhuizen. Beide hebben voor- en nadelen:</p>
-      <ul>
-        <li><b>Eerst verkopen</b> geeft zekerheid: u weet precies wat uw overwaarde is. Maar u moet misschien tijdelijk ergens anders wonen, of snel een nieuw huis vinden.</li>
-        <li><b>Eerst kopen</b> geeft rust bij het zoeken. Maar u heeft een tijd twee huizen, en de geldverstrekker kijkt of u de lasten van beide kunt dragen.</li>
-      </ul>
-      <p>Koopt u eerst, dan kunt u met een overbruggingskrediet uw overwaarde alvast gebruiken voor het nieuwe huis. De geldverstrekker baseert dat op de verwachte overwaarde, met een taxatie of een getekend verkoopcontract. Meestal geldt het voor maximaal twee jaar. Staat uw oude huis daarna nog leeg en te koop, dan blijft de rente daarvan onder voorwaarden nog een tijd aftrekbaar.</p>
-
-      <h2>Uw huidige hypotheek meenemen</h2>
-      <p>Bij veel geldverstrekkers kunt u uw huidige hypotheek en rente meenemen naar uw nieuwe huis. Dat is gunstig als uw rente lager is dan de rente van nu. Leent u meer, dan krijgt u voor dat extra deel de rente van dat moment. Verkoopt u uw huis, dan kunt u uw hypotheek meestal zonder boete aflossen.</p>
-      <p>Heeft u nog een hypotheekdeel van voor 2013 zonder aflossing? Dan kunt u dat recht vaak meenemen naar uw nieuwe huis, als u binnen een bepaalde termijn opnieuw koopt. Ik zoek dat voor uw situatie precies uit.</p>
-
-      <h2>Kosten bij verhuizen</h2>
-      <p>Bij een volgend huis komen er kosten bij die u uit eigen geld of uit uw overwaarde betaalt:</p>
-      <ul>
-        <li>de makelaar en het energielabel bij de verkoop;</li>
-        <li>overdrachtsbelasting: 2 procent als u er zelf gaat wonen, behalve als u nog geen 35 bent en de startersvrijstelling nooit heeft gebruikt;</li>
-        <li>de notaris, de taxatie en het hypotheekadvies voor het nieuwe huis;</li>
-        <li>eventueel een tijd dubbele woonlasten, en de verhuizing zelf.</li>
-      </ul>
-
-      <h2>Verhuizen binnen Apeldoorn en omgeving</h2>
-      <p>De gemiddelde WOZ-waarde van een woning in Apeldoorn steeg van &euro;&nbsp;386.000 in 2025 naar &euro;&nbsp;435.000 in 2026 (bron: <a href="https://www.waarderingskamer.nl/gemeente/apeldoorn" target="_blank" rel="noopener">Waarderingskamer</a>). Heeft u uw huis een aantal jaar, dan heeft u waarschijnlijk overwaarde opgebouwd. Dat maakt een stap naar een ander huis vaak makkelijker, of het nu een eengezinswoning in De Maten of Zevenhuizen is, of juist kleiner wonen in Ugchelen of Beekbergen.</p>
-      <p>Ik reken uw situatie door voordat u gaat zoeken of biedt. Mijn kantoor staat aan de Vlijtseweg in Apeldoorn, en ik kom ook bij u thuis.</p>
+      <p>Uw overwaarde is wat er overblijft als u uw huis verkoopt en de hypotheek en de verkoopkosten aflost. De Belastingdienst noemt dat de eigenwoningreserve. Een voorbeeld:</p>
+      <div class="fx-hypsub__som" aria-label="Verkoopprijs 450.000 euro, min hypotheek 250.000 euro, min verkoopkosten 6.000 euro, is overwaarde 194.000 euro">
+        <div class="fx-hypsub__somvak"><span>Verkoopprijs</span><b>&euro;&nbsp;450.000</b></div>
+        <div class="fx-hypsub__somvak"><span>Min hypotheek</span><b>&euro;&nbsp;250.000</b></div>
+        <div class="fx-hypsub__somvak"><span>Min kosten</span><b>&euro;&nbsp;6.000</b></div>
+        <span class="fx-hypsub__teken" aria-hidden="true">=</span>
+        <div class="fx-hypsub__somvak fx-hypsub__somvak--uit"><span>Overwaarde</span><b>&euro;&nbsp;194.000</b></div>
+      </div>
+      <p>Koopt u binnen drie jaar een nieuw huis, dan moet u die overwaarde daarin stoppen. Doet u dat niet en leent u meer, dan is de rente over dat extra deel niet aftrekbaar. Dat heet de bijleenregeling. Koopt u in dit voorbeeld een huis van &euro;&nbsp;550.000:</p>
+      <div class="fx-hypsub__som" aria-label="Nieuw huis 550.000 euro, min overwaarde 194.000 euro, is 356.000 euro aftrekbare hypotheek">
+        <div class="fx-hypsub__somvak"><span>Nieuw huis</span><b>&euro;&nbsp;550.000</b></div>
+        <div class="fx-hypsub__somvak"><span>Min overwaarde</span><b>&euro;&nbsp;194.000</b></div>
+        <span class="fx-hypsub__teken" aria-hidden="true">=</span>
+        <div class="fx-hypsub__somvak fx-hypsub__somvak--uit"><span>Aftrekbaar</span><b>&euro;&nbsp;356.000</b></div>
+      </div>
+      <p>Daar komen de kosten koper nog bij. Wilt u uw overwaarde liever voor iets anders gebruiken, dan kan dat. Alleen is de rente over het deel dat u daardoor meer leent dan niet aftrekbaar. Met de rekenhulp hierboven rekent u het uit voor uw eigen situatie.</p>
     </div>
     <div class="fx-verz__zij">
       <div class="fx-verz__zijkaart fx-verz__zijkaart--navy">
@@ -1580,6 +1665,90 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <h2>Meer over hypotheken</h2>
         <ul><li><a href="../../../voorbeeld/hypotheken/">Alle hypotheekonderwerpen</a></li><li><a href="../../../voorbeeld/hypotheken/oversluiten/">Hypotheek oversluiten</a></li><li><a href="../../../voorbeeld/hypotheken/eerste-huis-kopen/">Eerste huis kopen</a></li><li><a href="../../../voorbeeld/hypotheken/zzp-en-ondernemers/">Hypotheek voor zzp'ers</a></li><li><a href="../../../verzekeringen/woonverzekering/">Woonverzekering</a></li></ul>
       </div>
+    </div>
+  </section></div>
+
+  <!-- eerst kopen of eerst verkopen -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">De belangrijkste keuze</p>
+      <h2>Eerst kopen of eerst verkopen?</h2>
+      <p>Beide hebben voor- en nadelen. Ik reken met u door wat in uw situatie het beste past.</p>
+    </div>
+    <div class="fx-hypsub__vs">
+      <div>
+        <span class="fx-hypsub__label">Zekerheid</span>
+        <h3>Eerst verkopen</h3>
+        <p>U verkoopt eerst uw huidige huis, en gaat daarna op zoek.</p>
+        <span class="fx-hypsub__lijstkop">Voordeel</span>
+        <ul class="fx-verz__lijst"><li>U weet precies wat uw overwaarde is.</li><li>Geen dubbele woonlasten.</li></ul>
+        <span class="fx-hypsub__lijstkop fx-hypsub__lijstkop--min">Nadeel</span>
+        <ul class="fx-verz__lijst fx-hypsub__min"><li>U moet misschien tijdelijk ergens anders wonen.</li><li>Of u moet snel een nieuw huis vinden.</li></ul>
+      </div>
+      <div>
+        <span class="fx-hypsub__label fx-hypsub__label--navy">Rust bij het zoeken</span>
+        <h3>Eerst kopen</h3>
+        <p>U koopt eerst uw nieuwe huis, en verkoopt daarna het oude.</p>
+        <span class="fx-hypsub__lijstkop">Voordeel</span>
+        <ul class="fx-verz__lijst"><li>U kunt rustig zoeken naar het juiste huis.</li><li>U verhuist in één keer.</li></ul>
+        <span class="fx-hypsub__lijstkop fx-hypsub__lijstkop--min">Nadeel</span>
+        <ul class="fx-verz__lijst fx-hypsub__min"><li>U heeft een tijd twee huizen.</li><li>De geldverstrekker kijkt of u de lasten van beide kunt dragen.</li></ul>
+      </div>
+    </div>
+    <div class="fx-hypsub__letop fx-hypsub__letop--mint">
+      <h3>Een overbruggingskrediet</h3>
+      <p>Koopt u eerst, dan kunt u met een overbruggingskrediet uw overwaarde alvast gebruiken voor het nieuwe huis. De geldverstrekker baseert dat op de verwachte overwaarde, met een taxatie of een getekend verkoopcontract. Meestal geldt het voor maximaal twee jaar. Staat uw oude huis daarna nog leeg en te koop, dan blijft de rente daarvan onder voorwaarden nog een tijd aftrekbaar.</p>
+    </div>
+  </section></div></div>
+
+  <!-- hypotheek meenemen -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Uw huidige hypotheek</p>
+      <h2>Uw huidige hypotheek meenemen</h2>
+      <p>Bij veel geldverstrekkers kunt u uw huidige hypotheek en rente meenemen naar uw nieuwe huis. Ik vergelijk dat met een nieuwe hypotheek elders.</p>
+    </div>
+    <div class="fx-hypsub__kaarten fx-hypsub__kaarten--3">
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><h3>Uw rente meenemen</h3><p>Dat is gunstig als uw huidige rente lager is dan de rente van nu.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 7a7 7 0 100 10"/><path d="M4 10h10M4 14h10"/></svg></span><h3>Meer lenen</h3><p>Leent u meer, dan krijgt u voor dat extra deel de rente van dat moment.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L21 2M16 7l3 3M18 5l2 2"/></svg></span><h3>Boetevrij bij verkoop</h3><p>Verkoopt u uw huis, dan kunt u uw hypotheek meestal zonder boete aflossen.</p></div>
+    </div>
+    <div class="fx-hypsub__letop">
+      <h3>Heeft u een hypotheek van voor 2013?</h3>
+      <p>Heeft u nog een hypotheekdeel van voor 2013 zonder aflossing? Dan kunt u dat recht vaak meenemen naar uw nieuwe huis, als u binnen een bepaalde termijn opnieuw koopt. Ik zoek dat voor uw situatie precies uit.</p>
+    </div>
+  </section></div>
+
+  <!-- kosten -->
+  <div class="fx-ct__band"><div class="fx-ct__wrap"><section class="fx-ct__sec">
+    <div class="fx-home__kop">
+      <p class="fx-ct__sub">Kosten</p>
+      <h2>Kosten bij verhuizen</h2>
+      <p>Bij een volgend huis komen er kosten bij, die u uit eigen geld of uit uw overwaarde betaalt.</p>
+    </div>
+    <div class="fx-hypsub__kaarten fx-hypsub__kaarten--4">
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></span><h3>Verkoop van uw huis</h3><p>De makelaar en het energielabel.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><h3>Overdrachtsbelasting</h3><p>2 procent als u er zelf gaat wonen, behalve als u nog geen 35 bent en de startersvrijstelling nooit heeft gebruikt.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><h3>Uw nieuwe hypotheek</h3><p>De notaris, de taxatie en het hypotheekadvies voor het nieuwe huis.</p></div>
+      <div class="fx-hypsub__kaart"><span class="fx-ct__ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 3l4 4-4 4"/><path d="M3 7h18"/><path d="M7 21l-4-4 4-4"/><path d="M21 17H3"/></svg></span><h3>De overstap</h3><p>Eventueel een tijd dubbele woonlasten, en de verhuizing zelf.</p></div>
+    </div>
+  </section></div></div>
+
+  <!-- lokaal -->
+  <div class="fx-ct__wrap"><section class="fx-ct__sec fx-hyp__lokaal">
+    <div>
+      <p class="fx-ct__sub">Lokaal</p>
+      <h2>Verhuizen binnen Apeldoorn en omgeving</h2>
+      <p>De gemiddelde WOZ-waarde van een woning in Apeldoorn steeg van &euro;&nbsp;386.000 in 2025 naar &euro;&nbsp;435.000 in 2026. Heeft u uw huis een aantal jaar, dan heeft u waarschijnlijk overwaarde opgebouwd. Dat maakt een stap naar een ander huis vaak makkelijker, of het nu een eengezinswoning in De Maten of Zevenhuizen is, of juist kleiner wonen in Ugchelen of Beekbergen.</p>
+      <p>Ik reken uw situatie door voordat u gaat zoeken of biedt. Mijn kantoor staat aan de Vlijtseweg in Apeldoorn, en ik kom ook bij u thuis.</p>
+    </div>
+    <div class="fx-hyp__gebied">
+      <div class="fx-hypsub__woz"><span>Gemiddelde WOZ-waarde in Apeldoorn</span><b>&euro;&nbsp;435.000</b><p>In 2026, tegen &euro;&nbsp;386.000 in 2025. Bron: <a href="https://www.waarderingskamer.nl/gemeente/apeldoorn" target="_blank" rel="noopener">Waarderingskamer</a></p></div>
+      <h3>Hier kom ik bij u langs</h3>
+      <ul>
+        <li>Apeldoorn</li><li>Ugchelen</li><li>Beekbergen</li><li>Loenen</li><li>Klarenbeek</li><li>Twello</li><li>Vaassen</li>
+      </ul>
+      <div class="fx-ct__btns"><a class="fx-ct__btn fx-ct__btn--m" href="../../../contact/">Plan een gratis gesprek</a></div>
     </div>
   </section></div>
 
